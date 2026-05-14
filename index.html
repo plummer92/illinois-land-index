@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chatham Land Index</title>
+    <meta
+      name="description"
+      content="Parcel intelligence for finding overlooked land opportunities around Chatham and Central Illinois."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Chatham Land Index home">
+        <span>CLI</span>
+        <strong>Chatham Land Index</strong>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#signals">Signals</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#access">Access</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Central Illinois land intelligence</p>
+          <h1>Find better land opportunities before they look obvious.</h1>
+          <p class="lede">
+            Chatham Land Index turns county parcel records, ownership patterns, tax signals, and GIS links into a
+            focused dashboard for spotting overlooked acreage around Chatham and nearby growth corridors.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:hello@chathamlandindex.com?subject=Chatham%20Land%20Index%20access">Request access</a>
+            <a class="button secondary" href="#workflow">See workflow</a>
+          </div>
+        </div>
+
+        <div class="product-preview" aria-label="Dashboard preview">
+          <div class="preview-top">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="preview-metrics">
+            <article>
+              <small>Target Parcels</small>
+              <strong>22.7k</strong>
+            </article>
+            <article>
+              <small>Owner Rollups</small>
+              <strong>73.2k</strong>
+            </article>
+            <article>
+              <small>Top Score</small>
+              <strong>93</strong>
+            </article>
+          </div>
+          <div class="preview-table">
+            <div class="row head">
+              <span>Score</span>
+              <span>Owner Type</span>
+              <span>Acres</span>
+              <span>Status</span>
+            </div>
+            <div class="row">
+              <strong>93</strong>
+              <span>Trust / Estate</span>
+              <span>78.4</span>
+              <em>Interested</em>
+            </div>
+            <div class="row">
+              <strong>87</strong>
+              <span>Farm Entity</span>
+              <span>42.0</span>
+              <em>Review</em>
+            </div>
+            <div class="row">
+              <strong>76</strong>
+              <span>Individual</span>
+              <span>18.9</span>
+              <em>Contacted</em>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Platform highlights">
+        <span>Parcel scoring</span>
+        <span>Owner rollups</span>
+        <span>Tax assessment signals</span>
+        <span>GIS deep links</span>
+        <span>Watchlist workflow</span>
+      </section>
+
+      <section class="section" id="signals">
+        <div class="section-heading">
+          <p class="eyebrow">Signals</p>
+          <h2>Built around the things land buyers actually check.</h2>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <h3>Opportunity Scoring</h3>
+            <p>Ranks parcels using land class, acreage, ownership concentration, assessment proxies, and tax-sale flags.</p>
+          </article>
+          <article>
+            <h3>Owner Intelligence</h3>
+            <p>Groups parcels by owner so you can see who controls the most acreage and where their holdings sit.</p>
+          </article>
+          <article>
+            <h3>Target Filtering</h3>
+            <p>Downranks government, utilities, railroads, cemeteries, schools, and other low-probability owners.</p>
+          </article>
+          <article>
+            <h3>County Linkout</h3>
+            <p>Connects each parcel to GIS, tax summary, and owner-history pages for fast due diligence.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="workflow-band" id="workflow">
+        <div class="section-heading">
+          <p class="eyebrow">Workflow</p>
+          <h2>From raw county data to a practical deal queue.</h2>
+        </div>
+        <div class="workflow">
+          <article>
+            <span>01</span>
+            <h3>Import</h3>
+            <p>Load county parcel and tax files into a normalized local index.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Score</h3>
+            <p>Separate likely land opportunities from residential, public, and low-probability parcels.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Review</h3>
+            <p>Use GIS, owner history, estimated value, and tax details to decide what deserves attention.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Track</h3>
+            <p>Move parcels through Interested, Contacted, Offer Made, Skip, and future follow-up states.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="access" id="access">
+        <div>
+          <p class="eyebrow">Private beta</p>
+          <h2>Designed first for Central Illinois land research.</h2>
+          <p>
+            The public site is intentionally high-level. The working dashboard is private because parcel exports can
+            include owner names, mailing addresses, and tax data from public records.
+          </p>
+        </div>
+        <form class="access-card" action="mailto:hello@chathamlandindex.com" method="post" enctype="text/plain">
+          <label>
+            <span>Name</span>
+            <input name="name" type="text" placeholder="Your name" />
+          </label>
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" placeholder="you@example.com" />
+          </label>
+          <label>
+            <span>Interest</span>
+            <select name="interest">
+              <option>Buying land</option>
+              <option>Broker / agent</option>
+              <option>Investor</option>
+              <option>County data research</option>
+            </select>
+          </label>
+          <button type="submit">Request beta access</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>Chatham Land Index</p>
+      <p>Parcel intelligence is for research only. Verify all records with county sources before making decisions.</p>
+    </footer>
+  </body>
+</html>

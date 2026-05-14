@@ -1,6 +1,6 @@
-# Chatham Land Index
+# Illinois Land Index
 
-Public marketing site for Chatham Land Index, a Central Illinois parcel intelligence project.
+Public marketing site for Illinois Land Index, a Central Illinois parcel intelligence project.
 
 This repository is intentionally public-safe:
 

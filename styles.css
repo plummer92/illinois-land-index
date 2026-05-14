@@ -401,6 +401,43 @@ footer p:first-child {
   font-weight: 850;
 }
 
+footer a {
+  color: var(--green-dark);
+  font-weight: 800;
+}
+
+.legal-hero {
+  padding: clamp(54px, 8vw, 110px) clamp(18px, 4vw, 56px) clamp(28px, 5vw, 60px);
+}
+
+.legal-hero h1 {
+  font-size: clamp(42px, 5.4vw, 72px);
+}
+
+.legal-content {
+  display: grid;
+  gap: 14px;
+  max-width: 980px;
+  padding: 0 clamp(18px, 4vw, 56px) clamp(56px, 8vw, 96px);
+}
+
+.legal-content article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.84);
+  padding: 22px;
+}
+
+.legal-content h2 {
+  margin-bottom: 10px;
+  font-size: 23px;
+}
+
+.legal-content p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 @media (max-width: 1040px) {
   .hero,
   .access {

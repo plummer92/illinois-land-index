@@ -228,6 +228,59 @@
         line-height: 1.45;
       }
 
+      .loan-focus {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin: 0 0 18px;
+      }
+
+      .loan-focus-body {
+        padding: 12px;
+      }
+
+      .loan-kpis {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .loan-kpi {
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .loan-kpi small {
+        display: block;
+        color: var(--muted);
+        font-size: 0.7rem;
+        font-weight: 800;
+        line-height: 1.25;
+        text-transform: uppercase;
+      }
+
+      .loan-kpi strong {
+        display: block;
+        margin-top: 6px;
+        font-size: 1.15rem;
+        line-height: 1.1;
+      }
+
+      .loan-kpi span {
+        display: block;
+        margin-top: 5px;
+        color: var(--muted);
+        font-size: 0.76rem;
+        line-height: 1.35;
+      }
+
+      .loan-chart {
+        height: 260px;
+      }
+
       .data-layer-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -595,6 +648,10 @@
         .debt-detail {
           grid-template-columns: 1fr;
         }
+
+        .loan-focus {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 720px) {
@@ -636,6 +693,10 @@
           grid-template-columns: 1fr;
         }
 
+        .loan-kpis {
+          grid-template-columns: 1fr;
+        }
+
         .debt-row {
           grid-template-columns: 1fr 1fr;
         }
@@ -650,7 +711,8 @@
 
         #map,
         #bars,
-        #tract-map {
+        #tract-map,
+        .loan-chart {
           height: 360px;
         }
       }
@@ -690,6 +752,29 @@
             <span class="panel-meta">Dollar balances</span>
           </div>
           <div class="debt-source" id="debt-amounts"></div>
+        </div>
+      </section>
+
+      <section class="loan-focus">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Credit Card Detail</h2>
+            <span class="panel-meta" id="credit-card-meta"></span>
+          </div>
+          <div class="loan-focus-body">
+            <div class="loan-kpis" id="credit-card-kpis"></div>
+            <div class="loan-chart" id="credit-card-trend"></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Auto Loan Detail</h2>
+            <span class="panel-meta" id="auto-loan-meta"></span>
+          </div>
+          <div class="loan-focus-body">
+            <div class="loan-kpis" id="auto-loan-kpis"></div>
+            <div class="loan-chart" id="auto-loan-trend"></div>
+          </div>
         </div>
       </section>
 
@@ -829,6 +914,34 @@
         "median_student_loan_debt",
         "median_monthly_student_loan_payment"
       ];
+
+      const loanFocus = {
+        creditCard: {
+          loanLabel: "Credit cards",
+          stateLoanType: "CRC",
+          metaId: "credit-card-meta",
+          kpiId: "credit-card-kpis",
+          chartId: "credit-card-trend",
+          countyMetrics: [
+            "credit_card_delinquency_rate",
+            "median_credit_card_delinquent_debt"
+          ],
+          color: "#245b9e"
+        },
+        autoLoan: {
+          loanLabel: "Auto loans",
+          stateLoanType: "AUT",
+          metaId: "auto-loan-meta",
+          kpiId: "auto-loan-kpis",
+          chartId: "auto-loan-trend",
+          countyMetrics: [
+            "share_with_auto_loans",
+            "share_with_auto_retail_debt",
+            "avg_auto_retail_debt"
+          ],
+          color: "#00796b"
+        }
+      };
 
       const debtDataLayers = [
         {
@@ -1180,6 +1293,108 @@
           .join("");
       };
 
+      const latestTrendRecord = (records, loanLabel, series) =>
+        records
+          .filter(record => record.loan_label === loanLabel && record.series === series)
+          .sort((a, b) => a.date.localeCompare(b.date))
+          .at(-1);
+
+      const renderLoanFocus = (data, focus) => {
+        const selectedCounty = selectedCountyRecord(data);
+        if (!selectedCounty) return;
+
+        const stateVolume = (data.cfpb_context?.state_latest || []).find(
+          record => record.loan_type === focus.stateLoanType && record.series === "Dollar Volume"
+        );
+        const trends = data.cfpb_context?.national_trends || [];
+        const nationalRecords = [
+          latestTrendRecord(trends, focus.loanLabel, "Originations"),
+          latestTrendRecord(trends, focus.loanLabel, "Dollar Volume"),
+          latestTrendRecord(trends, focus.loanLabel, "Inquiry Index"),
+          latestTrendRecord(trends, focus.loanLabel, "Credit Tightness Index")
+        ].filter(Boolean);
+
+        document.getElementById(focus.metaId).textContent = stateVolume
+          ? `IL ${stateVolume.date}`
+          : "County and national signals";
+
+        const countyCards = focus.countyMetrics
+          .filter(key => data.selected_metrics[key])
+          .map(key => {
+            const meta = data.selected_metrics[key];
+            const estimate = byEstimate(selectedCounty, key);
+            return `
+              <article class="loan-kpi">
+                <small>${metricUnit(key, meta)}</small>
+                <strong>${formatValue(byMetric(selectedCounty, key), valueType(meta))}</strong>
+                <span>${metricTitle(key, meta)}${estimate === null ? "" : `, est. ${formatCount(estimate)} adults`}</span>
+              </article>
+            `;
+          });
+
+        const marketCards = [
+          stateVolume
+            ? `
+              <article class="loan-kpi">
+                <small>Illinois dollar volume</small>
+                <strong>${formatMarketValue(stateVolume.value, stateVolume.series)}</strong>
+                <span>${stateVolume.value_yoy === null ? "YoY not available" : `YoY ${(stateVolume.value_yoy * 100).toFixed(1)}%`}</span>
+              </article>
+            `
+            : "",
+          ...nationalRecords.slice(0, 2).map(record => `
+            <article class="loan-kpi">
+              <small>National ${record.series}</small>
+              <strong>${formatMarketValue(record.value, record.series)}</strong>
+              <span>${record.date}</span>
+            </article>
+          `)
+        ].filter(Boolean);
+
+        document.getElementById(focus.kpiId).innerHTML = [...countyCards, ...marketCards].join("");
+
+        const chartRecords = trends.filter(
+          record => record.loan_label === focus.loanLabel && ["Originations", "Dollar Volume"].includes(record.series)
+        );
+        const traces = Object.entries(
+          chartRecords.reduce((acc, record) => {
+            acc[record.series] = acc[record.series] || [];
+            acc[record.series].push(record);
+            return acc;
+          }, {})
+        ).map(([series, records]) => ({
+          type: "scatter",
+          mode: "lines",
+          name: series,
+          x: records.map(record => record.date),
+          y: records.map(record => record.value),
+          yaxis: series === "Dollar Volume" ? "y2" : "y",
+          line: { color: series === "Dollar Volume" ? focus.color : "#b98219" },
+          hovertemplate: `%{x}<br>${series}: %{y}<extra></extra>`
+        }));
+
+        Plotly.newPlot(
+          focus.chartId,
+          traces,
+          {
+            margin: { t: 12, r: 48, b: 36, l: 52 },
+            paper_bgcolor: "rgba(0,0,0,0)",
+            plot_bgcolor: "rgba(0,0,0,0)",
+            xaxis: { gridcolor: "#edf1f5" },
+            yaxis: { title: "Originations", gridcolor: "#edf1f5", tickformat: "~s" },
+            yaxis2: {
+              title: "Dollars",
+              overlaying: "y",
+              side: "right",
+              tickformat: "$~s",
+              showgrid: false
+            },
+            legend: { orientation: "h", y: -0.25 }
+          },
+          { responsive: true, displayModeBar: false }
+        );
+      };
+
       const renderCfpbStateCards = data => {
         const records = data.cfpb_context?.state_latest || [];
         const cards = records
@@ -1303,6 +1518,8 @@
         renderStory(data);
         renderEconomicContext(data);
         renderDebtDetail(data);
+        renderLoanFocus(data, loanFocus.creditCard);
+        renderLoanFocus(data, loanFocus.autoLoan);
         renderDebtDataLayers();
         renderCfpbStateCards(data);
         renderMetricGroups(data, metricKey);

@@ -1542,42 +1542,52 @@
 
       const renderCreditAccessLayer = data => {
         const access = data.credit_access;
+        const highCost = data.high_cost_credit;
         const container = document.getElementById("credit-access-layer");
         if (!access) {
           container.innerHTML = "<p>Credit access location data file is missing.</p>";
           return;
         }
         const locations = access.locations || [];
-        const topCities = Object.entries(access.summary?.cities || {}).slice(0, 4);
+        const highCostLocations = highCost?.locations || [];
         const limited = access.summary?.limited_service_locations || 0;
         const fullService = access.summary?.full_service_locations || 0;
+        const totalAccessPoints = locations.length + highCostLocations.length;
 
         container.innerHTML = `
           <div class="layer-summary">
             <div class="layer-stat">
-              <small>FDIC locations</small>
-              <strong>${formatCount(access.summary?.total_locations)}</strong>
+              <small>Total access points</small>
+              <strong>${formatCount(totalAccessPoints)}</strong>
               <span>${access.selected_county.name}</span>
             </div>
             <div class="layer-stat">
-              <small>Full service</small>
+              <small>Bank branches</small>
               <strong>${formatCount(fullService)}</strong>
               <span>${formatCount(limited)} limited-service records</span>
             </div>
             <div class="layer-stat">
-              <small>Largest city count</small>
-              <strong>${topCities[0]?.[1] || "N/A"}</strong>
-              <span>${topCities[0]?.[0] || "N/A"}</span>
+              <small>High-cost credit</small>
+              <strong>${formatCount(highCostLocations.length)}</strong>
+              <span>${highCost ? "IDFPR active Springfield records" : "Data file missing"}</span>
             </div>
           </div>
           <div class="layer-check">
             <strong>Loaded into the program</strong>
-            <span>FDIC bank branch points are stored in <code>credit_access_locations.json</code>. IDFPR high-cost credit locations are the next point dataset to import.</span>
+            <span>FDIC bank branch points are stored in <code>credit_access_locations.json</code>. IDFPR high-cost credit points are stored in <code>high_cost_credit_locations.json</code>.</span>
           </div>
           <div class="layer-chart" id="credit-access-map"></div>
           <div class="location-list">
+            ${highCostLocations
+              .map(location => `
+                <div class="location-item">
+                  <strong>${location.name}</strong>
+                  <span>${location.category} - ${location.address}, ${location.city}, ${location.state} ${location.zip}</span>
+                </div>
+              `)
+              .join("")}
             ${locations
-              .slice(0, 12)
+              .slice(0, Math.max(0, 12 - highCostLocations.length))
               .map(location => `
                 <div class="location-item">
                   <strong>${location.institution}</strong>
@@ -1594,6 +1604,7 @@
             {
               type: "scattermapbox",
               mode: "markers",
+              name: "Bank branches",
               lat: locations.map(location => location.latitude),
               lon: locations.map(location => location.longitude),
               text: locations.map(location => `${location.institution}<br>${location.address}, ${location.city}`),
@@ -1602,6 +1613,21 @@
                 size: locations.map(location => location.service_type.toLowerCase().includes("full service") ? 10 : 7),
                 color: locations.map(location => location.service_type.toLowerCase().includes("full service") ? "#00796b" : "#b98219"),
                 opacity: 0.82
+              }
+            },
+            {
+              type: "scattermapbox",
+              mode: "markers",
+              name: "High-cost credit",
+              lat: highCostLocations.map(location => location.latitude),
+              lon: highCostLocations.map(location => location.longitude),
+              text: highCostLocations.map(location => `${location.name}<br>${location.category}<br>${location.address}, ${location.city}`),
+              hovertemplate: "%{text}<extra></extra>",
+              marker: {
+                size: 13,
+                color: "#c4553d",
+                symbol: "circle",
+                opacity: 0.9
               }
             }
           ],
@@ -1613,7 +1639,8 @@
               zoom: 8.8
             },
             paper_bgcolor: "rgba(0,0,0,0)",
-            plot_bgcolor: "rgba(0,0,0,0)"
+            plot_bgcolor: "rgba(0,0,0,0)",
+            legend: { orientation: "h", y: 0.02, x: 0.02 }
           },
           { responsive: true, displayModeBar: false }
         );
@@ -1957,12 +1984,14 @@
         const response = await fetch("./data/processed/county_debt_snapshot.json");
         if (!response.ok) throw new Error("Dashboard data file is missing.");
         const data = await response.json();
-        const [housingResponse, creditAccessResponse] = await Promise.all([
+        const [housingResponse, creditAccessResponse, highCostCreditResponse] = await Promise.all([
           fetch("./data/processed/housing_distress_filings.json"),
-          fetch("./data/processed/credit_access_locations.json")
+          fetch("./data/processed/credit_access_locations.json"),
+          fetch("./data/processed/high_cost_credit_locations.json")
         ]);
         data.housing_distress = housingResponse.ok ? await housingResponse.json() : null;
         data.credit_access = creditAccessResponse.ok ? await creditAccessResponse.json() : null;
+        data.high_cost_credit = highCostCreditResponse.ok ? await highCostCreditResponse.json() : null;
         if (data.economic_context?.tract_geojson_path) {
           const tractResponse = await fetch(data.economic_context.tract_geojson_path);
           data.economic_context.tract_geojson = await tractResponse.json();

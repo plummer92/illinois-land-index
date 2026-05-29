@@ -1,0 +1,2015 @@
+{
+  "selected_county": {
+    "fips": "17167",
+    "county": "Sangamon County",
+    "state": "Illinois",
+    "population": {
+      "name": "Sangamon County",
+      "total_population": 194345,
+      "adult_population": 152748,
+      "source": "Census Population Estimates Program Vintage 2024"
+    }
+  },
+  "counties": [
+    {
+      "fips": "17167",
+      "county": "Sangamon County",
+      "state": "Illinois",
+      "is_selected": true,
+      "population": {
+        "name": "Sangamon County",
+        "total_population": 194345,
+        "adult_population": 152748,
+        "source": "Census Population Estimates Program Vintage 2024"
+      },
+      "metrics": {
+        "avg_total_debt": 2272.5,
+        "collections_rate": 0.2087,
+        "medical_debt_rate": 0.0,
+        "student_loan_delinquency_rate": 0.1739,
+        "avg_auto_retail_debt": 0.0513,
+        "credit_card_delinquency_rate": 0.0532,
+        "median_credit_card_delinquent_debt": 594.0,
+        "share_with_student_loan_debt": 0.1592,
+        "median_student_loan_debt": 19630.0,
+        "median_monthly_student_loan_payment": 180.0,
+        "share_with_auto_loans": 0.33,
+        "share_with_auto_retail_debt": 0.3842,
+        "uninsured_rate": 0.0418,
+        "average_household_income": 96499.14,
+        "share_people_of_color": 0.2298
+      },
+      "estimated_people": {
+        "avg_total_debt": null,
+        "collections_rate": 31879,
+        "medical_debt_rate": 0,
+        "student_loan_delinquency_rate": 26563,
+        "avg_auto_retail_debt": 7836,
+        "credit_card_delinquency_rate": 8126,
+        "median_credit_card_delinquent_debt": null,
+        "share_with_student_loan_debt": 24317,
+        "median_student_loan_debt": null,
+        "median_monthly_student_loan_payment": null,
+        "share_with_auto_loans": 50407,
+        "share_with_auto_retail_debt": 58686,
+        "uninsured_rate": 6385,
+        "average_household_income": null,
+        "share_people_of_color": 35101
+      },
+      "rank": {
+        "avg_total_debt": {
+          "rank": 4,
+          "total": 8
+        },
+        "collections_rate": {
+          "rank": 4,
+          "total": 9
+        },
+        "medical_debt_rate": {
+          "rank": 1,
+          "total": 9
+        },
+        "student_loan_delinquency_rate": {
+          "rank": 5,
+          "total": 7
+        },
+        "avg_auto_retail_debt": {
+          "rank": 5,
+          "total": 9
+        },
+        "credit_card_delinquency_rate": {
+          "rank": 7,
+          "total": 9
+        },
+        "median_credit_card_delinquent_debt": {
+          "rank": 2,
+          "total": 3
+        },
+        "share_with_student_loan_debt": {
+          "rank": 1,
+          "total": 9
+        },
+        "median_student_loan_debt": {
+          "rank": 2,
+          "total": 7
+        },
+        "median_monthly_student_loan_payment": {
+          "rank": 1,
+          "total": 7
+        },
+        "share_with_auto_loans": {
+          "rank": 5,
+          "total": 9
+        },
+        "share_with_auto_retail_debt": {
+          "rank": 9,
+          "total": 9
+        },
+        "uninsured_rate": {
+          "rank": 5,
+          "total": 9
+        },
+        "average_household_income": {
+          "rank": 2,
+          "total": 9
+        },
+        "share_people_of_color": {
+          "rank": 3,
+          "total": 9
+        }
+      }
+    },
+    {
+      "fips": "17017",
+      "county": "Cass County",
+      "state": "Illinois",
+      "is_selected": false,
+      "population": {
+        "name": "Cass County",
+        "total_population": 12713,
+        "adult_population": 9619,
+        "source": "Census Population Estimates Program Vintage 2024"
+      },
+      "metrics": {
+        "avg_total_debt": 2551.0,
+        "collections_rate": 0.1723,
+        "medical_debt_rate": 0.0,
+        "student_loan_delinquency_rate": null,
+        "avg_auto_retail_debt": 0.0427,
+        "credit_card_delinquency_rate": 0.0766,
+        "median_credit_card_delinquent_debt": null,
+        "share_with_student_loan_debt": 0.0922,
+        "median_student_loan_debt": null,
+        "median_monthly_student_loan_payment": null,
+        "share_with_auto_loans": 0.3277,
+        "share_with_auto_retail_debt": 0.3981,
+        "uninsured_rate": 0.0729,
+        "average_household_income": 78833.87,
+        "share_people_of_color": 0.2884
+      },
+      "estimated_people": {
+        "avg_total_debt": null,
+        "collections_rate": 1657,
+        "medical_debt_rate": 0,
+        "student_loan_delinquency_rate": null,
+        "avg_auto_retail_debt": 411,
+        "credit_card_delinquency_rate": 737,
+        "median_credit_card_delinquent_debt": null,
+        "share_with_student_loan_debt": 887,
+        "median_student_loan_debt": null,
+        "median_monthly_student_loan_payment": null,
+        "share_with_auto_loans": 3152,
+        "share_with_auto_retail_debt": 3829,
+        "uninsured_rate": 701,
+        "average_household_income": null,
+        "share_people_of_color": 2774
+      },
+      "rank": {
+        "avg_total_debt": {
+          "rank": 1,
+          "total": 8
+        },
+        "collections_rate": {
+          "rank": 8,
+          "total": 9
+        },
+        "medical_debt_rate": {
+          "rank": 2,
+          "total": 9
+        },
+        "student_loan_delinquency_rate": {
+          "rank": null,
+          "total": 7
+        },
+        "avg_auto_retail_debt": {
+          "rank": 8,
+          "total": 9
+        },
+        "credit_card_delinquency_rate": {
+          "rank": 2,
+          "total": 9
+        },
+        "median_credit_card_delinquent_debt": {
+          "rank": null,
+          "total": 3
+        },
+        "share_with_student_loan_debt": {
+          "rank": 9,
+          "total": 9
+        },
+        "median_student_loan_debt": {
+          "rank": null,
+          "total": 7
+        },
+        "median_monthly_student_loan_payment": {
+          "rank": null,
+          "total": 7
+        },
+        "share_with_auto_loans": {
+          "rank": 6,
+          "total": 9
+        },
+        "share_with_auto_retail_debt": {
+          "rank": 6,
+          "total": 9
+        },
+        "uninsured_rate": {
+          "rank": 1,
+          "total": 9
+        },
+        "average_household_income": {
+          "rank": 8,
+          "total": 9
+        },
+        "share_people_of_color": {
+          "rank": 1,
+          "total": 9
+        }
+      }
+    },
+    {
+      "fips": "17021",
+      "county": "Christian County",
+      "state": "Illinois",
+      "is_selected": false,
+      "population": {
+        "name": "Christian County",
+        "total_population": 33247,
+        "adult_population": 26996,
+        "source": "Census Population Estimates Program Vintage 2024"
+      },
+      "metrics": {
+        "avg_total_debt": 2472.5,
+        "collections_rate": 0.1813,
+        "medical_debt_rate": 0.0,
+        "student_loan_delinquency_rate": 0.184,
+        "avg_auto_retail_debt": 0.0643,
+        "credit_card_delinquency_rate": 0.0794,
+        "median_credit_card_delinquent_debt": null,
+        "share_with_student_loan_debt": 0.1287,
+        "median_student_loan_debt": 15242.0,
+        "median_monthly_student_loan_payment": 132.0,
+        "share_with_auto_loans": 0.3234,
+        "share_with_auto_retail_debt": 0.3934,
+        "uninsured_rate": 0.0445,
+        "average_household_income": 74729.2,
+        "share_people_of_color": 0.0857
+      },
+      "estimated_people": {
+        "avg_total_debt": null,
+        "collections_rate": 4894,
+        "medical_debt_rate": 0,
+        "student_loan_delinquency_rate": 4967,
+        "avg_auto_retail_debt": 1736,
+        "credit_card_delinquency_rate": 2143,
+        "median_credit_card_delinquent_debt": null,
+        "share_with_student_loan_debt": 3474,
+        "median_student_loan_debt": null,
+        "median_monthly_student_loan_payment": null,
+        "share_with_auto_loans": 8731,
+        "share_with_auto_retail_debt": 10620,
+        "uninsured_rate": 1201,
+        "average_household_income": null,
+        "share_people_of_color": 2314
+      },
+      "rank": {
+        "avg_total_debt": {
+          "rank": 3,
+          "total": 8
+        },
+        "collections_rate": {
+          "rank": 7,
+          "total": 9
+        },
+        "medical_debt_rate": {
+          "rank": 3,
+          "total": 9
+        },
+        "student_loan_delinquency_rate": {
+          "rank": 4,
+          "total": 7
+        },
+        "avg_auto_retail_debt": {
+          "rank": 2,
+          "total": 9
+        },
+        "credit_card_delinquency_rate": {
+          "rank": 1,
+          "total": 9
+        },
+        "median_credit_card_delinquent_debt": {
+          "rank": null,
+          "total": 3
+        },
+        "share_with_student_loan_debt": {
+          "rank": 3,
+          "total": 9
+        },
+        "median_student_loan_debt": {
+          "rank": 5,
+          "total": 7
+        },
+        "median_monthly_student_loan_payment": {
+          "rank": 6,
+          "total": 7
+        },
+        "share_with_auto_loans": {
+          "rank": 7,
+          "total": 9
+        },
+        "share_with_auto_retail_debt": {
+          "rank": 7,
+          "total": 9
+        },
+        "uninsured_rate": {
+          "rank": 3,
+          "total": 9
+        },
+        "average_household_income": {
+          "rank": 9,
+          "total": 9
+        },
+        "share_people_of_color": {
+          "rank": 6,
+          "total": 9
+        }
+      }
+    },
+    {
+      "fips": "17107",
+      "county": "Logan County",
+      "state": "Illinois",
+      "is_selected": false,
+      "population": {
+        "name": "Logan County",
+        "total_population": 27518,
+        "adult_population": 22296,
+        "source": "Census Population Estimates Program Vintage 2024"
+      },
+      "metrics": {
+        "avg_total_debt": 2168.0,
+        "collections_rate": 0.2351,
+        "medical_debt_rate": 0.0,
+        "student_loan_delinquency_rate": 0.1616,
+        "avg_auto_retail_debt": 0.0571,
+        "credit_card_delinquency_rate": 0.0616,
+        "median_credit_card_delinquent_debt": null,
+        "share_with_student_loan_debt": 0.1225,
+        "median_student_loan_debt": 15468.0,
+        "median_monthly_student_loan_payment": 176.0,
+        "share_with_auto_loans": 0.3861,
+        "share_with_auto_retail_debt": 0.4703,
+        "uninsured_rate": 0.0237,
+        "average_household_income": 83184.55,
+        "share_people_of_color": 0.1352
+      },
+      "estimated_people": {
+        "avg_total_debt": null,
+        "collections_rate": 5242,
+        "medical_debt_rate": 0,
+        "student_loan_delinquency_rate": 3603,
+        "avg_auto_retail_debt": 1273,
+        "credit_card_delinquency_rate": 1373,
+        "median_credit_card_delinquent_debt": null,
+        "share_with_student_loan_debt": 2731,
+        "median_student_loan_debt": null,
+        "median_monthly_student_loan_payment": null,
+        "share_with_auto_loans": 8608,
+        "share_with_auto_retail_debt": 10486,
+        "uninsured_rate": 528,
+        "average_household_income": null,
+        "share_people_of_color": 3014
+      },
+      "rank": {
+        "avg_total_debt": {
+          "rank": 5,
+          "total": 8
+        },
+        "collections_rate": {
+          "rank": 2,
+          "total": 9
+        },
+        "medical_debt_rate": {
+          "rank": 4,
+          "total": 9
+        },
+        "student_loan_delinquency_rate": {
+          "rank": 7,
+          "total": 7
+        },
+        "avg_auto_retail_debt": {
+          "rank": 3,
+          "total": 9
+        },
+        "credit_card_delinquency_rate": {
+          "rank": 4,
+          "total": 9
+        },
+        "median_credit_card_delinquent_debt": {
+          "rank": null,
+          "total": 3
+        },
+        "share_with_student_loan_debt": {
+          "rank": 7,
+          "total": 9
+        },
+        "median_student_loan_debt": {
+          "rank": 4,
+          "total": 7
+        },
+        "median_monthly_student_loan_payment": {
+          "rank": 2,
+          "total": 7
+        },
+        "share_with_auto_loans": {
+          "rank": 1,
+          "total": 9
+        },
+        "share_with_auto_retail_debt": {
+          "rank": 1,
+          "total": 9
+        },
+        "uninsured_rate": {
+          "rank": 9,
+          "total": 9
+        },
+        "average_household_income": {
+          "rank": 5,
+          "total": 9
+        },
+        "share_people_of_color": {
+          "rank": 4,
+          "total": 9
+        }
+      }
+    },
+    {
+      "fips": "17115",
+      "county": "Macon County",
+      "state": "Illinois",
+      "is_selected": false,
+      "population": {
+        "name": "Macon County",
+        "total_population": 100737,
+        "adult_population": 78007,
+        "source": "Census Population Estimates Program Vintage 2024"
+      },
+      "metrics": {
+        "avg_total_debt": 2091.0,
+        "collections_rate": 0.2651,
+        "medical_debt_rate": 0.0,
+        "student_loan_delinquency_rate": 0.1873,
+        "avg_auto_retail_debt": 0.0661,
+        "credit_card_delinquency_rate": 0.0593,
+        "median_credit_card_delinquent_debt": 675.0,
+        "share_with_student_loan_debt": 0.1283,
+        "median_student_loan_debt": 19631.0,
+        "median_monthly_student_loan_payment": 170.5,
+        "share_with_auto_loans": 0.308,
+        "share_with_auto_retail_debt": 0.3879,
+        "uninsured_rate": 0.0271,
+        "average_household_income": 80184.35,
+        "share_people_of_color": 0.2706
+      },
+      "estimated_people": {
+        "avg_total_debt": null,
+        "collections_rate": 20680,
+        "medical_debt_rate": 0,
+        "student_loan_delinquency_rate": 14611,
+        "avg_auto_retail_debt": 5156,
+        "credit_card_delinquency_rate": 4626,
+        "median_credit_card_delinquent_debt": null,
+        "share_with_student_loan_debt": 10008,
+        "median_student_loan_debt": null,
+        "median_monthly_student_loan_payment": null,
+        "share_with_auto_loans": 24026,
+        "share_with_auto_retail_debt": 30259,
+        "uninsured_rate": 2114,
+        "average_household_income": null,
+        "share_people_of_color": 21109
+      },
+      "rank": {
+        "avg_total_debt": {
+          "rank": 6,
+          "total": 8
+        },
+        "collections_rate": {
+          "rank": 1,
+          "total": 9
+        },
+        "medical_debt_rate": {
+          "rank": 5,
+          "total": 9
+        },
+        "student_loan_delinquency_rate": {
+          "rank": 3,
+          "total": 7
+        },
+        "avg_auto_retail_debt": {
+          "rank": 1,
+          "total": 9
+        },
+        "credit_card_delinquency_rate": {
+          "rank": 6,
+          "total": 9
+        },
+        "median_credit_card_delinquent_debt": {
+          "rank": 1,
+          "total": 3
+        },
+        "share_with_student_loan_debt": {
+          "rank": 4,
+          "total": 9
+        },
+        "median_student_loan_debt": {
+          "rank": 1,
+          "total": 7
+        },
+        "median_monthly_student_loan_payment": {
+          "rank": 3,
+          "total": 7
+        },
+        "share_with_auto_loans": {
+          "rank": 9,
+          "total": 9
+        },
+        "share_with_auto_retail_debt": {
+          "rank": 8,
+          "total": 9
+        },
+        "uninsured_rate": {
+          "rank": 8,
+          "total": 9
+        },
+        "average_household_income": {
+          "rank": 7,
+          "total": 9
+        },
+        "share_people_of_color": {
+          "rank": 2,
+          "total": 9
+        }
+      }
+    },
+    {
+      "fips": "17117",
+      "county": "Macoupin County",
+      "state": "Illinois",
+      "is_selected": false,
+      "population": {
+        "name": "Macoupin County",
+        "total_population": 43895,
+        "adult_population": 35040,
+        "source": "Census Population Estimates Program Vintage 2024"
+      },
+      "metrics": {
+        "avg_total_debt": 2039.0,
+        "collections_rate": 0.1876,
+        "medical_debt_rate": 0.0,
+        "student_loan_delinquency_rate": 0.1989,
+        "avg_auto_retail_debt": 0.0462,
+        "credit_card_delinquency_rate": 0.0613,
+        "median_credit_card_delinquent_debt": 348.0,
+        "share_with_student_loan_debt": 0.1272,
+        "median_student_loan_debt": 11236.0,
+        "median_monthly_student_loan_payment": 131.0,
+        "share_with_auto_loans": 0.3626,
+        "share_with_auto_retail_debt": 0.4385,
+        "uninsured_rate": 0.0432,
+        "average_household_income": 85961.95,
+        "share_people_of_color": 0.0572
+      },
+      "estimated_people": {
+        "avg_total_debt": null,
+        "collections_rate": 6574,
+        "medical_debt_rate": 0,
+        "student_loan_delinquency_rate": 6969,
+        "avg_auto_retail_debt": 1619,
+        "credit_card_delinquency_rate": 2148,
+        "median_credit_card_delinquent_debt": null,
+        "share_with_student_loan_debt": 4457,
+        "median_student_loan_debt": null,
+        "median_monthly_student_loan_payment": null,
+        "share_with_auto_loans": 12706,
+        "share_with_auto_retail_debt": 15365,
+        "uninsured_rate": 1514,
+        "average_household_income": null,
+        "share_people_of_color": 2004
+      },
+      "rank": {
+        "avg_total_debt": {
+          "rank": 7,
+          "total": 8
+        },
+        "collections_rate": {
+          "rank": 6,
+          "total": 9
+        },
+        "medical_debt_rate": {
+          "rank": 6,
+          "total": 9
+        },
+        "student_loan_delinquency_rate": {
+          "rank": 2,
+          "total": 7
+        },
+        "avg_auto_retail_debt": {
+          "rank": 6,
+          "total": 9
+        },
+        "credit_card_delinquency_rate": {
+          "rank": 5,
+          "total": 9
+        },
+        "median_credit_card_delinquent_debt": {
+          "rank": 3,
+          "total": 3
+        },
+        "share_with_student_loan_debt": {
+          "rank": 5,
+          "total": 9
+        },
+        "median_student_loan_debt": {
+          "rank": 7,
+          "total": 7
+        },
+        "median_monthly_student_loan_payment": {
+          "rank": 7,
+          "total": 7
+        },
+        "share_with_auto_loans": {
+          "rank": 2,
+          "total": 9
+        },
+        "share_with_auto_retail_debt": {
+          "rank": 2,
+          "total": 9
+        },
+        "uninsured_rate": {
+          "rank": 4,
+          "total": 9
+        },
+        "average_household_income": {
+          "rank": 3,
+          "total": 9
+        },
+        "share_people_of_color": {
+          "rank": 8,
+          "total": 9
+        }
+      }
+    },
+    {
+      "fips": "17129",
+      "county": "Menard County",
+      "state": "Illinois",
+      "is_selected": false,
+      "population": {
+        "name": "Menard County",
+        "total_population": 11963,
+        "adult_population": 9407,
+        "source": "Census Population Estimates Program Vintage 2024"
+      },
+      "metrics": {
+        "avg_total_debt": null,
+        "collections_rate": 0.1132,
+        "medical_debt_rate": 0.0,
+        "student_loan_delinquency_rate": null,
+        "avg_auto_retail_debt": 0.0385,
+        "credit_card_delinquency_rate": 0.0349,
+        "median_credit_card_delinquent_debt": null,
+        "share_with_student_loan_debt": 0.1267,
+        "median_student_loan_debt": null,
+        "median_monthly_student_loan_payment": null,
+        "share_with_auto_loans": 0.3531,
+        "share_with_auto_retail_debt": 0.4178,
+        "uninsured_rate": 0.0291,
+        "average_household_income": 97365.16,
+        "share_people_of_color": 0.0495
+      },
+      "estimated_people": {
+        "avg_total_debt": null,
+        "collections_rate": 1065,
+        "medical_debt_rate": 0,
+        "student_loan_delinquency_rate": null,
+        "avg_auto_retail_debt": 362,
+        "credit_card_delinquency_rate": 328,
+        "median_credit_card_delinquent_debt": null,
+        "share_with_student_loan_debt": 1192,
+        "median_student_loan_debt": null,
+        "median_monthly_student_loan_payment": null,
+        "share_with_auto_loans": 3322,
+        "share_with_auto_retail_debt": 3930,
+        "uninsured_rate": 274,
+        "average_household_income": null,
+        "share_people_of_color": 466
+      },
+      "rank": {
+        "avg_total_debt": {
+          "rank": null,
+          "total": 8
+        },
+        "collections_rate": {
+          "rank": 9,
+          "total": 9
+        },
+        "medical_debt_rate": {
+          "rank": 7,
+          "total": 9
+        },
+        "student_loan_delinquency_rate": {
+          "rank": null,
+          "total": 7
+        },
+        "avg_auto_retail_debt": {
+          "rank": 9,
+          "total": 9
+        },
+        "credit_card_delinquency_rate": {
+          "rank": 9,
+          "total": 9
+        },
+        "median_credit_card_delinquent_debt": {
+          "rank": null,
+          "total": 3
+        },
+        "share_with_student_loan_debt": {
+          "rank": 6,
+          "total": 9
+        },
+        "median_student_loan_debt": {
+          "rank": null,
+          "total": 7
+        },
+        "median_monthly_student_loan_payment": {
+          "rank": null,
+          "total": 7
+        },
+        "share_with_auto_loans": {
+          "rank": 3,
+          "total": 9
+        },
+        "share_with_auto_retail_debt": {
+          "rank": 4,
+          "total": 9
+        },
+        "uninsured_rate": {
+          "rank": 7,
+          "total": 9
+        },
+        "average_household_income": {
+          "rank": 1,
+          "total": 9
+        },
+        "share_people_of_color": {
+          "rank": 9,
+          "total": 9
+        }
+      }
+    },
+    {
+      "fips": "17135",
+      "county": "Montgomery County",
+      "state": "Illinois",
+      "is_selected": false,
+      "population": {
+        "name": "Montgomery County",
+        "total_population": 27615,
+        "adult_population": 22183,
+        "source": "Census Population Estimates Program Vintage 2024"
+      },
+      "metrics": {
+        "avg_total_debt": 1945.0,
+        "collections_rate": 0.2057,
+        "medical_debt_rate": 0.0,
+        "student_loan_delinquency_rate": 0.2165,
+        "avg_auto_retail_debt": 0.0568,
+        "credit_card_delinquency_rate": 0.0392,
+        "median_credit_card_delinquent_debt": null,
+        "share_with_student_loan_debt": 0.1209,
+        "median_student_loan_debt": 18634.0,
+        "median_monthly_student_loan_payment": 166.5,
+        "share_with_auto_loans": 0.3479,
+        "share_with_auto_retail_debt": 0.4364,
+        "uninsured_rate": 0.0449,
+        "average_household_income": 80653.94,
+        "share_people_of_color": 0.0799
+      },
+      "estimated_people": {
+        "avg_total_debt": null,
+        "collections_rate": 4563,
+        "medical_debt_rate": 0,
+        "student_loan_delinquency_rate": 4803,
+        "avg_auto_retail_debt": 1260,
+        "credit_card_delinquency_rate": 870,
+        "median_credit_card_delinquent_debt": null,
+        "share_with_student_loan_debt": 2682,
+        "median_student_loan_debt": null,
+        "median_monthly_student_loan_payment": null,
+        "share_with_auto_loans": 7717,
+        "share_with_auto_retail_debt": 9681,
+        "uninsured_rate": 996,
+        "average_household_income": null,
+        "share_people_of_color": 1772
+      },
+      "rank": {
+        "avg_total_debt": {
+          "rank": 8,
+          "total": 8
+        },
+        "collections_rate": {
+          "rank": 5,
+          "total": 9
+        },
+        "medical_debt_rate": {
+          "rank": 8,
+          "total": 9
+        },
+        "student_loan_delinquency_rate": {
+          "rank": 1,
+          "total": 7
+        },
+        "avg_auto_retail_debt": {
+          "rank": 4,
+          "total": 9
+        },
+        "credit_card_delinquency_rate": {
+          "rank": 8,
+          "total": 9
+        },
+        "median_credit_card_delinquent_debt": {
+          "rank": null,
+          "total": 3
+        },
+        "share_with_student_loan_debt": {
+          "rank": 8,
+          "total": 9
+        },
+        "median_student_loan_debt": {
+          "rank": 3,
+          "total": 7
+        },
+        "median_monthly_student_loan_payment": {
+          "rank": 4,
+          "total": 7
+        },
+        "share_with_auto_loans": {
+          "rank": 4,
+          "total": 9
+        },
+        "share_with_auto_retail_debt": {
+          "rank": 3,
+          "total": 9
+        },
+        "uninsured_rate": {
+          "rank": 2,
+          "total": 9
+        },
+        "average_household_income": {
+          "rank": 6,
+          "total": 9
+        },
+        "share_people_of_color": {
+          "rank": 7,
+          "total": 9
+        }
+      }
+    },
+    {
+      "fips": "17137",
+      "county": "Morgan County",
+      "state": "Illinois",
+      "is_selected": false,
+      "population": {
+        "name": "Morgan County",
+        "total_population": 32618,
+        "adult_population": 26369,
+        "source": "Census Population Estimates Program Vintage 2024"
+      },
+      "metrics": {
+        "avg_total_debt": 2544.0,
+        "collections_rate": 0.2314,
+        "medical_debt_rate": 0.0,
+        "student_loan_delinquency_rate": 0.1707,
+        "avg_auto_retail_debt": 0.0434,
+        "credit_card_delinquency_rate": 0.0701,
+        "median_credit_card_delinquent_debt": null,
+        "share_with_student_loan_debt": 0.1288,
+        "median_student_loan_debt": 14064.0,
+        "median_monthly_student_loan_payment": 153.0,
+        "share_with_auto_loans": 0.3204,
+        "share_with_auto_retail_debt": 0.4073,
+        "uninsured_rate": 0.0402,
+        "average_household_income": 85287.68,
+        "share_people_of_color": 0.124
+      },
+      "estimated_people": {
+        "avg_total_debt": null,
+        "collections_rate": 6102,
+        "medical_debt_rate": 0,
+        "student_loan_delinquency_rate": 4501,
+        "avg_auto_retail_debt": 1144,
+        "credit_card_delinquency_rate": 1848,
+        "median_credit_card_delinquent_debt": null,
+        "share_with_student_loan_debt": 3396,
+        "median_student_loan_debt": null,
+        "median_monthly_student_loan_payment": null,
+        "share_with_auto_loans": 8449,
+        "share_with_auto_retail_debt": 10740,
+        "uninsured_rate": 1060,
+        "average_household_income": null,
+        "share_people_of_color": 3270
+      },
+      "rank": {
+        "avg_total_debt": {
+          "rank": 2,
+          "total": 8
+        },
+        "collections_rate": {
+          "rank": 3,
+          "total": 9
+        },
+        "medical_debt_rate": {
+          "rank": 9,
+          "total": 9
+        },
+        "student_loan_delinquency_rate": {
+          "rank": 6,
+          "total": 7
+        },
+        "avg_auto_retail_debt": {
+          "rank": 7,
+          "total": 9
+        },
+        "credit_card_delinquency_rate": {
+          "rank": 3,
+          "total": 9
+        },
+        "median_credit_card_delinquent_debt": {
+          "rank": null,
+          "total": 3
+        },
+        "share_with_student_loan_debt": {
+          "rank": 2,
+          "total": 9
+        },
+        "median_student_loan_debt": {
+          "rank": 6,
+          "total": 7
+        },
+        "median_monthly_student_loan_payment": {
+          "rank": 5,
+          "total": 7
+        },
+        "share_with_auto_loans": {
+          "rank": 8,
+          "total": 9
+        },
+        "share_with_auto_retail_debt": {
+          "rank": 5,
+          "total": 9
+        },
+        "uninsured_rate": {
+          "rank": 6,
+          "total": 9
+        },
+        "average_household_income": {
+          "rank": 4,
+          "total": 9
+        },
+        "share_people_of_color": {
+          "rank": 5,
+          "total": 9
+        }
+      }
+    }
+  ],
+  "selected_metrics": {
+    "avg_total_debt": {
+      "label": "Median debt in collections",
+      "county_value": 2272.5,
+      "state_value": 2455.0,
+      "us_value": 2528.0,
+      "state_delta": -182.5,
+      "us_delta": -255.5,
+      "estimated_people": null,
+      "estimated_people_if_state_rate": null,
+      "estimated_people_if_us_rate": null,
+      "estimated_people_vs_state": null,
+      "estimated_people_vs_us": null,
+      "rank": {
+        "rank": 4,
+        "total": 8
+      },
+      "kind": "currency",
+      "category": "Collections",
+      "source_column": "Median debt in collections, All"
+    },
+    "collections_rate": {
+      "label": "Debt in collections rate",
+      "county_value": 0.2087,
+      "state_value": 0.1926,
+      "us_value": 0.2271,
+      "state_delta": 0.0161,
+      "us_delta": -0.0184,
+      "estimated_people": 31879,
+      "estimated_people_if_state_rate": 29419,
+      "estimated_people_if_us_rate": 34689,
+      "estimated_people_vs_state": 2460,
+      "estimated_people_vs_us": -2810,
+      "rank": {
+        "rank": 4,
+        "total": 9
+      },
+      "kind": "rate",
+      "category": "Collections",
+      "source_column": "Share with any debt in collections, All"
+    },
+    "medical_debt_rate": {
+      "label": "Medical debt rate",
+      "county_value": 0.0,
+      "state_value": 0.0,
+      "us_value": 0.0322,
+      "state_delta": 0.0,
+      "us_delta": -0.0322,
+      "estimated_people": 0,
+      "estimated_people_if_state_rate": 0,
+      "estimated_people_if_us_rate": 4918,
+      "estimated_people_vs_state": 0,
+      "estimated_people_vs_us": -4918,
+      "rank": {
+        "rank": 1,
+        "total": 9
+      },
+      "kind": "rate",
+      "category": "Medical",
+      "source_column": "Share with medical debt in collections, All"
+    },
+    "student_loan_delinquency_rate": {
+      "label": "Student loan delinquency rate",
+      "county_value": 0.1739,
+      "state_value": 0.1496,
+      "us_value": 0.1589,
+      "state_delta": 0.0243,
+      "us_delta": 0.015,
+      "estimated_people": 26563,
+      "estimated_people_if_state_rate": 22851,
+      "estimated_people_if_us_rate": 24272,
+      "estimated_people_vs_state": 3712,
+      "estimated_people_vs_us": 2291,
+      "rank": {
+        "rank": 5,
+        "total": 7
+      },
+      "kind": "rate",
+      "category": "Student loans",
+      "source_column": "Student loan delinquency rate (60+), All"
+    },
+    "avg_auto_retail_debt": {
+      "label": "Auto/retail loan delinquency rate",
+      "county_value": 0.0513,
+      "state_value": 0.0555,
+      "us_value": 0.0574,
+      "state_delta": -0.0042,
+      "us_delta": -0.0061,
+      "estimated_people": 7836,
+      "estimated_people_if_state_rate": 8478,
+      "estimated_people_if_us_rate": 8768,
+      "estimated_people_vs_state": -642,
+      "estimated_people_vs_us": -932,
+      "rank": {
+        "rank": 5,
+        "total": 9
+      },
+      "kind": "rate",
+      "category": "Auto and retail",
+      "source_column": "Auto/retail loan delinquency rate, All"
+    },
+    "credit_card_delinquency_rate": {
+      "label": "Credit card delinquency rate",
+      "county_value": 0.0532,
+      "state_value": 0.0511,
+      "us_value": 0.0557,
+      "state_delta": 0.0021,
+      "us_delta": -0.0025,
+      "estimated_people": 8126,
+      "estimated_people_if_state_rate": 7805,
+      "estimated_people_if_us_rate": 8508,
+      "estimated_people_vs_state": 321,
+      "estimated_people_vs_us": -382,
+      "rank": {
+        "rank": 7,
+        "total": 9
+      },
+      "kind": "rate",
+      "category": "Credit cards",
+      "source_column": "Credit card debt delinquency rate, All"
+    },
+    "median_credit_card_delinquent_debt": {
+      "label": "Median credit card delinquent debt",
+      "county_value": 594.0,
+      "state_value": 692.0,
+      "us_value": 713.0,
+      "state_delta": -98.0,
+      "us_delta": -119.0,
+      "estimated_people": null,
+      "estimated_people_if_state_rate": null,
+      "estimated_people_if_us_rate": null,
+      "estimated_people_vs_state": null,
+      "estimated_people_vs_us": null,
+      "rank": {
+        "rank": 2,
+        "total": 3
+      },
+      "kind": "currency",
+      "category": "Credit cards",
+      "source_column": "Median credit card delinquent debt, All"
+    },
+    "share_with_student_loan_debt": {
+      "label": "Share with student loan debt",
+      "county_value": 0.1592,
+      "state_value": 0.15,
+      "us_value": 0.1441,
+      "state_delta": 0.0092,
+      "us_delta": 0.0151,
+      "estimated_people": 24317,
+      "estimated_people_if_state_rate": 22912,
+      "estimated_people_if_us_rate": 22011,
+      "estimated_people_vs_state": 1405,
+      "estimated_people_vs_us": 2306,
+      "rank": {
+        "rank": 1,
+        "total": 9
+      },
+      "kind": "rate",
+      "category": "Student loans",
+      "source_column": "Share with student loan debt, All"
+    },
+    "median_student_loan_debt": {
+      "label": "Median student loan debt",
+      "county_value": 19630.0,
+      "state_value": 22103.0,
+      "us_value": 21314.0,
+      "state_delta": -2473.0,
+      "us_delta": -1684.0,
+      "estimated_people": null,
+      "estimated_people_if_state_rate": null,
+      "estimated_people_if_us_rate": null,
+      "estimated_people_vs_state": null,
+      "estimated_people_vs_us": null,
+      "rank": {
+        "rank": 2,
+        "total": 7
+      },
+      "kind": "currency",
+      "category": "Student loans",
+      "source_column": "Median student loan debt, All"
+    },
+    "median_monthly_student_loan_payment": {
+      "label": "Median monthly student loan payment",
+      "county_value": 180.0,
+      "state_value": 198.0,
+      "us_value": 182.0,
+      "state_delta": -18.0,
+      "us_delta": -2.0,
+      "estimated_people": null,
+      "estimated_people_if_state_rate": null,
+      "estimated_people_if_us_rate": null,
+      "estimated_people_vs_state": null,
+      "estimated_people_vs_us": null,
+      "rank": {
+        "rank": 1,
+        "total": 7
+      },
+      "kind": "currency",
+      "category": "Student loans",
+      "source_column": "Median monthly student loan payment, All"
+    },
+    "share_with_auto_loans": {
+      "label": "Share with auto loans",
+      "county_value": 0.33,
+      "state_value": 0.2677,
+      "us_value": 0.2866,
+      "state_delta": 0.0623,
+      "us_delta": 0.0434,
+      "estimated_people": 50407,
+      "estimated_people_if_state_rate": 40891,
+      "estimated_people_if_us_rate": 43778,
+      "estimated_people_vs_state": 9516,
+      "estimated_people_vs_us": 6629,
+      "rank": {
+        "rank": 5,
+        "total": 9
+      },
+      "kind": "rate",
+      "category": "Auto and retail",
+      "source_column": "Share with auto loans, All"
+    },
+    "share_with_auto_retail_debt": {
+      "label": "Share with auto/retail debt",
+      "county_value": 0.3842,
+      "state_value": 0.3237,
+      "us_value": 0.348,
+      "state_delta": 0.0605,
+      "us_delta": 0.0362,
+      "estimated_people": 58686,
+      "estimated_people_if_state_rate": 49445,
+      "estimated_people_if_us_rate": 53156,
+      "estimated_people_vs_state": 9241,
+      "estimated_people_vs_us": 5530,
+      "rank": {
+        "rank": 9,
+        "total": 9
+      },
+      "kind": "rate",
+      "category": "Auto and retail",
+      "source_column": "Share with auto/retail loan debt, All"
+    },
+    "uninsured_rate": {
+      "label": "Uninsured rate",
+      "county_value": 0.0418,
+      "state_value": 0.0616,
+      "us_value": 0.0793,
+      "state_delta": -0.0198,
+      "us_delta": -0.0375,
+      "estimated_people": 6385,
+      "estimated_people_if_state_rate": 9409,
+      "estimated_people_if_us_rate": 12113,
+      "estimated_people_vs_state": -3024,
+      "estimated_people_vs_us": -5728,
+      "rank": {
+        "rank": 5,
+        "total": 9
+      },
+      "kind": "rate",
+      "category": "Context",
+      "source_column": "Share without health insurance coverage, All"
+    },
+    "average_household_income": {
+      "label": "Average household income",
+      "county_value": 96499.14,
+      "state_value": 110930.1,
+      "us_value": 109160.2,
+      "state_delta": -14430.96,
+      "us_delta": -12661.06,
+      "estimated_people": null,
+      "estimated_people_if_state_rate": null,
+      "estimated_people_if_us_rate": null,
+      "estimated_people_vs_state": null,
+      "estimated_people_vs_us": null,
+      "rank": {
+        "rank": 2,
+        "total": 9
+      },
+      "kind": "currency",
+      "category": "Context",
+      "source_column": "Average household income, All"
+    },
+    "share_people_of_color": {
+      "label": "Share of people of color",
+      "county_value": 0.2298,
+      "state_value": 0.4215,
+      "us_value": 0.4287,
+      "state_delta": -0.1917,
+      "us_delta": -0.1989,
+      "estimated_people": 35101,
+      "estimated_people_if_state_rate": 64383,
+      "estimated_people_if_us_rate": 65483,
+      "estimated_people_vs_state": -29282,
+      "estimated_people_vs_us": -30382,
+      "rank": {
+        "rank": 3,
+        "total": 9
+      },
+      "kind": "rate",
+      "category": "Context",
+      "source_column": "Share of people of color"
+    }
+  },
+  "story": [
+    {
+      "title": "Largest local rate",
+      "metric": "share_with_auto_retail_debt",
+      "body": "Sangamon County's highest percentage measure is share with auto/retail debt at 38.4%. That represents an estimated 58,686 adults."
+    },
+    {
+      "title": "Biggest Illinois gap",
+      "metric": "average_household_income",
+      "body": "The biggest gap versus Illinois is average household income: $14,431 below the state benchmark."
+    },
+    {
+      "title": "Estimated people impact",
+      "metric": "share_with_auto_loans",
+      "body": "Compared with the Illinois rate, Sangamon County has about 9,516 more adults with auto loans."
+    },
+    {
+      "title": "Nearby-county rank",
+      "metric": "share_with_student_loan_debt",
+      "body": "Sangamon County ranks #1 of 9 nearby counties on share with student loan debt."
+    }
+  ],
+  "economic_context": {
+    "year": 2024,
+    "county_metrics": {
+      "poverty_rate": {
+        "label": "Poverty rate",
+        "kind": "rate",
+        "value": 0.1311,
+        "source_table": "B17001"
+      },
+      "unemployment_rate": {
+        "label": "Unemployment rate",
+        "kind": "rate",
+        "value": 0.054,
+        "source_table": "B23025"
+      },
+      "homeownership_rate": {
+        "label": "Homeownership rate",
+        "kind": "rate",
+        "value": 0.7131,
+        "source_table": "B25003"
+      },
+      "rent_burden_rate": {
+        "label": "Rent burden rate",
+        "kind": "rate",
+        "value": 0.415,
+        "source_table": "B25070"
+      },
+      "bachelors_or_higher_rate": {
+        "label": "Bachelor's degree or higher",
+        "kind": "rate",
+        "value": 0.3661,
+        "source_table": "B15003"
+      },
+      "median_household_income": {
+        "label": "Median household income",
+        "kind": "currency",
+        "value": 75357.0,
+        "source_table": "B19013"
+      }
+    },
+    "tracts": [
+      {
+        "geoid": "17167000700",
+        "name": "Census Tract 7",
+        "metrics": {
+          "poverty_rate": 0.2384,
+          "unemployment_rate": 0.0882,
+          "homeownership_rate": 0.6536,
+          "rent_burden_rate": 0.3933,
+          "bachelors_or_higher_rate": 0.1153,
+          "median_household_income": 49097.0
+        }
+      },
+      {
+        "geoid": "17167000800",
+        "name": "Census Tract 8",
+        "metrics": {
+          "poverty_rate": 0.3268,
+          "unemployment_rate": 0.3,
+          "homeownership_rate": 0.2535,
+          "rent_burden_rate": 0.4088,
+          "bachelors_or_higher_rate": 0.0726,
+          "median_household_income": 35927.0
+        }
+      },
+      {
+        "geoid": "17167000900",
+        "name": "Census Tract 9",
+        "metrics": {
+          "poverty_rate": 0.3948,
+          "unemployment_rate": 0.2248,
+          "homeownership_rate": 0.4905,
+          "rent_burden_rate": 0.6135,
+          "bachelors_or_higher_rate": 0.2418,
+          "median_household_income": 21358.0
+        }
+      },
+      {
+        "geoid": "17167001001",
+        "name": "Census Tract 10.01",
+        "metrics": {
+          "poverty_rate": 0.0556,
+          "unemployment_rate": 0.0,
+          "homeownership_rate": 0.7279,
+          "rent_burden_rate": 0.2642,
+          "bachelors_or_higher_rate": 0.4475,
+          "median_household_income": 105510.0
+        }
+      },
+      {
+        "geoid": "17167000600",
+        "name": "Census Tract 6",
+        "metrics": {
+          "poverty_rate": 0.424,
+          "unemployment_rate": 0.1588,
+          "homeownership_rate": 0.6294,
+          "rent_burden_rate": 0.6322,
+          "bachelors_or_higher_rate": 0.129,
+          "median_household_income": 36951.0
+        }
+      },
+      {
+        "geoid": "17167001003",
+        "name": "Census Tract 10.03",
+        "metrics": {
+          "poverty_rate": 0.0429,
+          "unemployment_rate": 0.0412,
+          "homeownership_rate": 0.7708,
+          "rent_burden_rate": 0.3409,
+          "bachelors_or_higher_rate": 0.5041,
+          "median_household_income": 100000.0
+        }
+      },
+      {
+        "geoid": "17167000503",
+        "name": "Census Tract 5.03",
+        "metrics": {
+          "poverty_rate": 0.2066,
+          "unemployment_rate": 0.0801,
+          "homeownership_rate": 0.7999,
+          "rent_burden_rate": 0.4262,
+          "bachelors_or_higher_rate": 0.1268,
+          "median_household_income": 50449.0
+        }
+      },
+      {
+        "geoid": "17167000501",
+        "name": "Census Tract 5.01",
+        "metrics": {
+          "poverty_rate": 0.1144,
+          "unemployment_rate": 0.0683,
+          "homeownership_rate": 0.9179,
+          "rent_burden_rate": 0.4138,
+          "bachelors_or_higher_rate": 0.2518,
+          "median_household_income": 101250.0
+        }
+      },
+      {
+        "geoid": "17167000202",
+        "name": "Census Tract 2.02",
+        "metrics": {
+          "poverty_rate": 0.2632,
+          "unemployment_rate": 0.0785,
+          "homeownership_rate": 0.4409,
+          "rent_burden_rate": 0.3299,
+          "bachelors_or_higher_rate": 0.1223,
+          "median_household_income": 51417.0
+        }
+      },
+      {
+        "geoid": "17167004000",
+        "name": "Census Tract 40",
+        "metrics": {
+          "poverty_rate": 0.1048,
+          "unemployment_rate": 0.0314,
+          "homeownership_rate": 0.8736,
+          "rent_burden_rate": 0.3246,
+          "bachelors_or_higher_rate": 0.2471,
+          "median_household_income": 77097.0
+        }
+      },
+      {
+        "geoid": "17167003201",
+        "name": "Census Tract 32.01",
+        "metrics": {
+          "poverty_rate": 0.0372,
+          "unemployment_rate": 0.0152,
+          "homeownership_rate": 0.8778,
+          "rent_burden_rate": 0.2534,
+          "bachelors_or_higher_rate": 0.5765,
+          "median_household_income": 119231.0
+        }
+      },
+      {
+        "geoid": "17167000300",
+        "name": "Census Tract 3",
+        "metrics": {
+          "poverty_rate": 0.1884,
+          "unemployment_rate": 0.0845,
+          "homeownership_rate": 0.6131,
+          "rent_burden_rate": 0.3846,
+          "bachelors_or_higher_rate": 0.1594,
+          "median_household_income": 45814.0
+        }
+      },
+      {
+        "geoid": "17167000400",
+        "name": "Census Tract 4",
+        "metrics": {
+          "poverty_rate": 0.2349,
+          "unemployment_rate": 0.0795,
+          "homeownership_rate": 0.6146,
+          "rent_burden_rate": 0.2636,
+          "bachelors_or_higher_rate": 0.1688,
+          "median_household_income": 52741.0
+        }
+      },
+      {
+        "geoid": "17167002002",
+        "name": "Census Tract 20.02",
+        "metrics": {
+          "poverty_rate": 0.0454,
+          "unemployment_rate": 0.0557,
+          "homeownership_rate": 0.782,
+          "rent_burden_rate": 0.6929,
+          "bachelors_or_higher_rate": 0.5561,
+          "median_household_income": 96311.0
+        }
+      },
+      {
+        "geoid": "17167002001",
+        "name": "Census Tract 20.01",
+        "metrics": {
+          "poverty_rate": 0.0144,
+          "unemployment_rate": 0.032,
+          "homeownership_rate": 0.9435,
+          "rent_burden_rate": 0.5161,
+          "bachelors_or_higher_rate": 0.6148,
+          "median_household_income": 110725.0
+        }
+      },
+      {
+        "geoid": "17167003702",
+        "name": "Census Tract 37.02",
+        "metrics": {
+          "poverty_rate": 0.0558,
+          "unemployment_rate": 0.0009,
+          "homeownership_rate": 0.9053,
+          "rent_burden_rate": 0.3931,
+          "bachelors_or_higher_rate": 0.4613,
+          "median_household_income": 139554.0
+        }
+      },
+      {
+        "geoid": "17167003701",
+        "name": "Census Tract 37.01",
+        "metrics": {
+          "poverty_rate": 0.0375,
+          "unemployment_rate": 0.029,
+          "homeownership_rate": 0.8924,
+          "rent_burden_rate": 0.1302,
+          "bachelors_or_higher_rate": 0.4531,
+          "median_household_income": 131875.0
+        }
+      },
+      {
+        "geoid": "17167004200",
+        "name": "Census Tract 42",
+        "metrics": {
+          "poverty_rate": 0.486,
+          "unemployment_rate": 0.1272,
+          "homeownership_rate": 0.464,
+          "rent_burden_rate": 0.7608,
+          "bachelors_or_higher_rate": 0.1222,
+          "median_household_income": 25556.0
+        }
+      },
+      {
+        "geoid": "17167003901",
+        "name": "Census Tract 39.01",
+        "metrics": {
+          "poverty_rate": 0.0327,
+          "unemployment_rate": 0.008,
+          "homeownership_rate": 0.9557,
+          "rent_burden_rate": 0.4023,
+          "bachelors_or_higher_rate": 0.4158,
+          "median_household_income": 116250.0
+        }
+      },
+      {
+        "geoid": "17167003500",
+        "name": "Census Tract 35",
+        "metrics": {
+          "poverty_rate": 0.0588,
+          "unemployment_rate": 0.0322,
+          "homeownership_rate": 0.8393,
+          "rent_burden_rate": 0.4784,
+          "bachelors_or_higher_rate": 0.3081,
+          "median_household_income": 84355.0
+        }
+      },
+      {
+        "geoid": "17167003802",
+        "name": "Census Tract 38.02",
+        "metrics": {
+          "poverty_rate": 0.0093,
+          "unemployment_rate": 0.0049,
+          "homeownership_rate": 0.7967,
+          "rent_burden_rate": 0.1728,
+          "bachelors_or_higher_rate": 0.2658,
+          "median_household_income": 90074.0
+        }
+      },
+      {
+        "geoid": "17167002500",
+        "name": "Census Tract 25",
+        "metrics": {
+          "poverty_rate": 0.3014,
+          "unemployment_rate": 0.1154,
+          "homeownership_rate": 0.7229,
+          "rent_burden_rate": 0.6494,
+          "bachelors_or_higher_rate": 0.2801,
+          "median_household_income": 54250.0
+        }
+      },
+      {
+        "geoid": "17167003601",
+        "name": "Census Tract 36.01",
+        "metrics": {
+          "poverty_rate": 0.0076,
+          "unemployment_rate": 0.0322,
+          "homeownership_rate": 0.9914,
+          "rent_burden_rate": 0.0,
+          "bachelors_or_higher_rate": 0.4771,
+          "median_household_income": 107955.0
+        }
+      },
+      {
+        "geoid": "17167000100",
+        "name": "Census Tract 1",
+        "metrics": {
+          "poverty_rate": 0.1313,
+          "unemployment_rate": 0.0382,
+          "homeownership_rate": 0.7693,
+          "rent_burden_rate": 0.2934,
+          "bachelors_or_higher_rate": 0.1893,
+          "median_household_income": 59112.0
+        }
+      },
+      {
+        "geoid": "17167003100",
+        "name": "Census Tract 31",
+        "metrics": {
+          "poverty_rate": 0.0178,
+          "unemployment_rate": 0.0149,
+          "homeownership_rate": 0.9247,
+          "rent_burden_rate": 0.3611,
+          "bachelors_or_higher_rate": 0.5692,
+          "median_household_income": 117950.0
+        }
+      },
+      {
+        "geoid": "17167003203",
+        "name": "Census Tract 32.03",
+        "metrics": {
+          "poverty_rate": 0.0228,
+          "unemployment_rate": 0.0397,
+          "homeownership_rate": 0.8495,
+          "rent_burden_rate": 0.3182,
+          "bachelors_or_higher_rate": 0.4531,
+          "median_household_income": 127721.0
+        }
+      },
+      {
+        "geoid": "17167000201",
+        "name": "Census Tract 2.01",
+        "metrics": {
+          "poverty_rate": 0.033,
+          "unemployment_rate": 0.0564,
+          "homeownership_rate": 0.8055,
+          "rent_burden_rate": 0.3222,
+          "bachelors_or_higher_rate": 0.3129,
+          "median_household_income": 82063.0
+        }
+      },
+      {
+        "geoid": "17167001400",
+        "name": "Census Tract 14",
+        "metrics": {
+          "poverty_rate": 0.3765,
+          "unemployment_rate": 0.05,
+          "homeownership_rate": 0.0289,
+          "rent_burden_rate": 0.3322,
+          "bachelors_or_higher_rate": 0.2724,
+          "median_household_income": 30871.0
+        }
+      },
+      {
+        "geoid": "17167003400",
+        "name": "Census Tract 34",
+        "metrics": {
+          "poverty_rate": 0.0738,
+          "unemployment_rate": 0.0446,
+          "homeownership_rate": 0.841,
+          "rent_burden_rate": 0.4513,
+          "bachelors_or_higher_rate": 0.2613,
+          "median_household_income": 82179.0
+        }
+      },
+      {
+        "geoid": "17167003202",
+        "name": "Census Tract 32.02",
+        "metrics": {
+          "poverty_rate": 0.0493,
+          "unemployment_rate": 0.0368,
+          "homeownership_rate": 0.7481,
+          "rent_burden_rate": 0.2561,
+          "bachelors_or_higher_rate": 0.5708,
+          "median_household_income": 89312.0
+        }
+      },
+      {
+        "geoid": "17167003000",
+        "name": "Census Tract 30",
+        "metrics": {
+          "poverty_rate": 0.1735,
+          "unemployment_rate": 0.0554,
+          "homeownership_rate": 0.6176,
+          "rent_burden_rate": 0.5526,
+          "bachelors_or_higher_rate": 0.384,
+          "median_household_income": 63039.0
+        }
+      },
+      {
+        "geoid": "17167003602",
+        "name": "Census Tract 36.02",
+        "metrics": {
+          "poverty_rate": 0.0209,
+          "unemployment_rate": 0.0372,
+          "homeownership_rate": 0.844,
+          "rent_burden_rate": 0.5449,
+          "bachelors_or_higher_rate": 0.6117,
+          "median_household_income": 117702.0
+        }
+      },
+      {
+        "geoid": "17167001100",
+        "name": "Census Tract 11",
+        "metrics": {
+          "poverty_rate": 0.1533,
+          "unemployment_rate": 0.0218,
+          "homeownership_rate": 0.7326,
+          "rent_burden_rate": 0.5452,
+          "bachelors_or_higher_rate": 0.5055,
+          "median_household_income": 68684.0
+        }
+      },
+      {
+        "geoid": "17167001800",
+        "name": "Census Tract 18",
+        "metrics": {
+          "poverty_rate": 0.2934,
+          "unemployment_rate": 0.0754,
+          "homeownership_rate": 0.4258,
+          "rent_burden_rate": 0.3587,
+          "bachelors_or_higher_rate": 0.3152,
+          "median_household_income": 50893.0
+        }
+      },
+      {
+        "geoid": "17167001900",
+        "name": "Census Tract 19",
+        "metrics": {
+          "poverty_rate": 0.3372,
+          "unemployment_rate": 0.1044,
+          "homeownership_rate": 0.4052,
+          "rent_burden_rate": 0.4542,
+          "bachelors_or_higher_rate": 0.2755,
+          "median_household_income": 52231.0
+        }
+      },
+      {
+        "geoid": "17167002100",
+        "name": "Census Tract 21",
+        "metrics": {
+          "poverty_rate": 0.0519,
+          "unemployment_rate": 0.0213,
+          "homeownership_rate": 0.7807,
+          "rent_burden_rate": 0.1229,
+          "bachelors_or_higher_rate": 0.6537,
+          "median_household_income": 96207.0
+        }
+      },
+      {
+        "geoid": "17167002200",
+        "name": "Census Tract 22",
+        "metrics": {
+          "poverty_rate": 0.1713,
+          "unemployment_rate": 0.0256,
+          "homeownership_rate": 0.733,
+          "rent_burden_rate": 0.5051,
+          "bachelors_or_higher_rate": 0.3969,
+          "median_household_income": 68750.0
+        }
+      },
+      {
+        "geoid": "17167002300",
+        "name": "Census Tract 23",
+        "metrics": {
+          "poverty_rate": 0.5588,
+          "unemployment_rate": 0.3122,
+          "homeownership_rate": 0.4254,
+          "rent_burden_rate": 0.432,
+          "bachelors_or_higher_rate": 0.1097,
+          "median_household_income": 22593.0
+        }
+      },
+      {
+        "geoid": "17167001004",
+        "name": "Census Tract 10.04",
+        "metrics": {
+          "poverty_rate": 0.2197,
+          "unemployment_rate": 0.1091,
+          "homeownership_rate": 0.3587,
+          "rent_burden_rate": 0.3676,
+          "bachelors_or_higher_rate": 0.3391,
+          "median_household_income": 55070.0
+        }
+      },
+      {
+        "geoid": "17167002600",
+        "name": "Census Tract 26",
+        "metrics": {
+          "poverty_rate": 0.1163,
+          "unemployment_rate": 0.0722,
+          "homeownership_rate": 0.6783,
+          "rent_burden_rate": 0.1271,
+          "bachelors_or_higher_rate": 0.1988,
+          "median_household_income": 48409.0
+        }
+      },
+      {
+        "geoid": "17167002801",
+        "name": "Census Tract 28.01",
+        "metrics": {
+          "poverty_rate": 0.1843,
+          "unemployment_rate": 0.0509,
+          "homeownership_rate": 0.6372,
+          "rent_burden_rate": 0.5377,
+          "bachelors_or_higher_rate": 0.2119,
+          "median_household_income": 53902.0
+        }
+      },
+      {
+        "geoid": "17167002802",
+        "name": "Census Tract 28.02",
+        "metrics": {
+          "poverty_rate": 0.2104,
+          "unemployment_rate": 0.0319,
+          "homeownership_rate": 0.1356,
+          "rent_burden_rate": 0.2801,
+          "bachelors_or_higher_rate": 0.2495,
+          "median_household_income": 51375.0
+        }
+      },
+      {
+        "geoid": "17167001600",
+        "name": "Census Tract 16",
+        "metrics": {
+          "poverty_rate": 0.3634,
+          "unemployment_rate": 0.3771,
+          "homeownership_rate": 0.4652,
+          "rent_burden_rate": 0.7077,
+          "bachelors_or_higher_rate": 0.0434,
+          "median_household_income": 22063.0
+        }
+      },
+      {
+        "geoid": "17167002700",
+        "name": "Census Tract 27",
+        "metrics": {
+          "poverty_rate": 0.1121,
+          "unemployment_rate": 0.049,
+          "homeownership_rate": 0.5853,
+          "rent_burden_rate": 0.344,
+          "bachelors_or_higher_rate": 0.2205,
+          "median_household_income": 61719.0
+        }
+      },
+      {
+        "geoid": "17167000504",
+        "name": "Census Tract 5.04",
+        "metrics": {
+          "poverty_rate": 0.1404,
+          "unemployment_rate": 0.0175,
+          "homeownership_rate": 0.8923,
+          "rent_burden_rate": 0.7206,
+          "bachelors_or_higher_rate": 0.136,
+          "median_household_income": 81010.0
+        }
+      },
+      {
+        "geoid": "17167002400",
+        "name": "Census Tract 24",
+        "metrics": {
+          "poverty_rate": 0.3535,
+          "unemployment_rate": 0.1826,
+          "homeownership_rate": 0.4169,
+          "rent_burden_rate": 0.5399,
+          "bachelors_or_higher_rate": 0.1023,
+          "median_household_income": 26148.0
+        }
+      },
+      {
+        "geoid": "17167003300",
+        "name": "Census Tract 33",
+        "metrics": {
+          "poverty_rate": 0.1506,
+          "unemployment_rate": 0.038,
+          "homeownership_rate": 0.8096,
+          "rent_burden_rate": 0.3005,
+          "bachelors_or_higher_rate": 0.2974,
+          "median_household_income": 76051.0
+        }
+      },
+      {
+        "geoid": "17167003603",
+        "name": "Census Tract 36.03",
+        "metrics": {
+          "poverty_rate": 0.0296,
+          "unemployment_rate": 0.029,
+          "homeownership_rate": 0.8962,
+          "rent_burden_rate": 0.3099,
+          "bachelors_or_higher_rate": 0.5881,
+          "median_household_income": 151212.0
+        }
+      },
+      {
+        "geoid": "17167002900",
+        "name": "Census Tract 29",
+        "metrics": {
+          "poverty_rate": 0.0656,
+          "unemployment_rate": 0.0109,
+          "homeownership_rate": 0.7812,
+          "rent_burden_rate": 0.3647,
+          "bachelors_or_higher_rate": 0.3998,
+          "median_household_income": 92661.0
+        }
+      },
+      {
+        "geoid": "17167003604",
+        "name": "Census Tract 36.04",
+        "metrics": {
+          "poverty_rate": 0.0483,
+          "unemployment_rate": 0.0225,
+          "homeownership_rate": 0.6132,
+          "rent_burden_rate": 0.4911,
+          "bachelors_or_higher_rate": 0.5781,
+          "median_household_income": 89280.0
+        }
+      },
+      {
+        "geoid": "17167003801",
+        "name": "Census Tract 38.01",
+        "metrics": {
+          "poverty_rate": 0.1959,
+          "unemployment_rate": 0.0569,
+          "homeownership_rate": 0.722,
+          "rent_burden_rate": 0.2989,
+          "bachelors_or_higher_rate": 0.217,
+          "median_household_income": 71938.0
+        }
+      },
+      {
+        "geoid": "17167003902",
+        "name": "Census Tract 39.02",
+        "metrics": {
+          "poverty_rate": 0.0283,
+          "unemployment_rate": 0.0231,
+          "homeownership_rate": 0.938,
+          "rent_burden_rate": 0.2043,
+          "bachelors_or_higher_rate": 0.4964,
+          "median_household_income": 118651.0
+        }
+      },
+      {
+        "geoid": "17167001200",
+        "name": "Census Tract 12",
+        "metrics": {
+          "poverty_rate": 0.1031,
+          "unemployment_rate": 0.0167,
+          "homeownership_rate": 0.6071,
+          "rent_burden_rate": 0.3741,
+          "bachelors_or_higher_rate": 0.5243,
+          "median_household_income": 75625.0
+        }
+      },
+      {
+        "geoid": "17167001300",
+        "name": "Census Tract 13",
+        "metrics": {
+          "poverty_rate": 0.2023,
+          "unemployment_rate": 0.0226,
+          "homeownership_rate": 0.3986,
+          "rent_burden_rate": 0.5034,
+          "bachelors_or_higher_rate": 0.4472,
+          "median_household_income": 41962.0
+        }
+      }
+    ],
+    "tract_geojson_path": "data/processed/tracts_17167.geojson",
+    "source": "2024 ACS 5-year table-based summary files"
+  },
+  "sources": {
+    "urban_dataset_page": "https://datacatalog.urban.org/dataset/debt-america-2025",
+    "census_adjacency_url": "https://www2.census.gov/geo/docs/reference/county_adjacency/county_adjacency2025.txt",
+    "new_york_fed_report": "https://www.newyorkfed.org/newsevents/news/research/2026/20260210",
+    "census_population": "https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-detail.html",
+    "census_acs_summary_files": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/",
+    "census_tiger_tracts": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Tracts_Blocks/MapServer"
+  },
+  "notes": {
+    "population_estimates": "Estimated people affected applies Urban percentage measures to Census Population Estimates Program adult population counts. These are approximations, not direct credit bureau counts."
+  }
+}

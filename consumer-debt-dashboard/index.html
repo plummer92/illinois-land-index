@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>County Debt Map</title>
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <style>
+      :root {
+        --page: #f6f8fb;
+        --surface: #ffffff;
+        --ink: #17202a;
+        --muted: #5e6b78;
+        --line: #d9e0e8;
+        --soft-line: #edf1f5;
+        --teal: #00796b;
+        --blue: #245b9e;
+        --coral: #c4553d;
+        --gold: #b98219;
+        --shadow: 0 10px 24px rgba(26, 39, 56, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family:
+          "Aptos",
+          "Segoe UI",
+          sans-serif;
+        color: var(--ink);
+        background:
+          linear-gradient(180deg, rgba(0, 121, 107, 0.08), transparent 260px),
+          var(--page);
+      }
+
+      .app {
+        width: min(1280px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 20px 0 40px;
+      }
+
+      .topbar {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 16px;
+        align-items: end;
+        padding: 16px 0 20px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .eyebrow {
+        margin: 0 0 6px;
+        color: var(--teal);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2rem;
+        line-height: 1.15;
+      }
+
+      .subtitle {
+        margin: 8px 0 0;
+        color: var(--muted);
+        line-height: 1.45;
+        max-width: 760px;
+      }
+
+      .toolbar {
+        min-width: 300px;
+      }
+
+      .label {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      select {
+        width: 100%;
+        height: 42px;
+        padding: 0 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--ink);
+        font: inherit;
+        box-shadow: var(--shadow);
+      }
+
+      .summary {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin: 18px 0;
+      }
+
+      .metric-card {
+        min-height: 118px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .metric-card.active {
+        border-color: rgba(0, 121, 107, 0.42);
+        box-shadow: inset 0 3px 0 var(--teal), var(--shadow);
+      }
+
+      .story-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin: 0 0 18px;
+      }
+
+      .story-card {
+        min-height: 118px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #ffffff;
+        box-shadow: var(--shadow);
+      }
+
+      .story-title {
+        margin: 0 0 8px;
+        color: var(--blue);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .story-body {
+        margin: 0;
+        color: var(--ink);
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+
+      .context-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 10px;
+        margin: 0 0 18px;
+      }
+
+      .context-card {
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .context-label {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.74rem;
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .context-value {
+        margin: 7px 0 0;
+        font-size: 1.12rem;
+        font-weight: 800;
+        line-height: 1.1;
+      }
+
+      .metric-title {
+        margin: 0;
+        min-height: 34px;
+        color: var(--muted);
+        font-size: 0.82rem;
+        font-weight: 700;
+        line-height: 1.25;
+      }
+
+      .metric-value {
+        margin: 8px 0 0;
+        font-size: 1.45rem;
+        font-weight: 750;
+        line-height: 1.1;
+      }
+
+      .metric-bench {
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 0.8rem;
+        line-height: 1.45;
+      }
+
+      .delta-up {
+        color: var(--coral);
+        font-weight: 750;
+      }
+
+      .delta-down {
+        color: var(--teal);
+        font-weight: 750;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(360px, 0.85fr);
+        gap: 14px;
+        align-items: start;
+      }
+
+      .metric-groups {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 8px;
+        margin: 0 0 18px;
+      }
+
+      .metric-group {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        overflow: hidden;
+      }
+
+      .metric-group-title {
+        padding: 8px 10px;
+        border-bottom: 1px solid var(--soft-line);
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .metric-option {
+        width: 100%;
+        min-height: 36px;
+        padding: 8px 10px;
+        border: 0;
+        border-top: 1px solid var(--soft-line);
+        background: #fff;
+        color: var(--ink);
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.82rem;
+        text-align: left;
+      }
+
+      .metric-option:first-of-type {
+        border-top: 0;
+      }
+
+      .metric-option:hover,
+      .metric-option.active {
+        background: rgba(0, 121, 107, 0.08);
+        color: var(--teal);
+      }
+
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .panel-header {
+        display: flex;
+        gap: 12px;
+        align-items: baseline;
+        justify-content: space-between;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--soft-line);
+      }
+
+      .panel h2 {
+        margin: 0;
+        font-size: 0.96rem;
+      }
+
+      .panel-meta {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      #map,
+      #bars,
+      #tract-map {
+        height: 430px;
+      }
+
+      .table-wrap {
+        max-height: 430px;
+        overflow: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 10px 12px;
+        border-bottom: 1px solid var(--soft-line);
+        text-align: left;
+        vertical-align: middle;
+        font-size: 0.9rem;
+      }
+
+      th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background: #f8fafc;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      td.value-cell {
+        font-variant-numeric: tabular-nums;
+        font-weight: 700;
+        text-align: right;
+      }
+
+      .estimate-cell {
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+        text-align: right;
+      }
+
+      .rank-cell {
+        color: var(--ink);
+        font-variant-numeric: tabular-nums;
+        font-weight: 700;
+        text-align: right;
+      }
+
+      .selected-row {
+        background: rgba(0, 121, 107, 0.08);
+      }
+
+      .selected-pill {
+        display: inline-block;
+        margin-left: 6px;
+        padding: 2px 6px;
+        border-radius: 999px;
+        background: rgba(0, 121, 107, 0.12);
+        color: var(--teal);
+        font-size: 0.7rem;
+        font-weight: 800;
+      }
+
+      .footer-note {
+        margin-top: 14px;
+        padding: 12px 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.5;
+      }
+
+      a {
+        color: var(--blue);
+        font-weight: 700;
+      }
+
+      @media (max-width: 1080px) {
+        .summary {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .metric-groups {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .story-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .context-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .app {
+          width: min(100% - 20px, 1280px);
+          padding-top: 12px;
+        }
+
+        .topbar {
+          grid-template-columns: 1fr;
+          align-items: stretch;
+        }
+
+        .toolbar {
+          min-width: 0;
+        }
+
+        .summary {
+          grid-template-columns: 1fr;
+        }
+
+        .metric-groups {
+          grid-template-columns: 1fr;
+        }
+
+        .story-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .context-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        h1 {
+          font-size: 1.55rem;
+        }
+
+        #map,
+        #bars,
+        #tract-map {
+          height: 360px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Public aggregate debt dashboard</p>
+          <h1 id="title">County Debt Map</h1>
+          <p class="subtitle" id="coverage-text"></p>
+        </div>
+        <div class="toolbar">
+          <label class="label" for="metric-select">Metric</label>
+          <select id="metric-select"></select>
+        </div>
+      </header>
+
+      <section class="summary" id="cards"></section>
+
+      <section class="story-grid" id="story"></section>
+
+      <section class="context-grid" id="economic-context"></section>
+
+      <section class="metric-groups" id="metric-groups"></section>
+
+      <section class="layout">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>County Map</h2>
+            <span class="panel-meta" id="map-meta"></span>
+          </div>
+          <div id="map"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Ranked Counties</h2>
+            <span class="panel-meta" id="rank-meta"></span>
+          </div>
+          <div id="bars"></div>
+        </div>
+      </section>
+
+      <section class="panel" style="margin-top: 14px">
+        <div class="panel-header">
+          <h2>Sangamon Tract Context</h2>
+          <span class="panel-meta">
+            <label class="label" for="tract-metric-select" style="display: inline; margin-right: 6px">Tract metric</label>
+            <select id="tract-metric-select" style="width: 260px; height: 34px"></select>
+          </span>
+        </div>
+        <div id="tract-map"></div>
+      </section>
+
+      <section class="panel" style="margin-top: 14px">
+        <div class="panel-header">
+          <h2>County Table</h2>
+          <span class="panel-meta" id="table-meta"></span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>County</th>
+                <th>State</th>
+                <th id="metric-header" style="text-align: right">Metric</th>
+                <th style="text-align: right">Estimated people</th>
+                <th style="text-align: right">Rank</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="footer-note">
+        This dashboard is built for community-level analysis using public,
+        deidentified datasets. It does not identify individual people or private
+        personal debt records. <span id="source-links"></span>
+      </section>
+    </main>
+
+    <script>
+      const metricTone = {
+        avg_total_debt: "#245b9e",
+        collections_rate: "#00796b",
+        medical_debt_rate: "#b98219",
+        student_loan_delinquency_rate: "#c4553d",
+        avg_auto_retail_debt: "#6b5aa8",
+        credit_card_delinquency_rate: "#c4553d",
+        median_credit_card_delinquent_debt: "#245b9e",
+        share_with_student_loan_debt: "#00796b",
+        median_student_loan_debt: "#245b9e",
+        median_monthly_student_loan_payment: "#6b5aa8",
+        share_with_auto_loans: "#00796b",
+        share_with_auto_retail_debt: "#6b5aa8",
+        uninsured_rate: "#b98219",
+        average_household_income: "#245b9e",
+        share_people_of_color: "#00796b",
+        poverty_rate: "#c4553d",
+        unemployment_rate: "#c4553d",
+        homeownership_rate: "#00796b",
+        rent_burden_rate: "#b98219",
+        bachelors_or_higher_rate: "#245b9e",
+        median_household_income: "#245b9e"
+      };
+
+      const featuredMetrics = [
+        "avg_total_debt",
+        "collections_rate",
+        "credit_card_delinquency_rate",
+        "student_loan_delinquency_rate"
+      ];
+
+      const formatValue = (value, type) => {
+        if (value === null || value === undefined || Number.isNaN(value)) return "N/A";
+        if (type === "currency") {
+          return new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+            maximumFractionDigits: 0
+          }).format(value);
+        }
+        return `${(value * 100).toFixed(1)}%`;
+      };
+
+      const formatCount = value => {
+        if (value === null || value === undefined || Number.isNaN(value)) return "N/A";
+        return new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(value);
+      };
+
+      const formatSignedCount = value => {
+        if (value === null || value === undefined || Number.isNaN(value)) return "N/A";
+        const sign = value > 0 ? "+" : "";
+        return `${sign}${formatCount(value)}`;
+      };
+
+      const formatDelta = (value, type) => {
+        if (value === null || value === undefined || Number.isNaN(value)) return "N/A";
+        const sign = value > 0 ? "+" : "";
+        if (type === "currency") {
+          return `${sign}${new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+            maximumFractionDigits: 0
+          }).format(value)}`;
+        }
+        return `${sign}${(value * 100).toFixed(1)} pts`;
+      };
+
+      const deltaClass = value => {
+        if (value === null || value === undefined || value === 0) return "";
+        return value > 0 ? "delta-up" : "delta-down";
+      };
+
+      const byMetric = (county, metric) => county.metrics?.[metric] ?? null;
+      const byEstimate = (county, metric) => county.estimated_people?.[metric] ?? null;
+      const byRank = (county, metric) => county.rank?.[metric] ?? {};
+      const valueType = metric => (metric.kind === "currency" ? "currency" : "percent");
+
+      const countyLabel = county => `${county.county}, ${county.state}`;
+
+      const renderCards = (data, metricKey) => {
+        const cards = document.getElementById("cards");
+        const cardKeys = [...new Set([metricKey, ...featuredMetrics])].slice(0, 4);
+        cards.innerHTML = cardKeys
+          .filter(key => data.selected_metrics[key])
+          .map(key => {
+            const meta = data.selected_metrics[key];
+            const active = key === metricKey ? " active" : "";
+            return `
+              <article class="metric-card${active}">
+                <p class="metric-title">${meta.label}</p>
+                <p class="metric-value">${formatValue(meta.county_value, valueType(meta))}</p>
+                <p class="metric-bench">
+                  Illinois ${formatValue(meta.state_value, valueType(meta))}<br />
+                  U.S. ${formatValue(meta.us_value, valueType(meta))}<br />
+                  Rank ${meta.rank?.rank || "N/A"} of ${meta.rank?.total || "N/A"} nearby<br />
+                  IL gap <span class="${deltaClass(meta.state_delta)}">${formatDelta(meta.state_delta, valueType(meta))}</span><br />
+                  ${meta.kind === "rate" ? `Est. vs IL <span class="${deltaClass(meta.estimated_people_vs_state)}">${formatSignedCount(meta.estimated_people_vs_state)}</span>` : `Adult pop ${formatCount(data.selected_county.population?.adult_population)}`}
+                </p>
+              </article>
+            `;
+          })
+          .join("");
+      };
+
+      const renderMetricGroups = (data, metricKey) => {
+        const grouped = Object.entries(data.selected_metrics).reduce((acc, [key, meta]) => {
+          const category = meta.category || "Other";
+          acc[category] = acc[category] || [];
+          acc[category].push([key, meta]);
+          return acc;
+        }, {});
+
+        document.getElementById("metric-groups").innerHTML = Object.entries(grouped)
+          .map(([category, metrics]) => `
+            <div class="metric-group">
+              <div class="metric-group-title">${category}</div>
+              ${metrics
+                .map(([key, meta]) => `
+                  <button class="metric-option${key === metricKey ? " active" : ""}" data-metric="${key}">
+                    ${meta.label}
+                  </button>
+                `)
+                .join("")}
+            </div>
+          `)
+          .join("");
+
+        document.querySelectorAll("[data-metric]").forEach(button => {
+          button.addEventListener("click", () => {
+            const selectedMetric = button.getAttribute("data-metric");
+            document.getElementById("metric-select").value = selectedMetric;
+            render(data, selectedMetric);
+          });
+        });
+      };
+
+      const renderStory = data => {
+        const story = data.story || [];
+        document.getElementById("story").innerHTML = story
+          .slice(0, 4)
+          .map(item => `
+            <article class="story-card">
+              <p class="story-title">${item.title}</p>
+              <p class="story-body">${item.body}</p>
+            </article>
+          `)
+          .join("");
+      };
+
+      const renderEconomicContext = data => {
+        const context = data.economic_context?.county_metrics || {};
+        document.getElementById("economic-context").innerHTML = Object.entries(context)
+          .map(([, metric]) => `
+            <article class="context-card">
+              <p class="context-label">${metric.label}</p>
+              <p class="context-value">${formatValue(metric.value, valueType(metric))}</p>
+            </article>
+          `)
+          .join("");
+      };
+
+      const renderTractMap = (data, metricKey) => {
+        const context = data.economic_context;
+        if (!context?.tract_geojson) return;
+        const metric = context.county_metrics?.[metricKey];
+        const tracts = context.tracts || [];
+        const metricColor = metricTone[metricKey] || "#245b9e";
+
+        Plotly.newPlot(
+          "tract-map",
+          [
+            {
+              type: "choroplethmapbox",
+              geojson: context.tract_geojson,
+              locations: tracts.map(tract => tract.geoid),
+              z: tracts.map(tract => tract.metrics?.[metricKey]),
+              featureidkey: "properties.GEOID",
+              text: tracts.map(tract => tract.name),
+              hovertemplate: "%{text}<br>%{z}<extra></extra>",
+              colorscale: [
+                [0, "#e8f1f0"],
+                [0.5, metricColor],
+                [1, "#17202a"]
+              ],
+              marker: { line: { color: "#ffffff", width: 1 } },
+              colorbar: {
+                title: "",
+                thickness: 12,
+                tickformat: metric?.kind === "currency" ? "$,.0f" : ".0%"
+              }
+            }
+          ],
+          {
+            margin: { t: 8, r: 8, b: 8, l: 8 },
+            mapbox: {
+              style: "carto-positron",
+              center: { lat: 39.78, lon: -89.65 },
+              zoom: 8.5
+            },
+            paper_bgcolor: "rgba(0,0,0,0)",
+            plot_bgcolor: "rgba(0,0,0,0)"
+          },
+          { responsive: true, displayModeBar: false }
+        );
+      };
+
+      const render = (data, metricKey) => {
+        const metricMeta = data.selected_metrics[metricKey];
+        const metricColor = metricTone[metricKey] || "#245b9e";
+        const counties = [...data.counties].sort((a, b) => {
+          const aVal = byMetric(a, metricKey);
+          const bVal = byMetric(b, metricKey);
+          return (bVal ?? -Infinity) - (aVal ?? -Infinity);
+        });
+
+        document.getElementById("title").textContent =
+          `${data.selected_county.county}, ${data.selected_county.state}`;
+        document.getElementById("coverage-text").textContent =
+          `${counties.length} counties shown: Sangamon County and adjacent counties from the Census county adjacency file.`;
+        document.getElementById("metric-header").textContent = metricMeta.label;
+        document.getElementById("map-meta").textContent = metricMeta.label;
+        document.getElementById("rank-meta").textContent = "High to low";
+        document.getElementById("table-meta").textContent = "Selected county highlighted";
+
+        renderCards(data, metricKey);
+        renderStory(data);
+        renderEconomicContext(data);
+        renderMetricGroups(data, metricKey);
+
+        document.getElementById("table-body").innerHTML = counties
+          .map(
+            county => `
+              <tr class="${county.is_selected ? "selected-row" : ""}">
+                <td>${county.county}${county.is_selected ? '<span class="selected-pill">selected</span>' : ""}</td>
+                <td>${county.state}</td>
+                <td class="value-cell">${formatValue(byMetric(county, metricKey), valueType(metricMeta))}</td>
+                <td class="estimate-cell">${metricMeta.kind === "rate" ? formatCount(byEstimate(county, metricKey)) : "N/A"}</td>
+                <td class="rank-cell">${byRank(county, metricKey).rank || "N/A"} / ${byRank(county, metricKey).total || "N/A"}</td>
+              </tr>
+            `
+          )
+          .join("");
+
+        Plotly.newPlot(
+          "map",
+          [
+            {
+              type: "choropleth",
+              locationmode: "USA-counties",
+              locations: counties.map(county => county.fips),
+              z: counties.map(county => byMetric(county, metricKey)),
+              text: counties.map(countyLabel),
+              hovertemplate: "%{text}<br>%{z}<extra></extra>",
+              colorscale: [
+                [0, "#e8f1f0"],
+                [0.5, metricColor],
+                [1, "#17202a"]
+              ],
+              marker: { line: { color: "#ffffff", width: 1 } },
+              colorbar: {
+                title: "",
+                thickness: 12,
+                tickformat: metricMeta.kind === "currency" ? "$,.0f" : ".0%"
+              }
+            }
+          ],
+          {
+            margin: { t: 8, r: 8, b: 8, l: 8 },
+            geo: {
+              scope: "usa",
+              fitbounds: "locations",
+              bgcolor: "rgba(0,0,0,0)"
+            },
+            paper_bgcolor: "rgba(0,0,0,0)",
+            plot_bgcolor: "rgba(0,0,0,0)"
+          },
+          { responsive: true, displayModeBar: false }
+        );
+
+        Plotly.newPlot(
+          "bars",
+          [
+            {
+              type: "bar",
+              x: counties.map(county => byMetric(county, metricKey)),
+              y: counties.map(county => countyLabel(county)),
+              orientation: "h",
+              text: counties.map(county => formatValue(byMetric(county, metricKey), valueType(metricMeta))),
+              textposition: "auto",
+              hovertemplate: "%{y}<br>%{text}<extra></extra>",
+              marker: {
+                color: counties.map(county => (county.is_selected ? "#00796b" : metricColor)),
+                opacity: counties.map(county => (county.is_selected ? 1 : 0.72))
+              }
+            }
+          ],
+          {
+            margin: { t: 8, r: 16, b: 32, l: 142 },
+            paper_bgcolor: "rgba(0,0,0,0)",
+            plot_bgcolor: "rgba(0,0,0,0)",
+            xaxis: {
+              tickformat: metricMeta.kind === "currency" ? "$,.0f" : ".0%",
+              gridcolor: "#edf1f5",
+              zerolinecolor: "#d9e0e8"
+            },
+            yaxis: {
+              automargin: true
+            },
+            showlegend: false
+          },
+          { responsive: true, displayModeBar: false }
+        );
+
+        document.getElementById("source-links").innerHTML = `
+          Sources:
+          <a href="${data.sources.urban_dataset_page}" target="_blank" rel="noreferrer">Urban Institute</a>,
+          <a href="${data.sources.census_adjacency_url}" target="_blank" rel="noreferrer">Census adjacency</a>,
+          <a href="${data.sources.census_population}" target="_blank" rel="noreferrer">Census population estimates</a>,
+          <a href="${data.sources.census_acs_summary_files}" target="_blank" rel="noreferrer">ACS economic tables</a>,
+          <a href="${data.sources.census_tiger_tracts}" target="_blank" rel="noreferrer">Census tract geography</a>,
+          <a href="${data.sources.new_york_fed_report}" target="_blank" rel="noreferrer">New York Fed</a>.
+          ${data.notes?.population_estimates || ""}
+        `;
+      };
+
+      const boot = async () => {
+        const response = await fetch("./data/processed/county_debt_snapshot.json");
+        if (!response.ok) throw new Error("Dashboard data file is missing.");
+        const data = await response.json();
+        if (data.economic_context?.tract_geojson_path) {
+          const tractResponse = await fetch(data.economic_context.tract_geojson_path);
+          data.economic_context.tract_geojson = await tractResponse.json();
+        }
+
+        const select = document.getElementById("metric-select");
+        Object.entries(data.selected_metrics).forEach(([key, meta]) => {
+          const option = document.createElement("option");
+          option.value = key;
+          option.textContent = `${meta.category || "Metric"}: ${meta.label}`;
+          select.appendChild(option);
+        });
+
+        select.addEventListener("change", () => render(data, select.value));
+        const tractSelect = document.getElementById("tract-metric-select");
+        Object.entries(data.economic_context?.county_metrics || {}).forEach(([key, meta]) => {
+          const option = document.createElement("option");
+          option.value = key;
+          option.textContent = meta.label;
+          tractSelect.appendChild(option);
+        });
+        tractSelect.addEventListener("change", () => renderTractMap(data, tractSelect.value));
+        render(data, select.value || Object.keys(data.selected_metrics)[0]);
+        renderTractMap(data, tractSelect.value || Object.keys(data.economic_context?.county_metrics || {})[0]);
+      };
+
+      boot().catch(error => {
+        document.body.innerHTML = `
+          <main class="app">
+            <section class="panel">
+              <div class="panel-header"><h2>Dashboard data not found</h2></div>
+              <div style="padding: 14px; color: var(--muted)">
+                ${error.message} Run the build script first so
+                <code>data/processed/county_debt_snapshot.json</code> exists.
+              </div>
+            </section>
+          </main>
+        `;
+      });
+    </script>
+  </body>
+</html>

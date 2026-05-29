@@ -2,12 +2,21 @@
 
 Public marketing site for Illinois Land Index, a Central Illinois parcel intelligence project.
 
+The repo also includes a public aggregate consumer-debt context dashboard at:
+
+```text
+consumer-debt-dashboard/index.html
+```
+
 This repository is intentionally public-safe:
 
 - No parcel owner records
 - No mailing-address exports
 - No generated CSV/XLSX tax data
 - No private dashboard watchlist data
+- No individual consumer debt records
+
+The consumer-debt dashboard uses aggregate public datasets and Census context only.
 
 ## Local Preview
 

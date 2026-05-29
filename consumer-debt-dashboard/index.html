@@ -232,6 +232,16 @@
         line-height: 1.25;
       }
 
+      .metric-unit {
+        margin: 6px 0 0;
+        color: var(--blue);
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0;
+        line-height: 1.25;
+        text-transform: uppercase;
+      }
+
       .metric-value {
         margin: 8px 0 0;
         font-size: 1.45rem;
@@ -244,6 +254,13 @@
         color: var(--muted);
         font-size: 0.8rem;
         line-height: 1.45;
+      }
+
+      .metric-desc {
+        margin: 9px 0 0;
+        color: var(--ink);
+        font-size: 0.78rem;
+        line-height: 1.35;
       }
 
       .delta-up {
@@ -629,6 +646,88 @@
         "student_loan_delinquency_rate"
       ];
 
+      const metricCopy = {
+        avg_total_debt: {
+          title: "Typical collections balance",
+          unit: "Median dollars",
+          description: "Median amount owed by adults who have debt in collections."
+        },
+        collections_rate: {
+          title: "Adults with any debt in collections",
+          unit: "Rate",
+          description: "Share of adults with at least one debt item in collections."
+        },
+        medical_debt_rate: {
+          title: "Adults with medical debt in collections",
+          unit: "Rate",
+          description: "Share of adults with medical debt that has reached collections."
+        },
+        student_loan_delinquency_rate: {
+          title: "Student-loan borrowers 60+ days late",
+          unit: "Delinquency rate",
+          description: "Share of student-loan borrowers who are at least 60 days delinquent."
+        },
+        avg_auto_retail_debt: {
+          title: "Auto/retail borrowers delinquent",
+          unit: "Delinquency rate",
+          description: "Share of auto or retail loan borrowers with delinquent payments."
+        },
+        credit_card_delinquency_rate: {
+          title: "Credit-card borrowers delinquent",
+          unit: "Delinquency rate",
+          description: "Share of credit-card borrowers with delinquent card debt."
+        },
+        median_credit_card_delinquent_debt: {
+          title: "Typical delinquent card balance",
+          unit: "Median dollars",
+          description: "Median delinquent balance among people with delinquent credit-card debt."
+        },
+        share_with_student_loan_debt: {
+          title: "Adults with student-loan debt",
+          unit: "Share",
+          description: "Share of adults carrying student-loan debt."
+        },
+        median_student_loan_debt: {
+          title: "Typical student-loan balance",
+          unit: "Median dollars",
+          description: "Median student-loan balance among adults with student-loan debt."
+        },
+        median_monthly_student_loan_payment: {
+          title: "Typical monthly student-loan payment",
+          unit: "Median monthly dollars",
+          description: "Median monthly student-loan payment among borrowers."
+        },
+        share_with_auto_loans: {
+          title: "Adults with auto loans",
+          unit: "Share",
+          description: "Share of adults with auto loan debt."
+        },
+        share_with_auto_retail_debt: {
+          title: "Adults with auto or retail debt",
+          unit: "Share",
+          description: "Share of adults carrying auto or retail loan debt."
+        },
+        uninsured_rate: {
+          title: "Adults without health insurance",
+          unit: "Rate",
+          description: "Share of adults who report no health insurance coverage."
+        },
+        average_household_income: {
+          title: "Average household income",
+          unit: "Average dollars",
+          description: "Average household income for local affordability context."
+        },
+        share_people_of_color: {
+          title: "People of color share",
+          unit: "Share",
+          description: "Population share identifying as people of color."
+        }
+      };
+
+      const metricTitle = (key, meta) => metricCopy[key]?.title || meta.label;
+      const metricUnit = (key, meta) => metricCopy[key]?.unit || (meta.kind === "currency" ? "Dollars" : "Rate");
+      const metricDescription = (key, meta) => metricCopy[key]?.description || meta.source_column || "";
+
       const formatValue = (value, type) => {
         if (value === null || value === undefined || Number.isNaN(value)) return "N/A";
         if (type === "currency") {
@@ -708,7 +807,8 @@
             const active = key === metricKey ? " active" : "";
             return `
               <article class="metric-card${active}">
-                <p class="metric-title">${meta.label}</p>
+                <p class="metric-title">${metricTitle(key, meta)}</p>
+                <p class="metric-unit">${metricUnit(key, meta)}</p>
                 <p class="metric-value">${formatValue(meta.county_value, valueType(meta))}</p>
                 <p class="metric-bench">
                   Illinois ${formatValue(meta.state_value, valueType(meta))}<br />
@@ -717,6 +817,7 @@
                   IL gap <span class="${deltaClass(meta.state_delta)}">${formatDelta(meta.state_delta, valueType(meta))}</span><br />
                   ${meta.kind === "rate" ? `Est. vs IL <span class="${deltaClass(meta.estimated_people_vs_state)}">${formatSignedCount(meta.estimated_people_vs_state)}</span>` : `Adult pop ${formatCount(data.selected_county.population?.adult_population)}`}
                 </p>
+                <p class="metric-desc">${metricDescription(key, meta)}</p>
               </article>
             `;
           })
@@ -738,7 +839,7 @@
               ${metrics
                 .map(([key, meta]) => `
                   <button class="metric-option${key === metricKey ? " active" : ""}" data-metric="${key}">
-                    ${meta.label}
+                    ${metricTitle(key, meta)}
                   </button>
                 `)
                 .join("")}
@@ -893,8 +994,9 @@
           `${data.selected_county.county}, ${data.selected_county.state}`;
         document.getElementById("coverage-text").textContent =
           `${counties.length} counties shown: Sangamon County and adjacent counties from the Census county adjacency file.`;
-        document.getElementById("metric-header").textContent = metricMeta.label;
-        document.getElementById("map-meta").textContent = metricMeta.label;
+        document.getElementById("metric-header").textContent = metricTitle(metricKey, metricMeta);
+        document.getElementById("map-meta").textContent =
+          `${metricUnit(metricKey, metricMeta)} - ${metricDescription(metricKey, metricMeta)}`;
         document.getElementById("rank-meta").textContent = "High to low";
         document.getElementById("table-meta").textContent = "Selected county highlighted";
 
@@ -1014,7 +1116,7 @@
         Object.entries(data.selected_metrics).forEach(([key, meta]) => {
           const option = document.createElement("option");
           option.value = key;
-          option.textContent = `${meta.category || "Metric"}: ${meta.label}`;
+          option.textContent = `${meta.category || "Metric"}: ${metricTitle(key, meta)}`;
           select.appendChild(option);
         });
 

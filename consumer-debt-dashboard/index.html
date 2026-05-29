@@ -228,6 +228,66 @@
         line-height: 1.45;
       }
 
+      .data-layer-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin: 0 0 18px;
+      }
+
+      .data-layer-card {
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+
+      .data-layer-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .data-layer-card h3 {
+        margin: 0;
+        color: var(--blue);
+        font-size: 0.9rem;
+        line-height: 1.25;
+      }
+
+      .layer-badge {
+        flex: 0 0 auto;
+        padding: 4px 7px;
+        border: 1px solid #cddbe8;
+        border-radius: 999px;
+        background: #eef5fb;
+        color: var(--blue);
+        font-size: 0.68rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .data-layer-card p {
+        margin: 9px 0 0;
+        color: var(--ink);
+        font-size: 0.84rem;
+        line-height: 1.4;
+      }
+
+      .layer-meta {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 0.76rem;
+        line-height: 1.35;
+      }
+
+      .layer-meta a {
+        display: inline-block;
+        margin-top: 5px;
+      }
+
       .credit-market {
         display: grid;
         grid-template-columns: 0.95fr 1.45fr;
@@ -520,6 +580,10 @@
           grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
+        .data-layer-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         .layout {
           grid-template-columns: 1fr;
         }
@@ -562,6 +626,10 @@
 
         .context-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .data-layer-grid {
+          grid-template-columns: 1fr;
         }
 
         .market-cards {
@@ -623,6 +691,14 @@
           </div>
           <div class="debt-source" id="debt-amounts"></div>
         </div>
+      </section>
+
+      <section class="panel" style="margin-bottom: 18px">
+        <div class="panel-header">
+          <h2>More Debt Data To Add</h2>
+          <span class="panel-meta">Source plan and target geography</span>
+        </div>
+        <div class="data-layer-grid" id="debt-data-layers" style="padding: 12px"></div>
       </section>
 
       <section class="credit-market">
@@ -752,6 +828,57 @@
         "median_credit_card_delinquent_debt",
         "median_student_loan_debt",
         "median_monthly_student_loan_payment"
+      ];
+
+      const debtDataLayers = [
+        {
+          title: "Mortgage delinquency / foreclosure filings",
+          geography: "County court / parcel match",
+          readiness: "Medium",
+          value: "Early distress signal for properties where a lender has started a foreclosure case.",
+          source: "Sangamon County Circuit Clerk foreclosure case filing statistics and records search.",
+          url: "https://sangamoncountycircuitclerk.org/general-information/circuit-clerk-statistics/"
+        },
+        {
+          title: "Tax delinquency / tax sale",
+          geography: "Parcel",
+          readiness: "High",
+          value: "Best direct property-level distress layer because it ties unpaid taxes to a parcel number.",
+          source: "Sangamon County tax sale search and property tax portal.",
+          url: "https://tax.co.sangamon.il.us/SangamonCountyWeb/app/searchForTaxSales.action"
+        },
+        {
+          title: "Bankruptcy filings",
+          geography: "County",
+          readiness: "High",
+          value: "County-level household financial pressure indicator, useful as a benchmark beside debt collections.",
+          source: "U.S. Courts bankruptcy filing statistics, including county tables.",
+          url: "https://www.uscourts.gov/data-news/reports/statistical-reports/bankruptcy-filings-statistics"
+        },
+        {
+          title: "Eviction filings / rent distress",
+          geography: "County / tract if geocoded",
+          readiness: "Medium",
+          value: "Housing stress layer that can reveal rent burden and displacement pressure near parcels.",
+          source: "Sangamon County Circuit Clerk eviction filing statistics and records.",
+          url: "https://sangamoncountycircuitclerk.org/general-information/circuit-clerk-statistics/"
+        },
+        {
+          title: "Payday loan / alternative credit locations",
+          geography: "Point locations",
+          readiness: "Medium",
+          value: "Shows where high-cost credit storefronts cluster compared with debt stress, income, and transit access.",
+          source: "Illinois IDFPR financial services license lookup and historical payday lender license research.",
+          url: "https://idfpr.illinois.gov/consumers/financialservices.html"
+        },
+        {
+          title: "Credit access: banks and credit unions",
+          geography: "Point locations",
+          readiness: "High",
+          value: "Adds the opposite side of the map: mainstream bank access, branch density, and credit deserts.",
+          source: "FDIC open data for bank branches; NCUA can supplement credit union branches.",
+          url: "https://www.fdic.gov/about/open-data-fdic"
+        }
       ];
 
       const metricCopy = {
@@ -1034,6 +1161,25 @@
         `;
       };
 
+      const renderDebtDataLayers = () => {
+        document.getElementById("debt-data-layers").innerHTML = debtDataLayers
+          .map(layer => `
+            <article class="data-layer-card">
+              <div class="data-layer-top">
+                <h3>${layer.title}</h3>
+                <span class="layer-badge">${layer.readiness}</span>
+              </div>
+              <p>${layer.value}</p>
+              <div class="layer-meta">
+                <strong>Best map level:</strong> ${layer.geography}<br />
+                <strong>Likely source:</strong> ${layer.source}<br />
+                <a href="${layer.url}" target="_blank" rel="noreferrer">Open source</a>
+              </div>
+            </article>
+          `)
+          .join("");
+      };
+
       const renderCfpbStateCards = data => {
         const records = data.cfpb_context?.state_latest || [];
         const cards = records
@@ -1157,6 +1303,7 @@
         renderStory(data);
         renderEconomicContext(data);
         renderDebtDetail(data);
+        renderDebtDataLayers();
         renderCfpbStateCards(data);
         renderMetricGroups(data, metricKey);
 

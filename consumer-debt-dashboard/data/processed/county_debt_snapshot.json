@@ -2001,13 +2001,3943 @@
     "tract_geojson_path": "data/processed/tracts_17167.geojson",
     "source": "2024 ACS 5-year table-based summary files"
   },
+  "cfpb_context": {
+    "source": "CFPB Consumer Credit Trends",
+    "source_url": "https://files.consumerfinance.gov/data/consumer-credit-trends/all_data.csv",
+    "state_abbreviation": "IL",
+    "national_latest": [
+      {
+        "date": "2025-09",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "subgroup": "all",
+        "subgroup_level": "all",
+        "value_type": "Seasonally Adjusted",
+        "value": 82.56841704664008,
+        "value_yoy": -3.444633763460952
+      },
+      {
+        "date": "2025-09",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "subgroup": "all",
+        "subgroup_level": "all",
+        "value_type": "Seasonally Adjusted",
+        "value": 79.21401344660264,
+        "value_yoy": -0.3480792110444202
+      },
+      {
+        "date": "2025-08",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "subgroup": "all",
+        "subgroup_level": "all",
+        "value_type": "Seasonally Adjusted",
+        "value": 92.29371778149924,
+        "value_yoy": 2.9874831963261
+      },
+      {
+        "date": "2025-07",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "subgroup": "all",
+        "subgroup_level": "all",
+        "value_type": "Seasonally Adjusted",
+        "value": 67741229774.44573,
+        "value_yoy": 7.221554061820225
+      },
+      {
+        "date": "2025-07",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "subgroup": "all",
+        "subgroup_level": "all",
+        "value_type": "Seasonally Adjusted",
+        "value": 42608422037.67068,
+        "value_yoy": 5.506194933535281
+      },
+      {
+        "date": "2025-07",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "subgroup": "all",
+        "subgroup_level": "all",
+        "value_type": "Seasonally Adjusted",
+        "value": 145771865089.612,
+        "value_yoy": 3.112419635712416
+      },
+      {
+        "date": "2025-07",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "subgroup": "all",
+        "subgroup_level": "all",
+        "value_type": "Seasonally Adjusted",
+        "value": 13540189927.31053,
+        "value_yoy": -10.10611547888614
+      },
+      {
+        "date": "2025-11",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "subgroup": "all",
+        "subgroup_level": "all",
+        "value_type": "Seasonally Adjusted",
+        "value": 263.3380455470867,
+        "value_yoy": -2.544077952786445
+      },
+      {
+        "date": "2025-11",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "subgroup": "all",
+        "subgroup_level": "all",
+        "value_type": "Seasonally Adjusted",
+        "value": 234.0566951085609,
+        "value_yoy": -1.510609222260991
+      },
+      {
+        "date": "2025-11",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "subgroup": "all",
+        "subgroup_level": "all",
+        "value_type": "Seasonally Adjusted",
+        "value": 51.8714043416666,
+        "value_yoy": -0.8915891983010972
+      },
+      {
+        "date": "2025-07",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "subgroup": "all",
+        "subgroup_level": "all",
+        "value_type": "Seasonally Adjusted",
+        "value": 2208793.937395014,
+        "value_yoy": 2.580053314809804
+      },
+      {
+        "date": "2025-07",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "subgroup": "all",
+        "subgroup_level": "all",
+        "value_type": "Seasonally Adjusted",
+        "value": 7723848.815446653,
+        "value_yoy": 13.83781860452954
+      },
+      {
+        "date": "2025-07",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "subgroup": "all",
+        "subgroup_level": "all",
+        "value_type": "Seasonally Adjusted",
+        "value": 410001.6030685191,
+        "value_yoy": 0.7655921709205971
+      },
+      {
+        "date": "2025-07",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "subgroup": "all",
+        "subgroup_level": "all",
+        "value_type": "Seasonally Adjusted",
+        "value": 1269473.338527049,
+        "value_yoy": 3.742569934579957
+      }
+    ],
+    "state_latest": [
+      {
+        "date": "2025-07",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "subgroup": "map",
+        "subgroup_level": "IL",
+        "value_type": "Unadjusted",
+        "value": 2153710483.292735,
+        "value_yoy": 0.0261631171615977
+      },
+      {
+        "date": "2025-07",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "subgroup": "map",
+        "subgroup_level": "IL",
+        "value_type": "Unadjusted",
+        "value": 1634992323.36339,
+        "value_yoy": 0.039158168452172
+      },
+      {
+        "date": "2025-07",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "subgroup": "map",
+        "subgroup_level": "IL",
+        "value_type": "Unadjusted",
+        "value": 4806463740.514179,
+        "value_yoy": -0.0596566763847018
+      },
+      {
+        "date": "2025-07",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "subgroup": "map",
+        "subgroup_level": "IL",
+        "value_type": "Unadjusted",
+        "value": 406308237.4970269,
+        "value_yoy": -0.2800259502319759
+      }
+    ],
+    "national_trends": [
+      {
+        "date": "2022-12",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2015812.788039987,
+        "value_yoy": -15.77420765170011
+      },
+      {
+        "date": "2022-12",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 6996908.444988841,
+        "value_yoy": -4.253348916590445
+      },
+      {
+        "date": "2022-12",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 352315.916976242,
+        "value_yoy": -64.64032364180142
+      },
+      {
+        "date": "2022-12",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1147166.243756212,
+        "value_yoy": 7.459610768121634
+      },
+      {
+        "date": "2023-01",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2132251.244775394,
+        "value_yoy": -8.764082021868225
+      },
+      {
+        "date": "2023-01",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7347021.613361966,
+        "value_yoy": 8.787734009249045
+      },
+      {
+        "date": "2023-01",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 323621.3097935551,
+        "value_yoy": -65.99278622266023
+      },
+      {
+        "date": "2023-01",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1156638.045537683,
+        "value_yoy": 11.37956704002606
+      },
+      {
+        "date": "2023-02",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2067792.72508229,
+        "value_yoy": -12.48798718751172
+      },
+      {
+        "date": "2023-02",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7355947.377491025,
+        "value_yoy": 0.0478949764797504
+      },
+      {
+        "date": "2023-02",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 338309.0527400752,
+        "value_yoy": -59.09477408373982
+      },
+      {
+        "date": "2023-02",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1130594.935506642,
+        "value_yoy": 6.854857214391652
+      },
+      {
+        "date": "2023-03",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2004248.707930658,
+        "value_yoy": -15.54165187304776
+      },
+      {
+        "date": "2023-03",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7214133.147662177,
+        "value_yoy": -5.167689008835681
+      },
+      {
+        "date": "2023-03",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 367125.0140993301,
+        "value_yoy": -51.2898600632639
+      },
+      {
+        "date": "2023-03",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1186227.792811677,
+        "value_yoy": 10.83349646962338
+      },
+      {
+        "date": "2023-04",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 1962842.998869124,
+        "value_yoy": -17.07990144772432
+      },
+      {
+        "date": "2023-04",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7264517.13852083,
+        "value_yoy": -2.580572954471441
+      },
+      {
+        "date": "2023-04",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 346241.2689843921,
+        "value_yoy": -48.14646743324012
+      },
+      {
+        "date": "2023-04",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1096522.538994983,
+        "value_yoy": -0.3298698284002519
+      },
+      {
+        "date": "2023-05",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2064045.53519898,
+        "value_yoy": -7.638567925334316
+      },
+      {
+        "date": "2023-05",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7304141.505253527,
+        "value_yoy": -2.135270598020285
+      },
+      {
+        "date": "2023-05",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 379994.0194731284,
+        "value_yoy": -33.50633931494473
+      },
+      {
+        "date": "2023-05",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1186134.080045667,
+        "value_yoy": 2.614290750539441
+      },
+      {
+        "date": "2023-06",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2095997.042306292,
+        "value_yoy": -6.695221322291165
+      },
+      {
+        "date": "2023-06",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7166357.250031892,
+        "value_yoy": -6.658041811184829
+      },
+      {
+        "date": "2023-06",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 405314.6070154225,
+        "value_yoy": -25.4346117095081
+      },
+      {
+        "date": "2023-06",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1152730.786579014,
+        "value_yoy": -3.136328349379928
+      },
+      {
+        "date": "2023-07",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2027203.39359299,
+        "value_yoy": -3.179302112438043
+      },
+      {
+        "date": "2023-07",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7129069.083182763,
+        "value_yoy": -5.086310299692073
+      },
+      {
+        "date": "2023-07",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 366002.1808090358,
+        "value_yoy": -22.9741028787168
+      },
+      {
+        "date": "2023-07",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1201822.379114482,
+        "value_yoy": 2.596420191568437
+      },
+      {
+        "date": "2023-08",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2085723.905640018,
+        "value_yoy": -4.576816175263749
+      },
+      {
+        "date": "2023-08",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7022796.954804747,
+        "value_yoy": -5.584496981419599
+      },
+      {
+        "date": "2023-08",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 372006.1194789486,
+        "value_yoy": -19.95208907604685
+      },
+      {
+        "date": "2023-08",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1189306.056022386,
+        "value_yoy": -0.8776050216623303
+      },
+      {
+        "date": "2023-09",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2095928.744766868,
+        "value_yoy": -3.927657825384338
+      },
+      {
+        "date": "2023-09",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 6834791.57621976,
+        "value_yoy": -7.669977515570706
+      },
+      {
+        "date": "2023-09",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 339398.4023387515,
+        "value_yoy": -22.86816604370678
+      },
+      {
+        "date": "2023-09",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1182273.320275676,
+        "value_yoy": -1.660926432896158
+      },
+      {
+        "date": "2023-10",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2017239.40684868,
+        "value_yoy": -5.571780866061304
+      },
+      {
+        "date": "2023-10",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 6850639.530432441,
+        "value_yoy": -5.143273165049223
+      },
+      {
+        "date": "2023-10",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 322986.5616986696,
+        "value_yoy": -16.16480479493581
+      },
+      {
+        "date": "2023-10",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1236398.501116085,
+        "value_yoy": 5.618597010960539
+      },
+      {
+        "date": "2023-11",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2034193.668491189,
+        "value_yoy": -1.427432341537847
+      },
+      {
+        "date": "2023-11",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 6826197.425485523,
+        "value_yoy": -4.705271012405794
+      },
+      {
+        "date": "2023-11",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 326363.3445589914,
+        "value_yoy": -9.121846298986709
+      },
+      {
+        "date": "2023-11",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1293034.171283977,
+        "value_yoy": -7.107447129865539
+      },
+      {
+        "date": "2023-12",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2084191.34673092,
+        "value_yoy": 3.392108587495346
+      },
+      {
+        "date": "2023-12",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 6725860.543491323,
+        "value_yoy": -3.873823755570807
+      },
+      {
+        "date": "2023-12",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 308208.5044967539,
+        "value_yoy": -12.51927896361902
+      },
+      {
+        "date": "2023-12",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1249719.508485127,
+        "value_yoy": 8.939703838662538
+      },
+      {
+        "date": "2024-01",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2048529.98972857,
+        "value_yoy": -3.926425427208222
+      },
+      {
+        "date": "2024-01",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 6762465.378506387,
+        "value_yoy": -7.956370154028834
+      },
+      {
+        "date": "2024-01",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 341124.978982279,
+        "value_yoy": 5.408688692314441
+      },
+      {
+        "date": "2024-01",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1294549.157017147,
+        "value_yoy": 11.92344588797908
+      },
+      {
+        "date": "2024-02",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2135407.31681245,
+        "value_yoy": 3.269892137156501
+      },
+      {
+        "date": "2024-02",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7007817.053776852,
+        "value_yoy": -4.732637495197989
+      },
+      {
+        "date": "2024-02",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 365159.9228492588,
+        "value_yoy": 7.936787352188674
+      },
+      {
+        "date": "2024-02",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1296808.550216636,
+        "value_yoy": 14.70142926436425
+      },
+      {
+        "date": "2024-03",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2001225.283466376,
+        "value_yoy": -0.1508507627979365
+      },
+      {
+        "date": "2024-03",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 6711063.672558631,
+        "value_yoy": -6.973387721109242
+      },
+      {
+        "date": "2024-03",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 341261.8682897497,
+        "value_yoy": -7.044778976183506
+      },
+      {
+        "date": "2024-03",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1200672.788853258,
+        "value_yoy": 1.217725307829963
+      },
+      {
+        "date": "2024-04",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2051267.661029374,
+        "value_yoy": 4.504927913806441
+      },
+      {
+        "date": "2024-04",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 6822844.740361278,
+        "value_yoy": -6.079858987702572
+      },
+      {
+        "date": "2024-04",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 372262.3147772481,
+        "value_yoy": 7.515292983179616
+      },
+      {
+        "date": "2024-04",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1325644.950027507,
+        "value_yoy": 20.89536720718265
+      },
+      {
+        "date": "2024-05",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2115631.824917545,
+        "value_yoy": 2.499280603981067
+      },
+      {
+        "date": "2024-05",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 6779783.135285569,
+        "value_yoy": -7.178918557243333
+      },
+      {
+        "date": "2024-05",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 374158.1241896719,
+        "value_yoy": -1.535786087251596
+      },
+      {
+        "date": "2024-05",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1224873.181965763,
+        "value_yoy": 3.265996869308799
+      },
+      {
+        "date": "2024-06",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2021445.238831935,
+        "value_yoy": -3.556865871925345
+      },
+      {
+        "date": "2024-06",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 6830850.782003177,
+        "value_yoy": -4.68168772952565
+      },
+      {
+        "date": "2024-06",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 355513.7142849448,
+        "value_yoy": -12.28697211215551
+      },
+      {
+        "date": "2024-06",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1332053.258404219,
+        "value_yoy": 15.55631843211065
+      },
+      {
+        "date": "2024-07",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2153239.217585904,
+        "value_yoy": 6.21722637162368
+      },
+      {
+        "date": "2024-07",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 6784958.557822651,
+        "value_yoy": -4.826864789006708
+      },
+      {
+        "date": "2024-07",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 406886.511789725,
+        "value_yoy": 11.17051567570328
+      },
+      {
+        "date": "2024-07",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1223676.393719163,
+        "value_yoy": 1.818406362243309
+      },
+      {
+        "date": "2024-08",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2131797.279682789,
+        "value_yoy": 2.20898719711575
+      },
+      {
+        "date": "2024-08",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 6919656.876915399,
+        "value_yoy": -1.468646730826862
+      },
+      {
+        "date": "2024-08",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 381016.5623793624,
+        "value_yoy": 2.422122225579032
+      },
+      {
+        "date": "2024-08",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1102731.916971613,
+        "value_yoy": -7.279382679704703
+      },
+      {
+        "date": "2024-09",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2069863.814763198,
+        "value_yoy": -1.243598097919569
+      },
+      {
+        "date": "2024-09",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 6899679.762142771,
+        "value_yoy": 0.9493806094801198
+      },
+      {
+        "date": "2024-09",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 381655.4164524923,
+        "value_yoy": 12.45056365102281
+      },
+      {
+        "date": "2024-09",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1183398.498842136,
+        "value_yoy": 0.0951707652675555
+      },
+      {
+        "date": "2024-10",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2193168.500766662,
+        "value_yoy": 8.721279850110509
+      },
+      {
+        "date": "2024-10",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7022710.836553829,
+        "value_yoy": 2.511755367612017
+      },
+      {
+        "date": "2024-10",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 443038.6003168718,
+        "value_yoy": 37.16936023183676
+      },
+      {
+        "date": "2024-10",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1199311.775799994,
+        "value_yoy": -2.999577020079963
+      },
+      {
+        "date": "2024-11",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2233964.774004796,
+        "value_yoy": 9.820653195808134
+      },
+      {
+        "date": "2024-11",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7055226.042790078,
+        "value_yoy": 3.355142007019585
+      },
+      {
+        "date": "2024-11",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 413790.5994188983,
+        "value_yoy": 26.78831931265007
+      },
+      {
+        "date": "2024-11",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1121572.738621453,
+        "value_yoy": -13.26039454102468
+      },
+      {
+        "date": "2024-12",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2235734.059955193,
+        "value_yoy": 7.271055676436297
+      },
+      {
+        "date": "2024-12",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7454735.347224507,
+        "value_yoy": 10.83690033446385
+      },
+      {
+        "date": "2024-12",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 403952.8204572347,
+        "value_yoy": 31.06478716958611
+      },
+      {
+        "date": "2024-12",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1186249.929591937,
+        "value_yoy": -5.078705938593068
+      },
+      {
+        "date": "2025-01",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2135145.645541309,
+        "value_yoy": 4.228185881926775
+      },
+      {
+        "date": "2025-01",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7379565.459331634,
+        "value_yoy": 9.125371388763332
+      },
+      {
+        "date": "2025-01",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 383578.7558002357,
+        "value_yoy": 12.44522665699078
+      },
+      {
+        "date": "2025-01",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1490961.103091068,
+        "value_yoy": 15.17222772184918
+      },
+      {
+        "date": "2025-02",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2098599.900836496,
+        "value_yoy": -1.723671904941153
+      },
+      {
+        "date": "2025-02",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7225600.231597107,
+        "value_yoy": 3.107717797839502
+      },
+      {
+        "date": "2025-02",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 364091.2348156525,
+        "value_yoy": -0.2926630133086913
+      },
+      {
+        "date": "2025-02",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1191592.955485198,
+        "value_yoy": -8.113425433065013
+      },
+      {
+        "date": "2025-03",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2252585.933686143,
+        "value_yoy": 12.56033752403819
+      },
+      {
+        "date": "2025-03",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7472708.105611646,
+        "value_yoy": 11.3490866755945
+      },
+      {
+        "date": "2025-03",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 366642.2047143623,
+        "value_yoy": 7.437202565820593
+      },
+      {
+        "date": "2025-03",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1184697.435954438,
+        "value_yoy": -1.330533434848404
+      },
+      {
+        "date": "2025-04",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2255027.569567116,
+        "value_yoy": 9.933365226237235
+      },
+      {
+        "date": "2025-04",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7652688.538304594,
+        "value_yoy": 12.16272434039552
+      },
+      {
+        "date": "2025-04",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 416422.0476081142,
+        "value_yoy": 11.86253109109099
+      },
+      {
+        "date": "2025-04",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1312515.845713756,
+        "value_yoy": -0.9903937184295332
+      },
+      {
+        "date": "2025-05",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2136563.329248652,
+        "value_yoy": 0.9893736747849802
+      },
+      {
+        "date": "2025-05",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7565779.476514915,
+        "value_yoy": 11.59323721047368
+      },
+      {
+        "date": "2025-05",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 392080.7807998492,
+        "value_yoy": 4.790128945881655
+      },
+      {
+        "date": "2025-05",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1292944.470924903,
+        "value_yoy": 5.557415246033397
+      },
+      {
+        "date": "2025-06",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2135148.574529915,
+        "value_yoy": 5.624853620258437
+      },
+      {
+        "date": "2025-06",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7432655.545706956,
+        "value_yoy": 8.810099691963941
+      },
+      {
+        "date": "2025-06",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 394593.1058249752,
+        "value_yoy": 10.99237243734237
+      },
+      {
+        "date": "2025-06",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1202925.07122251,
+        "value_yoy": -9.693920747313308
+      },
+      {
+        "date": "2025-07",
+        "series": "Originations",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 2208793.937395014,
+        "value_yoy": 2.580053314809804
+      },
+      {
+        "date": "2025-07",
+        "series": "Originations",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 7723848.815446653,
+        "value_yoy": 13.83781860452954
+      },
+      {
+        "date": "2025-07",
+        "series": "Originations",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 410001.6030685191,
+        "value_yoy": 0.7655921709205971
+      },
+      {
+        "date": "2025-07",
+        "series": "Originations",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 1269473.338527049,
+        "value_yoy": 3.742569934579957
+      },
+      {
+        "date": "2022-12",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 61676568664.49434,
+        "value_yoy": -9.739316075843307
+      },
+      {
+        "date": "2022-12",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 40764561241.63342,
+        "value_yoy": 10.165730537716
+      },
+      {
+        "date": "2022-12",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 113228871168.194,
+        "value_yoy": -64.66672204883976
+      },
+      {
+        "date": "2022-12",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 10767950118.58566,
+        "value_yoy": -11.46953203011222
+      },
+      {
+        "date": "2023-01",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 64758374388.42171,
+        "value_yoy": -6.121958222105996
+      },
+      {
+        "date": "2023-01",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 43763041408.98766,
+        "value_yoy": 29.31481712009036
+      },
+      {
+        "date": "2023-01",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 104499686251.3732,
+        "value_yoy": -66.41919244298109
+      },
+      {
+        "date": "2023-01",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 9002550574.484001,
+        "value_yoy": -19.59336651686077
+      },
+      {
+        "date": "2023-02",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 62841692337.45891,
+        "value_yoy": -10.6101451250786
+      },
+      {
+        "date": "2023-02",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 44390294780.42324,
+        "value_yoy": 18.47956440192507
+      },
+      {
+        "date": "2023-02",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 109263458015.8212,
+        "value_yoy": -60.10667534363024
+      },
+      {
+        "date": "2023-02",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 9437181968.595823,
+        "value_yoy": -19.45304064777521
+      },
+      {
+        "date": "2023-03",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 60943772746.78655,
+        "value_yoy": -13.20517259890516
+      },
+      {
+        "date": "2023-03",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 43159690454.49084,
+        "value_yoy": 5.219033436845041
+      },
+      {
+        "date": "2023-03",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 122257505757.1588,
+        "value_yoy": -50.67924033518509
+      },
+      {
+        "date": "2023-03",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 9627422915.540356,
+        "value_yoy": -15.07323003346086
+      },
+      {
+        "date": "2023-04",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 59330094215.79396,
+        "value_yoy": -15.40248131972403
+      },
+      {
+        "date": "2023-04",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 43707827624.20355,
+        "value_yoy": 9.09360016950359
+      },
+      {
+        "date": "2023-04",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 114500717474.173,
+        "value_yoy": -50.23557846307959
+      },
+      {
+        "date": "2023-04",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 8284915140.345915,
+        "value_yoy": -30.29049678105992
+      },
+      {
+        "date": "2023-05",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 62368478030.67543,
+        "value_yoy": -6.396179590173466
+      },
+      {
+        "date": "2023-05",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 44509685132.09981,
+        "value_yoy": 9.647702997623398
+      },
+      {
+        "date": "2023-05",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 127708082764.0479,
+        "value_yoy": -34.97887640628596
+      },
+      {
+        "date": "2023-05",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 9091906474.772394,
+        "value_yoy": -21.00120598506303
+      },
+      {
+        "date": "2023-06",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 63324839117.00556,
+        "value_yoy": -7.462615564738534
+      },
+      {
+        "date": "2023-06",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 42501402418.61518,
+        "value_yoy": 1.254921758831576
+      },
+      {
+        "date": "2023-06",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 132551538168.725,
+        "value_yoy": -27.65414345841805
+      },
+      {
+        "date": "2023-06",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 10715369961.9888,
+        "value_yoy": -12.56197832578613
+      },
+      {
+        "date": "2023-07",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 61082437444.02355,
+        "value_yoy": -5.064669499278832
+      },
+      {
+        "date": "2023-07",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 42948582577.5568,
+        "value_yoy": 0.9756509198502832
+      },
+      {
+        "date": "2023-07",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 123638143639.7273,
+        "value_yoy": -23.6951182962412
+      },
+      {
+        "date": "2023-07",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 10578742341.79035,
+        "value_yoy": -17.89254621201296
+      },
+      {
+        "date": "2023-08",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 62340230805.87499,
+        "value_yoy": -7.232150484686485
+      },
+      {
+        "date": "2023-08",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 42148054236.36217,
+        "value_yoy": 1.304639282099054
+      },
+      {
+        "date": "2023-08",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 124674641411.0201,
+        "value_yoy": -18.29612313719586
+      },
+      {
+        "date": "2023-08",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 12647599064.15309,
+        "value_yoy": -4.188542471212161
+      },
+      {
+        "date": "2023-09",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 62616655847.30667,
+        "value_yoy": -6.958987602340375
+      },
+      {
+        "date": "2023-09",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 41144958898.66604,
+        "value_yoy": -1.116576356610603
+      },
+      {
+        "date": "2023-09",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 112860945713.2133,
+        "value_yoy": -22.13379029642001
+      },
+      {
+        "date": "2023-09",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 13247342760.35,
+        "value_yoy": -1.33987778892372
+      },
+      {
+        "date": "2023-10",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 59805492696.00529,
+        "value_yoy": -8.788860307104548
+      },
+      {
+        "date": "2023-10",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 40267002174.75552,
+        "value_yoy": -1.268059781464552
+      },
+      {
+        "date": "2023-10",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 109052783559.7458,
+        "value_yoy": -14.58202277560705
+      },
+      {
+        "date": "2023-10",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 17711630379.54946,
+        "value_yoy": 21.79322256350257
+      },
+      {
+        "date": "2023-11",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 60491151356.60799,
+        "value_yoy": -3.458586044269089
+      },
+      {
+        "date": "2023-11",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 39955692046.40244,
+        "value_yoy": -2.496349556674515
+      },
+      {
+        "date": "2023-11",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 109758431785.9898,
+        "value_yoy": -6.262176421925475
+      },
+      {
+        "date": "2023-11",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 14562610012.59574,
+        "value_yoy": -36.78242969660872
+      },
+      {
+        "date": "2023-12",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 61964616756.79617,
+        "value_yoy": 0.4670300221608408
+      },
+      {
+        "date": "2023-12",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 40564515748.61012,
+        "value_yoy": -0.4907338308819654
+      },
+      {
+        "date": "2023-12",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 100167798746.3975,
+        "value_yoy": -11.53510786343101
+      },
+      {
+        "date": "2023-12",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 13594867685.3094,
+        "value_yoy": 26.25307078498107
+      },
+      {
+        "date": "2024-01",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 60778440090.53884,
+        "value_yoy": -6.145821811417265
+      },
+      {
+        "date": "2024-01",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 41804064935.53667,
+        "value_yoy": -4.476326165595701
+      },
+      {
+        "date": "2024-01",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 119272082174.9592,
+        "value_yoy": 14.13630648426167
+      },
+      {
+        "date": "2024-01",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 14409549664.14571,
+        "value_yoy": 60.06074661759529
+      },
+      {
+        "date": "2024-02",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 62943258571.10012,
+        "value_yoy": 0.1616223718097905
+      },
+      {
+        "date": "2024-02",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 43678005515.11514,
+        "value_yoy": -1.604605846461348
+      },
+      {
+        "date": "2024-02",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 126624023262.0399,
+        "value_yoy": 15.88872031096145
+      },
+      {
+        "date": "2024-02",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 15408953201.4883,
+        "value_yoy": 63.27917860188326
+      },
+      {
+        "date": "2024-03",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 59224363562.55374,
+        "value_yoy": -2.821304141075631
+      },
+      {
+        "date": "2024-03",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 40990286904.18838,
+        "value_yoy": -5.026457621585489
+      },
+      {
+        "date": "2024-03",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 119733637694.4456,
+        "value_yoy": -2.064387006002153
+      },
+      {
+        "date": "2024-03",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 13442589633.30331,
+        "value_yoy": 39.62812012345075
+      },
+      {
+        "date": "2024-04",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 60683690838.80535,
+        "value_yoy": 2.281467172609102
+      },
+      {
+        "date": "2024-04",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 40471452384.13319,
+        "value_yoy": -7.404566678299513
+      },
+      {
+        "date": "2024-04",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 127782669454.4484,
+        "value_yoy": 11.59988537475433
+      },
+      {
+        "date": "2024-04",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 18431811553.12659,
+        "value_yoy": 122.4743553904044
+      },
+      {
+        "date": "2024-05",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 62449968577.36685,
+        "value_yoy": 0.1306598289144414
+      },
+      {
+        "date": "2024-05",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 40708607609.18562,
+        "value_yoy": -8.539888591961521
+      },
+      {
+        "date": "2024-05",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 127367830079.4677,
+        "value_yoy": -0.2664300310645668
+      },
+      {
+        "date": "2024-05",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 19283744555.23549,
+        "value_yoy": 112.0979203728361
+      },
+      {
+        "date": "2024-06",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 59420954107.06931,
+        "value_yoy": -6.164855788615625
+      },
+      {
+        "date": "2024-06",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 41120756172.21243,
+        "value_yoy": -3.248472209938275
+      },
+      {
+        "date": "2024-06",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 122763073251.3981,
+        "value_yoy": -7.384648305527114
+      },
+      {
+        "date": "2024-06",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 16433184310.55004,
+        "value_yoy": 53.36086732277414
+      },
+      {
+        "date": "2024-07",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 63178742713.79101,
+        "value_yoy": 3.431927993522733
+      },
+      {
+        "date": "2024-07",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 40384758510.6375,
+        "value_yoy": -5.969519628009907
+      },
+      {
+        "date": "2024-07",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 141371781987.6712,
+        "value_yoy": 14.343177457936
+      },
+      {
+        "date": "2024-07",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 15062414978.99701,
+        "value_yoy": 42.38379660211903
+      },
+      {
+        "date": "2024-08",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 63001950058.18938,
+        "value_yoy": 1.061464232262725
+      },
+      {
+        "date": "2024-08",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 40712799720.88328,
+        "value_yoy": -3.405268740118161
+      },
+      {
+        "date": "2024-08",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 134736676756.6308,
+        "value_yoy": 8.070635080023013
+      },
+      {
+        "date": "2024-08",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 12160089783.57907,
+        "value_yoy": -3.854559889993388
+      },
+      {
+        "date": "2024-09",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 61234085518.50065,
+        "value_yoy": -2.207991324508734
+      },
+      {
+        "date": "2024-09",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 39925981226.4557,
+        "value_yoy": -2.962641608690154
+      },
+      {
+        "date": "2024-09",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 137079152526.8228,
+        "value_yoy": 21.45844752634759
+      },
+      {
+        "date": "2024-09",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 11239986327.4169,
+        "value_yoy": -15.15289873031158
+      },
+      {
+        "date": "2024-10",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 65776927602.87286,
+        "value_yoy": 9.984759990559231
+      },
+      {
+        "date": "2024-10",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 40080972514.842,
+        "value_yoy": -0.4619903391520421
+      },
+      {
+        "date": "2024-10",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 163923752321.2154,
+        "value_yoy": 50.3159726605309
+      },
+      {
+        "date": "2024-10",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 10735019729.45623,
+        "value_yoy": -39.38999685849752
+      },
+      {
+        "date": "2024-11",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 67797502868.20833,
+        "value_yoy": 12.07838063542198
+      },
+      {
+        "date": "2024-11",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 57732844381.92241,
+        "value_yoy": 44.49216475808882
+      },
+      {
+        "date": "2024-11",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 155058601933.4034,
+        "value_yoy": 41.27261059609641
+      },
+      {
+        "date": "2024-11",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 10383855011.15623,
+        "value_yoy": -28.69509653712593
+      },
+      {
+        "date": "2024-12",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 67797912375.51791,
+        "value_yoy": 9.413913817326964
+      },
+      {
+        "date": "2024-12",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 42532888005.1768,
+        "value_yoy": 4.852448550761059
+      },
+      {
+        "date": "2024-12",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 146829756161.3822,
+        "value_yoy": 46.58379039867133
+      },
+      {
+        "date": "2024-12",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 10991824953.75513,
+        "value_yoy": -19.1472457975234
+      },
+      {
+        "date": "2025-01",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 64551078147.98022,
+        "value_yoy": 6.207197900804065
+      },
+      {
+        "date": "2025-01",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 41481765306.75087,
+        "value_yoy": -0.7709767681272012
+      },
+      {
+        "date": "2025-01",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 143713768554.0551,
+        "value_yoy": 20.49237837840597
+      },
+      {
+        "date": "2025-01",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 11749627263.58708,
+        "value_yoy": -18.45944156865035
+      },
+      {
+        "date": "2025-02",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 63643218124.38965,
+        "value_yoy": 1.112048484904639
+      },
+      {
+        "date": "2025-02",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 40903262706.7083,
+        "value_yoy": -6.352723242929721
+      },
+      {
+        "date": "2025-02",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 133678106272.2405,
+        "value_yoy": 5.570888389482519
+      },
+      {
+        "date": "2025-02",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 11309625741.96446,
+        "value_yoy": -26.60354279697529
+      },
+      {
+        "date": "2025-03",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 68569732034.05047,
+        "value_yoy": 15.77960134873547
+      },
+      {
+        "date": "2025-03",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 42265962230.87886,
+        "value_yoy": 3.112140516782123
+      },
+      {
+        "date": "2025-03",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 138031023779.5256,
+        "value_yoy": 15.28174240539991
+      },
+      {
+        "date": "2025-03",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 10157536561.53741,
+        "value_yoy": -24.43765049278419
+      },
+      {
+        "date": "2025-04",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 69227789260.91367,
+        "value_yoy": 14.07972768960952
+      },
+      {
+        "date": "2025-04",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 44861129095.39718,
+        "value_yoy": 10.84635330009793
+      },
+      {
+        "date": "2025-04",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 152794847109.3251,
+        "value_yoy": 19.57399838465023
+      },
+      {
+        "date": "2025-04",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 10681242860.04263,
+        "value_yoy": -42.04995624409597
+      },
+      {
+        "date": "2025-05",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 65747175165.58448,
+        "value_yoy": 5.279757001211053
+      },
+      {
+        "date": "2025-05",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 43120238316.60499,
+        "value_yoy": 5.924129684246918
+      },
+      {
+        "date": "2025-05",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 141110362806.4826,
+        "value_yoy": 10.78964187302294
+      },
+      {
+        "date": "2025-05",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 13024092071.34326,
+        "value_yoy": -32.46077267805722
+      },
+      {
+        "date": "2025-06",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 65198484299.86536,
+        "value_yoy": 9.723051875581866
+      },
+      {
+        "date": "2025-06",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 41933477536.4078,
+        "value_yoy": 1.976426116270125
+      },
+      {
+        "date": "2025-06",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 144972844642.5868,
+        "value_yoy": 18.09157330698851
+      },
+      {
+        "date": "2025-06",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 11822160916.03463,
+        "value_yoy": -28.05922033963406
+      },
+      {
+        "date": "2025-07",
+        "series": "Dollar Volume",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 67741229774.44573,
+        "value_yoy": 7.221554061820225
+      },
+      {
+        "date": "2025-07",
+        "series": "Dollar Volume",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 42608422037.67068,
+        "value_yoy": 5.506194933535281
+      },
+      {
+        "date": "2025-07",
+        "series": "Dollar Volume",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 145771865089.612,
+        "value_yoy": 3.112419635712416
+      },
+      {
+        "date": "2025-07",
+        "series": "Dollar Volume",
+        "loan_type": "STU",
+        "loan_label": "Student loans",
+        "value": 13540189927.31053,
+        "value_yoy": -10.10611547888614
+      },
+      {
+        "date": "2022-12",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 262.6496236635114,
+        "value_yoy": -3.851981187298426
+      },
+      {
+        "date": "2022-12",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 280.7133389751788,
+        "value_yoy": 6.413505017698229
+      },
+      {
+        "date": "2022-12",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 61.4601146974423,
+        "value_yoy": -53.34543132618153
+      },
+      {
+        "date": "2023-01",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 268.419851027923,
+        "value_yoy": -3.502582861923599
+      },
+      {
+        "date": "2023-01",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 288.0513108615327,
+        "value_yoy": 13.63124813636824
+      },
+      {
+        "date": "2023-01",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 64.84633887650878,
+        "value_yoy": -42.54664669464896
+      },
+      {
+        "date": "2023-02",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 259.8483577899654,
+        "value_yoy": -6.186294924410579
+      },
+      {
+        "date": "2023-02",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 285.7515808351525,
+        "value_yoy": 7.375092264572896
+      },
+      {
+        "date": "2023-02",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 62.80263740325847,
+        "value_yoy": -41.1914687538636
+      },
+      {
+        "date": "2023-03",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 252.3859830339811,
+        "value_yoy": -10.99391915973806
+      },
+      {
+        "date": "2023-03",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 284.7810559256819,
+        "value_yoy": 4.080515643969974
+      },
+      {
+        "date": "2023-03",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 63.21263192870335,
+        "value_yoy": -38.2394720160117
+      },
+      {
+        "date": "2023-04",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 249.3712480792655,
+        "value_yoy": -11.27476827231003
+      },
+      {
+        "date": "2023-04",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 278.8979805065495,
+        "value_yoy": -0.0099066766355364
+      },
+      {
+        "date": "2023-04",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 60.046585351764,
+        "value_yoy": -31.87418910288304
+      },
+      {
+        "date": "2023-05",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 258.453308564936,
+        "value_yoy": -4.576753134422028
+      },
+      {
+        "date": "2023-05",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 291.7338937567372,
+        "value_yoy": 2.380891327219445
+      },
+      {
+        "date": "2023-05",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 63.83016240198928,
+        "value_yoy": -21.70836236473761
+      },
+      {
+        "date": "2023-06",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 261.7382562796478,
+        "value_yoy": -4.833484155625213
+      },
+      {
+        "date": "2023-06",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 287.8207151710646,
+        "value_yoy": -2.699070833435127
+      },
+      {
+        "date": "2023-06",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 61.54889955017739,
+        "value_yoy": -20.56900282891481
+      },
+      {
+        "date": "2023-07",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 258.6933381278582,
+        "value_yoy": -2.309340786479114
+      },
+      {
+        "date": "2023-07",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 292.8608470127122,
+        "value_yoy": -2.04843130458466
+      },
+      {
+        "date": "2023-07",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 57.78595651433317,
+        "value_yoy": -19.92006811640827
+      },
+      {
+        "date": "2023-08",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 259.6584523856764,
+        "value_yoy": -4.76733586173996
+      },
+      {
+        "date": "2023-08",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 280.4550617981892,
+        "value_yoy": -4.910345528634755
+      },
+      {
+        "date": "2023-08",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 56.02916603880591,
+        "value_yoy": -26.24746403704216
+      },
+      {
+        "date": "2023-09",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 260.3107151604423,
+        "value_yoy": -4.856381151056335
+      },
+      {
+        "date": "2023-09",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 279.8062054643297,
+        "value_yoy": -2.23565229457968
+      },
+      {
+        "date": "2023-09",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 48.60953901386516,
+        "value_yoy": -29.85200391175777
+      },
+      {
+        "date": "2023-10",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 252.5356061701621,
+        "value_yoy": -7.700458960779823
+      },
+      {
+        "date": "2023-10",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 292.6149485596613,
+        "value_yoy": 4.662176270576026
+      },
+      {
+        "date": "2023-10",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 50.83473393980888,
+        "value_yoy": -20.10041877376784
+      },
+      {
+        "date": "2023-11",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 252.8041970210164,
+        "value_yoy": -5.384332629201887
+      },
+      {
+        "date": "2023-11",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 279.636664495786,
+        "value_yoy": -0.7337937028572659
+      },
+      {
+        "date": "2023-11",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 52.98265164374251,
+        "value_yoy": -15.07526992233675
+      },
+      {
+        "date": "2023-12",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 260.6411962487589,
+        "value_yoy": -0.7646793422881849
+      },
+      {
+        "date": "2023-12",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 272.5937258377749,
+        "value_yoy": -2.892492806735459
+      },
+      {
+        "date": "2023-12",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 51.90867501246451,
+        "value_yoy": -15.5408751382875
+      },
+      {
+        "date": "2024-01",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 253.3455151044959,
+        "value_yoy": -5.615954209682859
+      },
+      {
+        "date": "2024-01",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 275.3575160131134,
+        "value_yoy": -4.406782531366874
+      },
+      {
+        "date": "2024-01",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 52.66099345831776,
+        "value_yoy": -18.79110776230003
+      },
+      {
+        "date": "2024-02",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 265.4136721119724,
+        "value_yoy": 2.141754663889553
+      },
+      {
+        "date": "2024-02",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 279.0271058265269,
+        "value_yoy": -2.353259075233225
+      },
+      {
+        "date": "2024-02",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 54.66089331510318,
+        "value_yoy": -12.96401620186235
+      },
+      {
+        "date": "2024-03",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 250.9822304893667,
+        "value_yoy": -0.556192751966501
+      },
+      {
+        "date": "2024-03",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 262.2552267939706,
+        "value_yoy": -7.909876258619454
+      },
+      {
+        "date": "2024-03",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 50.93157597989142,
+        "value_yoy": -19.42816739961652
+      },
+      {
+        "date": "2024-04",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 257.3890049860902,
+        "value_yoy": 3.215188987736169
+      },
+      {
+        "date": "2024-04",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 258.8013072733267,
+        "value_yoy": -7.20574354705694
+      },
+      {
+        "date": "2024-04",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 55.54693726598065,
+        "value_yoy": -7.493595280103903
+      },
+      {
+        "date": "2024-05",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 262.2373147362216,
+        "value_yoy": 1.46409662630991
+      },
+      {
+        "date": "2024-05",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 256.0625052403299,
+        "value_yoy": -12.22737202628636
+      },
+      {
+        "date": "2024-05",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 54.66168672117651,
+        "value_yoy": -14.3638608077974
+      },
+      {
+        "date": "2024-06",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 255.2224211163703,
+        "value_yoy": -2.489446997887752
+      },
+      {
+        "date": "2024-06",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 255.200562955408,
+        "value_yoy": -11.33349703348107
+      },
+      {
+        "date": "2024-06",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 52.00176711071335,
+        "value_yoy": -15.51145919624574
+      },
+      {
+        "date": "2024-07",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 260.1218835110862,
+        "value_yoy": 0.5522157600061482
+      },
+      {
+        "date": "2024-07",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 250.0346807401902,
+        "value_yoy": -14.62338400962934
+      },
+      {
+        "date": "2024-07",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 54.21789673704017,
+        "value_yoy": -6.174614028250924
+      },
+      {
+        "date": "2024-08",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 264.4913446418049,
+        "value_yoy": 1.861249734689955
+      },
+      {
+        "date": "2024-08",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 248.6644109902586,
+        "value_yoy": -11.33538136345231
+      },
+      {
+        "date": "2024-08",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 54.27857735363856,
+        "value_yoy": -3.124423954400624
+      },
+      {
+        "date": "2024-09",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 254.8989047308379,
+        "value_yoy": -2.078981046273447
+      },
+      {
+        "date": "2024-09",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 243.7126442661306,
+        "value_yoy": -12.89948560586886
+      },
+      {
+        "date": "2024-09",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 55.44414122948518,
+        "value_yoy": 14.0602078404211
+      },
+      {
+        "date": "2024-10",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 267.4424383092556,
+        "value_yoy": 5.902863507116335
+      },
+      {
+        "date": "2024-10",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 241.0065343651607,
+        "value_yoy": -17.6369711966298
+      },
+      {
+        "date": "2024-10",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 57.02517952893848,
+        "value_yoy": 12.17759022100799
+      },
+      {
+        "date": "2024-11",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 270.2124611981095,
+        "value_yoy": 6.886066126364939
+      },
+      {
+        "date": "2024-11",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 237.6466066652362,
+        "value_yoy": -15.01593430398772
+      },
+      {
+        "date": "2024-11",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 52.33804469476715,
+        "value_yoy": -1.216637765338225
+      },
+      {
+        "date": "2024-12",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 268.9957383831953,
+        "value_yoy": 3.205380521068014
+      },
+      {
+        "date": "2024-12",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 240.1930146273035,
+        "value_yoy": -11.88608105740247
+      },
+      {
+        "date": "2024-12",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 51.929494822434,
+        "value_yoy": 0.0401085367031543
+      },
+      {
+        "date": "2025-01",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 256.9576128928614,
+        "value_yoy": 1.425759515369993
+      },
+      {
+        "date": "2025-01",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 237.7750829715461,
+        "value_yoy": -13.64859531917682
+      },
+      {
+        "date": "2025-01",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 47.36818653503609,
+        "value_yoy": -10.05071605318467
+      },
+      {
+        "date": "2025-02",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 255.1241097817965,
+        "value_yoy": -3.876801917662696
+      },
+      {
+        "date": "2025-02",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 229.3102448639771,
+        "value_yoy": -17.81793235294463
+      },
+      {
+        "date": "2025-02",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 47.49025400380777,
+        "value_yoy": -13.11840856672226
+      },
+      {
+        "date": "2025-03",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 272.3308035841551,
+        "value_yoy": 8.506009789283794
+      },
+      {
+        "date": "2025-03",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 235.3318845425363,
+        "value_yoy": -10.26608414275207
+      },
+      {
+        "date": "2025-03",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 49.73793765066291,
+        "value_yoy": -2.343611612764099
+      },
+      {
+        "date": "2025-04",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 264.1963719887559,
+        "value_yoy": 2.644777698656379
+      },
+      {
+        "date": "2025-04",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 241.9049209295202,
+        "value_yoy": -6.528709812876576
+      },
+      {
+        "date": "2025-04",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 51.61344992246922,
+        "value_yoy": -7.081375746562481
+      },
+      {
+        "date": "2025-05",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 259.0498954745926,
+        "value_yoy": -1.215471285936245
+      },
+      {
+        "date": "2025-05",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 235.7185966144493,
+        "value_yoy": -7.944899471629643
+      },
+      {
+        "date": "2025-05",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 50.18506272797421,
+        "value_yoy": -8.18969238186352
+      },
+      {
+        "date": "2025-06",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 257.803342955607,
+        "value_yoy": 1.01124416418723
+      },
+      {
+        "date": "2025-06",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 228.1620506652097,
+        "value_yoy": -10.59500495495492
+      },
+      {
+        "date": "2025-06",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 50.86679662896971,
+        "value_yoy": -2.182561372053472
+      },
+      {
+        "date": "2025-07",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 262.9060143642598,
+        "value_yoy": 1.070317812401572
+      },
+      {
+        "date": "2025-07",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 228.7331826757998,
+        "value_yoy": -8.51941738695228
+      },
+      {
+        "date": "2025-07",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 53.18054045586219,
+        "value_yoy": -1.91330970695749
+      },
+      {
+        "date": "2025-08",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 261.9832752386079,
+        "value_yoy": -0.9482614285898724
+      },
+      {
+        "date": "2025-08",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 231.9487470854698,
+        "value_yoy": -6.722177829236547
+      },
+      {
+        "date": "2025-08",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 49.42093635336123,
+        "value_yoy": -8.94946263721796
+      },
+      {
+        "date": "2025-09",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 268.7941738535961,
+        "value_yoy": 5.451286319739587
+      },
+      {
+        "date": "2025-09",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 234.4354521344298,
+        "value_yoy": -3.806610920675182
+      },
+      {
+        "date": "2025-09",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 53.60942426480482,
+        "value_yoy": -3.309126850908205
+      },
+      {
+        "date": "2025-10",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 261.6347537016551,
+        "value_yoy": -2.171564335232694
+      },
+      {
+        "date": "2025-10",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 227.6758233662942,
+        "value_yoy": -5.531265379995276
+      },
+      {
+        "date": "2025-10",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 54.99485860567579,
+        "value_yoy": -3.560393741912486
+      },
+      {
+        "date": "2025-11",
+        "series": "Inquiry Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 263.3380455470867,
+        "value_yoy": -2.544077952786445
+      },
+      {
+        "date": "2025-11",
+        "series": "Inquiry Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 234.0566951085609,
+        "value_yoy": -1.510609222260991
+      },
+      {
+        "date": "2025-11",
+        "series": "Inquiry Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 51.8714043416666,
+        "value_yoy": -0.8915891983010972
+      },
+      {
+        "date": "2022-12",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 89.83455060559079,
+        "value_yoy": 3.153217471004524
+      },
+      {
+        "date": "2022-12",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 82.47344095154997,
+        "value_yoy": -0.7478445319226077
+      },
+      {
+        "date": "2022-12",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 101.1303676990149,
+        "value_yoy": 10.43652257861314
+      },
+      {
+        "date": "2023-01",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 87.57447354735731,
+        "value_yoy": -0.2678466642972285
+      },
+      {
+        "date": "2023-01",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 82.62170454083208,
+        "value_yoy": -0.5794201554401132
+      },
+      {
+        "date": "2023-01",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 100.2766557015824,
+        "value_yoy": 4.754099816877305
+      },
+      {
+        "date": "2023-02",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 88.2281201418231,
+        "value_yoy": -0.3087824351129715
+      },
+      {
+        "date": "2023-02",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 82.88969226469393,
+        "value_yoy": 1.954322193351557
+      },
+      {
+        "date": "2023-02",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 100.3379203615556,
+        "value_yoy": 3.06524348576908
+      },
+      {
+        "date": "2023-03",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 89.1517437402134,
+        "value_yoy": 0.1607645174380532
+      },
+      {
+        "date": "2023-03",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 82.80081011383116,
+        "value_yoy": 3.585726262494962
+      },
+      {
+        "date": "2023-03",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 98.97497278225651,
+        "value_yoy": -1.13445198565403
+      },
+      {
+        "date": "2023-04",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 88.50240963180524,
+        "value_yoy": 0.6002376576277535
+      },
+      {
+        "date": "2023-04",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 82.4652090205153,
+        "value_yoy": 1.874670023811273
+      },
+      {
+        "date": "2023-04",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 97.51765802944487,
+        "value_yoy": -3.831960992702321
+      },
+      {
+        "date": "2023-05",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 89.14911634386719,
+        "value_yoy": 0.0214300169961007
+      },
+      {
+        "date": "2023-05",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 82.96802955269307,
+        "value_yoy": 2.688955360123618
+      },
+      {
+        "date": "2023-05",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 98.18035772145804,
+        "value_yoy": -3.063831996311943
+      },
+      {
+        "date": "2023-06",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 88.60216471625446,
+        "value_yoy": -0.4679221981276979
+      },
+      {
+        "date": "2023-06",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 82.53988537766509,
+        "value_yoy": 1.133526943965996
+      },
+      {
+        "date": "2023-06",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 97.93058818465111,
+        "value_yoy": -3.932170365794829
+      },
+      {
+        "date": "2023-07",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 88.59059475511793,
+        "value_yoy": -1.364274696273506
+      },
+      {
+        "date": "2023-07",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 83.6086785481294,
+        "value_yoy": 1.70300473181714
+      },
+      {
+        "date": "2023-07",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 98.78941248008752,
+        "value_yoy": -1.464643945138926
+      },
+      {
+        "date": "2023-08",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 88.42173767859232,
+        "value_yoy": -1.756211085687409
+      },
+      {
+        "date": "2023-08",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 83.11299515143104,
+        "value_yoy": 1.496324344640996
+      },
+      {
+        "date": "2023-08",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 98.31315469563948,
+        "value_yoy": -4.264218279234188
+      },
+      {
+        "date": "2023-09",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 87.03397621540357,
+        "value_yoy": -2.822651097729327
+      },
+      {
+        "date": "2023-09",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 83.58151464562873,
+        "value_yoy": 3.217655205376217
+      },
+      {
+        "date": "2023-09",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 98.0476374491124,
+        "value_yoy": -5.838512113132593
+      },
+      {
+        "date": "2023-10",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 88.66870614539428,
+        "value_yoy": -0.7050651918735509
+      },
+      {
+        "date": "2023-10",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 88.0159920846434,
+        "value_yoy": 7.955931235829283
+      },
+      {
+        "date": "2023-10",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 96.53128532949,
+        "value_yoy": -6.559616441841181
+      },
+      {
+        "date": "2023-11",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 88.0857471337241,
+        "value_yoy": -3.500227361437907
+      },
+      {
+        "date": "2023-11",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 83.91927635080778,
+        "value_yoy": 3.226743814342051
+      },
+      {
+        "date": "2023-11",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 95.88285688001211,
+        "value_yoy": -5.949091365338437
+      },
+      {
+        "date": "2023-12",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 87.28825603632713,
+        "value_yoy": -2.834426790247892
+      },
+      {
+        "date": "2023-12",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 82.15672461214656,
+        "value_yoy": -0.3840222206679508
+      },
+      {
+        "date": "2023-12",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 95.4325835558098,
+        "value_yoy": -5.634098117948957
+      },
+      {
+        "date": "2024-01",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 86.50483308937982,
+        "value_yoy": -1.221406666406135
+      },
+      {
+        "date": "2024-01",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 82.58017031674038,
+        "value_yoy": -0.0502703548934641
+      },
+      {
+        "date": "2024-01",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 93.69883930334302,
+        "value_yoy": -6.559668700773784
+      },
+      {
+        "date": "2024-02",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 87.16659410758189,
+        "value_yoy": -1.203160661855712
+      },
+      {
+        "date": "2024-02",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 81.82800227132492,
+        "value_yoy": -1.280846827104498
+      },
+      {
+        "date": "2024-02",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 92.72086190968332,
+        "value_yoy": -7.59140554680138
+      },
+      {
+        "date": "2024-03",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 86.34465877428134,
+        "value_yoy": -3.148659631506321
+      },
+      {
+        "date": "2024-03",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 82.83977165114003,
+        "value_yoy": 0.0470545363690305
+      },
+      {
+        "date": "2024-03",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 92.37810653360742,
+        "value_yoy": -6.665186221533109
+      },
+      {
+        "date": "2024-04",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 87.08951736136233,
+        "value_yoy": -1.596444974007981
+      },
+      {
+        "date": "2024-04",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 82.02789582079738,
+        "value_yoy": -0.5303002380181044
+      },
+      {
+        "date": "2024-04",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 92.1541778066056,
+        "value_yoy": -5.500009261112295
+      },
+      {
+        "date": "2024-05",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 86.01041222413608,
+        "value_yoy": -3.520734975795456
+      },
+      {
+        "date": "2024-05",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 82.10169726279861,
+        "value_yoy": -1.044176045357628
+      },
+      {
+        "date": "2024-05",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 91.18518358131163,
+        "value_yoy": -7.124820384126124
+      },
+      {
+        "date": "2024-06",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 85.90020391586395,
+        "value_yoy": -3.049542648357916
+      },
+      {
+        "date": "2024-06",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 80.95655558779747,
+        "value_yoy": -1.918260223676129
+      },
+      {
+        "date": "2024-06",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 90.61877037616016,
+        "value_yoy": -7.466326858676986
+      },
+      {
+        "date": "2024-07",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 85.27445722344999,
+        "value_yoy": -3.743216241898379
+      },
+      {
+        "date": "2024-07",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 80.26792499538458,
+        "value_yoy": -3.995701894536847
+      },
+      {
+        "date": "2024-07",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 90.2278606265916,
+        "value_yoy": -8.666467021677688
+      },
+      {
+        "date": "2024-08",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 84.90924530051608,
+        "value_yoy": -3.972430841433974
+      },
+      {
+        "date": "2024-08",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 79.25901633205355,
+        "value_yoy": -4.637035174048989
+      },
+      {
+        "date": "2024-08",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 89.61644164617441,
+        "value_yoy": -8.845930207802398
+      },
+      {
+        "date": "2024-09",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 85.51406334513395,
+        "value_yoy": -1.746344285716573
+      },
+      {
+        "date": "2024-09",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 79.49070406215584,
+        "value_yoy": -4.894396327725361
+      },
+      {
+        "date": "2024-09",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 87.82212020949795,
+        "value_yoy": -10.42913170133405
+      },
+      {
+        "date": "2024-10",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 85.06891342234616,
+        "value_yoy": -4.059823222350143
+      },
+      {
+        "date": "2024-10",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 78.96944820033163,
+        "value_yoy": -10.27829564837703
+      },
+      {
+        "date": "2024-10",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 88.80438777584432,
+        "value_yoy": -8.004552645571312
+      },
+      {
+        "date": "2024-11",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 82.91029693996968,
+        "value_yoy": -5.875468350058378
+      },
+      {
+        "date": "2024-11",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 78.26406762550862,
+        "value_yoy": -6.738867363034316
+      },
+      {
+        "date": "2024-11",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 89.6655883893804,
+        "value_yoy": -6.484233671105572
+      },
+      {
+        "date": "2024-12",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 83.33022739310867,
+        "value_yoy": -4.534434324786172
+      },
+      {
+        "date": "2024-12",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 79.51599058593814,
+        "value_yoy": -3.214264004164058
+      },
+      {
+        "date": "2024-12",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 88.1836319326501,
+        "value_yoy": -7.595887434945579
+      },
+      {
+        "date": "2025-01",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 84.69382001745237,
+        "value_yoy": -2.093539756392855
+      },
+      {
+        "date": "2025-01",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 78.12465817198381,
+        "value_yoy": -5.395377761594858
+      },
+      {
+        "date": "2025-01",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 89.64773247848332,
+        "value_yoy": -4.323540029929874
+      },
+      {
+        "date": "2025-02",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 83.42879294842157,
+        "value_yoy": -4.288111973891145
+      },
+      {
+        "date": "2025-02",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 79.56957934031983,
+        "value_yoy": -2.759963421221769
+      },
+      {
+        "date": "2025-02",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 86.71277296879828,
+        "value_yoy": -6.479759589311556
+      },
+      {
+        "date": "2025-03",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 83.07293702761999,
+        "value_yoy": -3.789142018864371
+      },
+      {
+        "date": "2025-03",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 78.16628213812652,
+        "value_yoy": -5.641601153483131
+      },
+      {
+        "date": "2025-03",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 84.36172670037875,
+        "value_yoy": -8.677791886016074
+      },
+      {
+        "date": "2025-04",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 83.60214273049046,
+        "value_yoy": -4.004356364040501
+      },
+      {
+        "date": "2025-04",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 78.03402530763248,
+        "value_yoy": -4.868917425225846
+      },
+      {
+        "date": "2025-04",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 86.45764079526667,
+        "value_yoy": -6.181528767250954
+      },
+      {
+        "date": "2025-05",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 82.8201882713781,
+        "value_yoy": -3.709113664569486
+      },
+      {
+        "date": "2025-05",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 78.08817856972567,
+        "value_yoy": -4.888472256823269
+      },
+      {
+        "date": "2025-05",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 85.55196185223579,
+        "value_yoy": -6.177781858664133
+      },
+      {
+        "date": "2025-06",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 82.65560622182376,
+        "value_yoy": -3.777171119661319
+      },
+      {
+        "date": "2025-06",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 79.04045596128485,
+        "value_yoy": -2.366824542621019
+      },
+      {
+        "date": "2025-06",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 88.00980145534658,
+        "value_yoy": -2.879060165993981
+      },
+      {
+        "date": "2025-07",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 82.45215147734031,
+        "value_yoy": -3.309673069761339
+      },
+      {
+        "date": "2025-07",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 77.42589516190169,
+        "value_yoy": -3.540679335670257
+      },
+      {
+        "date": "2025-07",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 89.4308132394292,
+        "value_yoy": -0.8833717009660599
+      },
+      {
+        "date": "2025-08",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 81.83450769467854,
+        "value_yoy": -3.621204728596089
+      },
+      {
+        "date": "2025-08",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 78.73561341525503,
+        "value_yoy": -0.6603701900686407
+      },
+      {
+        "date": "2025-08",
+        "series": "Credit Tightness Index",
+        "loan_type": "MTG",
+        "loan_label": "Mortgages",
+        "value": 92.29371778149924,
+        "value_yoy": 2.9874831963261
+      },
+      {
+        "date": "2025-09",
+        "series": "Credit Tightness Index",
+        "loan_type": "AUT",
+        "loan_label": "Auto loans",
+        "value": 82.56841704664008,
+        "value_yoy": -3.444633763460952
+      },
+      {
+        "date": "2025-09",
+        "series": "Credit Tightness Index",
+        "loan_type": "CRC",
+        "loan_label": "Credit cards",
+        "value": 79.21401344660264,
+        "value_yoy": -0.3480792110444202
+      }
+    ]
+  },
   "sources": {
     "urban_dataset_page": "https://datacatalog.urban.org/dataset/debt-america-2025",
     "census_adjacency_url": "https://www2.census.gov/geo/docs/reference/county_adjacency/county_adjacency2025.txt",
     "new_york_fed_report": "https://www.newyorkfed.org/newsevents/news/research/2026/20260210",
     "census_population": "https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-detail.html",
     "census_acs_summary_files": "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/5YRData/",
-    "census_tiger_tracts": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Tracts_Blocks/MapServer"
+    "census_tiger_tracts": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Tracts_Blocks/MapServer",
+    "cfpb_consumer_credit_trends": "https://files.consumerfinance.gov/data/consumer-credit-trends/all_data.csv"
   },
   "notes": {
     "population_estimates": "Estimated people affected applies Urban percentage measures to Census Population Estimates Program adult population counts. These are approximations, not direct credit bureau counts."

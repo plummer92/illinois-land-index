@@ -167,6 +167,47 @@
         box-shadow: var(--shadow);
       }
 
+      .credit-market {
+        display: grid;
+        grid-template-columns: 0.95fr 1.45fr;
+        gap: 14px;
+        margin: 0 0 18px;
+      }
+
+      .market-cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .market-card {
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .market-card small {
+        display: block;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .market-card strong {
+        display: block;
+        margin-top: 6px;
+        font-size: 1.2rem;
+      }
+
+      .market-card span {
+        display: block;
+        margin-top: 4px;
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
       .context-label {
         margin: 0;
         color: var(--muted);
@@ -404,6 +445,10 @@
         .layout {
           grid-template-columns: 1fr;
         }
+
+        .credit-market {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 720px) {
@@ -437,6 +482,10 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
+        .market-cards {
+          grid-template-columns: 1fr;
+        }
+
         h1 {
           font-size: 1.55rem;
         }
@@ -468,6 +517,26 @@
       <section class="story-grid" id="story"></section>
 
       <section class="context-grid" id="economic-context"></section>
+
+      <section class="credit-market">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Illinois Credit Market</h2>
+            <span class="panel-meta" id="cfpb-state-meta"></span>
+          </div>
+          <div class="market-cards" id="cfpb-state-cards" style="padding: 12px"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <h2>National Credit Trend</h2>
+            <span class="panel-meta">
+              <label class="label" for="cfpb-series-select" style="display: inline; margin-right: 6px">Series</label>
+              <select id="cfpb-series-select" style="width: 250px; height: 34px"></select>
+            </span>
+          </div>
+          <div id="cfpb-trend" style="height: 310px"></div>
+        </div>
+      </section>
 
       <section class="metric-groups" id="metric-groups"></section>
 
@@ -570,6 +639,27 @@
           }).format(value);
         }
         return `${(value * 100).toFixed(1)}%`;
+      };
+
+      const formatMarketValue = (value, series) => {
+        if (value === null || value === undefined || Number.isNaN(value)) return "N/A";
+        if (series === "Dollar Volume") {
+          return new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+            notation: "compact",
+            maximumFractionDigits: 1
+          }).format(value);
+        }
+        if (series === "Originations") {
+          return new Intl.NumberFormat("en-US", {
+            notation: "compact",
+            maximumFractionDigits: 1
+          }).format(value);
+        }
+        return new Intl.NumberFormat("en-US", {
+          maximumFractionDigits: 1
+        }).format(value);
       };
 
       const formatCount = value => {
@@ -690,6 +780,61 @@
           .join("");
       };
 
+      const renderCfpbStateCards = data => {
+        const records = data.cfpb_context?.state_latest || [];
+        const cards = records
+          .filter(record => record.series === "Dollar Volume")
+          .sort((a, b) => a.loan_label.localeCompare(b.loan_label));
+        document.getElementById("cfpb-state-meta").textContent =
+          cards[0] ? `${data.cfpb_context.state_abbreviation} ${cards[0].date}` : "";
+        document.getElementById("cfpb-state-cards").innerHTML = cards
+          .map(record => `
+            <article class="market-card">
+              <small>${record.loan_label}</small>
+              <strong>${formatMarketValue(record.value, record.series)}</strong>
+              <span>${record.series}${record.value_yoy === null ? "" : `, YoY ${(record.value_yoy * 100).toFixed(1)}%`}</span>
+            </article>
+          `)
+          .join("");
+      };
+
+      const renderCfpbTrend = (data, series) => {
+        const trends = (data.cfpb_context?.national_trends || []).filter(
+          record => record.series === series
+        );
+        const traces = Object.entries(
+          trends.reduce((acc, record) => {
+            acc[record.loan_label] = acc[record.loan_label] || [];
+            acc[record.loan_label].push(record);
+            return acc;
+          }, {})
+        ).map(([loanLabel, records]) => ({
+          type: "scatter",
+          mode: "lines",
+          name: loanLabel,
+          x: records.map(record => record.date),
+          y: records.map(record => record.value),
+          hovertemplate: `%{x}<br>${loanLabel}: %{y}<extra></extra>`
+        }));
+
+        Plotly.newPlot(
+          "cfpb-trend",
+          traces,
+          {
+            margin: { t: 12, r: 16, b: 36, l: 58 },
+            paper_bgcolor: "rgba(0,0,0,0)",
+            plot_bgcolor: "rgba(0,0,0,0)",
+            yaxis: {
+              gridcolor: "#edf1f5",
+              tickformat: series === "Dollar Volume" ? "$~s" : "~s"
+            },
+            xaxis: { gridcolor: "#edf1f5" },
+            legend: { orientation: "h", y: -0.25 }
+          },
+          { responsive: true, displayModeBar: false }
+        );
+      };
+
       const renderTractMap = (data, metricKey) => {
         const context = data.economic_context;
         if (!context?.tract_geojson) return;
@@ -756,6 +901,7 @@
         renderCards(data, metricKey);
         renderStory(data);
         renderEconomicContext(data);
+        renderCfpbStateCards(data);
         renderMetricGroups(data, metricKey);
 
         document.getElementById("table-body").innerHTML = counties
@@ -849,6 +995,7 @@
           <a href="${data.sources.census_population}" target="_blank" rel="noreferrer">Census population estimates</a>,
           <a href="${data.sources.census_acs_summary_files}" target="_blank" rel="noreferrer">ACS economic tables</a>,
           <a href="${data.sources.census_tiger_tracts}" target="_blank" rel="noreferrer">Census tract geography</a>,
+          <a href="${data.sources.cfpb_consumer_credit_trends}" target="_blank" rel="noreferrer">CFPB credit trends</a>,
           <a href="${data.sources.new_york_fed_report}" target="_blank" rel="noreferrer">New York Fed</a>.
           ${data.notes?.population_estimates || ""}
         `;
@@ -880,8 +1027,18 @@
           tractSelect.appendChild(option);
         });
         tractSelect.addEventListener("change", () => renderTractMap(data, tractSelect.value));
+        const cfpbSeriesSelect = document.getElementById("cfpb-series-select");
+        const cfpbSeries = [...new Set((data.cfpb_context?.national_trends || []).map(record => record.series))];
+        cfpbSeries.forEach(series => {
+          const option = document.createElement("option");
+          option.value = series;
+          option.textContent = series;
+          cfpbSeriesSelect.appendChild(option);
+        });
+        cfpbSeriesSelect.addEventListener("change", () => renderCfpbTrend(data, cfpbSeriesSelect.value));
         render(data, select.value || Object.keys(data.selected_metrics)[0]);
         renderTractMap(data, tractSelect.value || Object.keys(data.economic_context?.county_metrics || {})[0]);
+        renderCfpbTrend(data, cfpbSeriesSelect.value || cfpbSeries[0]);
       };
 
       boot().catch(error => {

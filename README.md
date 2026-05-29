@@ -17,6 +17,7 @@ This repository is intentionally public-safe:
 - No individual consumer debt records
 
 The consumer-debt dashboard uses aggregate public datasets and Census context only.
+It also includes CFPB consumer credit trend context for Illinois and national markets.
 
 ## Local Preview
 

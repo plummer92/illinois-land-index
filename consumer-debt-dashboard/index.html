@@ -167,6 +167,67 @@
         box-shadow: var(--shadow);
       }
 
+      .debt-detail {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 14px;
+        margin: 0 0 18px;
+      }
+
+      .debt-list {
+        display: grid;
+        gap: 10px;
+        padding: 12px;
+      }
+
+      .debt-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) 110px 120px 74px;
+        gap: 10px;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .debt-row strong {
+        display: block;
+        font-size: 0.9rem;
+        line-height: 1.25;
+      }
+
+      .debt-row span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.74rem;
+        line-height: 1.3;
+      }
+
+      .debt-number {
+        font-weight: 800;
+        text-align: right;
+      }
+
+      .debt-source {
+        padding: 12px;
+      }
+
+      .debt-source h3 {
+        margin: 0 0 10px;
+        color: var(--blue);
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .debt-source p {
+        margin: 0 0 10px;
+        color: var(--ink);
+        font-size: 0.88rem;
+        line-height: 1.45;
+      }
+
       .credit-market {
         display: grid;
         grid-template-columns: 0.95fr 1.45fr;
@@ -466,6 +527,10 @@
         .credit-market {
           grid-template-columns: 1fr;
         }
+
+        .debt-detail {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (max-width: 720px) {
@@ -503,6 +568,14 @@
           grid-template-columns: 1fr;
         }
 
+        .debt-row {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .debt-number {
+          text-align: left;
+        }
+
         h1 {
           font-size: 1.55rem;
         }
@@ -534,6 +607,23 @@
       <section class="story-grid" id="story"></section>
 
       <section class="context-grid" id="economic-context"></section>
+
+      <section class="debt-detail">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Sangamon Debt Detail</h2>
+            <span class="panel-meta">Rates, estimates, and nearby rank</span>
+          </div>
+          <div class="debt-list" id="debt-detail-list"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <h2>Debt Amounts</h2>
+            <span class="panel-meta">Dollar balances</span>
+          </div>
+          <div class="debt-source" id="debt-amounts"></div>
+        </div>
+      </section>
 
       <section class="credit-market">
         <div class="panel">
@@ -644,6 +734,24 @@
         "collections_rate",
         "credit_card_delinquency_rate",
         "student_loan_delinquency_rate"
+      ];
+
+      const debtExposureMetrics = [
+        "collections_rate",
+        "share_with_auto_retail_debt",
+        "share_with_auto_loans",
+        "share_with_student_loan_debt",
+        "credit_card_delinquency_rate",
+        "student_loan_delinquency_rate",
+        "avg_auto_retail_debt",
+        "medical_debt_rate"
+      ];
+
+      const debtAmountMetrics = [
+        "avg_total_debt",
+        "median_credit_card_delinquent_debt",
+        "median_student_loan_debt",
+        "median_monthly_student_loan_payment"
       ];
 
       const metricCopy = {
@@ -796,6 +904,8 @@
       const valueType = metric => (metric.kind === "currency" ? "currency" : "percent");
 
       const countyLabel = county => `${county.county}, ${county.state}`;
+      const selectedCountyRecord = data =>
+        data.counties.find(county => county.fips === data.selected_county.fips) || data.counties.find(county => county.is_selected);
 
       const renderCards = (data, metricKey) => {
         const cards = document.getElementById("cards");
@@ -879,6 +989,49 @@
             </article>
           `)
           .join("");
+      };
+
+      const renderDebtDetail = data => {
+        const selectedCounty = selectedCountyRecord(data);
+        if (!selectedCounty) return;
+
+        document.getElementById("debt-detail-list").innerHTML = debtExposureMetrics
+          .filter(key => data.selected_metrics[key])
+          .map(key => {
+            const meta = data.selected_metrics[key];
+            const rank = byRank(selectedCounty, key);
+            return `
+              <article class="debt-row">
+                <div>
+                  <strong>${metricTitle(key, meta)}</strong>
+                  <span>${metricDescription(key, meta)}</span>
+                </div>
+                <div class="debt-number">${formatValue(byMetric(selectedCounty, key), valueType(meta))}</div>
+                <div class="debt-number">${formatCount(byEstimate(selectedCounty, key))}</div>
+                <div class="debt-number">${rank.rank || "N/A"} / ${rank.total || "N/A"}</div>
+              </article>
+            `;
+          })
+          .join("");
+
+        document.getElementById("debt-amounts").innerHTML = `
+          <h3>What people owe</h3>
+          ${debtAmountMetrics
+            .filter(key => data.selected_metrics[key])
+            .map(key => {
+              const meta = data.selected_metrics[key];
+              return `
+                <p>
+                  <strong>${metricTitle(key, meta)}:</strong>
+                  ${formatValue(byMetric(selectedCounty, key), valueType(meta))}
+                  <br /><span>${metricDescription(key, meta)}</span>
+                </p>
+              `;
+            })
+            .join("")}
+          <h3>How to read this</h3>
+          <p>Estimated adults affected is approximate. It applies county-level public rates to the adult population and does not identify individual people.</p>
+        `;
       };
 
       const renderCfpbStateCards = data => {
@@ -1003,6 +1156,7 @@
         renderCards(data, metricKey);
         renderStory(data);
         renderEconomicContext(data);
+        renderDebtDetail(data);
         renderCfpbStateCards(data);
         renderMetricGroups(data, metricKey);
 

@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-05-28T22:40:00-05:00",
+  "selected_county": {
+    "fips": "17167",
+    "name": "Sangamon County",
+    "state": "Illinois"
+  },
+  "source": {
+    "name": "Sangamon County Circuit Clerk Case Filing Statistics",
+    "page_url": "https://sangamoncountycircuitclerk.org/general-information/circuit-clerk-statistics/",
+    "eviction_url": "https://www.sangamoncountycircuitclerk.org/download_file/view/3210/",
+    "foreclosure_url": "https://www.sangamoncountycircuitclerk.org/download_file/view/3211/",
+    "report_date": "2024-09-24"
+  },
+  "notes": [
+    "2024 eviction and foreclosure values are year-to-date through August because the source tables have blank September-December 2024 cells.",
+    "These are aggregate county case filing counts, not address-level court records."
+  ],
+  "series": {
+    "eviction": {
+      "label": "Eviction cases filed",
+      "annual": [
+        { "year": 2022, "filings": 1770, "period": "full_year" },
+        { "year": 2023, "filings": 1840, "period": "full_year" },
+        { "year": 2024, "filings": 1073, "period": "year_to_date_through_august" }
+      ],
+      "monthly": [
+        { "month": "January", "2022": 113, "2023": 190, "2024": 157 },
+        { "month": "February", "2022": 105, "2023": 139, "2024": 123 },
+        { "month": "March", "2022": 138, "2023": 145, "2024": 105 },
+        { "month": "April", "2022": 122, "2023": 126, "2024": 139 },
+        { "month": "May", "2022": 126, "2023": 173, "2024": 115 },
+        { "month": "June", "2022": 204, "2023": 156, "2024": 122 },
+        { "month": "July", "2022": 157, "2023": 158, "2024": 161 },
+        { "month": "August", "2022": 160, "2023": 188, "2024": 151 },
+        { "month": "September", "2022": 153, "2023": 156, "2024": null },
+        { "month": "October", "2022": 171, "2023": 148, "2024": null },
+        { "month": "November", "2022": 160, "2023": 137, "2024": null },
+        { "month": "December", "2022": 161, "2023": 124, "2024": null }
+      ]
+    },
+    "foreclosure": {
+      "label": "Foreclosure cases filed",
+      "annual": [
+        { "year": 2015, "filings": 350, "period": "full_year" },
+        { "year": 2016, "filings": 354, "period": "full_year" },
+        { "year": 2017, "filings": 365, "period": "full_year" },
+        { "year": 2018, "filings": 365, "period": "full_year" },
+        { "year": 2019, "filings": 368, "period": "full_year" },
+        { "year": 2020, "filings": 137, "period": "full_year" },
+        { "year": 2021, "filings": 67, "period": "full_year" },
+        { "year": 2022, "filings": 16, "period": "full_year" },
+        { "year": 2023, "filings": 13, "period": "full_year" },
+        { "year": 2024, "filings": 8, "period": "year_to_date_through_august" }
+      ],
+      "monthly": [
+        { "month": "January", "2022": 2, "2023": 0, "2024": 1 },
+        { "month": "February", "2022": 0, "2023": 2, "2024": 2 },
+        { "month": "March", "2022": 2, "2023": 1, "2024": 2 },
+        { "month": "April", "2022": 4, "2023": 0, "2024": 0 },
+        { "month": "May", "2022": 6, "2023": 0, "2024": 1 },
+        { "month": "June", "2022": 1, "2023": 1, "2024": 1 },
+        { "month": "July", "2022": 0, "2023": 0, "2024": 0 },
+        { "month": "August", "2022": 1, "2023": 2, "2024": 1 },
+        { "month": "September", "2022": 0, "2023": 0, "2024": null },
+        { "month": "October", "2022": 0, "2023": 4, "2024": null },
+        { "month": "November", "2022": 0, "2023": 0, "2024": null },
+        { "month": "December", "2022": 0, "2023": 3, "2024": null }
+      ]
+    }
+  }
+}

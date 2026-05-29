@@ -408,6 +408,40 @@
         line-height: 1.35;
       }
 
+      .layer-chart {
+        height: 260px;
+        margin-top: 10px;
+      }
+
+      .location-list {
+        display: grid;
+        gap: 8px;
+        margin-top: 10px;
+        max-height: 245px;
+        overflow: auto;
+      }
+
+      .location-item {
+        padding: 9px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .location-item strong {
+        display: block;
+        font-size: 0.82rem;
+        line-height: 1.25;
+      }
+
+      .location-item span {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 0.74rem;
+        line-height: 1.35;
+      }
+
       .credit-market {
         display: grid;
         grid-template-columns: 0.95fr 1.45fr;
@@ -787,7 +821,8 @@
         #map,
         #bars,
         #tract-map,
-        .loan-chart {
+        .loan-chart,
+        .layer-chart {
           height: 360px;
         }
       }
@@ -1434,34 +1469,159 @@
           .join("");
       };
 
-      const renderActiveLayer = (elementId, layer) => {
-        document.getElementById(elementId).innerHTML = `
+      const renderHousingDistressLayer = data => {
+        const layer = data.housing_distress;
+        const housing = document.getElementById("housing-distress-layer");
+        if (!layer) {
+          housing.innerHTML = "<p>Housing distress data file is missing.</p>";
+          return;
+        }
+        const evictionAnnual = layer.series.eviction.annual;
+        const foreclosureAnnual = layer.series.foreclosure.annual;
+        const latestEviction = evictionAnnual.at(-1);
+        const latestForeclosure = foreclosureAnnual.at(-1);
+        const lastFullEviction = evictionAnnual.filter(record => record.period === "full_year").at(-1);
+        const lastFullForeclosure = foreclosureAnnual.filter(record => record.period === "full_year").at(-1);
+
+        housing.innerHTML = `
           <div class="layer-summary">
-            ${layer.summary
-              .map(item => `
-                <div class="layer-stat">
-                  <small>${item.label}</small>
-                  <strong>${item.value}</strong>
-                </div>
-              `)
-              .join("")}
+            <div class="layer-stat">
+              <small>Eviction filings</small>
+              <strong>${formatCount(latestEviction.filings)}</strong>
+              <span>${latestEviction.year} ${latestEviction.period.replaceAll("_", " ")}</span>
+            </div>
+            <div class="layer-stat">
+              <small>Foreclosure filings</small>
+              <strong>${formatCount(latestForeclosure.filings)}</strong>
+              <span>${latestForeclosure.year} ${latestForeclosure.period.replaceAll("_", " ")}</span>
+            </div>
+            <div class="layer-stat">
+              <small>Last full year</small>
+              <strong>${formatCount(lastFullEviction.filings)} / ${formatCount(lastFullForeclosure.filings)}</strong>
+              <span>Evictions / foreclosures in ${lastFullEviction.year}</span>
+            </div>
           </div>
-          <div class="layer-checklist">
-            ${layer.steps
-              .map(step => `
-                <div class="layer-check">
-                  <strong>${step.title}</strong>
-                  <span>${step.detail}${step.url ? ` <a href="${step.url}" target="_blank" rel="noreferrer">Open source</a>` : ""}</span>
+          <div class="layer-check">
+            <strong>Loaded into the program</strong>
+            <span>County-level case filing counts are now stored in <code>housing_distress_filings.json</code>. Address geocoding can be added later if court records expose usable property addresses.</span>
+          </div>
+          <div class="layer-chart" id="housing-distress-chart"></div>
+        `;
+
+        const years = [...new Set([...evictionAnnual.map(record => record.year), ...foreclosureAnnual.map(record => record.year)])].sort();
+        Plotly.newPlot(
+          "housing-distress-chart",
+          [
+            {
+              type: "bar",
+              name: "Evictions",
+              x: years,
+              y: years.map(year => evictionAnnual.find(record => record.year === year)?.filings ?? null),
+              marker: { color: "#b98219" }
+            },
+            {
+              type: "bar",
+              name: "Foreclosures",
+              x: years,
+              y: years.map(year => foreclosureAnnual.find(record => record.year === year)?.filings ?? null),
+              marker: { color: "#c4553d" }
+            }
+          ],
+          {
+            barmode: "group",
+            margin: { t: 12, r: 12, b: 34, l: 52 },
+            paper_bgcolor: "rgba(0,0,0,0)",
+            plot_bgcolor: "rgba(0,0,0,0)",
+            xaxis: { gridcolor: "#edf1f5" },
+            yaxis: { gridcolor: "#edf1f5" },
+            legend: { orientation: "h", y: -0.25 }
+          },
+          { responsive: true, displayModeBar: false }
+        );
+      };
+
+      const renderCreditAccessLayer = data => {
+        const access = data.credit_access;
+        const container = document.getElementById("credit-access-layer");
+        if (!access) {
+          container.innerHTML = "<p>Credit access location data file is missing.</p>";
+          return;
+        }
+        const locations = access.locations || [];
+        const topCities = Object.entries(access.summary?.cities || {}).slice(0, 4);
+        const limited = access.summary?.limited_service_locations || 0;
+        const fullService = access.summary?.full_service_locations || 0;
+
+        container.innerHTML = `
+          <div class="layer-summary">
+            <div class="layer-stat">
+              <small>FDIC locations</small>
+              <strong>${formatCount(access.summary?.total_locations)}</strong>
+              <span>${access.selected_county.name}</span>
+            </div>
+            <div class="layer-stat">
+              <small>Full service</small>
+              <strong>${formatCount(fullService)}</strong>
+              <span>${formatCount(limited)} limited-service records</span>
+            </div>
+            <div class="layer-stat">
+              <small>Largest city count</small>
+              <strong>${topCities[0]?.[1] || "N/A"}</strong>
+              <span>${topCities[0]?.[0] || "N/A"}</span>
+            </div>
+          </div>
+          <div class="layer-check">
+            <strong>Loaded into the program</strong>
+            <span>FDIC bank branch points are stored in <code>credit_access_locations.json</code>. IDFPR high-cost credit locations are the next point dataset to import.</span>
+          </div>
+          <div class="layer-chart" id="credit-access-map"></div>
+          <div class="location-list">
+            ${locations
+              .slice(0, 12)
+              .map(location => `
+                <div class="location-item">
+                  <strong>${location.institution}</strong>
+                  <span>${location.branch} - ${location.address}, ${location.city}, ${location.state} ${location.zip}</span>
                 </div>
               `)
               .join("")}
           </div>
         `;
+
+        Plotly.newPlot(
+          "credit-access-map",
+          [
+            {
+              type: "scattermapbox",
+              mode: "markers",
+              lat: locations.map(location => location.latitude),
+              lon: locations.map(location => location.longitude),
+              text: locations.map(location => `${location.institution}<br>${location.address}, ${location.city}`),
+              hovertemplate: "%{text}<extra></extra>",
+              marker: {
+                size: locations.map(location => location.service_type.toLowerCase().includes("full service") ? 10 : 7),
+                color: locations.map(location => location.service_type.toLowerCase().includes("full service") ? "#00796b" : "#b98219"),
+                opacity: 0.82
+              }
+            }
+          ],
+          {
+            margin: { t: 8, r: 8, b: 8, l: 8 },
+            mapbox: {
+              style: "open-street-map",
+              center: { lat: 39.79, lon: -89.65 },
+              zoom: 8.8
+            },
+            paper_bgcolor: "rgba(0,0,0,0)",
+            plot_bgcolor: "rgba(0,0,0,0)"
+          },
+          { responsive: true, displayModeBar: false }
+        );
       };
 
-      const renderActiveLayers = () => {
-        renderActiveLayer("housing-distress-layer", activeLayerBuildout.housingDistress);
-        renderActiveLayer("credit-access-layer", activeLayerBuildout.creditAccess);
+      const renderActiveLayers = data => {
+        renderHousingDistressLayer(data);
+        renderCreditAccessLayer(data);
       };
 
       const latestTrendRecord = (records, loanLabel, series) =>
@@ -1691,7 +1851,7 @@
         renderDebtDetail(data);
         renderLoanFocus(data, loanFocus.creditCard);
         renderLoanFocus(data, loanFocus.autoLoan);
-        renderActiveLayers();
+        renderActiveLayers(data);
         renderDebtDataLayers();
         renderCfpbStateCards(data);
         renderMetricGroups(data, metricKey);
@@ -1797,6 +1957,12 @@
         const response = await fetch("./data/processed/county_debt_snapshot.json");
         if (!response.ok) throw new Error("Dashboard data file is missing.");
         const data = await response.json();
+        const [housingResponse, creditAccessResponse] = await Promise.all([
+          fetch("./data/processed/housing_distress_filings.json"),
+          fetch("./data/processed/credit_access_locations.json")
+        ]);
+        data.housing_distress = housingResponse.ok ? await housingResponse.json() : null;
+        data.credit_access = creditAccessResponse.ok ? await creditAccessResponse.json() : null;
         if (data.economic_context?.tract_geojson_path) {
           const tractResponse = await fetch(data.economic_context.tract_geojson_path);
           data.economic_context.tract_geojson = await tractResponse.json();

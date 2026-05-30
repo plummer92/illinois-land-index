@@ -454,7 +454,8 @@ footer p,
   margin-top: 16px;
 }
 
-.mock-buttons span {
+.mock-buttons span,
+.mock-buttons a {
   display: grid;
   place-items: center;
   min-height: 34px;
@@ -464,6 +465,7 @@ footer p,
   color: var(--ink);
   font-size: 13px;
   font-weight: 850;
+  text-decoration: none;
 }
 
 .access {

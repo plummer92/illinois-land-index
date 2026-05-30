@@ -42,6 +42,16 @@ To refresh the Knoxville parcel summary:
 node scripts\import_knoxville_parcel_summary.mjs
 ```
 
+To refresh all public Knoxville land data locally:
+
+```powershell
+node scripts\refresh_public_land_data.mjs
+```
+
+GitHub Actions also runs `.github/workflows/refresh-public-land-data.yml` every morning and commits refreshed public-safe
+Knoxville summary/candidate files when the source data changes. The workflow can also be started manually from the
+repository's **Actions** tab.
+
 ## Local Preview
 
 Open `index.html` directly, or serve the folder with any static server.

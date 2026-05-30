@@ -1,0 +1,159 @@
+{
+  "generated_at": "2026-05-30",
+  "title": "Knoxville-East Tennessee Parcel and Assessment Source Registry",
+  "primary_sources": [
+    {
+      "name": "Tennessee Property Assessment Data",
+      "url": "https://assessment.cot.tn.gov/TPAD",
+      "use": "Parcel lookup, assessment values, land class, utilities, owner-facing property record links, and appraisal context."
+    },
+    {
+      "name": "Tennessee Comptroller Parcel Data Stewardship",
+      "url": "https://comptroller.tn.gov/office-functions/pa/gisredistricting/parcel-data-stewardship.html",
+      "use": "Statewide parcel geometry stewardship and public parcel data download path."
+    },
+    {
+      "name": "Tennessee Comptroller Parcel, Redistricting, and Land Use Maps",
+      "url": "https://www.comptroller.tn.gov/office-functions/pa/gisredistricting/redistricting-and-land-use-maps.html",
+      "use": "Quarterly land-use maps and parcel-data download context produced from property assessment data."
+    },
+    {
+      "name": "Tennessee Comptroller Information by County",
+      "url": "https://comptroller.tn.gov/office-functions/pa/tax-resources/assessment-information-for-each-county/information-by-county.html",
+      "use": "County assessor, trustee, reappraisal, and tax-rate reference links."
+    }
+  ],
+  "score_model": [
+    {
+      "name": "Acreage Fit",
+      "weight": 18,
+      "fields": ["total_acres", "land_use", "parcel_shape"],
+      "logic": "Prioritize parcels large enough for target use while flagging tiny fragments and awkward shapes."
+    },
+    {
+      "name": "Improvement Drag",
+      "weight": 12,
+      "fields": ["improvement_value", "land_value", "building_count"],
+      "logic": "Prefer land-heavy parcels where improvement value does not dominate the tax appraisal."
+    },
+    {
+      "name": "Assessment Pressure",
+      "weight": 16,
+      "fields": ["market_appraisal", "assessment", "tax_rate_area", "reappraisal_year"],
+      "logic": "Flag high tax burden, recent reassessment pressure, and appraisal jumps that could motivate review."
+    },
+    {
+      "name": "Utilities and Access",
+      "weight": 14,
+      "fields": ["water_sewer", "electricity", "gas", "road_frontage"],
+      "logic": "Separate buildable land from parcels that may need expensive utility or road work."
+    },
+    {
+      "name": "Terrain Buildability",
+      "weight": 18,
+      "fields": ["mean_slope", "steep_acres", "buildable_acres"],
+      "logic": "Use 3DEP/LiDAR-derived slope to identify land with usable building envelopes."
+    },
+    {
+      "name": "Flood and Soil Risk",
+      "weight": 12,
+      "fields": ["fema_zone", "hydric_soils", "septic_suitability"],
+      "logic": "Downrank parcels with floodplain, wet soils, or likely septic limitations."
+    },
+    {
+      "name": "Market Access",
+      "weight": 10,
+      "fields": ["distance_to_i75", "distance_to_knoxville", "distance_to_maryville", "nearby_credit_access"],
+      "logic": "Score commute and resale access around Knoxville, Oak Ridge, Maryville, Alcoa, and I-75."
+    }
+  ],
+  "counties": [
+    {
+      "county": "Anderson",
+      "fips": "47001",
+      "priority": "High",
+      "parcel_status": "Source identified",
+      "assessor_url": "https://andersoncountytn.gov/assessor-of-property/",
+      "assessment_url": "https://assessment.cot.tn.gov/TPAD",
+      "gis_url": "https://comptroller.tn.gov/office-functions/pa/gisredistricting/parcel-data-stewardship.html",
+      "import_notes": "Use TPAD and Comptroller parcel geometry first; county assessor page confirms local assessment office."
+    },
+    {
+      "county": "Blount",
+      "fips": "47009",
+      "priority": "High",
+      "parcel_status": "Source identified",
+      "assessor_url": "https://www.blounttn.gov/QuickLinks.aspx?CID=23",
+      "assessment_url": "https://assessment.cot.tn.gov/TPAD",
+      "gis_url": "https://www.blountgis.org/",
+      "import_notes": "Blount GIS notes public digital parcel data is available through the Tennessee Comptroller; premium local products may add more attributes."
+    },
+    {
+      "county": "Campbell",
+      "fips": "47013",
+      "priority": "Medium",
+      "parcel_status": "Source identified",
+      "assessor_url": "https://campbellcountytn.gov/elected-officials/property-assessor/",
+      "assessment_url": "https://assessment.cot.tn.gov/TPAD",
+      "gis_url": "https://comptroller.tn.gov/office-functions/pa/gisredistricting/parcel-data-stewardship.html",
+      "import_notes": "County assessor page links residents to Tennessee assessment data; good north-corridor acreage candidate."
+    },
+    {
+      "county": "Knox",
+      "fips": "47093",
+      "priority": "High",
+      "parcel_status": "County GIS identified",
+      "assessor_url": "https://property.knoxcounty.org/resources/helpful-links/",
+      "assessment_url": "https://property.knoxcounty.org/",
+      "gis_url": "https://www.kgis.org/portal/AboutUs/Links.aspx",
+      "import_notes": "Knox uses KGIS and county property lookup; use as the benchmark for urban growth pressure and parcel fragmentation."
+    },
+    {
+      "county": "Loudon",
+      "fips": "47105",
+      "priority": "High",
+      "parcel_status": "County GIS identified",
+      "assessor_url": "https://www.loudoncountyassessor.org/",
+      "assessment_url": "https://assessment.cot.tn.gov/TPAD",
+      "gis_url": "https://loudoncountyassessor.org/maps.php",
+      "import_notes": "Loudon assessor has GIS/maps context; important for I-75 south and lake-adjacent land screening."
+    },
+    {
+      "county": "Roane",
+      "fips": "47145",
+      "priority": "Medium",
+      "parcel_status": "Source identified",
+      "assessor_url": "https://roanecountytn.gov/assessor-of-property/",
+      "assessment_url": "https://assessment.cot.tn.gov/TPAD",
+      "gis_url": "https://comptroller.tn.gov/office-functions/pa/gisredistricting/parcel-data-stewardship.html",
+      "import_notes": "Roane assessor page includes tax-rate and parcel context; good acreage and lake-influence screen."
+    },
+    {
+      "county": "Sevier",
+      "fips": "47155",
+      "priority": "Medium",
+      "parcel_status": "Needs official endpoint confirmation",
+      "assessor_url": "https://www.seviercountytn.gov/",
+      "assessment_url": "https://assessment.cot.tn.gov/TPAD",
+      "gis_url": "https://comptroller.tn.gov/office-functions/pa/gisredistricting/parcel-data-stewardship.html",
+      "import_notes": "Use TPAD and Comptroller parcel data until a stable county assessor/GIS endpoint is confirmed."
+    },
+    {
+      "county": "Union",
+      "fips": "47173",
+      "priority": "Medium",
+      "parcel_status": "Source identified",
+      "assessor_url": "https://www.unioncountytnclerk.com/assessor-of-property/",
+      "assessment_url": "https://assessment.cot.tn.gov/TPAD",
+      "gis_url": "https://comptroller.tn.gov/office-functions/pa/gisredistricting/parcel-data-stewardship.html",
+      "import_notes": "Use for rural north-adjacent acreage comparison and lower-density land screening."
+    }
+  ],
+  "next_actions": [
+    "Download or request the Comptroller parcel geometry for the eight target counties.",
+    "Normalize county parcel identifiers, acreage, land use, appraisal values, assessment values, utilities, and reappraisal year.",
+    "Join parcel centroids to FDIC credit-access locations for market-access context.",
+    "Add USGS 3DEP/LiDAR slope values and FEMA flood zones to parcel centroids or parcel polygons.",
+    "Create a Knoxville parcel shortlist view after public-safe aggregation rules are confirmed."
+  ]
+}

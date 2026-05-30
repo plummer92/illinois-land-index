@@ -141,7 +141,8 @@
       .panel,
       .county-card,
       .funnel-card,
-      .source-card {
+      .source-card,
+      .score-card {
         border: 1px solid var(--line);
         border-radius: 8px;
         background: var(--surface);
@@ -212,6 +213,7 @@
       .county-list,
       .funnel-grid,
       .source-grid,
+      .score-grid,
       .breakdown-list,
       .next-list {
         display: grid;
@@ -220,7 +222,8 @@
 
       .county-card,
       .funnel-card,
-      .source-card {
+      .source-card,
+      .score-card {
         padding: 13px;
         box-shadow: none;
       }
@@ -240,7 +243,8 @@
 
       .county-card p,
       .funnel-card p,
-      .source-card p {
+      .source-card p,
+      .score-card p {
         margin-bottom: 8px;
         color: var(--muted);
         font-size: 0.88rem;
@@ -319,6 +323,72 @@
         line-height: 1.38;
       }
 
+      .parcel-table {
+        display: grid;
+        gap: 8px;
+      }
+
+      .parcel-row {
+        display: grid;
+        grid-template-columns: 100px 74px minmax(140px, 1fr) minmax(200px, 2fr);
+        gap: 10px;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfdfb;
+        padding: 10px;
+      }
+
+      .parcel-row strong {
+        font-size: 0.92rem;
+      }
+
+      .parcel-row span,
+      .parcel-row p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.82rem;
+        line-height: 1.35;
+      }
+
+      .parcel-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .mini-link {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--surface);
+        padding: 5px 8px;
+        color: var(--green);
+        font-size: 0.74rem;
+        font-weight: 850;
+        text-decoration: none;
+      }
+
+      .score-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .score-card h3 {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .score-card h3 span {
+        color: var(--gold);
+        font-size: 0.78rem;
+      }
+
+      .field-list {
+        color: var(--blue);
+        font-size: 0.78rem;
+        font-weight: 850;
+      }
+
       .note {
         margin: 14px 0 0;
         color: var(--muted);
@@ -346,14 +416,21 @@
         }
 
         .summary,
-        .funnel-grid {
+        .funnel-grid,
+        .score-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .parcel-row {
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         }
       }
 
       @media (max-width: 640px) {
         .summary,
-        .funnel-grid {
+        .funnel-grid,
+        .score-grid,
+        .parcel-row {
           grid-template-columns: 1fr;
         }
 
@@ -407,9 +484,9 @@
           <p>Mainstream banking access layer for the land and debt screen.</p>
         </article>
         <article class="metric">
-          <span>Funnel layers</span>
-          <strong id="funnel-count">7</strong>
-          <p>Land supply, terrain, flood, tax, credit, housing distress, and growth pressure.</p>
+          <span>Parcel sources</span>
+          <strong id="parcel-source-count">8</strong>
+          <p>Assessor, TPAD, GIS, and Comptroller import paths tracked county by county.</p>
         </article>
       </section>
 
@@ -466,6 +543,20 @@
           <span class="small-label">Source plan</span>
           <h2>Data Sources to Build the Full Knoxville Kit</h2>
           <div class="source-grid" id="source-grid"></div>
+        </article>
+      </section>
+
+      <section class="section section-grid">
+        <article class="panel">
+          <span class="small-label">Parcel import registry</span>
+          <h2>County Assessment and GIS Sources</h2>
+          <div class="parcel-table" id="parcel-table"></div>
+        </article>
+
+        <article class="panel">
+          <span class="small-label">Parcel score model</span>
+          <h2>How the Land Shortlist Will Score Parcels</h2>
+          <div class="score-grid" id="score-grid"></div>
         </article>
       </section>
     </main>
@@ -546,6 +637,41 @@
           .join("");
       }
 
+      function renderParcelSources(counties) {
+        const table = document.getElementById("parcel-table");
+        table.innerHTML = counties
+          .map(
+            (county) => `
+              <div class="parcel-row">
+                <strong>${county.county}</strong>
+                <span>${county.priority}</span>
+                <div class="parcel-links">
+                  <a class="mini-link" href="${county.assessor_url}" target="_blank" rel="noreferrer">Assessor</a>
+                  <a class="mini-link" href="${county.assessment_url}" target="_blank" rel="noreferrer">Assessment</a>
+                  <a class="mini-link" href="${county.gis_url}" target="_blank" rel="noreferrer">GIS</a>
+                </div>
+                <p>${county.import_notes}</p>
+              </div>
+            `,
+          )
+          .join("");
+      }
+
+      function renderScoreModel(scores) {
+        const grid = document.getElementById("score-grid");
+        grid.innerHTML = scores
+          .map(
+            (score) => `
+              <article class="score-card">
+                <h3>${score.name}<span>${score.weight} pts</span></h3>
+                <p>${score.logic}</p>
+                <div class="field-list">${score.fields.join(" / ")}</div>
+              </article>
+            `,
+          )
+          .join("");
+      }
+
       function renderMap(locations) {
         const usable = locations.filter((item) => item.latitude && item.longitude);
         const countyColors = {
@@ -604,24 +730,27 @@
       }
 
       async function init() {
-        const [kitRes, accessRes] = await Promise.all([
+        const [kitRes, accessRes, parcelRes] = await Promise.all([
           fetch("./data/processed/market_kit.json"),
           fetch("./data/processed/credit_access_locations.json"),
+          fetch("./data/processed/parcel_assessment_sources.json"),
         ]);
-        const [kit, access] = await Promise.all([kitRes.json(), accessRes.json()]);
+        const [kit, access, parcels] = await Promise.all([kitRes.json(), accessRes.json(), parcelRes.json()]);
 
         document.title = kit.title;
         setText("focus", kit.focus);
         setText("county-count", formatter.format(kit.counties.length));
         setText("location-count", formatter.format(access.summary.total_locations));
         setText("full-service-count", formatter.format(access.summary.full_service_locations));
-        setText("funnel-count", formatter.format(kit.funnel_scores.length));
+        setText("parcel-source-count", formatter.format(parcels.counties.length));
 
         renderCounties(kit.counties);
         renderFunnels(kit.funnel_scores);
         renderBreakdown(access.summary.counties);
         renderNext(kit.next_imports);
         renderSources(kit.source_plan);
+        renderParcelSources(parcels.counties);
+        renderScoreModel(parcels.score_model);
         renderMap(access.locations);
       }
 

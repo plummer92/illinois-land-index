@@ -25,6 +25,15 @@ and currently includes FDIC credit-access locations for Anderson, Blount, Campbe
 Roane, Sevier, and Union counties. It defines the next import stack for Tennessee parcel assessment,
 high-cost credit, housing distress, flood, slope, soil, and access layers.
 
+The Knoxville kit also includes a parcel and assessment source registry at:
+
+```text
+knoxville-market-dashboard/data/processed/parcel_assessment_sources.json
+```
+
+That registry tracks county assessor, assessment, and GIS source links plus the parcel scoring model
+that will be used once county parcel geometry and assessment tables are imported.
+
 ## Local Preview
 
 Open `index.html` directly, or serve the folder with any static server.

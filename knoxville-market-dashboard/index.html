@@ -4,7 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Knoxville-East Tennessee Land Funnel Kit</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <style>
       :root {
         --page: #f5f7f4;
@@ -366,6 +368,79 @@
         min-height: 280px;
       }
 
+      .candidate-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+        gap: 14px;
+        align-items: stretch;
+      }
+
+      #candidate-parcel-map {
+        width: 100%;
+        height: 520px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--soft);
+      }
+
+      .parcel-detail-card {
+        display: grid;
+        gap: 10px;
+        min-height: 520px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfdfb;
+        padding: 13px;
+      }
+
+      .parcel-detail-card h3 {
+        margin-bottom: 0;
+        color: var(--green);
+        font-size: 1.05rem;
+      }
+
+      .detail-stat-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .detail-stat {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        padding: 9px;
+      }
+
+      .detail-stat span {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--muted);
+        font-size: 0.68rem;
+        font-weight: 850;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .detail-stat strong {
+        color: var(--ink);
+        font-size: 0.96rem;
+      }
+
+      .risk-pill {
+        display: inline-grid;
+        width: fit-content;
+        min-height: 28px;
+        place-items: center;
+        border-radius: 999px;
+        background: rgba(36, 91, 158, 0.1);
+        padding: 0 10px;
+        color: var(--blue);
+        font-size: 0.75rem;
+        font-weight: 850;
+      }
+
       .layer-check {
         display: grid;
         grid-template-columns: 180px minmax(0, 1fr);
@@ -419,6 +494,44 @@
       .parcel-table {
         display: grid;
         gap: 8px;
+      }
+
+      .candidate-row {
+        display: grid;
+        grid-template-columns: minmax(90px, 0.85fr) 86px 90px 96px minmax(180px, 1.4fr);
+        gap: 10px;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfdfb;
+        padding: 10px;
+        cursor: pointer;
+        color: inherit;
+        font: inherit;
+        text-align: left;
+      }
+
+      .candidate-row:hover,
+      .candidate-row.active {
+        border-color: rgba(25, 114, 87, 0.48);
+        background: rgba(25, 114, 87, 0.06);
+      }
+
+      .candidate-row strong {
+        color: var(--green);
+      }
+
+      .candidate-row span,
+      .candidate-row p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.82rem;
+        line-height: 1.35;
+      }
+
+      .candidate-row b {
+        display: block;
+        color: var(--ink);
       }
 
       .parcel-row,
@@ -515,6 +628,7 @@
       @media (max-width: 980px) {
         .topbar,
         .main-grid,
+        .candidate-layout,
         .section-grid {
           grid-template-columns: 1fr;
         }
@@ -531,6 +645,10 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
+        .candidate-row {
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        }
+
         .parcel-row,
         .summary-row,
         .land-row,
@@ -544,6 +662,7 @@
         .funnel-grid,
         .score-grid,
         .land-insight-grid,
+        .candidate-row,
         .parcel-row,
         .summary-row,
         .land-row,
@@ -553,6 +672,12 @@
 
         #map {
           height: 390px;
+        }
+
+        #candidate-parcel-map,
+        .parcel-detail-card {
+          min-height: 0;
+          height: 420px;
         }
 
         .panel-head,
@@ -694,6 +819,42 @@
         </article>
       </section>
 
+      <section class="section">
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <span class="small-label">Clickable parcel layer</span>
+              <h2>Knoxville Candidate Parcel Map</h2>
+              <p>
+                A public-safe geometry layer showing large-lot parcel candidates by county. Click a parcel shape or
+                shortlist row to inspect acreage, county, class, value signals, and the next due-diligence question.
+              </p>
+            </div>
+          </div>
+          <div class="layer-check">
+            <strong>Screening layer</strong>
+            <span>
+              The map intentionally excludes owner names, parcel numbers, and mailing addresses. It is a first-pass
+              opportunity screen, not a purchase-ready parcel file.
+            </span>
+          </div>
+          <div class="candidate-layout">
+            <div>
+              <div id="candidate-parcel-map" class="loading">Loading parcel candidates...</div>
+              <p class="note">
+                Candidate parcels are filtered from public GIS services by acreage and summarized for land search
+                triage. Validate zoning, slope, floodplain, access, utilities, title, and local permitting before acting.
+              </p>
+            </div>
+            <aside class="parcel-detail-card" id="candidate-detail">
+              <h3>No parcel selected</h3>
+              <p class="note">Select a parcel polygon or shortlist row to open its screening detail.</p>
+            </aside>
+          </div>
+          <div class="parcel-table" id="candidate-parcel-table"></div>
+        </article>
+      </section>
+
       <section class="section section-grid">
         <article class="panel">
           <span class="small-label">Parcel import loaded</span>
@@ -737,6 +898,9 @@
 
     <script>
       const formatter = new Intl.NumberFormat("en-US");
+      let candidateMap = null;
+      let candidateLayer = null;
+      let selectedCandidateId = null;
 
       function setText(id, value) {
         const el = document.getElementById(id);
@@ -848,6 +1012,169 @@
         if (value >= 1_000_000_000) return `$${(value / 1_000_000_000).toFixed(1)}B`;
         if (value >= 1_000_000) return `$${(value / 1_000_000).toFixed(1)}M`;
         return `$${formatter.format(Math.round(value))}`;
+      }
+
+      function formatAcres(value) {
+        return Number.isFinite(value) ? formatter.format(Math.round(value * 10) / 10) : "N/A";
+      }
+
+      function candidateColor(score) {
+        if (score >= 75) return "#197257";
+        if (score >= 55) return "#245b9e";
+        if (score >= 38) return "#b7791f";
+        return "#be5a3e";
+      }
+
+      function dueDiligencePrompt(candidate) {
+        const county = candidate.county;
+        if (county === "Sevier") return "Validate slope, fire access, tourism zoning, and short-term-rental rules.";
+        if (county === "Knox") return "Check infill pressure, utility depth, road frontage, and zoning flexibility.";
+        if (county === "Blount") return "Check foothill slope, Maryville access, sewer availability, and airport corridors.";
+        if (county === "Loudon") return "Check lake restrictions, I-75 access, utility extensions, and retirement-market demand.";
+        return "Check frontage, slope, floodplain, utilities, zoning, title, and resale liquidity.";
+      }
+
+      function renderCandidateDetail(feature) {
+        const detail = document.getElementById("candidate-detail");
+        if (!feature?.properties) {
+          detail.innerHTML = `
+            <h3>No parcel selected</h3>
+            <p class="note">Select a parcel polygon or shortlist row to open its screening detail.</p>
+          `;
+          return;
+        }
+
+        const props = feature.properties;
+        detail.innerHTML = `
+          <div>
+            <span class="small-label">Selected candidate</span>
+            <h3>${props.county} County parcel candidate</h3>
+          </div>
+          <span class="risk-pill">Screening score ${props.score || 0}/100</span>
+          <div class="detail-stat-grid">
+            <div class="detail-stat"><span>Acres</span><strong>${formatAcres(props.acres)}</strong></div>
+            <div class="detail-stat"><span>Land value</span><strong>${formatMoney(props.land_market_value)}</strong></div>
+            <div class="detail-stat"><span>Value / acre</span><strong>${formatMoney(props.land_value_per_acre)}</strong></div>
+            <div class="detail-stat"><span>Buildings</span><strong>${formatter.format(props.building_count || 0)}</strong></div>
+            <div class="detail-stat"><span>Class</span><strong>${props.parcel_class || "Unclassified"}</strong></div>
+            <div class="detail-stat"><span>Source</span><strong>${props.source || "Public GIS"}</strong></div>
+          </div>
+          <p class="note"><strong>Land use:</strong> ${props.land_use || "Not classified"}</p>
+          <p class="note"><strong>Next check:</strong> ${dueDiligencePrompt(props)}</p>
+          <p class="note">${props.note || "Public-safe screening record."}</p>
+        `;
+      }
+
+      function updateCandidateTableSelection() {
+        document.querySelectorAll(".candidate-row").forEach((row) => {
+          row.classList.toggle("active", row.dataset.candidateId === selectedCandidateId);
+        });
+      }
+
+      function resetCandidateLayerStyles() {
+        if (!candidateLayer) return;
+        candidateLayer.eachLayer((layer) => {
+          const score = layer.feature?.properties?.score || 0;
+          layer.setStyle({
+            color: candidateColor(score),
+            fillColor: candidateColor(score),
+            fillOpacity: layer.feature?.properties?.candidate_id === selectedCandidateId ? 0.42 : 0.2,
+            opacity: 0.9,
+            weight: layer.feature?.properties?.candidate_id === selectedCandidateId ? 3 : 1.4,
+          });
+        });
+      }
+
+      function selectCandidate(feature, layer) {
+        if (!feature?.properties) return;
+        selectedCandidateId = feature.properties.candidate_id;
+        renderCandidateDetail(feature);
+        updateCandidateTableSelection();
+        resetCandidateLayerStyles();
+
+        if (candidateMap && layer?.getBounds) {
+          candidateMap.fitBounds(layer.getBounds(), { maxZoom: 13, padding: [24, 24] });
+        }
+      }
+
+      function renderCandidateTable(features) {
+        const table = document.getElementById("candidate-parcel-table");
+        const ranked = [...features]
+          .sort((a, b) => (b.properties?.score || 0) - (a.properties?.score || 0))
+          .slice(0, 24);
+
+        table.innerHTML = ranked.map(({ properties: props }) => `
+          <button class="candidate-row" type="button" data-candidate-id="${props.candidate_id}">
+            <strong>${props.county}</strong>
+            <span><b>${formatAcres(props.acres)}</b> acres</span>
+            <span><b>${formatMoney(props.land_value_per_acre)}</b> / acre</span>
+            <span><b>${props.score || 0}</b> score</span>
+            <p>${props.parcel_class || "Unclassified"} - ${dueDiligencePrompt(props)}</p>
+          </button>
+        `).join("");
+
+        table.querySelectorAll(".candidate-row").forEach((row) => {
+          row.addEventListener("click", () => {
+            const targetLayer = candidateLayer
+              ? Object.values(candidateLayer._layers).find(
+                  (layer) => layer.feature?.properties?.candidate_id === row.dataset.candidateId,
+                )
+              : null;
+            if (targetLayer) selectCandidate(targetLayer.feature, targetLayer);
+          });
+        });
+        updateCandidateTableSelection();
+      }
+
+      function renderCandidateParcelMap(collection) {
+        const mapEl = document.getElementById("candidate-parcel-map");
+        const features = collection?.features || [];
+        if (!features.length) {
+          mapEl.textContent = "No candidate parcel geometries loaded yet.";
+          return;
+        }
+
+        if (!window.L) {
+          mapEl.textContent = "Parcel map library could not load.";
+          return;
+        }
+
+        mapEl.classList.remove("loading");
+        mapEl.textContent = "";
+        if (candidateMap) candidateMap.remove();
+        candidateMap = L.map("candidate-parcel-map", { scrollWheelZoom: false });
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "&copy; OpenStreetMap contributors",
+          maxZoom: 18,
+        }).addTo(candidateMap);
+
+        candidateLayer = L.geoJSON(collection, {
+          style: (feature) => {
+            const color = candidateColor(feature.properties?.score || 0);
+            return { color, fillColor: color, fillOpacity: 0.2, opacity: 0.9, weight: 1.4 };
+          },
+          onEachFeature: (feature, layer) => {
+            const props = feature.properties || {};
+            layer.bindTooltip(`${props.county} County - ${formatAcres(props.acres)} acres`, { sticky: true });
+            layer.bindPopup(`
+              <strong>${props.county} County candidate</strong><br>
+              Acres: ${formatAcres(props.acres)}<br>
+              Land value: ${formatMoney(props.land_market_value)}<br>
+              Score: ${props.score || 0}/100
+            `);
+            layer.on("click", () => selectCandidate(feature, layer));
+          },
+        }).addTo(candidateMap);
+
+        candidateMap.fitBounds(candidateLayer.getBounds(), { padding: [22, 22] });
+        const firstLayer = Object.values(candidateLayer._layers)[0];
+        if (firstLayer) selectCandidate(firstLayer.feature, firstLayer);
+      }
+
+      function renderCandidateParcels(collection) {
+        const features = collection?.features || [];
+        renderCandidateParcelMap(collection);
+        renderCandidateTable(features);
       }
 
       function getTopLandUse(county) {
@@ -1085,11 +1412,12 @@
       }
 
       async function init() {
-        const [kitRes, accessRes, sourceRes, summaryRes] = await Promise.all([
+        const [kitRes, accessRes, sourceRes, summaryRes, candidateRes] = await Promise.all([
           fetch("./data/processed/market_kit.json"),
           fetch("./data/processed/credit_access_locations.json"),
           fetch("./data/processed/parcel_assessment_sources.json"),
           fetch("./data/processed/parcel_summary.json"),
+          fetch("./data/processed/parcel_candidates.geojson").catch(() => null),
         ]);
         const [kit, access, parcelSources, parcelSummary] = await Promise.all([
           kitRes.json(),
@@ -1097,6 +1425,7 @@
           sourceRes.json(),
           summaryRes.json(),
         ]);
+        const parcelCandidates = candidateRes?.ok ? await candidateRes.json() : { features: [] };
 
         document.title = kit.title;
         setText("focus", kit.focus);
@@ -1115,6 +1444,7 @@
         renderSources(kit.source_plan);
         renderLandInsights(parcelSummary);
         renderLandOpportunityTable(parcelSummary.counties);
+        renderCandidateParcels(parcelCandidates);
         renderAcreageChart(parcelSummary.counties);
         renderLandValueChart(parcelSummary.counties);
         renderParcelSummary(parcelSummary.counties);

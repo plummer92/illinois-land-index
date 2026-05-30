@@ -1,0 +1,161 @@
+{
+  "generated_at": "2026-05-30",
+  "title": "Knoxville-East Tennessee Land Funnel Kit",
+  "short_title": "Knoxville / East TN Kit",
+  "corridor": "I-75 / Knoxville / Maryville land search corridor",
+  "focus": "Screen land opportunities by combining parcel due diligence, terrain risk, tax pressure, housing distress, and credit-access context.",
+  "counties": [
+    {
+      "county": "Campbell",
+      "state": "TN",
+      "fips": "47013",
+      "role": "North I-75 entry and rural acreage gateway",
+      "watch": "Slope, floodplain pockets, utility access, and distance to Knoxville jobs."
+    },
+    {
+      "county": "Anderson",
+      "state": "TN",
+      "fips": "47001",
+      "role": "Oak Ridge, Clinton, and I-75 interchange land pressure",
+      "watch": "Industrial influence, lake proximity, TVA-related constraints, and commute routes."
+    },
+    {
+      "county": "Knox",
+      "state": "TN",
+      "fips": "47093",
+      "role": "Knoxville core market and growth-pressure benchmark",
+      "watch": "Higher pricing, zoning friction, infill pressure, and parcel fragmentation."
+    },
+    {
+      "county": "Loudon",
+      "state": "TN",
+      "fips": "47105",
+      "role": "I-75 south corridor with lake and retirement-market influence",
+      "watch": "Development pressure, lake restrictions, HOA pockets, and access to utilities."
+    },
+    {
+      "county": "Roane",
+      "state": "TN",
+      "fips": "47145",
+      "role": "West Knoxville acreage and Watts Bar / river influence",
+      "watch": "Floodplain, slope, road quality, and distance from employment centers."
+    },
+    {
+      "county": "Blount",
+      "state": "TN",
+      "fips": "47009",
+      "role": "Maryville, Alcoa, airport, and foothills land demand",
+      "watch": "Foothill slopes, tourism spillover, county zoning, and sewer availability."
+    },
+    {
+      "county": "Sevier",
+      "state": "TN",
+      "fips": "47155",
+      "role": "Tourism and foothills spillover from Sevierville and Gatlinburg",
+      "watch": "Short-term rental pressure, steep terrain, wildfire access, and traffic exposure."
+    },
+    {
+      "county": "Union",
+      "state": "TN",
+      "fips": "47173",
+      "role": "North rural adjacency for lower-density acreage searches",
+      "watch": "Road frontage, utility depth, lender access, and resale liquidity."
+    }
+  ],
+  "funnel_scores": [
+    {
+      "name": "Land Supply",
+      "signal": "Available acreage, parcel size, land class, and owner concentration.",
+      "status": "Source stack defined"
+    },
+    {
+      "name": "Terrain Risk",
+      "signal": "USGS elevation, slope, access grade, and buildable-area screening.",
+      "status": "Next import"
+    },
+    {
+      "name": "Flood Risk",
+      "signal": "FEMA flood hazard layers and stream-adjacent parcel checks.",
+      "status": "Next import"
+    },
+    {
+      "name": "Tax Pressure",
+      "signal": "Assessment changes, tax burden, delinquency signals where public records allow.",
+      "status": "Next import"
+    },
+    {
+      "name": "Credit Access",
+      "signal": "Mainstream branches, credit unions, high-cost lenders, and finance companies.",
+      "status": "FDIC loaded"
+    },
+    {
+      "name": "Housing Distress",
+      "signal": "Foreclosure, eviction, bankruptcy, and county court filing context.",
+      "status": "Source plan"
+    },
+    {
+      "name": "Growth Pressure",
+      "signal": "Interstate access, Maryville/Knoxville commute reach, tourism, and subdivision pressure.",
+      "status": "Source plan"
+    }
+  ],
+  "source_plan": [
+    {
+      "layer": "Parcel and assessment",
+      "sources": [
+        "Tennessee Comptroller property assessment data",
+        "Knox County property assessor and GIS",
+        "Blount County property assessor and GIS",
+        "Anderson, Campbell, Loudon, Roane, Sevier, and Union county property assessor records"
+      ],
+      "purpose": "Create parcel-level land scoring, ownership rollups, assessed value checks, and county linkouts."
+    },
+    {
+      "layer": "Credit access",
+      "sources": [
+        "FDIC BankFind Suite Location API",
+        "Tennessee Department of Financial Institutions licensee records",
+        "NCUA credit union branch data where available"
+      ],
+      "purpose": "Show mainstream credit access against high-cost credit and finance-company concentration."
+    },
+    {
+      "layer": "Debt and distress",
+      "sources": [
+        "CFPB Consumer Credit Trends",
+        "Urban Institute Debt in America",
+        "Tennessee court, foreclosure, eviction, and bankruptcy aggregate sources"
+      ],
+      "purpose": "Add county-level debt burden and housing distress context without individual credit records."
+    },
+    {
+      "layer": "Land risk",
+      "sources": [
+        "FEMA National Flood Hazard Layer",
+        "USGS 3DEP elevation and EPQS",
+        "NRCS SSURGO / Web Soil Survey",
+        "TDOT roads, interchanges, and traffic context"
+      ],
+      "purpose": "Flag floodplain, steep slope, soil, access, and commute constraints before parcel outreach."
+    }
+  ],
+  "next_imports": [
+    "Tennessee parcel and assessment tables for target counties",
+    "Tennessee high-cost credit and finance-company license locations",
+    "County-level foreclosure, eviction, and bankruptcy filing aggregates",
+    "FEMA flood, USGS slope, and NRCS soil layers",
+    "TDOT / OSM I-75, Maryville, Alcoa, Oak Ridge, and Knoxville access scoring"
+  ],
+  "market_options": [
+    {
+      "label": "Illinois / Sangamon Kit",
+      "href": "../consumer-debt-dashboard/",
+      "status": "Loaded"
+    },
+    {
+      "label": "Knoxville / East TN Kit",
+      "href": "./",
+      "status": "Active"
+    }
+  ]
+}

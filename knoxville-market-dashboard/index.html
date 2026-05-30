@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Knoxville-East Tennessee Land Funnel Kit</title>
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <style>
+      :root {
+        --page: #f5f7f4;
+        --surface: #ffffff;
+        --ink: #17202a;
+        --muted: #5f6a73;
+        --line: #dce3df;
+        --soft: #edf3ef;
+        --green: #197257;
+        --blue: #245b9e;
+        --gold: #b7791f;
+        --coral: #be5a3e;
+        --shadow: 0 12px 28px rgba(28, 42, 34, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family:
+          "Aptos",
+          "Segoe UI",
+          sans-serif;
+        color: var(--ink);
+        background:
+          linear-gradient(180deg, rgba(25, 114, 87, 0.12), transparent 300px),
+          var(--page);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .app {
+        width: min(1320px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 18px 0 42px;
+      }
+
+      .topbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 18px;
+        align-items: end;
+        padding: 14px 0 20px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .eyebrow {
+        margin: 0 0 7px;
+        color: var(--green);
+        font-size: 0.76rem;
+        font-weight: 850;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1 {
+        margin-bottom: 8px;
+        font-size: clamp(1.9rem, 3.2vw, 3.25rem);
+        line-height: 1.05;
+      }
+
+      h2 {
+        margin-bottom: 12px;
+        font-size: 1.18rem;
+      }
+
+      h3 {
+        margin-bottom: 8px;
+        font-size: 0.98rem;
+      }
+
+      .subtitle {
+        max-width: 850px;
+        margin-bottom: 0;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .kit-switcher {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+        min-width: 330px;
+      }
+
+      .chip,
+      .button {
+        display: inline-grid;
+        place-items: center;
+        min-height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        padding: 0 13px;
+        color: var(--ink);
+        font-size: 0.88rem;
+        font-weight: 850;
+        text-decoration: none;
+        box-shadow: var(--shadow);
+      }
+
+      .chip.active {
+        border-color: rgba(25, 114, 87, 0.5);
+        background: var(--green);
+        color: #fff;
+      }
+
+      .button {
+        color: var(--green);
+        box-shadow: none;
+      }
+
+      .summary {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin: 18px 0;
+      }
+
+      .metric,
+      .panel,
+      .county-card,
+      .funnel-card,
+      .source-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .metric {
+        min-height: 116px;
+        padding: 14px;
+      }
+
+      .metric span,
+      .small-label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--muted);
+        font-size: 0.74rem;
+        font-weight: 850;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .metric strong {
+        display: block;
+        color: var(--green);
+        font-size: 2rem;
+        line-height: 1;
+      }
+
+      .metric p {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 0.85rem;
+        line-height: 1.35;
+      }
+
+      .main-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(330px, 0.65fr);
+        gap: 14px;
+      }
+
+      .panel {
+        min-width: 0;
+        padding: 14px;
+      }
+
+      #map {
+        width: 100%;
+        height: 510px;
+      }
+
+      .panel-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 14px;
+        align-items: start;
+        margin-bottom: 10px;
+      }
+
+      .panel-head p {
+        margin-bottom: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      .county-list,
+      .funnel-grid,
+      .source-grid,
+      .breakdown-list,
+      .next-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .county-card,
+      .funnel-card,
+      .source-card {
+        padding: 13px;
+        box-shadow: none;
+      }
+
+      .county-card h3 {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 7px;
+      }
+
+      .county-card h3 span {
+        color: var(--gold);
+        font-size: 0.78rem;
+        white-space: nowrap;
+      }
+
+      .county-card p,
+      .funnel-card p,
+      .source-card p {
+        margin-bottom: 8px;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.42;
+      }
+
+      .county-card small,
+      .funnel-card small {
+        color: var(--blue);
+        font-weight: 850;
+      }
+
+      .section {
+        margin-top: 14px;
+      }
+
+      .section-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 14px;
+      }
+
+      .funnel-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .status {
+        display: inline-block;
+        border-radius: 999px;
+        background: var(--soft);
+        padding: 5px 9px;
+        color: var(--green);
+        font-size: 0.74rem;
+        font-weight: 850;
+      }
+
+      .breakdown-row {
+        display: grid;
+        grid-template-columns: minmax(90px, 1fr) minmax(150px, 2fr) 60px;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .bar {
+        height: 10px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: var(--soft);
+      }
+
+      .bar span {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, var(--green), var(--blue));
+      }
+
+      .breakdown-row strong {
+        text-align: right;
+      }
+
+      .next-list {
+        padding-left: 18px;
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .source-card ul {
+        display: grid;
+        gap: 6px;
+        margin: 0 0 10px;
+        padding-left: 18px;
+        color: var(--muted);
+        font-size: 0.88rem;
+        line-height: 1.38;
+      }
+
+      .note {
+        margin: 14px 0 0;
+        color: var(--muted);
+        font-size: 0.82rem;
+        line-height: 1.45;
+      }
+
+      .loading {
+        display: grid;
+        min-height: 280px;
+        place-items: center;
+        color: var(--muted);
+      }
+
+      @media (max-width: 980px) {
+        .topbar,
+        .main-grid,
+        .section-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .kit-switcher {
+          justify-content: flex-start;
+          min-width: 0;
+        }
+
+        .summary,
+        .funnel-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        .summary,
+        .funnel-grid {
+          grid-template-columns: 1fr;
+        }
+
+        #map {
+          height: 390px;
+        }
+
+        .panel-head,
+        .breakdown-row {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .breakdown-row strong {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Market funnel kit</p>
+          <h1>Knoxville-East Tennessee land search corridor</h1>
+          <p class="subtitle" id="focus">
+            Combining land due diligence and public debt context for the I-75, Knoxville, and Maryville area.
+          </p>
+        </div>
+        <nav class="kit-switcher" aria-label="Market kit selector">
+          <a class="chip" href="../index.html">Home</a>
+          <a class="chip" href="../consumer-debt-dashboard/">Illinois / Sangamon Kit</a>
+          <a class="chip active" href="./">Knoxville / East TN Kit</a>
+        </nav>
+      </header>
+
+      <section class="summary" aria-label="Knoxville market summary">
+        <article class="metric">
+          <span>Target counties</span>
+          <strong id="county-count">8</strong>
+          <p>From Campbell County down through Knoxville, Loudon, Blount, and Maryville.</p>
+        </article>
+        <article class="metric">
+          <span>Credit access points</span>
+          <strong id="location-count">263</strong>
+          <p>FDIC branch locations loaded for the target East Tennessee counties.</p>
+        </article>
+        <article class="metric">
+          <span>Full-service branches</span>
+          <strong id="full-service-count">251</strong>
+          <p>Mainstream banking access layer for the land and debt screen.</p>
+        </article>
+        <article class="metric">
+          <span>Funnel layers</span>
+          <strong id="funnel-count">7</strong>
+          <p>Land supply, terrain, flood, tax, credit, housing distress, and growth pressure.</p>
+        </article>
+      </section>
+
+      <section class="main-grid">
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <span class="small-label">Loaded layer</span>
+              <h2>Mainstream Credit Access Map</h2>
+              <p>FDIC branch locations show where conventional credit access is clustered across the target land corridor.</p>
+            </div>
+            <a class="button" href="../consumer-debt-dashboard/">Compare Illinois</a>
+          </div>
+          <div id="map" class="loading">Loading Knoxville credit access map</div>
+          <p class="note">
+            Public aggregate planning layer only. This dashboard does not contain individual credit records, owner records,
+            mailing lists, or private consumer information.
+          </p>
+        </article>
+
+        <aside class="panel">
+          <div class="panel-head">
+            <div>
+              <span class="small-label">County roles</span>
+              <h2>Search Area</h2>
+            </div>
+          </div>
+          <div class="county-list" id="county-list"></div>
+        </aside>
+      </section>
+
+      <section class="section section-grid">
+        <article class="panel">
+          <span class="small-label">Funnel stack</span>
+          <h2>Land + Debt Screening Layers</h2>
+          <div class="funnel-grid" id="funnel-grid"></div>
+        </article>
+
+        <article class="panel">
+          <span class="small-label">FDIC branch count</span>
+          <h2>Credit Access by County</h2>
+          <div class="breakdown-list" id="breakdown-list"></div>
+        </article>
+      </section>
+
+      <section class="section section-grid">
+        <article class="panel">
+          <span class="small-label">Next imports</span>
+          <h2>What Gets Added Next</h2>
+          <ol class="next-list" id="next-list"></ol>
+        </article>
+
+        <article class="panel">
+          <span class="small-label">Source plan</span>
+          <h2>Data Sources to Build the Full Knoxville Kit</h2>
+          <div class="source-grid" id="source-grid"></div>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      const formatter = new Intl.NumberFormat("en-US");
+
+      function setText(id, value) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value;
+      }
+
+      function renderCounties(counties) {
+        const list = document.getElementById("county-list");
+        list.innerHTML = counties
+          .map(
+            (county) => `
+              <article class="county-card">
+                <h3>${county.county}<span>${county.fips}</span></h3>
+                <p>${county.role}</p>
+                <small>${county.watch}</small>
+              </article>
+            `,
+          )
+          .join("");
+      }
+
+      function renderFunnels(funnels) {
+        const grid = document.getElementById("funnel-grid");
+        grid.innerHTML = funnels
+          .map(
+            (item) => `
+              <article class="funnel-card">
+                <h3>${item.name}</h3>
+                <p>${item.signal}</p>
+                <span class="status">${item.status}</span>
+              </article>
+            `,
+          )
+          .join("");
+      }
+
+      function renderBreakdown(counties) {
+        const list = document.getElementById("breakdown-list");
+        const max = Math.max(...Object.values(counties));
+        list.innerHTML = Object.entries(counties)
+          .sort((a, b) => b[1] - a[1])
+          .map(([county, count]) => {
+            const width = Math.max(4, Math.round((count / max) * 100));
+            return `
+              <div class="breakdown-row">
+                <span>${county}</span>
+                <div class="bar" aria-hidden="true"><span style="width: ${width}%"></span></div>
+                <strong>${count}</strong>
+              </div>
+            `;
+          })
+          .join("");
+      }
+
+      function renderNext(items) {
+        const list = document.getElementById("next-list");
+        list.innerHTML = items.map((item) => `<li>${item}</li>`).join("");
+      }
+
+      function renderSources(sources) {
+        const grid = document.getElementById("source-grid");
+        grid.innerHTML = sources
+          .map(
+            (source) => `
+              <article class="source-card">
+                <h3>${source.layer}</h3>
+                <ul>${source.sources.map((item) => `<li>${item}</li>`).join("")}</ul>
+                <p>${source.purpose}</p>
+              </article>
+            `,
+          )
+          .join("");
+      }
+
+      function renderMap(locations) {
+        const usable = locations.filter((item) => item.latitude && item.longitude);
+        const countyColors = {
+          Knox: "#197257",
+          Sevier: "#245b9e",
+          Blount: "#b7791f",
+          Anderson: "#be5a3e",
+          Campbell: "#6d5bd0",
+          Loudon: "#008b8b",
+          Roane: "#7a5a2e",
+          Union: "#59636f",
+        };
+
+        const traces = Object.entries(
+          usable.reduce((groups, item) => {
+            groups[item.county] ||= [];
+            groups[item.county].push(item);
+            return groups;
+          }, {}),
+        ).map(([county, items]) => ({
+          type: "scattermapbox",
+          mode: "markers",
+          name: county,
+          lat: items.map((item) => item.latitude),
+          lon: items.map((item) => item.longitude),
+          text: items.map(
+            (item) =>
+              `${item.institution}<br>${item.branch}<br>${item.address}, ${item.city}, TN<br>${item.service_type}`,
+          ),
+          hoverinfo: "text",
+          marker: {
+            size: county === "Knox" ? 9 : 8,
+            color: countyColors[county] || "#197257",
+            opacity: 0.82,
+          },
+        }));
+
+        Plotly.newPlot("map", traces, {
+          margin: { t: 0, r: 0, b: 0, l: 0 },
+          showlegend: true,
+          legend: {
+            orientation: "h",
+            y: 0.01,
+            x: 0.01,
+            bgcolor: "rgba(255,255,255,0.88)",
+            bordercolor: "#dce3df",
+            borderwidth: 1,
+            font: { size: 11 },
+          },
+          mapbox: {
+            style: "open-street-map",
+            center: { lat: 35.95, lon: -84.02 },
+            zoom: 8.05,
+          },
+        }, { displayModeBar: false, responsive: true });
+      }
+
+      async function init() {
+        const [kitRes, accessRes] = await Promise.all([
+          fetch("./data/processed/market_kit.json"),
+          fetch("./data/processed/credit_access_locations.json"),
+        ]);
+        const [kit, access] = await Promise.all([kitRes.json(), accessRes.json()]);
+
+        document.title = kit.title;
+        setText("focus", kit.focus);
+        setText("county-count", formatter.format(kit.counties.length));
+        setText("location-count", formatter.format(access.summary.total_locations));
+        setText("full-service-count", formatter.format(access.summary.full_service_locations));
+        setText("funnel-count", formatter.format(kit.funnel_scores.length));
+
+        renderCounties(kit.counties);
+        renderFunnels(kit.funnel_scores);
+        renderBreakdown(access.summary.counties);
+        renderNext(kit.next_imports);
+        renderSources(kit.source_plan);
+        renderMap(access.locations);
+      }
+
+      init().catch((error) => {
+        document.getElementById("map").textContent = "Could not load Knoxville market data.";
+        console.error(error);
+      });
+    </script>
+  </body>
+</html>

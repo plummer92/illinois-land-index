@@ -2,10 +2,11 @@
 
 Public marketing site for Illinois Land Index, a Central Illinois parcel intelligence project.
 
-The repo also includes a public aggregate consumer-debt context dashboard at:
+The repo also includes public market-kit dashboards at:
 
 ```text
 consumer-debt-dashboard/index.html
+knoxville-market-dashboard/index.html
 ```
 
 This repository is intentionally public-safe:
@@ -16,8 +17,13 @@ This repository is intentionally public-safe:
 - No private dashboard watchlist data
 - No individual consumer debt records
 
-The consumer-debt dashboard uses aggregate public datasets and Census context only.
+The Illinois consumer-debt dashboard uses aggregate public datasets and Census context only.
 It also includes CFPB consumer credit trend context for Illinois and national markets.
+
+The Knoxville-East Tennessee market kit covers the I-75 / Knoxville / Maryville land search corridor
+and currently includes FDIC credit-access locations for Anderson, Blount, Campbell, Knox, Loudon,
+Roane, Sevier, and Union counties. It defines the next import stack for Tennessee parcel assessment,
+high-cost credit, housing distress, flood, slope, soil, and access layers.
 
 ## Local Preview
 

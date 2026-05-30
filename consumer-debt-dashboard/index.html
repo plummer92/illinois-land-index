@@ -408,6 +408,44 @@
         line-height: 1.35;
       }
 
+      .access-breakdown {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .access-breakdown-card {
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .access-breakdown-card h3 {
+        margin: 0 0 8px;
+        color: var(--blue);
+        font-size: 0.78rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .access-pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .access-pill {
+        padding: 5px 7px;
+        border: 1px solid #d7e0e8;
+        border-radius: 999px;
+        background: var(--surface);
+        color: var(--ink);
+        font-size: 0.72rem;
+        font-weight: 750;
+      }
+
       .layer-chart {
         height: 260px;
         margin-top: 10px;
@@ -803,6 +841,10 @@
         }
 
         .layer-summary {
+          grid-template-columns: 1fr;
+        }
+
+        .access-breakdown {
           grid-template-columns: 1fr;
         }
 
@@ -1322,6 +1364,14 @@
       const countyLabel = county => `${county.county}, ${county.state}`;
       const selectedCountyRecord = data =>
         data.counties.find(county => county.fips === data.selected_county.fips) || data.counties.find(county => county.is_selected);
+      const countBy = (records, key) =>
+        records.reduce((acc, record) => {
+          const value = record[key] || "Unknown";
+          acc[value] = (acc[value] || 0) + 1;
+          return acc;
+        }, {});
+      const topEntries = (obj, limit = 5) =>
+        Object.entries(obj).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, limit);
 
       const renderCards = (data, metricKey) => {
         const cards = document.getElementById("cards");
@@ -1553,6 +1603,11 @@
         const limited = access.summary?.limited_service_locations || 0;
         const fullService = access.summary?.full_service_locations || 0;
         const totalAccessPoints = locations.length + highCostLocations.length;
+        const highCostShare = totalAccessPoints ? highCostLocations.length / totalAccessPoints : 0;
+        const bankToHighCostRatio = highCostLocations.length ? fullService / highCostLocations.length : null;
+        const highCostCategories = topEntries(highCost?.summary?.categories || countBy(highCostLocations, "category"), 6);
+        const highCostZips = topEntries(countBy(highCostLocations, "zip"), 4);
+        const bankCities = topEntries(access.summary?.cities || countBy(locations, "city"), 4);
 
         container.innerHTML = `
           <div class="layer-summary">
@@ -1564,17 +1619,39 @@
             <div class="layer-stat">
               <small>Bank branches</small>
               <strong>${formatCount(fullService)}</strong>
-              <span>${formatCount(limited)} limited-service records</span>
+              <span>${bankToHighCostRatio === null ? "No high-cost records loaded" : `${bankToHighCostRatio.toFixed(1)} full-service banks per high-cost point`}</span>
             </div>
             <div class="layer-stat">
               <small>High-cost credit</small>
               <strong>${formatCount(highCostLocations.length)}</strong>
-              <span>${highCost ? "IDFPR active Springfield records" : "Data file missing"}</span>
+              <span>${(highCostShare * 100).toFixed(1)}% of mapped access points</span>
             </div>
           </div>
           <div class="layer-check">
             <strong>Loaded into the program</strong>
-            <span>FDIC bank branch points are stored in <code>credit_access_locations.json</code>. IDFPR high-cost credit points are stored in <code>high_cost_credit_locations.json</code>.</span>
+            <span>FDIC bank branch points and IDFPR high-cost credit points are now both local datasets. Payday Loan and Consumer Legal Funding returned zero active Springfield records in the IDFPR lookup.</span>
+          </div>
+          <div class="access-breakdown">
+            <div class="access-breakdown-card">
+              <h3>High-cost categories</h3>
+              <div class="access-pill-row">
+                ${highCostCategories
+                  .map(([label, count]) => `<span class="access-pill">${label}: ${formatCount(count)}</span>`)
+                  .join("")}
+              </div>
+            </div>
+            <div class="access-breakdown-card">
+              <h3>Where it clusters</h3>
+              <div class="access-pill-row">
+                ${highCostZips
+                  .map(([zip, count]) => `<span class="access-pill">${zip}: ${formatCount(count)}</span>`)
+                  .join("")}
+                ${bankCities
+                  .slice(0, 2)
+                  .map(([city, count]) => `<span class="access-pill">${city} banks: ${formatCount(count)}</span>`)
+                  .join("")}
+              </div>
+            </div>
           </div>
           <div class="layer-chart" id="credit-access-map"></div>
           <div class="location-list">

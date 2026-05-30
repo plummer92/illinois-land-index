@@ -29,10 +29,18 @@ The Knoxville kit also includes a parcel and assessment source registry at:
 
 ```text
 knoxville-market-dashboard/data/processed/parcel_assessment_sources.json
+knoxville-market-dashboard/data/processed/parcel_summary.json
 ```
 
-That registry tracks county assessor, assessment, and GIS source links plus the parcel scoring model
-that will be used once county parcel geometry and assessment tables are imported.
+The registry tracks county assessor, assessment, and GIS source links plus the parcel scoring model.
+The parcel summary is a public-safe aggregate import from Tennessee ArcGIS parcel services. It excludes
+owner names, mailing addresses, parcel IDs, and individual parcel geometry.
+
+To refresh the Knoxville parcel summary:
+
+```powershell
+node scripts\import_knoxville_parcel_summary.mjs
+```
 
 ## Local Preview
 

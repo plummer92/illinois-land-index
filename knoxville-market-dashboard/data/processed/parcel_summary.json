@@ -1,0 +1,1008 @@
+{
+  "generated_at": "2026-05-30T15:06:56.533Z",
+  "title": "Knoxville-East Tennessee Public Parcel Summary",
+  "privacy_note": "Public-safe aggregate import only. This file intentionally excludes owner names, mailing addresses, parcel IDs, and individual parcel geometry.",
+  "sources": [
+    {
+      "name": "TNMap / ArcGIS TN_County_Parcel_Map FeatureServer",
+      "url": "https://services.arcgis.com/rD2ylXRs80UroD90/arcgis/rest/services/TN_County_Parcel_Map/FeatureServer",
+      "counties": [
+        "Anderson",
+        "Blount",
+        "Campbell",
+        "Loudon",
+        "Roane",
+        "Sevier",
+        "Union"
+      ]
+    },
+    {
+      "name": "Tennessee Comptroller NonImpact Parcels MapServer",
+      "url": "https://geoviewer.cot.tn.gov/arcgis/rest/services/GeoViewer/NonImpact_Parcels/MapServer",
+      "counties": [
+        "Knox"
+      ]
+    }
+  ],
+  "totals": {
+    "counties_loaded": 8,
+    "parcel_count": 483329,
+    "total_acres": 3290413,
+    "total_land_market_value": 21904473600,
+    "total_appraisal_value": 65195066275
+  },
+  "counties": [
+    {
+      "county": "Anderson",
+      "fips": "47001",
+      "source": "TN Comptroller FeatureServer",
+      "service_url": "https://services.arcgis.com/rD2ylXRs80UroD90/arcgis/rest/services/TN_County_Parcel_Map/FeatureServer/83",
+      "layer_name": "Anderson_Parcels",
+      "last_edit_date": "2023-11-22T05:51:45.192Z",
+      "data_last_edit_date": "2023-08-08T13:11:26.854Z",
+      "fields_used": {
+        "acre": "Parcels_CALC_ACRE",
+        "acreUnit": "acres",
+        "classField": "Assessment_Data_01_CLASS",
+        "landUseField": "Assessment_Data_01_LANDUSE",
+        "buildings": "Assessment_Data_01_BLDGS",
+        "landMarketValue": "Assessment_Data_01_LANDMKTVAL",
+        "appraisal": "Assessment_Data_01_APPRAISAL"
+      },
+      "parcel_count": 35891,
+      "total_acres": 266084.4,
+      "avg_acres": 7.41,
+      "max_acres": 52180,
+      "total_land_market_value": 1924624300,
+      "avg_land_market_value": 53639,
+      "total_appraisal_value": 6592294075,
+      "avg_appraisal_value": 183727,
+      "building_record_sum": 33383,
+      "acreage_buckets": [
+        {
+          "key": "under_1_acre",
+          "label": "Under 1 acre",
+          "count": 23111
+        },
+        {
+          "key": "one_to_5_acres",
+          "label": "1 to 5 acres",
+          "count": 8292
+        },
+        {
+          "key": "five_to_20_acres",
+          "label": "5 to 20 acres",
+          "count": 3062
+        },
+        {
+          "key": "twenty_to_50_acres",
+          "label": "20 to 50 acres",
+          "count": 940
+        },
+        {
+          "key": "fifty_plus_acres",
+          "label": "50+ acres",
+          "count": 486
+        }
+      ],
+      "top_classes": [
+        {
+          "label": "00 RESIDENTIAL",
+          "count": 30791
+        },
+        {
+          "label": "08 COMMERCIAL",
+          "count": 1916
+        },
+        {
+          "label": "11 AGRICULTURAL",
+          "count": 843
+        },
+        {
+          "label": "05 RELIGIOUS",
+          "count": 516
+        },
+        {
+          "label": "10 FARM",
+          "count": 418
+        },
+        {
+          "label": "12 FOREST",
+          "count": 415
+        },
+        {
+          "label": "02 CITY",
+          "count": 360
+        },
+        {
+          "label": "09 INDUSTRIAL",
+          "count": 185
+        }
+      ],
+      "top_land_uses": [
+        {
+          "label": "11 - HOUSEHOLD UNITS",
+          "count": 25243
+        },
+        {
+          "label": "Unknown",
+          "count": 6136
+        },
+        {
+          "label": "81 - AGRICULTURE AND RELATED ACTIVITIES",
+          "count": 1865
+        },
+        {
+          "label": "62 - PERSONAL SERVICES",
+          "count": 641
+        },
+        {
+          "label": "91 - UNDEVELOPED AND UNUSED LAND AREA",
+          "count": 587
+        },
+        {
+          "label": "74 - RECREATIONAL FACILITIES",
+          "count": 174
+        },
+        {
+          "label": "53 - RETAIL TRADE - GENERAL",
+          "count": 171
+        },
+        {
+          "label": "79 - RECREATION",
+          "count": 153
+        }
+      ]
+    },
+    {
+      "county": "Blount",
+      "fips": "47009",
+      "source": "TN Comptroller FeatureServer",
+      "service_url": "https://services.arcgis.com/rD2ylXRs80UroD90/arcgis/rest/services/TN_County_Parcel_Map/FeatureServer/79",
+      "layer_name": "Blount_Parcels",
+      "last_edit_date": "2023-11-22T05:51:45.192Z",
+      "data_last_edit_date": "2023-08-08T13:09:45.374Z",
+      "fields_used": {
+        "acre": "Parcels_CALC_ACRE",
+        "acreUnit": "acres",
+        "classField": "Assessment_Data_05_CLASS",
+        "landUseField": "Assessment_Data_05_LANDUSE",
+        "buildings": "Assessment_Data_05_BLDGS",
+        "landMarketValue": "Assessment_Data_05_LANDMKTVAL",
+        "appraisal": "Assessment_Data_05_APPRAISAL"
+      },
+      "parcel_count": 64820,
+      "total_acres": 345601.1,
+      "avg_acres": 5.33,
+      "max_acres": 93718.7,
+      "total_land_market_value": 7017893600,
+      "avg_land_market_value": 108398,
+      "total_appraisal_value": 22907740500,
+      "avg_appraisal_value": 353831,
+      "building_record_sum": 57065,
+      "acreage_buckets": [
+        {
+          "key": "under_1_acre",
+          "label": "Under 1 acre",
+          "count": 41396
+        },
+        {
+          "key": "one_to_5_acres",
+          "label": "1 to 5 acres",
+          "count": 15230
+        },
+        {
+          "key": "five_to_20_acres",
+          "label": "5 to 20 acres",
+          "count": 5975
+        },
+        {
+          "key": "twenty_to_50_acres",
+          "label": "20 to 50 acres",
+          "count": 1427
+        },
+        {
+          "key": "fifty_plus_acres",
+          "label": "50+ acres",
+          "count": 792
+        }
+      ],
+      "top_classes": [
+        {
+          "label": "00 RESIDENTIAL",
+          "count": 57652
+        },
+        {
+          "label": "08 COMMERCIAL",
+          "count": 2621
+        },
+        {
+          "label": "11 AGRICULTURAL",
+          "count": 1624
+        },
+        {
+          "label": "12 FOREST",
+          "count": 859
+        },
+        {
+          "label": "02 CITY",
+          "count": 474
+        },
+        {
+          "label": "05 RELIGIOUS",
+          "count": 444
+        },
+        {
+          "label": "10 FARM",
+          "count": 359
+        },
+        {
+          "label": "04 FEDERAL",
+          "count": 222
+        }
+      ],
+      "top_land_uses": [
+        {
+          "label": "11 - HOUSEHOLD UNITS",
+          "count": 37379
+        },
+        {
+          "label": "Unknown",
+          "count": 22026
+        },
+        {
+          "label": "11:74:81:83 - MULTIPLE LAND USES",
+          "count": 2327
+        },
+        {
+          "label": "74 - RECREATIONAL FACILITIES",
+          "count": 704
+        },
+        {
+          "label": "62 - PERSONAL SERVICES",
+          "count": 332
+        },
+        {
+          "label": "53 - RETAIL TRADE - GENERAL",
+          "count": 162
+        },
+        {
+          "label": "11:14:74:81 - MULTIPLE LAND USES",
+          "count": 127
+        },
+        {
+          "label": "91 - UNDEVELOPED AND UNUSED LAND AREA",
+          "count": 102
+        }
+      ]
+    },
+    {
+      "county": "Campbell",
+      "fips": "47013",
+      "source": "TN Comptroller FeatureServer",
+      "service_url": "https://services.arcgis.com/rD2ylXRs80UroD90/arcgis/rest/services/TN_County_Parcel_Map/FeatureServer/77",
+      "layer_name": "Campbell_Parcels",
+      "last_edit_date": "2023-11-22T05:51:45.192Z",
+      "data_last_edit_date": "2023-08-08T13:07:59.162Z",
+      "fields_used": {
+        "acre": "Parcels_CALC_ACRE",
+        "acreUnit": "acres",
+        "classField": "Assessment_Data_07_CLASS",
+        "landUseField": "Assessment_Data_07_LANDUSE",
+        "buildings": "Assessment_Data_07_BLDGS",
+        "landMarketValue": "Assessment_Data_07_LANDMKTVAL",
+        "appraisal": "Assessment_Data_07_APPRAISAL"
+      },
+      "parcel_count": 27623,
+      "total_acres": 1637356.9,
+      "avg_acres": 59.28,
+      "max_acres": 44017.2,
+      "total_land_market_value": 1883917100,
+      "avg_land_market_value": 68302,
+      "total_appraisal_value": 3814966300,
+      "avg_appraisal_value": 138314,
+      "building_record_sum": 20293,
+      "acreage_buckets": [
+        {
+          "key": "under_1_acre",
+          "label": "Under 1 acre",
+          "count": 17021
+        },
+        {
+          "key": "one_to_5_acres",
+          "label": "1 to 5 acres",
+          "count": 6829
+        },
+        {
+          "key": "five_to_20_acres",
+          "label": "5 to 20 acres",
+          "count": 2270
+        },
+        {
+          "key": "twenty_to_50_acres",
+          "label": "20 to 50 acres",
+          "count": 832
+        },
+        {
+          "key": "fifty_plus_acres",
+          "label": "50+ acres",
+          "count": 671
+        }
+      ],
+      "top_classes": [
+        {
+          "label": "00 RESIDENTIAL",
+          "count": 23775
+        },
+        {
+          "label": "08 COMMERCIAL",
+          "count": 1051
+        },
+        {
+          "label": "11 AGRICULTURAL",
+          "count": 854
+        },
+        {
+          "label": "10 FARM",
+          "count": 656
+        },
+        {
+          "label": "05 RELIGIOUS",
+          "count": 421
+        },
+        {
+          "label": "02 CITY",
+          "count": 222
+        },
+        {
+          "label": "12 FOREST",
+          "count": 208
+        },
+        {
+          "label": "03 STATE",
+          "count": 105
+        }
+      ],
+      "top_land_uses": [
+        {
+          "label": "11 - HOUSEHOLD UNITS",
+          "count": 15005
+        },
+        {
+          "label": "Unknown",
+          "count": 9221
+        },
+        {
+          "label": "11:91 - MULTIPLE LAND USES",
+          "count": 1131
+        },
+        {
+          "label": "91 - UNDEVELOPED AND UNUSED LAND AREA",
+          "count": 446
+        },
+        {
+          "label": "81 - AGRICULTURE AND RELATED ACTIVITIES",
+          "count": 427
+        },
+        {
+          "label": "11:81 - MULTIPLE LAND USES",
+          "count": 412
+        },
+        {
+          "label": "62 - PERSONAL SERVICES",
+          "count": 266
+        },
+        {
+          "label": "53 - RETAIL TRADE - GENERAL",
+          "count": 61
+        }
+      ]
+    },
+    {
+      "county": "Knox",
+      "fips": "47093",
+      "source": "TN Comptroller NonImpact / Knox parcel map service",
+      "service_url": "https://geoviewer.cot.tn.gov/arcgis/rest/services/GeoViewer/NonImpact_Parcels/MapServer/3",
+      "layer_name": "Knox",
+      "last_edit_date": null,
+      "data_last_edit_date": null,
+      "fields_used": {
+        "acre": "RECORDED_AREA",
+        "acreUnit": "acres",
+        "classField": "TAX_CLASS",
+        "landUseField": "LANDUSE",
+        "buildings": null,
+        "landMarketValue": null,
+        "appraisal": null
+      },
+      "parcel_count": 200325,
+      "total_acres": 144637.9,
+      "avg_acres": 0.74,
+      "max_acres": 460.5,
+      "total_land_market_value": null,
+      "avg_land_market_value": null,
+      "total_appraisal_value": null,
+      "avg_appraisal_value": null,
+      "building_record_sum": null,
+      "acreage_buckets": [
+        {
+          "key": "under_1_acre",
+          "label": "Under 1 acre",
+          "count": 167599
+        },
+        {
+          "key": "one_to_5_acres",
+          "label": "1 to 5 acres",
+          "count": 20715
+        },
+        {
+          "key": "five_to_20_acres",
+          "label": "5 to 20 acres",
+          "count": 6779
+        },
+        {
+          "key": "twenty_to_50_acres",
+          "label": "20 to 50 acres",
+          "count": 833
+        },
+        {
+          "key": "fifty_plus_acres",
+          "label": "50+ acres",
+          "count": 221
+        }
+      ],
+      "top_classes": [
+        {
+          "label": "R",
+          "count": 177706
+        },
+        {
+          "label": "C",
+          "count": 12804
+        },
+        {
+          "label": "E",
+          "count": 4112
+        },
+        {
+          "label": "A",
+          "count": 1801
+        },
+        {
+          "label": "O",
+          "count": 1636
+        },
+        {
+          "label": "NOT LOADED",
+          "count": 1553
+        },
+        {
+          "label": "I",
+          "count": 709
+        }
+      ],
+      "top_land_uses": [
+        {
+          "label": "101: 1-FAMILY",
+          "count": 133102
+        },
+        {
+          "label": "191: UNUSED-LAND",
+          "count": 19445
+        },
+        {
+          "label": "124: CONDO-UNIT",
+          "count": 8370
+        },
+        {
+          "label": "119: OTHER-RES",
+          "count": 6095
+        },
+        {
+          "label": "125: PUD",
+          "count": 5893
+        },
+        {
+          "label": "200: TAX FREEZE",
+          "count": 4181
+        },
+        {
+          "label": "302: 2-4-FAMILY-COMM",
+          "count": 1909
+        },
+        {
+          "label": "363: BUSINESS",
+          "count": 1678
+        }
+      ]
+    },
+    {
+      "county": "Loudon",
+      "fips": "47105",
+      "source": "TN Comptroller FeatureServer",
+      "service_url": "https://services.arcgis.com/rD2ylXRs80UroD90/arcgis/rest/services/TN_County_Parcel_Map/FeatureServer/38",
+      "layer_name": "Loudon_Parcels",
+      "last_edit_date": "2023-11-22T05:51:45.192Z",
+      "data_last_edit_date": "2023-08-08T12:52:50.742Z",
+      "fields_used": {
+        "acre": "Parcels_CALC_ACRE",
+        "acreUnit": "acres",
+        "classField": "Assessment_Data_53_CLASS",
+        "landUseField": "Assessment_Data_53_LANDUSE",
+        "buildings": "Assessment_Data_53_BLDGS",
+        "landMarketValue": "Assessment_Data_53_LANDMKTVAL",
+        "appraisal": "Assessment_Data_53_APPRAISAL"
+      },
+      "parcel_count": 35239,
+      "total_acres": 149645.8,
+      "avg_acres": 4.25,
+      "max_acres": 1150.8,
+      "total_land_market_value": 2950797200,
+      "avg_land_market_value": 83858,
+      "total_appraisal_value": 9044587000,
+      "avg_appraisal_value": 257036,
+      "building_record_sum": 27501,
+      "acreage_buckets": [
+        {
+          "key": "under_1_acre",
+          "label": "Under 1 acre",
+          "count": 24032
+        },
+        {
+          "key": "one_to_5_acres",
+          "label": "1 to 5 acres",
+          "count": 6819
+        },
+        {
+          "key": "five_to_20_acres",
+          "label": "5 to 20 acres",
+          "count": 2891
+        },
+        {
+          "key": "twenty_to_50_acres",
+          "label": "20 to 50 acres",
+          "count": 923
+        },
+        {
+          "key": "fifty_plus_acres",
+          "label": "50+ acres",
+          "count": 574
+        }
+      ],
+      "top_classes": [
+        {
+          "label": "00 RESIDENTIAL",
+          "count": 31023
+        },
+        {
+          "label": "11 AGRICULTURAL",
+          "count": 1469
+        },
+        {
+          "label": "08 COMMERCIAL",
+          "count": 1161
+        },
+        {
+          "label": "05 RELIGIOUS",
+          "count": 287
+        },
+        {
+          "label": "12 FOREST",
+          "count": 273
+        },
+        {
+          "label": "02 CITY",
+          "count": 267
+        },
+        {
+          "label": "04 FEDERAL",
+          "count": 217
+        },
+        {
+          "label": "10 FARM",
+          "count": 180
+        }
+      ],
+      "top_land_uses": [
+        {
+          "label": "11 - HOUSEHOLD UNITS",
+          "count": 20205
+        },
+        {
+          "label": "Unknown",
+          "count": 11587
+        },
+        {
+          "label": "11:81 - MULTIPLE LAND USES",
+          "count": 1144
+        },
+        {
+          "label": "81 - AGRICULTURE AND RELATED ACTIVITIES",
+          "count": 982
+        },
+        {
+          "label": "62 - PERSONAL SERVICES",
+          "count": 237
+        },
+        {
+          "label": "11:75 - MULTIPLE LAND USES",
+          "count": 189
+        },
+        {
+          "label": "53 - RETAIL TRADE - GENERAL",
+          "count": 99
+        },
+        {
+          "label": "91 - UNDEVELOPED AND UNUSED LAND AREA",
+          "count": 44
+        }
+      ]
+    },
+    {
+      "county": "Roane",
+      "fips": "47145",
+      "source": "TN Comptroller FeatureServer",
+      "service_url": "https://services.arcgis.com/rD2ylXRs80UroD90/arcgis/rest/services/TN_County_Parcel_Map/FeatureServer/19",
+      "layer_name": "Roane_Parcels",
+      "last_edit_date": "2023-11-22T05:51:45.192Z",
+      "data_last_edit_date": "2023-08-08T12:44:53.721Z",
+      "fields_used": {
+        "acre": "Parcels_CALC_ACRE",
+        "acreUnit": "acres",
+        "classField": "Assessment_Data_73_CLASS",
+        "landUseField": "Assessment_Data_73_LANDUSE",
+        "buildings": "Assessment_Data_73_BLDGS",
+        "landMarketValue": "Assessment_Data_73_LANDMKTVAL",
+        "appraisal": "Assessment_Data_73_APPRAISAL"
+      },
+      "parcel_count": 35303,
+      "total_acres": 227542.1,
+      "avg_acres": 6.45,
+      "max_acres": 17720.4,
+      "total_land_market_value": 2231948000,
+      "avg_land_market_value": 63258,
+      "total_appraisal_value": 5615996300,
+      "avg_appraisal_value": 159170,
+      "building_record_sum": 26193,
+      "acreage_buckets": [
+        {
+          "key": "under_1_acre",
+          "label": "Under 1 acre",
+          "count": 19739
+        },
+        {
+          "key": "one_to_5_acres",
+          "label": "1 to 5 acres",
+          "count": 9772
+        },
+        {
+          "key": "five_to_20_acres",
+          "label": "5 to 20 acres",
+          "count": 3818
+        },
+        {
+          "key": "twenty_to_50_acres",
+          "label": "20 to 50 acres",
+          "count": 1205
+        },
+        {
+          "key": "fifty_plus_acres",
+          "label": "50+ acres",
+          "count": 769
+        }
+      ],
+      "top_classes": [
+        {
+          "label": "00 RESIDENTIAL",
+          "count": 29911
+        },
+        {
+          "label": "08 COMMERCIAL",
+          "count": 1355
+        },
+        {
+          "label": "11 AGRICULTURAL",
+          "count": 1084
+        },
+        {
+          "label": "10 FARM",
+          "count": 695
+        },
+        {
+          "label": "12 FOREST",
+          "count": 616
+        },
+        {
+          "label": "05 RELIGIOUS",
+          "count": 464
+        },
+        {
+          "label": "04 FEDERAL",
+          "count": 323
+        },
+        {
+          "label": "02 CITY",
+          "count": 290
+        }
+      ],
+      "top_land_uses": [
+        {
+          "label": "11 - HOUSEHOLD UNITS",
+          "count": 22048
+        },
+        {
+          "label": "Unknown",
+          "count": 10949
+        },
+        {
+          "label": "81 - AGRICULTURE AND RELATED ACTIVITIES",
+          "count": 952
+        },
+        {
+          "label": "62 - PERSONAL SERVICES",
+          "count": 345
+        },
+        {
+          "label": "53 - RETAIL TRADE - GENERAL",
+          "count": 262
+        },
+        {
+          "label": "91 - UNDEVELOPED AND UNUSED LAND AREA",
+          "count": 132
+        },
+        {
+          "label": "13 - RESIDENTIAL HOTELS",
+          "count": 64
+        },
+        {
+          "label": "63 - BUSINESS SERVICES",
+          "count": 63
+        }
+      ]
+    },
+    {
+      "county": "Sevier",
+      "fips": "47155",
+      "source": "TN Comptroller FeatureServer",
+      "service_url": "https://services.arcgis.com/rD2ylXRs80UroD90/arcgis/rest/services/TN_County_Parcel_Map/FeatureServer/15",
+      "layer_name": "Sevier_Parcels",
+      "last_edit_date": "2023-11-22T05:51:45.192Z",
+      "data_last_edit_date": "2023-08-08T12:43:14.919Z",
+      "fields_used": {
+        "acre": "Parcels_CALC_ACRE",
+        "acreUnit": "acres",
+        "classField": "Assessment_Data_78_CLASS",
+        "landUseField": "Assessment_Data_78_LANDUSE",
+        "buildings": "Assessment_Data_78_BLDGS",
+        "landMarketValue": "Assessment_Data_78_LANDMKTVAL",
+        "appraisal": "Assessment_Data_78_APPRAISAL"
+      },
+      "parcel_count": 69573,
+      "total_acres": 363543.4,
+      "avg_acres": 5.23,
+      "max_acres": 119162.5,
+      "total_land_market_value": 5151451600,
+      "avg_land_market_value": 74133,
+      "total_appraisal_value": 15417636100,
+      "avg_appraisal_value": 221872,
+      "building_record_sum": 51272,
+      "acreage_buckets": [
+        {
+          "key": "under_1_acre",
+          "label": "Under 1 acre",
+          "count": 43508
+        },
+        {
+          "key": "one_to_5_acres",
+          "label": "1 to 5 acres",
+          "count": 18360
+        },
+        {
+          "key": "five_to_20_acres",
+          "label": "5 to 20 acres",
+          "count": 5443
+        },
+        {
+          "key": "twenty_to_50_acres",
+          "label": "20 to 50 acres",
+          "count": 1470
+        },
+        {
+          "key": "fifty_plus_acres",
+          "label": "50+ acres",
+          "count": 792
+        }
+      ],
+      "top_classes": [
+        {
+          "label": "00 RESIDENTIAL",
+          "count": 55543
+        },
+        {
+          "label": "08 COMMERCIAL",
+          "count": 9325
+        },
+        {
+          "label": "11 AGRICULTURAL",
+          "count": 1885
+        },
+        {
+          "label": "10 FARM",
+          "count": 661
+        },
+        {
+          "label": "01 COUNTY",
+          "count": 514
+        },
+        {
+          "label": "02 CITY",
+          "count": 513
+        },
+        {
+          "label": "05 RELIGIOUS",
+          "count": 452
+        },
+        {
+          "label": "12 FOREST",
+          "count": 379
+        }
+      ],
+      "top_land_uses": [
+        {
+          "label": "11 - HOUSEHOLD UNITS",
+          "count": 47339
+        },
+        {
+          "label": "Unknown",
+          "count": 16885
+        },
+        {
+          "label": "11:74:81:83 - MULTIPLE LAND USES",
+          "count": 1900
+        },
+        {
+          "label": "11:81 - MULTIPLE LAND USES",
+          "count": 462
+        },
+        {
+          "label": "53 - RETAIL TRADE - GENERAL",
+          "count": 259
+        },
+        {
+          "label": "62 - PERSONAL SERVICES",
+          "count": 248
+        },
+        {
+          "label": "13 - RESIDENTIAL HOTELS",
+          "count": 196
+        },
+        {
+          "label": "11:14:74:81 - MULTIPLE LAND USES",
+          "count": 166
+        }
+      ]
+    },
+    {
+      "county": "Union",
+      "fips": "47173",
+      "source": "TN Comptroller FeatureServer",
+      "service_url": "https://services.arcgis.com/rD2ylXRs80UroD90/arcgis/rest/services/TN_County_Parcel_Map/FeatureServer/7",
+      "layer_name": "Union_Parcels",
+      "last_edit_date": "2023-11-22T05:51:45.192Z",
+      "data_last_edit_date": "2023-08-08T13:20:01.059Z",
+      "fields_used": {
+        "acre": "Parcels_CALC_ACRE",
+        "acreUnit": "acres",
+        "classField": "Assessment_Data_87_CLASS",
+        "landUseField": "Assessment_Data_87_LANDUSE",
+        "buildings": "Assessment_Data_87_BLDGS",
+        "landMarketValue": "Assessment_Data_87_LANDMKTVAL",
+        "appraisal": "Assessment_Data_87_APPRAISAL"
+      },
+      "parcel_count": 14555,
+      "total_acres": 156001.4,
+      "avg_acres": 10.72,
+      "max_acres": 20356.2,
+      "total_land_market_value": 743841800,
+      "avg_land_market_value": 51243,
+      "total_appraisal_value": 1801846000,
+      "avg_appraisal_value": 124128,
+      "building_record_sum": 11304,
+      "acreage_buckets": [
+        {
+          "key": "under_1_acre",
+          "label": "Under 1 acre",
+          "count": 6321
+        },
+        {
+          "key": "one_to_5_acres",
+          "label": "1 to 5 acres",
+          "count": 4680
+        },
+        {
+          "key": "five_to_20_acres",
+          "label": "5 to 20 acres",
+          "count": 2086
+        },
+        {
+          "key": "twenty_to_50_acres",
+          "label": "20 to 50 acres",
+          "count": 933
+        },
+        {
+          "key": "fifty_plus_acres",
+          "label": "50+ acres",
+          "count": 535
+        }
+      ],
+      "top_classes": [
+        {
+          "label": "00 RESIDENTIAL",
+          "count": 11830
+        },
+        {
+          "label": "11 AGRICULTURAL",
+          "count": 1406
+        },
+        {
+          "label": "05 RELIGIOUS",
+          "count": 350
+        },
+        {
+          "label": "08 COMMERCIAL",
+          "count": 275
+        },
+        {
+          "label": "10 FARM",
+          "count": 229
+        },
+        {
+          "label": "12 FOREST",
+          "count": 135
+        },
+        {
+          "label": "04 FEDERAL",
+          "count": 69
+        },
+        {
+          "label": "01 COUNTY",
+          "count": 63
+        }
+      ],
+      "top_land_uses": [
+        {
+          "label": "11 - HOUSEHOLD UNITS",
+          "count": 5927
+        },
+        {
+          "label": "Unknown",
+          "count": 5687
+        },
+        {
+          "label": "11:14:74:81 - MULTIPLE LAND USES",
+          "count": 1204
+        },
+        {
+          "label": "11:81 - MULTIPLE LAND USES",
+          "count": 268
+        },
+        {
+          "label": "11:91 - MULTIPLE LAND USES",
+          "count": 219
+        },
+        {
+          "label": "91 - UNDEVELOPED AND UNUSED LAND AREA",
+          "count": 197
+        },
+        {
+          "label": "11:14:53:74 - MULTIPLE LAND USES",
+          "count": 175
+        },
+        {
+          "label": "62 - PERSONAL SERVICES",
+          "count": 170
+        }
+      ]
+    }
+  ]
+}

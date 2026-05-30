@@ -328,7 +328,8 @@
         gap: 8px;
       }
 
-      .parcel-row {
+      .parcel-row,
+      .summary-row {
         display: grid;
         grid-template-columns: 100px 74px minmax(140px, 1fr) minmax(200px, 2fr);
         gap: 10px;
@@ -344,11 +345,26 @@
       }
 
       .parcel-row span,
-      .parcel-row p {
+      .parcel-row p,
+      .summary-row span,
+      .summary-row p {
         margin: 0;
         color: var(--muted);
         font-size: 0.82rem;
         line-height: 1.35;
+      }
+
+      .summary-row {
+        grid-template-columns: minmax(90px, 1fr) 92px 92px minmax(170px, 1.4fr);
+      }
+
+      .summary-row strong {
+        color: var(--green);
+        font-size: 0.92rem;
+      }
+
+      .summary-row b {
+        color: var(--ink);
       }
 
       .parcel-links {
@@ -421,7 +437,8 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .parcel-row {
+        .parcel-row,
+        .summary-row {
           grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         }
       }
@@ -430,7 +447,8 @@
         .summary,
         .funnel-grid,
         .score-grid,
-        .parcel-row {
+        .parcel-row,
+        .summary-row {
           grid-template-columns: 1fr;
         }
 
@@ -474,19 +492,19 @@
           <p>From Campbell County down through Knoxville, Loudon, Blount, and Maryville.</p>
         </article>
         <article class="metric">
+          <span>Parcel records</span>
+          <strong id="parcel-record-count">483k</strong>
+          <p>Public-safe aggregate parcel import across the Knoxville target counties.</p>
+        </article>
+        <article class="metric">
+          <span>5+ acre parcels</span>
+          <strong id="acreage-candidate-count">45.7k</strong>
+          <p>Initial land-candidate bucket before slope, flood, soil, and access filters.</p>
+        </article>
+        <article class="metric">
           <span>Credit access points</span>
           <strong id="location-count">263</strong>
           <p>FDIC branch locations loaded for the target East Tennessee counties.</p>
-        </article>
-        <article class="metric">
-          <span>Full-service branches</span>
-          <strong id="full-service-count">251</strong>
-          <p>Mainstream banking access layer for the land and debt screen.</p>
-        </article>
-        <article class="metric">
-          <span>Parcel sources</span>
-          <strong id="parcel-source-count">8</strong>
-          <p>Assessor, TPAD, GIS, and Comptroller import paths tracked county by county.</p>
         </article>
       </section>
 
@@ -534,11 +552,23 @@
 
       <section class="section section-grid">
         <article class="panel">
+          <span class="small-label">Parcel import loaded</span>
+          <h2>Public Parcel Summary by County</h2>
+          <div class="parcel-table" id="parcel-summary-table"></div>
+          <p class="note">
+            Acreage and assessment fields come from public GIS/assessment services and can include county-specific
+            mapping quirks, overlays, or stale records. Treat these as screening signals, not closing-table facts.
+          </p>
+        </article>
+
+        <article class="panel">
           <span class="small-label">Next imports</span>
           <h2>What Gets Added Next</h2>
           <ol class="next-list" id="next-list"></ol>
         </article>
+      </section>
 
+      <section class="section section-grid">
         <article class="panel">
           <span class="small-label">Source plan</span>
           <h2>Data Sources to Build the Full Knoxville Kit</h2>
@@ -657,6 +687,29 @@
           .join("");
       }
 
+      function getFivePlusCount(county) {
+        return county.acreage_buckets
+          .filter((bucket) => ["five_to_20_acres", "twenty_to_50_acres", "fifty_plus_acres"].includes(bucket.key))
+          .reduce((total, bucket) => total + bucket.count, 0);
+      }
+
+      function renderParcelSummary(counties) {
+        const table = document.getElementById("parcel-summary-table");
+        table.innerHTML = counties
+          .map((county) => {
+            const topUse = county.top_land_uses?.[0]?.label || "Not classified";
+            return `
+              <div class="summary-row">
+                <strong>${county.county}</strong>
+                <span><b>${formatter.format(county.parcel_count)}</b> parcels</span>
+                <span><b>${formatter.format(getFivePlusCount(county))}</b> 5+ acres</span>
+                <p>${topUse}</p>
+              </div>
+            `;
+          })
+          .join("");
+      }
+
       function renderScoreModel(scores) {
         const grid = document.getElementById("score-grid");
         grid.innerHTML = scores
@@ -730,27 +783,37 @@
       }
 
       async function init() {
-        const [kitRes, accessRes, parcelRes] = await Promise.all([
+        const [kitRes, accessRes, sourceRes, summaryRes] = await Promise.all([
           fetch("./data/processed/market_kit.json"),
           fetch("./data/processed/credit_access_locations.json"),
           fetch("./data/processed/parcel_assessment_sources.json"),
+          fetch("./data/processed/parcel_summary.json"),
         ]);
-        const [kit, access, parcels] = await Promise.all([kitRes.json(), accessRes.json(), parcelRes.json()]);
+        const [kit, access, parcelSources, parcelSummary] = await Promise.all([
+          kitRes.json(),
+          accessRes.json(),
+          sourceRes.json(),
+          summaryRes.json(),
+        ]);
 
         document.title = kit.title;
         setText("focus", kit.focus);
         setText("county-count", formatter.format(kit.counties.length));
+        setText("parcel-record-count", formatter.format(parcelSummary.totals.parcel_count));
+        setText(
+          "acreage-candidate-count",
+          formatter.format(parcelSummary.counties.reduce((total, county) => total + getFivePlusCount(county), 0)),
+        );
         setText("location-count", formatter.format(access.summary.total_locations));
-        setText("full-service-count", formatter.format(access.summary.full_service_locations));
-        setText("parcel-source-count", formatter.format(parcels.counties.length));
 
         renderCounties(kit.counties);
         renderFunnels(kit.funnel_scores);
         renderBreakdown(access.summary.counties);
         renderNext(kit.next_imports);
         renderSources(kit.source_plan);
-        renderParcelSources(parcels.counties);
-        renderScoreModel(parcels.score_model);
+        renderParcelSummary(parcelSummary.counties);
+        renderParcelSources(parcelSources.counties);
+        renderScoreModel(parcelSources.score_model);
         renderMap(access.locations);
       }
 

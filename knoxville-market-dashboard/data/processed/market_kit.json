@@ -66,7 +66,7 @@
     {
       "name": "Land Supply",
       "signal": "Available acreage, parcel size, land class, and owner concentration.",
-      "status": "Parcel registry added"
+      "status": "Parcel summary loaded"
     },
     {
       "name": "Terrain Risk",
@@ -140,7 +140,7 @@
     }
   ],
   "next_imports": [
-    "Download Tennessee parcel geometry and assessment tables for target counties",
+    "Add parcel-level private shortlist scoring for the loaded Knoxville parcel summaries",
     "Tennessee high-cost credit and finance-company license locations",
     "County-level foreclosure, eviction, and bankruptcy filing aggregates",
     "FEMA flood, USGS slope, and NRCS soil layers",

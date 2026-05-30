@@ -60,16 +60,10 @@ http://localhost:8080
 
 Sitewide analytics and click tracking live in `analytics.js`.
 
-To enable Google Analytics 4, replace this placeholder in `analytics.js`:
+Google Analytics 4 is configured for `illinoislandindex.com` with measurement ID:
 
 ```js
-const GA_MEASUREMENT_ID = "G-REPLACE-WITH-YOUR-ID";
-```
-
-with the GA4 measurement ID for `illinoislandindex.com`, such as:
-
-```js
-const GA_MEASUREMENT_ID = "G-ABC123XYZ0";
+const GA_MEASUREMENT_ID = "G-8JFK3CZ7LE";
 ```
 
 The tracker records page views plus link-click events for the Illinois dashboard, debt context,

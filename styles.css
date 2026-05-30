@@ -575,6 +575,47 @@ footer a {
   line-height: 1.65;
 }
 
+.seo-hero {
+  padding: clamp(56px, 8vw, 112px) clamp(18px, 4vw, 56px) clamp(32px, 5vw, 64px);
+}
+
+.seo-hero h1 {
+  font-size: clamp(42px, 5.8vw, 78px);
+}
+
+.seo-hero .lede {
+  max-width: 850px;
+}
+
+.seo-content {
+  display: grid;
+  gap: 14px;
+  max-width: 1080px;
+  padding: 0 clamp(18px, 4vw, 56px) clamp(56px, 8vw, 96px);
+}
+
+.seo-content article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.84);
+  padding: 22px;
+}
+
+.seo-content h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.seo-content p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.seo-content a {
+  color: var(--green-dark);
+  font-weight: 800;
+}
+
 @media (max-width: 1040px) {
   .hero,
   .access {

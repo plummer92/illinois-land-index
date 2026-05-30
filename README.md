@@ -56,6 +56,25 @@ Then open:
 http://localhost:8080
 ```
 
+## Analytics
+
+Sitewide analytics and click tracking live in `analytics.js`.
+
+To enable Google Analytics 4, replace this placeholder in `analytics.js`:
+
+```js
+const GA_MEASUREMENT_ID = "G-REPLACE-WITH-YOUR-ID";
+```
+
+with the GA4 measurement ID for `illinoislandindex.com`, such as:
+
+```js
+const GA_MEASUREMENT_ID = "G-ABC123XYZ0";
+```
+
+The tracker records page views plus link-click events for the Illinois dashboard, debt context,
+Knoxville dashboard, research pages, and market request form.
+
 ## Deploy
 
 This site is ready for GitHub Pages, Netlify, Vercel, Firebase Hosting, or any static web host.

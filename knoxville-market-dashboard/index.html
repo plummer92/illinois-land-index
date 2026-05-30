@@ -323,6 +323,99 @@
         line-height: 1.38;
       }
 
+      .land-insight-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .land-card {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfdfb;
+        padding: 12px;
+      }
+
+      .land-card small {
+        display: block;
+        margin-bottom: 7px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 850;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .land-card strong {
+        display: block;
+        color: var(--green);
+        font-size: 1.45rem;
+        line-height: 1.05;
+      }
+
+      .land-card span {
+        display: block;
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 0.8rem;
+        line-height: 1.32;
+      }
+
+      .land-chart {
+        min-height: 280px;
+      }
+
+      .layer-check {
+        display: grid;
+        grid-template-columns: 180px minmax(0, 1fr);
+        gap: 10px;
+        align-items: start;
+        border: 1px solid rgba(25, 114, 87, 0.22);
+        border-radius: 8px;
+        background: rgba(25, 114, 87, 0.06);
+        padding: 11px;
+        margin: 10px 0 12px;
+      }
+
+      .layer-check strong {
+        color: var(--green);
+      }
+
+      .layer-check span {
+        color: var(--muted);
+        font-size: 0.86rem;
+        line-height: 1.4;
+      }
+
+      .land-row {
+        display: grid;
+        grid-template-columns: minmax(92px, 0.75fr) repeat(4, minmax(82px, 0.45fr)) minmax(170px, 1.2fr);
+        gap: 10px;
+        align-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfdfb;
+        padding: 10px;
+      }
+
+      .land-row strong {
+        color: var(--green);
+      }
+
+      .land-row span,
+      .land-row p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.82rem;
+        line-height: 1.35;
+      }
+
+      .land-row b {
+        display: block;
+        color: var(--ink);
+      }
+
       .parcel-table {
         display: grid;
         gap: 8px;
@@ -433,12 +526,15 @@
 
         .summary,
         .funnel-grid,
-        .score-grid {
+        .score-grid,
+        .land-insight-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .parcel-row,
-        .summary-row {
+        .summary-row,
+        .land-row,
+        .layer-check {
           grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         }
       }
@@ -447,8 +543,11 @@
         .summary,
         .funnel-grid,
         .score-grid,
+        .land-insight-grid,
         .parcel-row,
-        .summary-row {
+        .summary-row,
+        .land-row,
+        .layer-check {
           grid-template-columns: 1fr;
         }
 
@@ -547,6 +646,51 @@
           <span class="small-label">FDIC branch count</span>
           <h2>Credit Access by County</h2>
           <div class="breakdown-list" id="breakdown-list"></div>
+        </article>
+      </section>
+
+      <section class="section">
+        <article class="panel">
+          <div class="panel-head">
+            <div>
+              <span class="small-label">Loaded land layer</span>
+              <h2>Knoxville Parcel Opportunity Readout</h2>
+              <p>
+                This mirrors the Springfield-style loaded-data workflow: aggregate public parcel records are already in
+                the program, with county-level acreage, assessment, land-use, and next-check logic.
+              </p>
+            </div>
+          </div>
+          <div class="layer-check">
+            <strong>Loaded into the program</strong>
+            <span>
+              Parcel counts, acreage buckets, land-use classes, appraisal values, and land market value signals are stored
+              in <code>parcel_summary.json</code>. Owner names, parcel IDs, mailing addresses, and parcel geometry are intentionally excluded.
+            </span>
+          </div>
+          <div class="land-insight-grid" id="land-insight-grid"></div>
+          <div class="section-grid">
+            <div>
+              <h3>Acreage Distribution</h3>
+              <div class="land-chart" id="acreage-chart"></div>
+            </div>
+            <div>
+              <h3>Land Value Signal</h3>
+              <div class="land-chart" id="land-value-chart"></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section">
+        <article class="panel">
+          <span class="small-label">County land queue</span>
+          <h2>Where the Knoxville Land Funnel Starts</h2>
+          <div class="parcel-table" id="land-opportunity-table"></div>
+          <p class="note">
+            Opportunity rank is a screening view based on aggregate parcel supply and acreage mix. It does not identify
+            individual owners, parcel IDs, buildability, zoning approval, access rights, or purchase readiness.
+          </p>
         </article>
       </section>
 
@@ -693,11 +837,169 @@
           .reduce((total, bucket) => total + bucket.count, 0);
       }
 
+      function getTwentyPlusCount(county) {
+        return county.acreage_buckets
+          .filter((bucket) => ["twenty_to_50_acres", "fifty_plus_acres"].includes(bucket.key))
+          .reduce((total, bucket) => total + bucket.count, 0);
+      }
+
+      function formatMoney(value) {
+        if (!Number.isFinite(value)) return "N/A";
+        if (value >= 1_000_000_000) return `$${(value / 1_000_000_000).toFixed(1)}B`;
+        if (value >= 1_000_000) return `$${(value / 1_000_000).toFixed(1)}M`;
+        return `$${formatter.format(Math.round(value))}`;
+      }
+
+      function getTopLandUse(county) {
+        return county.top_land_uses?.[0]?.label || "Not classified";
+      }
+
+      function getAcreageBucket(county, key) {
+        return county.acreage_buckets.find((bucket) => bucket.key === key)?.count || 0;
+      }
+
+      function renderLandInsights(summary) {
+        const grid = document.getElementById("land-insight-grid");
+        const counties = summary.counties || [];
+        const fivePlusTotal = counties.reduce((total, county) => total + getFivePlusCount(county), 0);
+        const twentyPlusTotal = counties.reduce((total, county) => total + getTwentyPlusCount(county), 0);
+        const topSupply = [...counties].sort((a, b) => getFivePlusCount(b) - getFivePlusCount(a))[0];
+        const lowerAvgValue = [...counties]
+          .filter((county) => Number.isFinite(county.avg_land_market_value))
+          .sort((a, b) => a.avg_land_market_value - b.avg_land_market_value)[0];
+        const largestAvgAcre = [...counties].sort((a, b) => (b.avg_acres || 0) - (a.avg_acres || 0))[0];
+        const cards = [
+          {
+            label: "5+ acre pool",
+            value: formatter.format(fivePlusTotal),
+            note: "Initial acreage candidate bucket before terrain, flood, access, and zoning checks."
+          },
+          {
+            label: "20+ acre pool",
+            value: formatter.format(twentyPlusTotal),
+            note: "Larger-lot screen for rural, recreational, subdivision, or hold strategies."
+          },
+          {
+            label: "Largest 5+ supply",
+            value: topSupply?.county || "N/A",
+            note: `${formatter.format(getFivePlusCount(topSupply || { acreage_buckets: [] }))} parcels in the 5+ acre screen.`
+          },
+          {
+            label: "Lower value signal",
+            value: lowerAvgValue?.county || "N/A",
+            note: `${formatMoney(lowerAvgValue?.avg_land_market_value)} average land market value where available.`
+          },
+          {
+            label: "Largest average parcel",
+            value: largestAvgAcre?.county || "N/A",
+            note: `${formatter.format(largestAvgAcre?.avg_acres || 0)} average acres across public parcel records.`
+          },
+          {
+            label: "Total land value",
+            value: formatMoney(summary.totals?.total_land_market_value),
+            note: "Aggregate public land market value for counties where field support exists."
+          },
+          {
+            label: "Total acres loaded",
+            value: formatter.format(Math.round(summary.totals?.total_acres || 0)),
+            note: "Public-safe aggregate acreage imported from TNMap and Knox parcel services."
+          },
+          {
+            label: "Privacy posture",
+            value: "Aggregate",
+            note: "No owner names, parcel IDs, mailing addresses, or parcel geometry in this public kit."
+          }
+        ];
+
+        grid.innerHTML = cards.map((card) => `
+          <article class="land-card">
+            <small>${card.label}</small>
+            <strong>${card.value}</strong>
+            <span>${card.note}</span>
+          </article>
+        `).join("");
+      }
+
+      function renderLandOpportunityTable(counties) {
+        const table = document.getElementById("land-opportunity-table");
+        const ranked = [...counties].sort((a, b) => {
+          const scoreA = getFivePlusCount(a) * 1 + getTwentyPlusCount(a) * 1.8 + (a.avg_acres || 0) * 35;
+          const scoreB = getFivePlusCount(b) * 1 + getTwentyPlusCount(b) * 1.8 + (b.avg_acres || 0) * 35;
+          return scoreB - scoreA;
+        });
+        table.innerHTML = ranked.map((county) => {
+          const fivePlus = getFivePlusCount(county);
+          const twentyPlus = getTwentyPlusCount(county);
+          const fivePlusShare = county.parcel_count ? `${((fivePlus / county.parcel_count) * 100).toFixed(1)}%` : "N/A";
+          const nextCheck = county.county === "Knox"
+            ? "Fragmentation, infill pressure, zoning, and commute premium."
+            : county.county === "Sevier"
+              ? "Slope, wildfire access, tourism pressure, and short-term-rental rules."
+              : county.county === "Blount"
+                ? "Foothill slope, airport/Maryville access, and sewer availability."
+                : county.county === "Loudon"
+                  ? "Lake restrictions, I-75 access, and retirement-market demand."
+                  : "Road frontage, utility depth, slope, floodplain, and resale liquidity.";
+          return `
+            <div class="land-row">
+              <strong>${county.county}</strong>
+              <span><b>${formatter.format(fivePlus)}</b> 5+ acres</span>
+              <span><b>${formatter.format(twentyPlus)}</b> 20+ acres</span>
+              <span><b>${fivePlusShare}</b> 5+ share</span>
+              <span><b>${formatMoney(county.avg_land_market_value)}</b> avg land value</span>
+              <p>${getTopLandUse(county)}. Next check: ${nextCheck}</p>
+            </div>
+          `;
+        }).join("");
+      }
+
+      function renderAcreageChart(counties) {
+        const bucketKeys = [
+          ["under_1_acre", "Under 1"],
+          ["one_to_5_acres", "1-5"],
+          ["five_to_20_acres", "5-20"],
+          ["twenty_to_50_acres", "20-50"],
+          ["fifty_plus_acres", "50+"]
+        ];
+        const colors = ["#dce3df", "#a9c5b9", "#197257", "#245b9e", "#b7791f"];
+        const traces = bucketKeys.map(([key, label], index) => ({
+          type: "bar",
+          name: label,
+          x: counties.map((county) => county.county),
+          y: counties.map((county) => getAcreageBucket(county, key)),
+          marker: { color: colors[index] }
+        }));
+        Plotly.newPlot("acreage-chart", traces, {
+          barmode: "stack",
+          margin: { t: 8, r: 8, b: 40, l: 52 },
+          paper_bgcolor: "rgba(0,0,0,0)",
+          plot_bgcolor: "rgba(0,0,0,0)",
+          yaxis: { gridcolor: "#edf3ef" },
+          legend: { orientation: "h", y: -0.25 }
+        }, { displayModeBar: false, responsive: true });
+      }
+
+      function renderLandValueChart(counties) {
+        const rows = counties.filter((county) => Number.isFinite(county.avg_land_market_value));
+        Plotly.newPlot("land-value-chart", [{
+          type: "bar",
+          x: rows.map((county) => county.county),
+          y: rows.map((county) => county.avg_land_market_value),
+          marker: { color: "#197257" },
+          hovertemplate: "%{x}<br>Avg land market value: $%{y:,.0f}<extra></extra>"
+        }], {
+          margin: { t: 8, r: 8, b: 40, l: 62 },
+          paper_bgcolor: "rgba(0,0,0,0)",
+          plot_bgcolor: "rgba(0,0,0,0)",
+          yaxis: { gridcolor: "#edf3ef", tickprefix: "$" }
+        }, { displayModeBar: false, responsive: true });
+      }
+
       function renderParcelSummary(counties) {
         const table = document.getElementById("parcel-summary-table");
         table.innerHTML = counties
           .map((county) => {
-            const topUse = county.top_land_uses?.[0]?.label || "Not classified";
+            const topUse = getTopLandUse(county);
             return `
               <div class="summary-row">
                 <strong>${county.county}</strong>
@@ -811,6 +1113,10 @@
         renderBreakdown(access.summary.counties);
         renderNext(kit.next_imports);
         renderSources(kit.source_plan);
+        renderLandInsights(parcelSummary);
+        renderLandOpportunityTable(parcelSummary.counties);
+        renderAcreageChart(parcelSummary.counties);
+        renderLandValueChart(parcelSummary.counties);
         renderParcelSummary(parcelSummary.counties);
         renderParcelSources(parcelSources.counties);
         renderScoreModel(parcelSources.score_model);

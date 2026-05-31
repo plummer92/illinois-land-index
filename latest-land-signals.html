@@ -11,6 +11,7 @@
     <link rel="canonical" href="https://illinoislandindex.com/latest-land-signals.html" />
     <link rel="stylesheet" href="./styles.css" />
     <script src="./analytics.js" defer></script>
+    <script src="./latest-land-signals.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -48,6 +49,51 @@
           <p class="eyebrow">This week</p>
           <h2>The signals worth checking first.</h2>
         </div>
+        <div class="signal-stat-grid" aria-label="Live headline land signal counts">
+          <article>
+            <span>East TN counties loaded</span>
+            <strong data-signal-stat="knoxville-counties">...</strong>
+            <p>Counties currently included in the Knoxville and Maryville market kit.</p>
+          </article>
+          <article>
+            <span>Public parcel records</span>
+            <strong data-signal-stat="knoxville-parcels">...</strong>
+            <p>Aggregate public parcel records loaded from Tennessee source layers.</p>
+          </article>
+          <article>
+            <span>Candidate parcel shapes</span>
+            <strong data-signal-stat="knoxville-candidates">...</strong>
+            <p>Public-safe large-lot candidate geometries shown in the Knoxville map.</p>
+          </article>
+          <article>
+            <span>High-score candidates</span>
+            <strong data-signal-stat="knoxville-high-score">...</strong>
+            <p>Candidate parcels with a first-pass screening score of 55 or higher.</p>
+          </article>
+          <article>
+            <span>Total mapped acres</span>
+            <strong data-signal-stat="knoxville-acreage">...</strong>
+            <p>Aggregate acreage represented by the public East Tennessee parcel summary.</p>
+          </article>
+          <article>
+            <span>50+ acre parcels</span>
+            <strong data-signal-stat="knoxville-fifty-plus">...</strong>
+            <p>Large-acreage bucket across the loaded East Tennessee counties.</p>
+          </article>
+          <article>
+            <span>Top acreage county</span>
+            <strong data-signal-stat="knoxville-top-acreage-county">...</strong>
+            <p>County with the most aggregate acreage in the public summary.</p>
+          </article>
+          <article>
+            <span>Top parcel-count county</span>
+            <strong data-signal-stat="knoxville-top-parcel-county">...</strong>
+            <p>County with the largest public parcel record count in the loaded set.</p>
+          </article>
+        </div>
+        <p class="signal-stat-note">
+          Data refresh: <strong data-signal-stat="knoxville-updated">loading</strong>. <span id="signalStatsStatus">Loading live public headline counts...</span>
+        </p>
         <div class="feature-grid">
           <article>
             <h3>Sangamon Deal Queue</h3>
@@ -218,9 +264,9 @@
         <article>
           <h2>What gets added next</h2>
           <p>
-            The next version should automatically pull headline counts from the dashboards: top scores, taxes due soon,
-            biggest owner rollups, Knoxville candidate counts, and newly imported county layers. For now, this page is
-            the clean public hub for the signals already available.
+            This page now pulls public Knoxville headline counts directly from the dashboard data files. The next
+            improvement is a public-safe Illinois aggregate export that reports top scores, taxes due soon, owner-rollup
+            counts, and newly imported county layers without exposing owner names, mailing addresses, or parcel IDs.
           </p>
         </article>
         <article>

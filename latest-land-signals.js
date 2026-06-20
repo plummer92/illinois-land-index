@@ -16,6 +16,13 @@
     if (element) element.textContent = message;
   }
 
+  function formatChange(value) {
+    if (value === null || value === undefined) return "new";
+    const numeric = Number(value || 0);
+    if (numeric === 0) return "no change";
+    return `${numeric > 0 ? "+" : ""}${numberFormat.format(numeric)}`;
+  }
+
   function formatDate(value) {
     if (!value) return "Recently refreshed";
     const date = new Date(value);
@@ -47,8 +54,9 @@
   }
 
   async function main() {
-    const [publicSummaryResult, knoxvilleSummaryResult, knoxvilleCandidatesResult] = await Promise.allSettled([
+    const [publicSummaryResult, publicDeltaResult, knoxvilleSummaryResult, knoxvilleCandidatesResult] = await Promise.allSettled([
       loadJson("./data/public-signal-summary.json"),
+      loadJson("./data/public-signal-delta.json"),
       loadJson("./knoxville-market-dashboard/data/processed/parcel_summary.json"),
       loadJson("./knoxville-market-dashboard/data/processed/parcel_candidates.geojson"),
     ]);
@@ -76,6 +84,22 @@
       setText("illinois-top-township", topTownship ? topTownship.label : "Review dashboard");
       setText("illinois-top-class", topClass ? topClass.label : "Review dashboard");
       setText("illinois-updated", formatDate(sangamon.refreshed_at || publicSummaryResult.value.generated_at));
+    }
+
+    if (publicDeltaResult.status === "fulfilled") {
+      const delta = publicDeltaResult.value.illinois_sangamon || {};
+      const metrics = delta.metrics || [];
+      const byLabel = Object.fromEntries(metrics.map((metric) => [metric.label, metric]));
+      const movement = delta.largest_movement;
+
+      setText("delta-compared-to", formatDate(publicDeltaResult.value.compared_to));
+      setText("delta-targets", formatChange(byLabel["Sangamon target rows"]?.change));
+      setText("delta-score-80", formatChange(byLabel["Score 80+ rows"]?.change));
+      setText("delta-taxes-due", formatChange(byLabel["Taxes due rows"]?.change));
+      setText("delta-due-soon", formatChange(byLabel["Due within 45 days"]?.change));
+      setText("delta-owner-groups", formatChange(byLabel["Large owner groups"]?.change));
+      setText("delta-terrain", formatChange(byLabel["Terrain-ready rows"]?.change));
+      setText("delta-largest-movement", movement ? `${movement.label}: ${formatChange(movement.change)}` : "Waiting on the next comparison");
     }
 
     if (knoxvilleSummaryResult.status === "fulfilled" && knoxvilleCandidatesResult.status === "fulfilled") {

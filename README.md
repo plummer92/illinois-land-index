@@ -40,12 +40,14 @@ The latest public Illinois/Sangamon signal counts live at:
 
 ```text
 data/public-signal-summary.json
+data/public-signal-delta.json
 ```
 
 That file is generated from the private Chatham/Sangamon dashboard repo by `export_public_signal_summary.js`.
 It includes aggregate score bands, tax timing counts, owner-rollup counts, acreage buckets, terrain readiness,
 township summaries, and property-class summaries. It intentionally excludes owner names, mailing addresses,
-site addresses, legal descriptions, and parcel IDs.
+site addresses, legal descriptions, and parcel IDs. The delta file compares the newest public summary to the previous
+public summary and powers the "what changed" panel on the Latest Land Signals page.
 
 To refresh the Knoxville parcel summary:
 

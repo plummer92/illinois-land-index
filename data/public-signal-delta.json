@@ -1,0 +1,70 @@
+{
+  "generated_at": "2026-06-20T16:17:51.881Z",
+  "compared_to": "2026-06-20T15:53:52.072Z",
+  "privacy": {
+    "public_safe": true,
+    "note": "Aggregate changes only. No parcel IDs, owner names, addresses, or legal descriptions."
+  },
+  "illinois_sangamon": {
+    "has_previous_summary": true,
+    "metrics": [
+      {
+        "label": "Sangamon target rows",
+        "path": "illinois_sangamon.totals.public_target_rows",
+        "current": 22703,
+        "previous": 22703,
+        "change": 0
+      },
+      {
+        "label": "Score 80+ rows",
+        "path": "illinois_sangamon.score_bands.score_80_plus",
+        "current": 2951,
+        "previous": 2951,
+        "change": 0
+      },
+      {
+        "label": "Taxes due rows",
+        "path": "illinois_sangamon.totals.taxes_due_count",
+        "current": 72,
+        "previous": 72,
+        "change": 0
+      },
+      {
+        "label": "Due within 45 days",
+        "path": "illinois_sangamon.totals.taxes_due_soon_45_days",
+        "current": 0,
+        "previous": 0,
+        "change": 0
+      },
+      {
+        "label": "Large owner groups",
+        "path": "illinois_sangamon.totals.large_owner_rollup_count",
+        "current": 1772,
+        "previous": 1772,
+        "change": 0
+      },
+      {
+        "label": "Terrain-ready rows",
+        "path": "illinois_sangamon.totals.terrain_ready_count",
+        "current": 100,
+        "previous": 100,
+        "change": 0
+      },
+      {
+        "label": "50+ acre rows",
+        "path": "illinois_sangamon.acreage_bands.fifty_plus_acres",
+        "current": 1481,
+        "previous": 1481,
+        "change": 0
+      }
+    ],
+    "largest_movement": {
+      "label": "Sangamon target rows",
+      "path": "illinois_sangamon.totals.public_target_rows",
+      "current": 22703,
+      "previous": 22703,
+      "change": 0
+    },
+    "summary_line": "Sangamon target rows changed by +0."
+  }
+}

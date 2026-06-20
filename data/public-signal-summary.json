@@ -1,0 +1,104 @@
+{
+  "generated_at": "2026-06-20T15:53:52.072Z",
+  "privacy": {
+    "public_safe": true,
+    "excluded_fields": [
+      "owner_name",
+      "normalized_owner",
+      "owner_mailing_address",
+      "site_address",
+      "legal_description",
+      "parcel_id"
+    ],
+    "note": "Aggregate counts only. Verify parcel-level details in county sources and the private dashboard."
+  },
+  "illinois_sangamon": {
+    "county": "Sangamon",
+    "source_files": {
+      "target_parcels_loaded": true,
+      "full_index_loaded": true,
+      "owner_leaderboard_loaded": true
+    },
+    "totals": {
+      "public_target_rows": 22703,
+      "full_index_rows": 109655,
+      "realistic_targets": 20039,
+      "active_tax_sale_count": 89,
+      "taxes_due_count": 72,
+      "taxes_due_soon_45_days": 0,
+      "first_installments_due_soon_45_days": 0,
+      "second_installments_due_soon_45_days": 0,
+      "owner_rollup_count": 73205,
+      "large_owner_rollup_count": 1772,
+      "terrain_ready_count": 100,
+      "total_acres": 239596.41,
+      "annual_tax_total": 79899864.32,
+      "max_opportunity_score": 93,
+      "max_owner_parcel_count": 2398,
+      "max_owner_total_acres": 24553.86
+    },
+    "score_bands": {
+      "score_80_plus": 2951,
+      "score_70_plus": 3829,
+      "score_60_plus": 4216,
+      "score_50_plus": 4936
+    },
+    "acreage_bands": {
+      "ten_plus_acres": 4285,
+      "twenty_plus_acres": 3472,
+      "fifty_plus_acres": 1481,
+      "one_hundred_plus_acres": 395
+    },
+    "top_townships": [
+      {
+        "label": "CHATHAM",
+        "count": 3951
+      },
+      {
+        "label": "AUBURN",
+        "count": 3727
+      },
+      {
+        "label": "BALL",
+        "count": 3699
+      },
+      {
+        "label": "ROCHESTER",
+        "count": 3172
+      },
+      {
+        "label": "PAWNEE",
+        "count": 1982
+      }
+    ],
+    "top_property_classes": [
+      {
+        "label": "IMPROVED RESIDENTIAL",
+        "count": 13396
+      },
+      {
+        "label": "UNIMPROVED FARM LAND",
+        "count": 3194
+      },
+      {
+        "label": "TOTALLY EXEMPT REAL ESTATE",
+        "count": 1918
+      },
+      {
+        "label": "UNIMPROVED RESIDENTIAL",
+        "count": 1389
+      },
+      {
+        "label": "IMPROVED FARM LAND",
+        "count": 905
+      }
+    ],
+    "terrain": {
+      "ready_count": 100,
+      "low_risk_count": 86,
+      "moderate_risk_count": 13,
+      "high_risk_count": 1
+    },
+    "refreshed_at": "2026-05-27T03:56:47.632Z"
+  }
+}

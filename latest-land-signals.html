@@ -131,6 +131,53 @@
           <p class="eyebrow">Illinois readout</p>
           <h2>What to open in the Sangamon land dashboard.</h2>
         </div>
+        <div class="signal-stat-grid" aria-label="Live public-safe Illinois and Sangamon signal counts">
+          <article>
+            <span>Sangamon target rows</span>
+            <strong data-signal-stat="illinois-targets">...</strong>
+            <p>Public-safe count of target-area rows feeding the private Illinois dashboard.</p>
+          </article>
+          <article>
+            <span>Score 80+ parcels</span>
+            <strong data-signal-stat="illinois-score-80">...</strong>
+            <p>High-opportunity score band count. Parcel IDs and owner details stay private.</p>
+          </article>
+          <article>
+            <span>Max opportunity score</span>
+            <strong data-signal-stat="illinois-max-score">...</strong>
+            <p>Highest current screening score in the Sangamon target queue.</p>
+          </article>
+          <article>
+            <span>Taxes still due</span>
+            <strong data-signal-stat="illinois-taxes-due">...</strong>
+            <p>Target rows with unpaid tax signals from the county tax-payment enrichment.</p>
+          </article>
+          <article>
+            <span>Due within 45 days</span>
+            <strong data-signal-stat="illinois-taxes-due-soon">...</strong>
+            <p>Upcoming installment timing detected in the public-safe summary.</p>
+          </article>
+          <article>
+            <span>Owner rollups</span>
+            <strong data-signal-stat="illinois-owner-rollups">...</strong>
+            <p>Aggregate owner groups counted without publishing owner names or addresses.</p>
+          </article>
+          <article>
+            <span>Large owner groups</span>
+            <strong data-signal-stat="illinois-large-owner-rollups">...</strong>
+            <p>Owner groups with 10+ parcels or 100+ aggregate acres.</p>
+          </article>
+          <article>
+            <span>Terrain-ready rows</span>
+            <strong data-signal-stat="illinois-terrain-ready">...</strong>
+            <p>Rows with LiDAR terrain proxy metrics available for deeper screening.</p>
+          </article>
+        </div>
+        <p class="signal-stat-note">
+          Illinois refresh: <strong data-signal-stat="illinois-updated">loading</strong>. Top township:
+          <strong data-signal-stat="illinois-top-township">loading</strong>. 50+ acre targets:
+          <strong data-signal-stat="illinois-fifty-plus">loading</strong>.
+        </p>
         <div class="dashboard-preview-grid">
           <article class="preview-card wide">
             <div class="preview-card-header">
@@ -152,22 +199,22 @@
                 <strong>Scores</strong>
                 <span>Deal queue</span>
                 <span>Ranks parcels for first review</span>
-                <em>Live</em>
-                <span>Filter high to low</span>
+                <em><span data-signal-stat="illinois-score-80">...</span> at 80+</em>
+                <span>Max score <span data-signal-stat="illinois-max-score">...</span></span>
               </div>
               <div class="mini-row">
                 <strong>Taxes</strong>
                 <span>Parcel detail</span>
                 <span>Shows timing and pressure clues</span>
-                <em>Live</em>
-                <span>Check due dates</span>
+                <em><span data-signal-stat="illinois-taxes-due">...</span> due</em>
+                <span><span data-signal-stat="illinois-taxes-due-soon">...</span> due soon</span>
               </div>
               <div class="mini-row">
                 <strong>Owners</strong>
                 <span>Owner rollups</span>
                 <span>Finds concentration and holdings</span>
-                <em>Live</em>
-                <span>Review related parcels</span>
+                <em><span data-signal-stat="illinois-large-owner-rollups">...</span> large groups</em>
+                <span>No names public</span>
               </div>
             </div>
           </article>
@@ -264,9 +311,9 @@
         <article>
           <h2>What gets added next</h2>
           <p>
-            This page now pulls public Knoxville headline counts directly from the dashboard data files. The next
-            improvement is a public-safe Illinois aggregate export that reports top scores, taxes due soon, owner-rollup
-            counts, and newly imported county layers without exposing owner names, mailing addresses, or parcel IDs.
+            This page now pulls public Knoxville headline counts and a public-safe Illinois/Sangamon aggregate export.
+            The next improvement is turning these signals into a weekly email and adding change-over-time deltas so
+            visitors can see what moved since the last refresh.
           </p>
         </article>
         <article>

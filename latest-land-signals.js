@@ -6,8 +6,9 @@
   });
 
   function setText(id, value) {
-    const element = document.querySelector(`[data-signal-stat="${id}"]`);
-    if (element) element.textContent = value;
+    document.querySelectorAll(`[data-signal-stat="${id}"]`).forEach((element) => {
+      element.textContent = value;
+    });
   }
 
   function setStatus(message) {
@@ -46,12 +47,40 @@
   }
 
   async function main() {
-    try {
-      const [summary, candidates] = await Promise.all([
-        loadJson("./knoxville-market-dashboard/data/processed/parcel_summary.json"),
-        loadJson("./knoxville-market-dashboard/data/processed/parcel_candidates.geojson"),
-      ]);
+    const [publicSummaryResult, knoxvilleSummaryResult, knoxvilleCandidatesResult] = await Promise.allSettled([
+      loadJson("./data/public-signal-summary.json"),
+      loadJson("./knoxville-market-dashboard/data/processed/parcel_summary.json"),
+      loadJson("./knoxville-market-dashboard/data/processed/parcel_candidates.geojson"),
+    ]);
 
+    if (publicSummaryResult.status === "fulfilled") {
+      const sangamon = publicSummaryResult.value.illinois_sangamon || {};
+      const totals = sangamon.totals || {};
+      const scoreBands = sangamon.score_bands || {};
+      const acreageBands = sangamon.acreage_bands || {};
+      const terrain = sangamon.terrain || {};
+      const topTownship = (sangamon.top_townships || [])[0];
+      const topClass = (sangamon.top_property_classes || [])[0];
+
+      setText("illinois-targets", compactFormat.format(totals.public_target_rows || 0));
+      setText("illinois-score-80", numberFormat.format(scoreBands.score_80_plus || 0));
+      setText("illinois-max-score", numberFormat.format(totals.max_opportunity_score || 0));
+      setText("illinois-taxes-due", numberFormat.format(totals.taxes_due_count || 0));
+      setText("illinois-taxes-due-soon", numberFormat.format(totals.taxes_due_soon_45_days || 0));
+      setText("illinois-owner-rollups", compactFormat.format(totals.owner_rollup_count || 0));
+      setText("illinois-large-owner-rollups", numberFormat.format(totals.large_owner_rollup_count || 0));
+      setText("illinois-terrain-ready", numberFormat.format(terrain.ready_count || totals.terrain_ready_count || 0));
+      setText("illinois-low-terrain", numberFormat.format(terrain.low_risk_count || 0));
+      setText("illinois-fifty-plus", numberFormat.format(acreageBands.fifty_plus_acres || 0));
+      setText("illinois-total-acres", compactFormat.format(totals.total_acres || 0));
+      setText("illinois-top-township", topTownship ? topTownship.label : "Review dashboard");
+      setText("illinois-top-class", topClass ? topClass.label : "Review dashboard");
+      setText("illinois-updated", formatDate(sangamon.refreshed_at || publicSummaryResult.value.generated_at));
+    }
+
+    if (knoxvilleSummaryResult.status === "fulfilled" && knoxvilleCandidatesResult.status === "fulfilled") {
+      const summary = knoxvilleSummaryResult.value;
+      const candidates = knoxvilleCandidatesResult.value;
       const candidateFeatures = candidates.features || [];
       const highScoreCandidates = candidateFeatures.filter((feature) => Number(feature.properties?.score || 0) >= 55);
       const fiftyPlusAcres = bucketCount(summary, "fifty_plus_acres");
@@ -68,11 +97,14 @@
       setText("knoxville-top-acreage-county", topAcreageCounty ? topAcreageCounty.county : "Review dashboard");
       setText("knoxville-top-parcel-county", topParcelCounty ? topParcelCounty.county : "Review dashboard");
       setText("knoxville-updated", formatDate(generatedAt));
+    }
 
-      setStatus("Live public Knoxville data loaded. Illinois/Sangamon headline counts stay in the private dashboard until a public-safe aggregate export is published.");
-    } catch (error) {
+    if (publicSummaryResult.status === "fulfilled" && knoxvilleSummaryResult.status === "fulfilled" && knoxvilleCandidatesResult.status === "fulfilled") {
+      setStatus("Live public Illinois/Sangamon and Knoxville data loaded. Public summaries exclude owner names, addresses, legal descriptions, and parcel IDs.");
+    } else if (publicSummaryResult.status === "fulfilled" || knoxvilleSummaryResult.status === "fulfilled") {
+      setStatus("Some live headline counts loaded. One public data source is temporarily unavailable.");
+    } else {
       setStatus("Live headline counts could not load. Use the dashboard links below while the data source refreshes.");
-      console.error(error);
     }
   }
 

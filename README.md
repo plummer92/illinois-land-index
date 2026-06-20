@@ -36,6 +36,17 @@ The registry tracks county assessor, assessment, and GIS source links plus the p
 The parcel summary is a public-safe aggregate import from Tennessee ArcGIS parcel services. It excludes
 owner names, mailing addresses, parcel IDs, and individual parcel geometry.
 
+The latest public Illinois/Sangamon signal counts live at:
+
+```text
+data/public-signal-summary.json
+```
+
+That file is generated from the private Chatham/Sangamon dashboard repo by `export_public_signal_summary.js`.
+It includes aggregate score bands, tax timing counts, owner-rollup counts, acreage buckets, terrain readiness,
+township summaries, and property-class summaries. It intentionally excludes owner names, mailing addresses,
+site addresses, legal descriptions, and parcel IDs.
+
 To refresh the Knoxville parcel summary:
 
 ```powershell

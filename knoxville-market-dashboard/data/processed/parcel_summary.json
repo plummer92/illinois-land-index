@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-06T14:40:33.329Z",
+  "generated_at": "2026-07-07T13:31:48.264Z",
   "title": "Knoxville-East Tennessee Public Parcel Summary",
   "privacy_note": "Public-safe aggregate import only. This file intentionally excludes owner names, mailing addresses, parcel IDs, and individual parcel geometry.",
   "sources": [
@@ -451,36 +451,7 @@
           "count": 221
         }
       ],
-      "top_classes": [
-        {
-          "label": "R",
-          "count": 177706
-        },
-        {
-          "label": "C",
-          "count": 12804
-        },
-        {
-          "label": "E",
-          "count": 4112
-        },
-        {
-          "label": "A",
-          "count": 1801
-        },
-        {
-          "label": "O",
-          "count": 1636
-        },
-        {
-          "label": "NOT LOADED",
-          "count": 1553
-        },
-        {
-          "label": "I",
-          "count": 709
-        }
-      ],
+      "top_classes": [],
       "top_land_uses": [
         {
           "label": "101: 1-FAMILY",

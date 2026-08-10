@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T16:17:51.741Z",
+  "generated_at": "2026-08-10T14:55:48.428Z",
   "privacy": {
     "public_safe": true,
     "excluded_fields": [
@@ -20,39 +20,39 @@
       "owner_leaderboard_loaded": true
     },
     "totals": {
-      "public_target_rows": 22703,
-      "full_index_rows": 109655,
-      "realistic_targets": 20039,
-      "active_tax_sale_count": 89,
-      "taxes_due_count": 72,
-      "taxes_due_soon_45_days": 0,
+      "public_target_rows": 22707,
+      "full_index_rows": 109781,
+      "realistic_targets": 20046,
+      "active_tax_sale_count": 0,
+      "taxes_due_count": 588,
+      "taxes_due_soon_45_days": 588,
       "first_installments_due_soon_45_days": 0,
-      "second_installments_due_soon_45_days": 0,
-      "owner_rollup_count": 73205,
-      "large_owner_rollup_count": 1772,
-      "terrain_ready_count": 100,
-      "total_acres": 239596.41,
-      "annual_tax_total": 79899864.32,
+      "second_installments_due_soon_45_days": 588,
+      "owner_rollup_count": 73111,
+      "large_owner_rollup_count": 1770,
+      "terrain_ready_count": 0,
+      "total_acres": 239655.91,
+      "annual_tax_total": 79731738.7,
       "max_opportunity_score": 93,
-      "max_owner_parcel_count": 2398,
+      "max_owner_parcel_count": 2395,
       "max_owner_total_acres": 24553.86
     },
     "score_bands": {
-      "score_80_plus": 2951,
-      "score_70_plus": 3829,
-      "score_60_plus": 4216,
-      "score_50_plus": 4936
+      "score_80_plus": 2953,
+      "score_70_plus": 3826,
+      "score_60_plus": 4215,
+      "score_50_plus": 4932
     },
     "acreage_bands": {
-      "ten_plus_acres": 4285,
-      "twenty_plus_acres": 3472,
-      "fifty_plus_acres": 1481,
+      "ten_plus_acres": 4286,
+      "twenty_plus_acres": 3473,
+      "fifty_plus_acres": 1482,
       "one_hundred_plus_acres": 395
     },
     "top_townships": [
       {
         "label": "CHATHAM",
-        "count": 3951
+        "count": 3952
       },
       {
         "label": "AUBURN",
@@ -74,11 +74,11 @@
     "top_property_classes": [
       {
         "label": "IMPROVED RESIDENTIAL",
-        "count": 13396
+        "count": 13399
       },
       {
         "label": "UNIMPROVED FARM LAND",
-        "count": 3194
+        "count": 3195
       },
       {
         "label": "TOTALLY EXEMPT REAL ESTATE",
@@ -86,19 +86,19 @@
       },
       {
         "label": "UNIMPROVED RESIDENTIAL",
-        "count": 1389
+        "count": 1390
       },
       {
         "label": "IMPROVED FARM LAND",
-        "count": 905
+        "count": 904
       }
     ],
     "terrain": {
-      "ready_count": 100,
-      "low_risk_count": 86,
-      "moderate_risk_count": 13,
-      "high_risk_count": 1
+      "ready_count": 0,
+      "low_risk_count": 0,
+      "moderate_risk_count": 0,
+      "high_risk_count": 0
     },
-    "refreshed_at": "2026-05-27T03:56:47.632Z"
+    "refreshed_at": "2026-08-10T14:55:40.969Z"
   }
 }

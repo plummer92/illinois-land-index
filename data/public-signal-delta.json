@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-10T14:55:48.571Z",
-  "compared_to": "2026-06-20T16:17:51.741Z",
+  "generated_at": "2026-08-10T15:23:45.040Z",
+  "compared_to": "2026-08-10T14:55:48.428Z",
   "privacy": {
     "public_safe": true,
     "note": "Aggregate changes only. No parcel IDs, owner names, addresses, or legal descriptions."
@@ -12,59 +12,59 @@
         "label": "Sangamon target rows",
         "path": "illinois_sangamon.totals.public_target_rows",
         "current": 22707,
-        "previous": 22703,
-        "change": 4
+        "previous": 22707,
+        "change": 0
       },
       {
         "label": "Score 80+ rows",
         "path": "illinois_sangamon.score_bands.score_80_plus",
         "current": 2953,
-        "previous": 2951,
-        "change": 2
+        "previous": 2953,
+        "change": 0
       },
       {
         "label": "Taxes due rows",
         "path": "illinois_sangamon.totals.taxes_due_count",
         "current": 588,
-        "previous": 72,
-        "change": 516
+        "previous": 588,
+        "change": 0
       },
       {
         "label": "Due within 45 days",
         "path": "illinois_sangamon.totals.taxes_due_soon_45_days",
         "current": 588,
-        "previous": 0,
-        "change": 588
+        "previous": 588,
+        "change": 0
       },
       {
         "label": "Large owner groups",
         "path": "illinois_sangamon.totals.large_owner_rollup_count",
         "current": 1770,
-        "previous": 1772,
-        "change": -2
+        "previous": 1770,
+        "change": 0
       },
       {
         "label": "Terrain-ready rows",
         "path": "illinois_sangamon.totals.terrain_ready_count",
         "current": 0,
-        "previous": 100,
-        "change": -100
+        "previous": 0,
+        "change": 0
       },
       {
         "label": "50+ acre rows",
         "path": "illinois_sangamon.acreage_bands.fifty_plus_acres",
         "current": 1482,
-        "previous": 1481,
-        "change": 1
+        "previous": 1482,
+        "change": 0
       }
     ],
     "largest_movement": {
-      "label": "Due within 45 days",
-      "path": "illinois_sangamon.totals.taxes_due_soon_45_days",
-      "current": 588,
-      "previous": 0,
-      "change": 588
+      "label": "Sangamon target rows",
+      "path": "illinois_sangamon.totals.public_target_rows",
+      "current": 22707,
+      "previous": 22707,
+      "change": 0
     },
-    "summary_line": "Due within 45 days changed by +588."
+    "summary_line": "Sangamon target rows changed by +0."
   }
 }

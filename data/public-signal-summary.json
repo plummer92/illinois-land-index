@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T14:55:48.428Z",
+  "generated_at": "2026-08-10T15:23:45.032Z",
   "privacy": {
     "public_safe": true,
     "excluded_fields": [
@@ -99,6 +99,6 @@
       "moderate_risk_count": 0,
       "high_risk_count": 0
     },
-    "refreshed_at": "2026-08-10T14:55:40.969Z"
+    "refreshed_at": "2026-08-10T15:23:41.610Z"
   }
 }

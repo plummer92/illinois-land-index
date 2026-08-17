@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T12:21:26.038Z",
+  "generated_at": "2026-08-17T13:27:51.289Z",
   "privacy": {
     "public_safe": true,
     "excluded_fields": [
@@ -21,27 +21,27 @@
     },
     "totals": {
       "public_target_rows": 22707,
-      "full_index_rows": 109781,
+      "full_index_rows": 109790,
       "realistic_targets": 20046,
       "active_tax_sale_count": 0,
       "taxes_due_count": 566,
       "taxes_due_soon_45_days": 566,
       "first_installments_due_soon_45_days": 0,
       "second_installments_due_soon_45_days": 566,
-      "owner_rollup_count": 73111,
-      "large_owner_rollup_count": 1770,
+      "owner_rollup_count": 73100,
+      "large_owner_rollup_count": 1769,
       "terrain_ready_count": 0,
       "total_acres": 239655.91,
-      "annual_tax_total": 79731738.7,
+      "annual_tax_total": 79726164.18,
       "max_opportunity_score": 93,
-      "max_owner_parcel_count": 2395,
+      "max_owner_parcel_count": 2393,
       "max_owner_total_acres": 24553.86
     },
     "score_bands": {
-      "score_80_plus": 2953,
+      "score_80_plus": 2954,
       "score_70_plus": 3826,
       "score_60_plus": 4215,
-      "score_50_plus": 4932
+      "score_50_plus": 4931
     },
     "acreage_bands": {
       "ten_plus_acres": 4286,
@@ -99,6 +99,6 @@
       "moderate_risk_count": 0,
       "high_risk_count": 0
     },
-    "refreshed_at": "2026-08-17T12:21:21.546Z"
+    "refreshed_at": "2026-08-17T13:27:47.967Z"
   }
 }

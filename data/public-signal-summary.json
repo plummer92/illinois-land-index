@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T15:23:45.032Z",
+  "generated_at": "2026-08-17T12:21:26.038Z",
   "privacy": {
     "public_safe": true,
     "excluded_fields": [
@@ -24,10 +24,10 @@
       "full_index_rows": 109781,
       "realistic_targets": 20046,
       "active_tax_sale_count": 0,
-      "taxes_due_count": 588,
-      "taxes_due_soon_45_days": 588,
+      "taxes_due_count": 566,
+      "taxes_due_soon_45_days": 566,
       "first_installments_due_soon_45_days": 0,
-      "second_installments_due_soon_45_days": 588,
+      "second_installments_due_soon_45_days": 566,
       "owner_rollup_count": 73111,
       "large_owner_rollup_count": 1770,
       "terrain_ready_count": 0,
@@ -99,6 +99,6 @@
       "moderate_risk_count": 0,
       "high_risk_count": 0
     },
-    "refreshed_at": "2026-08-10T15:23:41.610Z"
+    "refreshed_at": "2026-08-17T12:21:21.546Z"
   }
 }

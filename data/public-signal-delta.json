@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-10T15:23:45.040Z",
+  "generated_at": "2026-08-17T12:21:26.053Z",
   "compared_to": "2026-08-10T14:55:48.428Z",
   "privacy": {
     "public_safe": true,
@@ -25,16 +25,16 @@
       {
         "label": "Taxes due rows",
         "path": "illinois_sangamon.totals.taxes_due_count",
-        "current": 588,
+        "current": 566,
         "previous": 588,
-        "change": 0
+        "change": -22
       },
       {
         "label": "Due within 45 days",
         "path": "illinois_sangamon.totals.taxes_due_soon_45_days",
-        "current": 588,
+        "current": 566,
         "previous": 588,
-        "change": 0
+        "change": -22
       },
       {
         "label": "Large owner groups",
@@ -59,12 +59,12 @@
       }
     ],
     "largest_movement": {
-      "label": "Sangamon target rows",
-      "path": "illinois_sangamon.totals.public_target_rows",
-      "current": 22707,
-      "previous": 22707,
-      "change": 0
+      "label": "Taxes due rows",
+      "path": "illinois_sangamon.totals.taxes_due_count",
+      "current": 566,
+      "previous": 588,
+      "change": -22
     },
-    "summary_line": "Sangamon target rows changed by +0."
+    "summary_line": "Taxes due rows changed by -22."
   }
 }

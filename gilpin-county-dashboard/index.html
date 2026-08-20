@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gilpin County Colorado Land Dashboard | Illinois Land Index</title>
+    <meta name="description" content="Explore public Gilpin County Colorado parcel supply, acreage, zoning, assessed values, terrain checks, and land candidates." />
+    <link rel="canonical" href="https://illinoislandindex.com/gilpin-county-dashboard/" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="../analytics.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="../index.html"><span>ILI</span><strong>Illinois Land Index</strong></a>
+      <nav aria-label="Primary navigation">
+        <a href="https://dashboard.illinoislandindex.com/land-dashboard/index.html">Illinois</a>
+        <a href="../consumer-debt-dashboard/">Debt Context</a>
+        <a href="../knoxville-market-dashboard/">Knoxville</a>
+        <a aria-current="page" href="./">Gilpin County</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="gilpin-hero">
+        <div>
+          <p class="eyebrow">Colorado mountain land funnel</p>
+          <h1>Gilpin County land dashboard</h1>
+          <p class="lede">Screen acreage in Gilpin and every bordering county: Boulder, Clear Creek, Grand, and Jefferson. Compare public parcel geometry, acreage, assessment, and mountain-risk checks from one map.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#candidate-map">Open candidate map</a>
+            <a class="button secondary" href="https://gis.gilpincounty.org/portal/apps/sites/#/open-data" target="_blank" rel="noreferrer">County GIS</a>
+            <a class="button secondary" href="https://gilpincountyco-tsrweb.tylerhost.net/treasurer/web/" target="_blank" rel="noreferrer">Property tax search</a>
+          </div>
+        </div>
+        <aside class="risk-panel" aria-label="Gilpin due diligence priorities">
+          <span>Mountain-land priority checks</span>
+          <strong>Slope, access, wildfire, water, septic, mining history</strong>
+          <p>Parcel size is only the first filter here. Verify year-round road access, buildable grade, well and septic feasibility, fire mitigation, and legacy mining constraints.</p>
+        </aside>
+      </section>
+
+      <section class="summary-band" aria-label="Gilpin parcel summary">
+        <article><span id="parcelCountLabel">Selected county parcels</span><strong id="parcelCount">...</strong><p>Records in the Colorado public parcel layer.</p></article>
+        <article><span id="candidateCountLabel">5+ acre candidates</span><strong id="candidateCount">...</strong><p>Public-safe candidate shapes loaded below.</p></article>
+        <article><span>Candidate acreage</span><strong id="candidateAcres">...</strong><p>Combined acreage in the loaded candidate set.</p></article>
+        <article><span>Largest candidate</span><strong id="largestCandidate">...</strong><p>Largest parcel in the public shortlist.</p></article>
+      </section>
+
+      <section class="dashboard-section" id="candidate-map">
+        <div class="section-heading">
+          <p class="eyebrow">Parcel opportunity map</p>
+          <h2>Start broad, then verify the mountain constraints.</h2>
+        </div>
+        <div class="map-layout">
+          <div id="map" aria-label="Gilpin County parcel candidate map"><span>Loading map...</span></div>
+          <aside class="filters">
+            <div class="filter-heading"><strong>Candidate filters</strong><span id="visibleCount">...</span></div>
+            <label>County<select id="countyFilter"><option value="Gilpin">Gilpin County</option><option value="Boulder">Boulder County</option><option value="Clear Creek">Clear Creek County</option><option value="Grand">Grand County</option><option value="Jefferson">Jefferson County</option><option value="">All five counties</option></select></label>
+            <label>Minimum acres <output id="minAcresValue">5</output><input id="minAcres" type="range" min="5" max="100" value="5" step="5" /></label>
+            <label>Minimum score <output id="minScoreValue">0</output><input id="minScore" type="range" min="0" max="100" value="0" step="5" /></label>
+            <label>Land use<select id="landUse"><option value="">All land uses</option></select></label>
+            <button class="button secondary" id="clearFilters" type="button">Clear filters</button>
+            <p class="source-note" id="refreshStatus">Loading county data...</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="section-heading"><p class="eyebrow">Acreage supply</p><h2 id="acreageHeading">How Gilpin parcels break down by size.</h2></div>
+        <div class="bucket-grid" id="acreageBuckets"></div>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="section-heading"><p class="eyebrow">Shortlist</p><h2>Public candidate parcels to research next.</h2></div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Score</th><th>Location</th><th>Acres</th><th>Land use / zoning</th><th>Appraised value</th><th>Next check</th></tr></thead>
+            <tbody id="candidateRows"><tr><td colspan="6">Loading candidates...</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="dashboard-section due-diligence">
+        <div class="section-heading"><p class="eyebrow">Gilpin research stack</p><h2>County-specific checks before pursuing land.</h2></div>
+        <div class="check-grid">
+          <article><strong>Terrain and access</strong><p>Measure slope, usable building area, winter access, driveway grade, and road maintenance responsibility.</p></article>
+          <article><strong>Wildfire exposure</strong><p>Review defensible-space requirements, insurance availability, evacuation routes, and local fire-district coverage.</p></article>
+          <article><strong>Water and sanitation</strong><p>Confirm legal water, well feasibility, septic suitability, setbacks, and any municipal service boundary.</p></article>
+          <article><strong>Mining and title</strong><p>Check patented mining claims, mineral rights, mine features, easements, surveys, and title exceptions.</p></article>
+          <article><strong>Taxes and value</strong><p>Verify current tax status, assessed value, sale history, and special districts through the county treasurer and assessor.</p></article>
+          <article><strong>Planning and zoning</strong><p>Confirm use permissions, minimum lot size, building standards, short-term-rental rules, and permit history.</p></article>
+        </div>
+      </section>
+    </main>
+
+    <footer>Public records are screening signals, not a title, survey, appraisal, or buildability determination. Verify every parcel with Gilpin County and qualified professionals.</footer>
+  </body>
+</html>

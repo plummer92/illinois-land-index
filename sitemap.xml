@@ -79,6 +79,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://illinoislandindex.com/gilpin-county-dashboard/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://illinoislandindex.com/disclaimer.html</loc>
     <lastmod>2026-05-30</lastmod>
     <changefreq>yearly</changefreq>

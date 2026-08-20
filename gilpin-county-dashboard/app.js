@@ -5,6 +5,8 @@ const escapeHtml = (value) => String(value || "").replace(/[&<>"']/g, (char) => 
 let snapshot;
 let map;
 let parcelLayer;
+const candidateCache = new Map();
+let activeCandidates = [];
 
 function nextCheck(candidate) {
   const text = `${candidate.land_use_description} ${candidate.zoning_description}`.toLowerCase();
@@ -19,7 +21,26 @@ function filteredCandidates() {
   const minAcres = Number(document.getElementById("minAcres").value);
   const minScore = Number(document.getElementById("minScore").value);
   const landUse = document.getElementById("landUse").value;
-  return snapshot.candidates.filter((item) => (!county || item.county === county) && (item.acres || 0) >= minAcres && item.score >= minScore && (!landUse || item.land_use_description === landUse));
+  return activeCandidates.filter((item) => (!county || item.county === county) && (item.acres || 0) >= minAcres && item.score >= minScore && (!landUse || item.land_use_description === landUse));
+}
+
+async function loadCountyCandidates(countyName) {
+  if (candidateCache.has(countyName)) return candidateCache.get(countyName);
+  const county = snapshot.counties.find((item) => item.name === countyName);
+  if (!county) return [];
+  const response = await fetch(`./data/processed/${county.candidates_file}`);
+  if (!response.ok) throw new Error(`${countyName} candidate data could not be loaded.`);
+  const payload = await response.json();
+  candidateCache.set(countyName, payload.candidates || []);
+  return candidateCache.get(countyName);
+}
+
+async function loadSelectedCandidates() {
+  const selected = document.getElementById("countyFilter").value;
+  document.getElementById("visibleCount").textContent = "Loading...";
+  activeCandidates = selected
+    ? await loadCountyCandidates(selected)
+    : (await Promise.all(snapshot.counties.map((county) => loadCountyCandidates(county.name)))).flat();
 }
 
 function selectedSummary() {
@@ -75,27 +96,32 @@ async function init() {
   snapshot = await response.json();
   document.getElementById("refreshStatus").textContent = `Source received ${snapshot.source_updated || "date not published"}; dashboard built ${new Date(snapshot.generated_at).toLocaleDateString()}.`;
 
-  const uses = [...new Set(snapshot.candidates.map((item) => item.land_use_description).filter(Boolean))].sort();
-  document.getElementById("landUse").innerHTML += uses.map((use) => `<option>${escapeHtml(use)}</option>`).join("");
-
   document.getElementById("map").innerHTML = "";
   map = L.map("map", { scrollWheelZoom: false }).setView([39.86, -105.51], 11);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "&copy; OpenStreetMap contributors" }).addTo(map);
   parcelLayer = L.layerGroup().addTo(map);
+  await loadSelectedCandidates();
+  const uses = [...new Set(activeCandidates.map((item) => item.land_use_description).filter(Boolean))].sort();
+  document.getElementById("landUse").innerHTML += uses.map((use) => `<option>${escapeHtml(use)}</option>`).join("");
   renderCandidates();
 
-  ["countyFilter", "minAcres", "minScore", "landUse"].forEach((id) => document.getElementById(id).addEventListener("input", () => {
+  ["minAcres", "minScore", "landUse"].forEach((id) => document.getElementById(id).addEventListener("input", () => {
     document.getElementById("minAcresValue").value = document.getElementById("minAcres").value;
     document.getElementById("minScoreValue").value = document.getElementById("minScore").value;
     renderCandidates();
   }));
-  document.getElementById("clearFilters").addEventListener("click", () => {
+  document.getElementById("countyFilter").addEventListener("change", async () => {
+    await loadSelectedCandidates();
+    renderCandidates();
+  });
+  document.getElementById("clearFilters").addEventListener("click", async () => {
     document.getElementById("minAcres").value = 5;
     document.getElementById("minScore").value = 0;
     document.getElementById("landUse").value = "";
     document.getElementById("countyFilter").value = "Gilpin";
     document.getElementById("minAcresValue").value = 5;
     document.getElementById("minScoreValue").value = 0;
+    await loadSelectedCandidates();
     renderCandidates();
   });
 }

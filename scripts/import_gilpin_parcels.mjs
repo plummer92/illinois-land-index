@@ -115,6 +115,7 @@ const acreageBuckets = [
 
 const countySummaries = [];
 const candidates = [];
+const candidateSets = new Map();
 for (const county of counties) {
   const countyWhere = `countyName='${county.name}'`;
   const parcelCount = await getCount(countyWhere);
@@ -165,7 +166,9 @@ for (const county of counties) {
     acreage_buckets: bucketCounts,
     source_updated: countyCandidates.find((item) => item.source_updated)?.source_updated || null,
     acreage_method: hasPublishedAcres ? "published landAcres" : "derived from public parcel geometry",
+    candidates_file: `candidates-${county.name.toLowerCase().replaceAll(" ", "-")}.json`,
   });
+  candidateSets.set(county.name, countyCandidates);
   candidates.push(...countyCandidates);
   console.log(`Imported ${parcelCount.toLocaleString()} ${county.name} parcels and ${countyCandidates.length} candidates.`);
 }
@@ -189,10 +192,15 @@ const output = {
     largest_candidate_acres: Math.max(0, ...regionAcreage),
   },
   counties: countySummaries,
-  candidates,
   privacy_note: "Public candidate output excludes owner names, owner mailing addresses, account numbers, and parcel identifiers.",
 };
 
 await fs.mkdir(outputDir, { recursive: true });
 await fs.writeFile(path.join(outputDir, "gilpin_parcel_snapshot.json"), `${JSON.stringify(output, null, 2)}\n`);
+for (const county of countySummaries) {
+  await fs.writeFile(
+    path.join(outputDir, county.candidates_file),
+    `${JSON.stringify({ generated_at: output.generated_at, county: county.name, candidates: candidateSets.get(county.name) }, null, 2)}\n`,
+  );
+}
 console.log(`Imported ${countySummaries.length} counties and ${candidates.length} public-safe candidates.`);

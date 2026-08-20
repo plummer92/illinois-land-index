@@ -34,7 +34,7 @@ jobs:
           git add knoxville-market-dashboard/data/processed/parcel_summary.json \
             knoxville-market-dashboard/data/processed/parcel_candidates.geojson \
             knoxville-market-dashboard/data/processed/refresh_status.json \
-            gilpin-county-dashboard/data/processed/gilpin_parcel_snapshot.json
+            gilpin-county-dashboard/data/processed
           if git diff --cached --quiet; then
             echo "No public land data changes to commit."
           else

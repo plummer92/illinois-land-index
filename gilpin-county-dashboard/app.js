@@ -128,9 +128,19 @@ function renderCandidates() {
 }
 
 async function init() {
-  const response = await fetch("./data/processed/gilpin_parcel_snapshot.json");
+  const [response, taxResponse] = await Promise.all([
+    fetch("./data/processed/gilpin_parcel_snapshot.json"),
+    fetch("./data/processed/colorado_property_tax_snapshot.json"),
+  ]);
   if (!response.ok) throw new Error("Gilpin parcel snapshot could not be loaded.");
   snapshot = await response.json();
+  if (taxResponse.ok) {
+    const taxSnapshot = await taxResponse.json();
+    document.getElementById("taxCoverage").innerHTML = taxSnapshot.counties.map((county) => `
+      <article><span>${escapeHtml(county.name)} County</span><strong>${county.accounts ? formatNumber(county.accounts) : "Assessment only"}</strong><p>${county.coverage === "official_bulk_assessor_roll" ? `${formatMoney(county.estimated_annual_tax)} estimated annual levy` : "Treasurer bulk payment feed still needed"}</p></article>
+    `).join("");
+    document.getElementById("taxCoverageNote").textContent = `Updated ${new Date(taxSnapshot.generated_at).toLocaleDateString()}. Annual tax is estimated from assessed value and mill levy; it is not a verified unpaid balance.`;
+  }
   document.getElementById("refreshStatus").textContent = `Source received ${snapshot.source_updated || "date not published"}; dashboard built ${new Date(snapshot.generated_at).toLocaleDateString()}.`;
 
   document.getElementById("map").innerHTML = "";

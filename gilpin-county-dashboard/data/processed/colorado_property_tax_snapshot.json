@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-08-21T19:58:37.800591Z",
+  "privacy": "Owner names, mailing addresses, account numbers, and parcel identifiers are not published.",
+  "counties": [
+    {
+      "name": "Boulder",
+      "coverage": "official_bulk_assessor_roll",
+      "source_updated": "2026-08-21T19:58:37.800591Z",
+      "tax_year": "2026",
+      "accounts": 149200,
+      "total_actual_value": 226981679241,
+      "total_assessed_value": 30540078679,
+      "estimated_annual_tax": 2866753731,
+      "average_mill_levy": 96.853,
+      "payment_status_available": false,
+      "source": "https://bouldercounty.gov/property-and-land/assessor/data-download/"
+    },
+    {
+      "name": "Gilpin",
+      "coverage": "statewide_assessment_values",
+      "payment_status_available": false,
+      "source": "https://gilpin.infoenvoy.net/Search"
+    },
+    {
+      "name": "Clear Creek",
+      "coverage": "statewide_assessment_values",
+      "payment_status_available": false,
+      "source": "https://www.clearcreekcounty.us/443/Interactive-Maps"
+    },
+    {
+      "name": "Grand",
+      "coverage": "statewide_assessment_values",
+      "payment_status_available": false,
+      "source": "https://www.co.grand.co.us/133/Assessors-Office"
+    },
+    {
+      "name": "Jefferson",
+      "coverage": "statewide_assessment_values",
+      "payment_status_available": false,
+      "source": "https://propertysearch.jeffco.us/propertyrecordssearch/dashboard"
+    }
+  ]
+}

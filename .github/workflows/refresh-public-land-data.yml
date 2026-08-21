@@ -27,6 +27,9 @@ jobs:
       - name: Refresh Gilpin County public land data
         run: node scripts/import_gilpin_parcels.mjs
 
+      - name: Refresh Colorado property tax summary
+        run: python scripts/import_colorado_property_taxes.py
+
       - name: Commit refreshed data
         run: |
           git config user.name "github-actions[bot]"

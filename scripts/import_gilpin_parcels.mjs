@@ -4,11 +4,11 @@ import path from "node:path";
 const service = "https://gis.colorado.gov/public/rest/services/Address_and_Parcel/Colorado_Public_Parcels/FeatureServer/0";
 const outputDir = path.resolve("gilpin-county-dashboard/data/processed");
 const counties = [
-  { name: "Gilpin", fips: "08047", role: "Focus county", center: [39.856, -105.522] },
-  { name: "Boulder", fips: "08013", role: "Northern border", center: [40.092, -105.357] },
-  { name: "Clear Creek", fips: "08019", role: "Southern border", center: [39.689, -105.641] },
-  { name: "Grand", fips: "08049", role: "Western border", center: [40.102, -106.118] },
-  { name: "Jefferson", fips: "08059", role: "Eastern border", center: [39.586, -105.251] },
+  { name: "Gilpin", fips: "08047", role: "Focus county", center: [39.856, -105.522], publicSearchUrl: "https://gis.colorado.gov/proptaxmap/" },
+  { name: "Boulder", fips: "08013", role: "Northern border", center: [40.092, -105.357], publicSearchUrl: "https://maps.bouldercounty.org/boco/PropertySearch/?page=Home" },
+  { name: "Clear Creek", fips: "08019", role: "Southern border", center: [39.689, -105.641], publicSearchUrl: "https://www.clearcreekcounty.us/443/Interactive-Maps" },
+  { name: "Grand", fips: "08049", role: "Western border", center: [40.102, -106.118], publicSearchUrl: "https://www.co.grand.co.us/133/Assessors-Office" },
+  { name: "Jefferson", fips: "08059", role: "Eastern border", center: [39.586, -105.251], publicSearchUrl: "https://propertysearch.jeffco.us/propertyrecordssearch/dashboard" },
 ];
 
 async function fetchJson(url) {
@@ -150,7 +150,7 @@ for (const county of counties) {
     appraised_value: numeric(attributes.apprValTot),
     assessed_value: numeric(attributes.asedValTot),
     source_updated: attributes.dateReceived || "",
-    source_url: attributes.URL || service,
+    source_url: county.publicSearchUrl,
     score: candidateScore(attributes),
     geometry: simplifyGeometry(geometry),
   }));

@@ -2,6 +2,29 @@ const formatNumber = (value, digits = 0) => Number(value || 0).toLocaleString(un
 const formatMoney = (value) => Number.isFinite(value) && value > 0 ? value.toLocaleString(undefined, { style: "currency", currency: "USD", maximumFractionDigits: 0 }) : "Not published";
 const escapeHtml = (value) => String(value || "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[char]);
 
+const publicCountyLinks = {
+  Gilpin: {
+    search: "https://gis.colorado.gov/proptaxmap/",
+    info: "https://gilpin.infoenvoy.net/Search",
+  },
+  Boulder: {
+    search: "https://maps.bouldercounty.org/boco/PropertySearch/?page=Home",
+    info: "https://bouldercounty.gov/departments/assessor/",
+  },
+  "Clear Creek": {
+    search: "https://www.clearcreekcounty.us/443/Interactive-Maps",
+    info: "https://www.clearcreekcounty.us/188/Assessor",
+  },
+  Grand: {
+    search: "https://www.co.grand.co.us/133/Assessors-Office",
+    info: "https://www.co.grand.co.us/434/4086/Property-Taxes",
+  },
+  Jefferson: {
+    search: "https://propertysearch.jeffco.us/propertyrecordssearch/dashboard",
+    info: "https://www.jeffco.us/713/Parcel-Maps",
+  },
+};
+
 let snapshot;
 let map;
 let parcelLayer;
@@ -55,6 +78,20 @@ function selectedSummary() {
   return { name: "Five-county region", ...snapshot.summary, acreage_buckets: [...bucketMap.values()] };
 }
 
+function selectedCountyLinks(countyName) {
+  return publicCountyLinks[countyName] || {
+    search: "https://gis.colorado.gov/proptaxmap/",
+    info: "https://gis.colorado.gov/proptaxmap/",
+  };
+}
+
+function updatePublicLinks() {
+  const countyName = document.getElementById("countyFilter").value;
+  const links = selectedCountyLinks(countyName);
+  document.getElementById("countySearchLink").href = links.search;
+  document.getElementById("countyInfoLink").href = links.info;
+}
+
 function renderSummary() {
   const summary = selectedSummary();
   document.getElementById("parcelCount").textContent = formatNumber(summary.parcel_count);
@@ -78,7 +115,7 @@ function renderCandidates() {
       <td>${formatNumber(item.acres, 2)}</td>
       <td>${escapeHtml(item.land_use_description || "Not classified")}<br><small>${escapeHtml(item.zoning_description || item.zoning_code || "Zoning not published")}</small></td>
       <td>${formatMoney(item.appraised_value)}</td>
-      <td><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${nextCheck(item)}</a></td>
+      <td>${escapeHtml(nextCheck(item))}<br><a href="${escapeHtml(selectedCountyLinks(item.county).search)}" target="_blank" rel="noreferrer">Open public county search</a></td>
     </tr>`).join("") || '<tr><td colspan="6">No candidates match these filters.</td></tr>';
 
   parcelLayer.clearLayers();
@@ -103,6 +140,7 @@ async function init() {
   await loadSelectedCandidates();
   const uses = [...new Set(activeCandidates.map((item) => item.land_use_description).filter(Boolean))].sort();
   document.getElementById("landUse").innerHTML += uses.map((use) => `<option>${escapeHtml(use)}</option>`).join("");
+  updatePublicLinks();
   renderCandidates();
 
   ["minAcres", "minScore", "landUse"].forEach((id) => document.getElementById(id).addEventListener("input", () => {
@@ -112,6 +150,7 @@ async function init() {
   }));
   document.getElementById("countyFilter").addEventListener("change", async () => {
     await loadSelectedCandidates();
+    updatePublicLinks();
     renderCandidates();
   });
   document.getElementById("clearFilters").addEventListener("click", async () => {
@@ -122,6 +161,7 @@ async function init() {
     document.getElementById("minAcresValue").value = 5;
     document.getElementById("minScoreValue").value = 0;
     await loadSelectedCandidates();
+    updatePublicLinks();
     renderCandidates();
   });
 }

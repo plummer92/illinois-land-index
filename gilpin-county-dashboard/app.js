@@ -1,7 +1,8 @@
 const formatNumber = (value, digits = 0) => Number(value || 0).toLocaleString(undefined, { maximumFractionDigits: digits });
 const formatMoney = (value) => Number.isFinite(value) && value > 0 ? value.toLocaleString(undefined, { style: "currency", currency: "USD", maximumFractionDigits: 0 }) : "Not published";
+const formatTaxMoney = (value) => Number.isFinite(value) ? value.toLocaleString(undefined, { style: "currency", currency: "USD", minimumFractionDigits: 2, maximumFractionDigits: 2 }) : "Not available";
 const escapeHtml = (value) => String(value || "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[char]);
-const dataVersion = "20260822-parcel-maps";
+const dataVersion = "20260822-gilpin-tax";
 
 const publicCountyLinks = {
   Gilpin: {
@@ -117,7 +118,7 @@ function renderCandidates() {
       <td>${formatNumber(item.acres, 2)}</td>
       <td>${escapeHtml(item.land_use_description || "Not classified")}<br><small>${escapeHtml(item.zoning_description || item.zoning_code || "Zoning not published")}</small></td>
       <td>${formatMoney(item.appraised_value)}</td>
-      <td>${formatMoney(item.estimated_annual_tax)}</td>
+      <td>${item.tax_total_billed != null ? `${formatTaxMoney(item.tax_total_billed)} billed<br><strong>${formatTaxMoney(item.tax_total_due)} due</strong>${item.latest_payment_date ? `<br><small>Latest receipt ${escapeHtml(item.latest_payment_date)}</small>` : ""}` : `${formatMoney(item.estimated_annual_tax)} estimated`}</td>
       <td>${escapeHtml(nextCheck(item))}<br><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">Open parcel record</a></td>
     </tr>`).join("") || '<tr><td colspan="8">No candidates match these filters.</td></tr>';
 
@@ -140,9 +141,9 @@ async function init() {
   if (taxResponse.ok) {
     const taxSnapshot = await taxResponse.json();
     document.getElementById("taxCoverage").innerHTML = taxSnapshot.counties.map((county) => `
-      <article><span>${escapeHtml(county.name)} County</span><strong>${county.accounts ? formatNumber(county.accounts) : "Assessment only"}</strong><p>${county.coverage === "official_bulk_assessor_roll" ? `${formatMoney(county.estimated_annual_tax)} estimated annual levy` : "Treasurer bulk payment feed still needed"}</p></article>
+      <article><span>${escapeHtml(county.name)} County</span><strong>${county.accounts ? formatNumber(county.accounts) : "Assessment only"}</strong><p>${county.coverage === "official_bulk_assessor_roll" ? `${formatMoney(county.estimated_annual_tax)} estimated annual levy` : county.payment_status_available ? `${formatTaxMoney(county.total_due)} currently due across shortlist` : "Treasurer bulk payment feed still needed"}</p></article>
     `).join("");
-    document.getElementById("taxCoverageNote").textContent = `Updated ${new Date(taxSnapshot.generated_at).toLocaleDateString()}. Annual tax is estimated from assessed value and mill levy; it is not a verified unpaid balance.`;
+    document.getElementById("taxCoverageNote").textContent = `Updated ${new Date(taxSnapshot.generated_at).toLocaleDateString()}. Gilpin billed amounts, balances, and receipts come from the public county treasurer portal. Boulder annual tax remains an assessment-based estimate.`;
   }
   document.getElementById("refreshStatus").textContent = `Source received ${snapshot.source_updated || "date not published"}; dashboard built ${new Date(snapshot.generated_at).toLocaleDateString()}.`;
 

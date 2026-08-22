@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-22T05:27:38.617755Z",
+  "generated_at": "2026-08-22T05:51:34.071585Z",
   "privacy": "Owner names and parcel identifiers are public assessor records. Owner mailing addresses are not published.",
   "counties": [
     {
       "name": "Boulder",
       "coverage": "official_bulk_assessor_roll",
-      "source_updated": "2026-08-22T05:27:38.617755Z",
+      "source_updated": "2026-08-22T05:51:34.071585Z",
       "tax_year": "2026",
       "accounts": 149200,
       "total_actual_value": 226981679241,
@@ -17,9 +17,12 @@
     },
     {
       "name": "Gilpin",
-      "coverage": "statewide_assessment_values",
-      "payment_status_available": false,
-      "source": "https://gilpin.infoenvoy.net/Search"
+      "coverage": "public_treasurer_account_details",
+      "accounts": 427,
+      "accounts_due": 13,
+      "total_due": 49748.69,
+      "payment_status_available": true,
+      "source": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/web/login.jsp"
     },
     {
       "name": "Clear Creek",

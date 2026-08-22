@@ -1,6 +1,7 @@
 const formatNumber = (value, digits = 0) => Number(value || 0).toLocaleString(undefined, { maximumFractionDigits: digits });
 const formatMoney = (value) => Number.isFinite(value) && value > 0 ? value.toLocaleString(undefined, { style: "currency", currency: "USD", maximumFractionDigits: 0 }) : "Not published";
 const escapeHtml = (value) => String(value || "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[char]);
+const dataVersion = "20260822-parcel-maps";
 
 const publicCountyLinks = {
   Gilpin: {
@@ -51,7 +52,7 @@ async function loadCountyCandidates(countyName) {
   if (candidateCache.has(countyName)) return candidateCache.get(countyName);
   const county = snapshot.counties.find((item) => item.name === countyName);
   if (!county) return [];
-  const response = await fetch(`./data/processed/${county.candidates_file}`);
+  const response = await fetch(`./data/processed/${county.candidates_file}?v=${dataVersion}`);
   if (!response.ok) throw new Error(`${countyName} candidate data could not be loaded.`);
   const payload = await response.json();
   candidateCache.set(countyName, payload.candidates || []);
@@ -131,8 +132,8 @@ function renderCandidates() {
 
 async function init() {
   const [response, taxResponse] = await Promise.all([
-    fetch("./data/processed/gilpin_parcel_snapshot.json"),
-    fetch("./data/processed/colorado_property_tax_snapshot.json"),
+    fetch(`./data/processed/gilpin_parcel_snapshot.json?v=${dataVersion}`),
+    fetch(`./data/processed/colorado_property_tax_snapshot.json?v=${dataVersion}`),
   ]);
   if (!response.ok) throw new Error("Gilpin parcel snapshot could not be loaded.");
   snapshot = await response.json();

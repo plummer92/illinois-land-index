@@ -129,13 +129,15 @@ for (const county of counties) {
   }
   const rawCandidates = await getFeatures(
     `${countyWhere} AND ${acreageExpression} >= ${threshold(5)}`,
-    "OBJECTID,situsAdd,sitAddCty,landAcres,Shape__Area,zoningCode,zoningDesc,landUseCde,landUseDsc,saleDate,salePrice,apprValTot,asedValTot,dateReceived,URL",
+    "OBJECTID,parcel_id,account,situsAdd,sitAddCty,landAcres,Shape__Area,zoningCode,zoningDesc,landUseCde,landUseDsc,saleDate,salePrice,apprValTot,asedValTot,dateReceived,URL",
     true,
     500,
     `${acreageExpression} DESC`,
   );
   const countyCandidates = rawCandidates.map(({ attributes, geometry }, index) => ({
     candidate_id: `${county.fips}-${attributes.OBJECTID || index + 1}`,
+    _join_account: attributes.account || "",
+    _join_parcel_id: attributes.parcel_id || "",
     county: county.name,
     state: "CO",
     acres: numeric(attributes.landAcres) || polygonAreaAcres(geometry),

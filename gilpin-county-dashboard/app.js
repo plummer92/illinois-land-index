@@ -115,8 +115,9 @@ function renderCandidates() {
       <td>${formatNumber(item.acres, 2)}</td>
       <td>${escapeHtml(item.land_use_description || "Not classified")}<br><small>${escapeHtml(item.zoning_description || item.zoning_code || "Zoning not published")}</small></td>
       <td>${formatMoney(item.appraised_value)}</td>
+      <td>${formatMoney(item.estimated_annual_tax)}</td>
       <td>${escapeHtml(nextCheck(item))}<br><a href="${escapeHtml(selectedCountyLinks(item.county).search)}" target="_blank" rel="noreferrer">Open public county search</a></td>
-    </tr>`).join("") || '<tr><td colspan="6">No candidates match these filters.</td></tr>';
+    </tr>`).join("") || '<tr><td colspan="7">No candidates match these filters.</td></tr>';
 
   parcelLayer.clearLayers();
   candidates.forEach((item) => {
@@ -178,5 +179,5 @@ async function init() {
 
 init().catch((error) => {
   document.getElementById("refreshStatus").textContent = error.message;
-  document.getElementById("candidateRows").innerHTML = `<tr><td colspan="6">${escapeHtml(error.message)}</td></tr>`;
+  document.getElementById("candidateRows").innerHTML = `<tr><td colspan="7">${escapeHtml(error.message)}</td></tr>`;
 });

@@ -27,6 +27,14 @@ def number(value):
 
 
 def main():
+    candidate_path = Path("gilpin-county-dashboard/data/processed/candidates-boulder.json")
+    candidate_payload = json.loads(candidate_path.read_text(encoding="utf-8"))
+    candidate_accounts = {
+        row.get("_join_account", "").strip()
+        for row in candidate_payload.get("candidates", [])
+        if row.get("_join_account")
+    }
+
     with tempfile.TemporaryDirectory() as temporary:
         directory = Path(temporary)
         owners_path = download("Owner_Address.csv", directory)
@@ -51,6 +59,7 @@ def main():
         actual_value = 0.0
         assessed_value = 0.0
         mill_levies = []
+        candidate_taxes = {}
         with owners_path.open(encoding="utf-8-sig", newline="") as source:
             for row in csv.DictReader(source):
                 if row.get("status_cd", "").strip() != "A":
@@ -65,6 +74,22 @@ def main():
                 estimated_tax += value["assessed"] * mill / 1000
                 if mill:
                     mill_levies.append(mill)
+                strap = row.get("strap", "").strip()
+                if strap in candidate_accounts:
+                    candidate_taxes[strap] = {
+                        "estimated_annual_tax": round(value["assessed"] * mill / 1000),
+                        "tax_year": tax_years.most_common(1)[0][0] if tax_years else None,
+                        "mill_levy": mill,
+                    }
+
+        for path in Path("gilpin-county-dashboard/data/processed").glob("candidates-*.json"):
+            public_payload = json.loads(path.read_text(encoding="utf-8"))
+            for candidate in public_payload.get("candidates", []):
+                if path == candidate_path:
+                    candidate.update(candidate_taxes.get(candidate.get("_join_account", ""), {}))
+                candidate.pop("_join_account", None)
+                candidate.pop("_join_parcel_id", None)
+            path.write_text(json.dumps(public_payload, indent=2) + "\n", encoding="utf-8")
 
         generated_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         payload = {

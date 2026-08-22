@@ -112,7 +112,7 @@ function renderCandidates() {
     <tr data-candidate="${escapeHtml(item.candidate_id)}">
       <td><span class="score">${item.score}</span></td>
       <td><strong>${escapeHtml(item.owner_name || "Owner not published")}</strong>${item.secondary_owner ? `<br><small>${escapeHtml(item.secondary_owner)}</small>` : ""}<br><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(item.parcel_number || item.account_number || "Open record")}</a></td>
-      <td><strong>${escapeHtml(item.situs_address)}</strong><br>${escapeHtml(item.city || "Gilpin County")}</td>
+      <td><strong>${escapeHtml(item.situs_address)}</strong><br>${escapeHtml(item.city || `${item.county} County`)}${item.map_url ? `<br><a href="${escapeHtml(item.map_url)}" target="_blank" rel="noreferrer">Open satellite map</a>` : ""}</td>
       <td>${formatNumber(item.acres, 2)}</td>
       <td>${escapeHtml(item.land_use_description || "Not classified")}<br><small>${escapeHtml(item.zoning_description || item.zoning_code || "Zoning not published")}</small></td>
       <td>${formatMoney(item.appraised_value)}</td>
@@ -124,7 +124,7 @@ function renderCandidates() {
   candidates.forEach((item) => {
     if (!item.geometry) return;
     const layer = L.geoJSON({ type: "Feature", geometry: item.geometry }, { style: { color: "#235347", weight: 1.5, fillColor: item.score >= 70 ? "#d7a52b" : "#4a8a76", fillOpacity: .42 } });
-    layer.bindPopup(`<div class="map-popup"><strong>${escapeHtml(item.owner_name || "Owner not published")}</strong>${escapeHtml(item.situs_address)}<br>${formatNumber(item.acres, 2)} acres<br>${escapeHtml(item.land_use_description || "Land use not classified")}<br>Score ${item.score}<br><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">Open parcel record</a></div>`);
+    layer.bindPopup(`<div class="map-popup"><strong>${escapeHtml(item.owner_name || "Owner not published")}</strong>${escapeHtml(item.situs_address)}<br>${formatNumber(item.acres, 2)} acres<br>${escapeHtml(item.land_use_description || "Land use not classified")}<br>Score ${item.score}<br><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">Open parcel record</a>${item.map_url ? `<br><a href="${escapeHtml(item.map_url)}" target="_blank" rel="noreferrer">Open satellite map</a>` : ""}</div>`);
     layer.addTo(parcelLayer);
   });
 }

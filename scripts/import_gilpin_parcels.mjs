@@ -112,6 +112,14 @@ function simplifyGeometry(geometry, maxPointsPerRing = 60) {
   return coordinates.length ? { type: "Polygon", coordinates } : null;
 }
 
+function parcelMapUrl(geometry) {
+  const points = geometry?.rings?.flat() || [];
+  if (!points.length) return "";
+  const longitude = points.reduce((sum, point) => sum + point[0], 0) / points.length;
+  const latitude = points.reduce((sum, point) => sum + point[1], 0) / points.length;
+  return `https://www.google.com/maps?q=${latitude.toFixed(6)},${longitude.toFixed(6)}&t=k`;
+}
+
 const acreageBuckets = [
   ["under_1", "Under 1 acre", "landAcres < 1"],
   ["one_to_5", "1 to 5 acres", "landAcres >= 1 AND landAcres < 5"],
@@ -150,7 +158,7 @@ for (const county of counties) {
     county: county.name,
     state: "CO",
     acres: numeric(attributes.landAcres) || polygonAreaAcres(geometry),
-    situs_address: attributes.situsAdd || "Address not published",
+    situs_address: attributes.situsAdd || `Parcel ${attributes.parcel_id || attributes.account || "location"} near ${attributes.sitAddCty || county.name + " County"}`,
     city: attributes.sitAddCty || "",
     zoning_code: attributes.zoningCode || "",
     zoning_description: attributes.zoningDesc || "",
@@ -162,6 +170,7 @@ for (const county of counties) {
     assessed_value: numeric(attributes.asedValTot),
     source_updated: attributes.dateReceived || "",
     source_url: parcelRecordUrl(county, attributes),
+    map_url: parcelMapUrl(geometry),
     score: candidateScore(attributes),
     geometry: simplifyGeometry(geometry),
   }));

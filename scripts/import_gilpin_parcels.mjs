@@ -11,6 +11,13 @@ const counties = [
   { name: "Jefferson", fips: "08059", role: "Eastern border", center: [39.586, -105.251], publicSearchUrl: "https://propertysearch.jeffco.us/propertyrecordssearch/dashboard" },
 ];
 
+function parcelRecordUrl(county, attributes) {
+  const account = encodeURIComponent(attributes.account || "");
+  if (county.name === "Gilpin" && account) return `https://gilpin.infoenvoy.net/Details/${account}`;
+  if (county.name === "Clear Creek" && account) return `https://assessor.co.clear-creek.co.us/eagleassessor/taxweb/account.jsp?accountNum=${account}`;
+  return attributes.URL || county.publicSearchUrl;
+}
+
 async function fetchJson(url) {
   const response = await fetch(url);
   if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`);
@@ -129,15 +136,17 @@ for (const county of counties) {
   }
   const rawCandidates = await getFeatures(
     `${countyWhere} AND ${acreageExpression} >= ${threshold(5)}`,
-    "OBJECTID,parcel_id,account,situsAdd,sitAddCty,landAcres,Shape__Area,zoningCode,zoningDesc,landUseCde,landUseDsc,saleDate,salePrice,apprValTot,asedValTot,dateReceived,URL",
+    "OBJECTID,parcel_id,account,owner,owner2,situsAdd,sitAddCty,landAcres,Shape__Area,zoningCode,zoningDesc,landUseCde,landUseDsc,saleDate,salePrice,apprValTot,asedValTot,dateReceived,URL",
     true,
     500,
     `${acreageExpression} DESC`,
   );
   const countyCandidates = rawCandidates.map(({ attributes, geometry }, index) => ({
     candidate_id: `${county.fips}-${attributes.OBJECTID || index + 1}`,
-    _join_account: attributes.account || "",
-    _join_parcel_id: attributes.parcel_id || "",
+    account_number: attributes.account || "",
+    parcel_number: attributes.parcel_id || "",
+    owner_name: attributes.owner || "Owner not published",
+    secondary_owner: attributes.owner2 || "",
     county: county.name,
     state: "CO",
     acres: numeric(attributes.landAcres) || polygonAreaAcres(geometry),
@@ -152,7 +161,7 @@ for (const county of counties) {
     appraised_value: numeric(attributes.apprValTot),
     assessed_value: numeric(attributes.asedValTot),
     source_updated: attributes.dateReceived || "",
-    source_url: county.publicSearchUrl,
+    source_url: parcelRecordUrl(county, attributes),
     score: candidateScore(attributes),
     geometry: simplifyGeometry(geometry),
   }));
@@ -194,7 +203,7 @@ const output = {
     largest_candidate_acres: Math.max(0, ...regionAcreage),
   },
   counties: countySummaries,
-  privacy_note: "Public candidate output excludes owner names, owner mailing addresses, account numbers, and parcel identifiers.",
+  privacy_note: "Owner names and parcel identifiers shown are public assessor records. Owner mailing addresses are excluded.",
 };
 
 await fs.mkdir(outputDir, { recursive: true });

@@ -30,9 +30,9 @@ def main():
     candidate_path = Path("gilpin-county-dashboard/data/processed/candidates-boulder.json")
     candidate_payload = json.loads(candidate_path.read_text(encoding="utf-8"))
     candidate_accounts = {
-        row.get("_join_account", "").strip()
+        row.get("account_number", "").strip()
         for row in candidate_payload.get("candidates", [])
-        if row.get("_join_account")
+        if row.get("account_number")
     }
 
     with tempfile.TemporaryDirectory() as temporary:
@@ -86,15 +86,13 @@ def main():
             public_payload = json.loads(path.read_text(encoding="utf-8"))
             for candidate in public_payload.get("candidates", []):
                 if path == candidate_path:
-                    candidate.update(candidate_taxes.get(candidate.get("_join_account", ""), {}))
-                candidate.pop("_join_account", None)
-                candidate.pop("_join_parcel_id", None)
+                    candidate.update(candidate_taxes.get(candidate.get("account_number", ""), {}))
             path.write_text(json.dumps(public_payload, indent=2) + "\n", encoding="utf-8")
 
         generated_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
         payload = {
             "generated_at": generated_at,
-            "privacy": "Owner names, mailing addresses, account numbers, and parcel identifiers are not published.",
+            "privacy": "Owner names and parcel identifiers are public assessor records. Owner mailing addresses are not published.",
             "counties": [
                 {
                     "name": "Boulder",

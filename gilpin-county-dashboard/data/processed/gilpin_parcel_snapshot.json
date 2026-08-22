@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T11:48:47.720Z",
+  "generated_at": "2026-08-22T05:27:32.307Z",
   "source_updated": "5/18/2026",
   "county": {
     "name": "Gilpin County",
@@ -31,6 +31,7 @@
         39.856,
         -105.522
       ],
+      "publicSearchUrl": "https://gis.colorado.gov/proptaxmap/",
       "parcel_count": 7724,
       "candidate_count": 500,
       "candidate_acres": 25255.667000000005,
@@ -75,6 +76,7 @@
         40.092,
         -105.357
       ],
+      "publicSearchUrl": "https://maps.bouldercounty.org/boco/PropertySearch/?page=Home",
       "parcel_count": 144551,
       "candidate_count": 500,
       "candidate_acres": 263854.1454000001,
@@ -119,6 +121,7 @@
         39.689,
         -105.641
       ],
+      "publicSearchUrl": "https://www.clearcreekcounty.us/443/Interactive-Maps",
       "parcel_count": 26844,
       "candidate_count": 500,
       "candidate_acres": 986496.2224000008,
@@ -163,6 +166,7 @@
         40.102,
         -106.118
       ],
+      "publicSearchUrl": "https://www.co.grand.co.us/133/Assessors-Office",
       "parcel_count": 28955,
       "candidate_count": 500,
       "candidate_acres": 1112770.3897291531,
@@ -207,6 +211,7 @@
         39.586,
         -105.251
       ],
+      "publicSearchUrl": "https://propertysearch.jeffco.us/propertyrecordssearch/dashboard",
       "parcel_count": 258817,
       "candidate_count": 500,
       "candidate_acres": 905999.7009999976,
@@ -244,5 +249,5 @@
       "candidates_file": "candidates-jefferson.json"
     }
   ],
-  "privacy_note": "Public candidate output excludes owner names, owner mailing addresses, account numbers, and parcel identifiers."
+  "privacy_note": "Owner names and parcel identifiers shown are public assessor records. Owner mailing addresses are excluded."
 }

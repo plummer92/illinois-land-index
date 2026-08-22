@@ -111,19 +111,20 @@ function renderCandidates() {
   document.getElementById("candidateRows").innerHTML = candidates.slice(0, 100).map((item) => `
     <tr data-candidate="${escapeHtml(item.candidate_id)}">
       <td><span class="score">${item.score}</span></td>
+      <td><strong>${escapeHtml(item.owner_name || "Owner not published")}</strong>${item.secondary_owner ? `<br><small>${escapeHtml(item.secondary_owner)}</small>` : ""}<br><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(item.parcel_number || item.account_number || "Open record")}</a></td>
       <td><strong>${escapeHtml(item.situs_address)}</strong><br>${escapeHtml(item.city || "Gilpin County")}</td>
       <td>${formatNumber(item.acres, 2)}</td>
       <td>${escapeHtml(item.land_use_description || "Not classified")}<br><small>${escapeHtml(item.zoning_description || item.zoning_code || "Zoning not published")}</small></td>
       <td>${formatMoney(item.appraised_value)}</td>
       <td>${formatMoney(item.estimated_annual_tax)}</td>
-      <td>${escapeHtml(nextCheck(item))}<br><a href="${escapeHtml(selectedCountyLinks(item.county).search)}" target="_blank" rel="noreferrer">Open public county search</a></td>
-    </tr>`).join("") || '<tr><td colspan="7">No candidates match these filters.</td></tr>';
+      <td>${escapeHtml(nextCheck(item))}<br><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">Open parcel record</a></td>
+    </tr>`).join("") || '<tr><td colspan="8">No candidates match these filters.</td></tr>';
 
   parcelLayer.clearLayers();
   candidates.forEach((item) => {
     if (!item.geometry) return;
     const layer = L.geoJSON({ type: "Feature", geometry: item.geometry }, { style: { color: "#235347", weight: 1.5, fillColor: item.score >= 70 ? "#d7a52b" : "#4a8a76", fillOpacity: .42 } });
-    layer.bindPopup(`<div class="map-popup"><strong>${escapeHtml(item.situs_address)}</strong>${formatNumber(item.acres, 2)} acres<br>${escapeHtml(item.land_use_description || "Land use not classified")}<br>Score ${item.score}</div>`);
+    layer.bindPopup(`<div class="map-popup"><strong>${escapeHtml(item.owner_name || "Owner not published")}</strong>${escapeHtml(item.situs_address)}<br>${formatNumber(item.acres, 2)} acres<br>${escapeHtml(item.land_use_description || "Land use not classified")}<br>Score ${item.score}<br><a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">Open parcel record</a></div>`);
     layer.addTo(parcelLayer);
   });
 }
@@ -179,5 +180,5 @@ async function init() {
 
 init().catch((error) => {
   document.getElementById("refreshStatus").textContent = error.message;
-  document.getElementById("candidateRows").innerHTML = `<tr><td colspan="7">${escapeHtml(error.message)}</td></tr>`;
+  document.getElementById("candidateRows").innerHTML = `<tr><td colspan="8">${escapeHtml(error.message)}</td></tr>`;
 });

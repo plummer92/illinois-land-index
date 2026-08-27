@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-08-26T11:54:29.798854Z",
+  "generated_at": "2026-08-27T21:06:22.991135Z",
   "privacy": "Owner names and parcel identifiers are public assessor records. Owner mailing addresses are not published.",
   "counties": [
     {
       "name": "Boulder",
       "coverage": "official_bulk_assessor_roll",
-      "source_updated": "2026-08-26T11:54:29.798854Z",
+      "source_updated": "2026-08-27T21:06:22.991135Z",
       "tax_year": "2026",
       "accounts": 149197,
       "total_actual_value": 226976567441,

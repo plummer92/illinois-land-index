@@ -23,6 +23,11 @@
     return `${numeric > 0 ? "+" : ""}${numberFormat.format(numeric)}`;
   }
 
+  function formatComparison(metric) {
+    if (!metric || metric.previous === null || metric.previous === undefined) return "First weekly snapshot";
+    return `${numberFormat.format(Number(metric.previous || 0))} → ${numberFormat.format(Number(metric.current || 0))} (${formatChange(metric.change)})`;
+  }
+
   function formatDate(value) {
     if (!value) return "Recently refreshed";
     const date = new Date(value);
@@ -93,12 +98,13 @@
       const movement = delta.largest_movement;
 
       setText("delta-compared-to", formatDate(publicDeltaResult.value.compared_to));
-      setText("delta-targets", formatChange(byLabel["Sangamon target rows"]?.change));
-      setText("delta-score-80", formatChange(byLabel["Score 80+ rows"]?.change));
-      setText("delta-taxes-due", formatChange(byLabel["Taxes due rows"]?.change));
-      setText("delta-due-soon", formatChange(byLabel["Due within 45 days"]?.change));
-      setText("delta-owner-groups", formatChange(byLabel["Large owner groups"]?.change));
-      setText("delta-terrain", formatChange(byLabel["Terrain-ready rows"]?.change));
+      setText("delta-current-week", formatDate(publicDeltaResult.value.generated_at));
+      setText("delta-targets", formatComparison(byLabel["Sangamon target rows"]));
+      setText("delta-score-80", formatComparison(byLabel["Score 80+ rows"]));
+      setText("delta-taxes-due", formatComparison(byLabel["Taxes due rows"]));
+      setText("delta-due-soon", formatComparison(byLabel["Due within 45 days"]));
+      setText("delta-owner-groups", formatComparison(byLabel["Large owner groups"]));
+      setText("delta-terrain", formatComparison(byLabel["Terrain-ready rows"]));
       setText("delta-largest-movement", movement ? `${movement.label}: ${formatChange(movement.change)}` : "Waiting on the next comparison");
     }
 

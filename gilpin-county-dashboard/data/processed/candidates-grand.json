@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T15:01:31.878Z",
+  "generated_at": "2026-09-05T13:56:06.370Z",
   "county": "Grand",
   "candidates": [
     {
@@ -75154,11 +75154,11 @@
       }
     },
     {
-      "candidate_id": "08049-1439604",
-      "account_number": "M200119",
+      "candidate_id": "08049-1439623",
+      "account_number": "M028621",
       "parcel_number": "145118300083",
-      "owner_name": "COLDWELL BANKER GRAND ELK",
-      "secondary_owner": "C/O CROOKED CREEK TRAP CLUB",
+      "owner_name": "CALHOUN, STEPHEN",
+      "secondary_owner": "",
       "county": "Grand",
       "state": "CO",
       "acres": 1172.422980333418,
@@ -75621,11 +75621,11 @@
       }
     },
     {
-      "candidate_id": "08049-1439623",
-      "account_number": "M028621",
+      "candidate_id": "08049-1439604",
+      "account_number": "M200119",
       "parcel_number": "145118300083",
-      "owner_name": "CALHOUN, STEPHEN",
-      "secondary_owner": "",
+      "owner_name": "COLDWELL BANKER GRAND ELK",
+      "secondary_owner": "C/O CROOKED CREEK TRAP CLUB",
       "county": "Grand",
       "state": "CO",
       "acres": 1172.422980333418,
@@ -146865,11 +146865,11 @@
       }
     },
     {
-      "candidate_id": "08049-1439639",
-      "account_number": "M199959",
+      "candidate_id": "08049-1439263",
+      "account_number": "R309352",
       "parcel_number": "144726100151",
-      "owner_name": "LINKE, TREY E & JOLENE S",
-      "secondary_owner": "",
+      "owner_name": "EIGHT MILE LLC",
+      "secondary_owner": "C/O EDWIN & IDA LORENE LINKE",
       "county": "Grand",
       "state": "CO",
       "acres": 387.61829964391336,
@@ -147000,11 +147000,11 @@
       }
     },
     {
-      "candidate_id": "08049-1439263",
-      "account_number": "R309352",
+      "candidate_id": "08049-1439639",
+      "account_number": "M199959",
       "parcel_number": "144726100151",
-      "owner_name": "EIGHT MILE LLC",
-      "secondary_owner": "C/O EDWIN & IDA LORENE LINKE",
+      "owner_name": "LINKE, TREY E & JOLENE S",
+      "secondary_owner": "",
       "county": "Grand",
       "state": "CO",
       "acres": 387.61829964391336,

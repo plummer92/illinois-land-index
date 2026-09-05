@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T15:01:31.878Z",
+  "generated_at": "2026-09-05T13:56:06.370Z",
   "county": "Boulder",
   "candidates": [
     {
@@ -83353,56 +83353,6 @@
       "mill_levy": 76.552
     },
     {
-      "candidate_id": "08013-552422",
-      "account_number": "R0025800",
-      "parcel_number": "157900000002",
-      "owner_name": "COUNTY OF BOULDER",
-      "secondary_owner": "",
-      "county": "Boulder",
-      "state": "CO",
-      "acres": 345.5785,
-      "situs_address": "5324 GROSS DAM RD",
-      "city": "UNINCORPORATED",
-      "zoning_code": "",
-      "zoning_description": "",
-      "land_use_code": "",
-      "land_use_description": "",
-      "sale_date": "",
-      "sale_price": 0,
-      "appraised_value": 26797341,
-      "assessed_value": 7235282,
-      "source_updated": "4/23/2026",
-      "source_url": "https://maps.bouldercounty.org/boco/PropertySearch/?page=Home",
-      "map_url": "https://www.google.com/maps?q=39.954632,-105.341459&t=k",
-      "score": 70,
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              -105.34157,
-              39.95468
-            ],
-            [
-              -105.34127,
-              39.95458
-            ],
-            [
-              -105.34142,
-              39.9546
-            ],
-            [
-              -105.34157,
-              39.95468
-            ]
-          ]
-        ]
-      },
-      "estimated_annual_tax": 617666,
-      "tax_year": "2026",
-      "mill_levy": 88.652
-    },
-    {
       "candidate_id": "08013-549829",
       "account_number": "R0025800",
       "parcel_number": "157900000002",
@@ -83620,6 +83570,56 @@
             [
               -105.34233,
               39.95492
+            ]
+          ]
+        ]
+      },
+      "estimated_annual_tax": 617666,
+      "tax_year": "2026",
+      "mill_levy": 88.652
+    },
+    {
+      "candidate_id": "08013-552422",
+      "account_number": "R0025800",
+      "parcel_number": "157900000002",
+      "owner_name": "COUNTY OF BOULDER",
+      "secondary_owner": "",
+      "county": "Boulder",
+      "state": "CO",
+      "acres": 345.5785,
+      "situs_address": "5324 GROSS DAM RD",
+      "city": "UNINCORPORATED",
+      "zoning_code": "",
+      "zoning_description": "",
+      "land_use_code": "",
+      "land_use_description": "",
+      "sale_date": "",
+      "sale_price": 0,
+      "appraised_value": 26797341,
+      "assessed_value": 7235282,
+      "source_updated": "4/23/2026",
+      "source_url": "https://maps.bouldercounty.org/boco/PropertySearch/?page=Home",
+      "map_url": "https://www.google.com/maps?q=39.954632,-105.341459&t=k",
+      "score": 70,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -105.34157,
+              39.95468
+            ],
+            [
+              -105.34127,
+              39.95458
+            ],
+            [
+              -105.34142,
+              39.9546
+            ],
+            [
+              -105.34157,
+              39.95468
             ]
           ]
         ]
@@ -98279,6 +98279,72 @@
       "mill_levy": 82.451
     },
     {
+      "candidate_id": "08013-567403",
+      "account_number": "R0515789",
+      "parcel_number": "146120000153",
+      "owner_name": "COUNTY OF BOULDER",
+      "secondary_owner": "",
+      "county": "Boulder",
+      "state": "CO",
+      "acres": 323.1149,
+      "situs_address": "0 ALASKA RD",
+      "city": "UNINCORPORATED",
+      "zoning_code": "",
+      "zoning_description": "",
+      "land_use_code": "",
+      "land_use_description": "",
+      "sale_date": "",
+      "sale_price": 0,
+      "appraised_value": 2599200,
+      "assessed_value": 162450,
+      "source_updated": "4/23/2026",
+      "source_url": "https://maps.bouldercounty.org/boco/PropertySearch/?page=Home",
+      "map_url": "https://www.google.com/maps?q=40.036204,-105.365107&t=k",
+      "score": 70,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -105.36516,
+              40.03617
+            ],
+            [
+              -105.36516,
+              40.0362
+            ],
+            [
+              -105.36516,
+              40.03628
+            ],
+            [
+              -105.36513,
+              40.03626
+            ],
+            [
+              -105.3651,
+              40.03625
+            ],
+            [
+              -105.36508,
+              40.03623
+            ],
+            [
+              -105.36491,
+              40.03608
+            ],
+            [
+              -105.36516,
+              40.03617
+            ]
+          ]
+        ]
+      },
+      "estimated_annual_tax": 17401,
+      "tax_year": "2026",
+      "mill_levy": 98.452
+    },
+    {
       "candidate_id": "08013-567323",
       "account_number": "R0515789",
       "parcel_number": "146120000153",
@@ -98561,72 +98627,6 @@
             ],
             [
               -105.36277,
-              40.03617
-            ]
-          ]
-        ]
-      },
-      "estimated_annual_tax": 17401,
-      "tax_year": "2026",
-      "mill_levy": 98.452
-    },
-    {
-      "candidate_id": "08013-567403",
-      "account_number": "R0515789",
-      "parcel_number": "146120000153",
-      "owner_name": "COUNTY OF BOULDER",
-      "secondary_owner": "",
-      "county": "Boulder",
-      "state": "CO",
-      "acres": 323.1149,
-      "situs_address": "0 ALASKA RD",
-      "city": "UNINCORPORATED",
-      "zoning_code": "",
-      "zoning_description": "",
-      "land_use_code": "",
-      "land_use_description": "",
-      "sale_date": "",
-      "sale_price": 0,
-      "appraised_value": 2599200,
-      "assessed_value": 162450,
-      "source_updated": "4/23/2026",
-      "source_url": "https://maps.bouldercounty.org/boco/PropertySearch/?page=Home",
-      "map_url": "https://www.google.com/maps?q=40.036204,-105.365107&t=k",
-      "score": 70,
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              -105.36516,
-              40.03617
-            ],
-            [
-              -105.36516,
-              40.0362
-            ],
-            [
-              -105.36516,
-              40.03628
-            ],
-            [
-              -105.36513,
-              40.03626
-            ],
-            [
-              -105.3651,
-              40.03625
-            ],
-            [
-              -105.36508,
-              40.03623
-            ],
-            [
-              -105.36491,
-              40.03608
-            ],
-            [
-              -105.36516,
               40.03617
             ]
           ]

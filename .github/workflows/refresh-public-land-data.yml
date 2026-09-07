@@ -11,6 +11,7 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Check out repository
@@ -20,6 +21,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+
+      - name: Test data-source retry handling
+        run: node --test scripts/test_fetch_json.mjs
 
       - name: Refresh Knoxville public land data
         run: node scripts/refresh_public_land_data.mjs

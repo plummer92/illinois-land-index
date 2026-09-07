@@ -1,3 +1,4 @@
+import { fetchJson } from "./lib/fetch_json.mjs";
 import fs from "node:fs/promises";
 import path from "node:path";
 
@@ -18,13 +19,6 @@ function parcelRecordUrl(county, attributes) {
   return attributes.URL || county.publicSearchUrl;
 }
 
-async function fetchJson(url) {
-  const response = await fetch(url);
-  if (!response.ok) throw new Error(`${response.status} ${response.statusText}: ${url}`);
-  const payload = await response.json();
-  if (payload.error) throw new Error(JSON.stringify(payload.error));
-  return payload;
-}
 
 function queryUrl(params) {
   const url = new URL(`${service}/query`);

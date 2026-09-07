@@ -1,3 +1,4 @@
+import { fetchJson } from "./lib/fetch_json.mjs";
 import fs from "node:fs/promises";
 
 const stateFeatureServer = "https://services.arcgis.com/rD2ylXRs80UroD90/arcgis/rest/services/TN_County_Parcel_Map/FeatureServer";
@@ -22,18 +23,6 @@ const bucketDefinitions = [
   { key: "fifty_plus_acres", label: "50+ acres", where: "{acre} >= 50" },
 ];
 
-const fetchJson = async (url) => {
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`${response.status} ${response.statusText}: ${url}`);
-  }
-  const text = await response.text();
-  try {
-    return JSON.parse(text);
-  } catch (error) {
-    throw new Error(`Could not parse JSON from ${url}\n${text.slice(0, 240)}`);
-  }
-};
 
 const layerUrl = (county) => `${county.service}/${county.layerId}`;
 

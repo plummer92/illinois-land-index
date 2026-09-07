@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-07T16:56:39.501Z",
-  "compared_to": "2026-08-24T12:24:35.097Z",
+  "generated_at": "2026-09-07T17:58:44.445Z",
+  "compared_to": "2026-09-07T16:56:39.479Z",
   "privacy": {
     "public_safe": true,
     "note": "Aggregate changes only. No parcel IDs, owner names, addresses, or legal descriptions."
@@ -18,23 +18,23 @@
       {
         "label": "Score 80+ rows",
         "path": "illinois_sangamon.score_bands.score_80_plus",
-        "current": 2953,
+        "current": 2955,
         "previous": 2953,
-        "change": 0
+        "change": 2
       },
       {
         "label": "Taxes due rows",
         "path": "illinois_sangamon.totals.taxes_due_count",
         "current": 140,
-        "previous": 501,
-        "change": -361
+        "previous": 140,
+        "change": 0
       },
       {
         "label": "Due within 45 days",
         "path": "illinois_sangamon.totals.taxes_due_soon_45_days",
         "current": 0,
-        "previous": 501,
-        "change": -501
+        "previous": 0,
+        "change": 0
       },
       {
         "label": "Large owner groups",
@@ -59,12 +59,12 @@
       }
     ],
     "largest_movement": {
-      "label": "Due within 45 days",
-      "path": "illinois_sangamon.totals.taxes_due_soon_45_days",
-      "current": 0,
-      "previous": 501,
-      "change": -501
+      "label": "Score 80+ rows",
+      "path": "illinois_sangamon.score_bands.score_80_plus",
+      "current": 2955,
+      "previous": 2953,
+      "change": 2
     },
-    "summary_line": "Due within 45 days changed by -501."
+    "summary_line": "Score 80+ rows changed by +2."
   }
 }

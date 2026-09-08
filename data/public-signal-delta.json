@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-08T19:32:39.671Z",
-  "compared_to": "2026-09-08T19:31:29.396Z",
+  "generated_at": "2026-09-08T19:45:39.655Z",
+  "compared_to": "2026-09-08T19:45:10.003Z",
   "privacy": {
     "public_safe": true,
     "note": "Aggregate changes only. No parcel IDs, owner names, addresses, or legal descriptions."
@@ -18,15 +18,15 @@
       {
         "label": "Score 80+ rows",
         "path": "illinois_sangamon.score_bands.score_80_plus",
-        "current": 2953,
-        "previous": 2953,
+        "current": 2955,
+        "previous": 2955,
         "change": 0
       },
       {
         "label": "Countywide unpaid-balance rows",
         "path": "illinois_sangamon.totals.taxes_due_count",
-        "current": 70043,
-        "previous": 70043,
+        "current": 15634,
+        "previous": 15634,
         "change": 0
       },
       {

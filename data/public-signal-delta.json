@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-07T17:58:44.445Z",
-  "compared_to": "2026-09-07T16:56:39.479Z",
+  "generated_at": "2026-09-08T19:32:39.671Z",
+  "compared_to": "2026-09-08T19:31:29.396Z",
   "privacy": {
     "public_safe": true,
     "note": "Aggregate changes only. No parcel IDs, owner names, addresses, or legal descriptions."
@@ -18,15 +18,15 @@
       {
         "label": "Score 80+ rows",
         "path": "illinois_sangamon.score_bands.score_80_plus",
-        "current": 2955,
+        "current": 2953,
         "previous": 2953,
-        "change": 2
+        "change": 0
       },
       {
-        "label": "Taxes due rows",
+        "label": "Countywide unpaid-balance rows",
         "path": "illinois_sangamon.totals.taxes_due_count",
-        "current": 140,
-        "previous": 140,
+        "current": 70043,
+        "previous": 70043,
         "change": 0
       },
       {
@@ -59,12 +59,12 @@
       }
     ],
     "largest_movement": {
-      "label": "Score 80+ rows",
-      "path": "illinois_sangamon.score_bands.score_80_plus",
-      "current": 2955,
-      "previous": 2953,
-      "change": 2
+      "label": "Sangamon target rows",
+      "path": "illinois_sangamon.totals.public_target_rows",
+      "current": 22707,
+      "previous": 22707,
+      "change": 0
     },
-    "summary_line": "Score 80+ rows changed by +2."
+    "summary_line": "Sangamon target rows changed by +0."
   }
 }

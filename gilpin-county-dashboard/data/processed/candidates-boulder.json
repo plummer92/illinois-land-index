@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18T15:03:51.356Z",
+  "generated_at": "2026-09-19T14:33:27.986Z",
   "county": "Boulder",
   "candidates": [
     {
@@ -77803,112 +77803,6 @@
       "mill_levy": 90.774
     },
     {
-      "candidate_id": "08013-547383",
-      "account_number": "R0113864",
-      "parcel_number": "146516010001",
-      "owner_name": "CITY OF BOULDER",
-      "secondary_owner": "",
-      "county": "Boulder",
-      "state": "CO",
-      "acres": 353.7878,
-      "situs_address": "3934 N 95TH ST",
-      "city": "UNINCORPORATED",
-      "zoning_code": "",
-      "zoning_description": "",
-      "land_use_code": "",
-      "land_use_description": "",
-      "sale_date": "9/27/2018",
-      "sale_price": 7700000,
-      "appraised_value": 25478300,
-      "assessed_value": 6879141,
-      "source_updated": "4/23/2026",
-      "source_url": "https://maps.bouldercounty.org/boco/PropertySearch/?page=Home",
-      "map_url": "https://www.google.com/maps?q=40.048030,-105.116515&t=k",
-      "score": 70,
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [
-              -105.1217,
-              40.04695
-            ],
-            [
-              -105.1217,
-              40.04723
-            ],
-            [
-              -105.11712,
-              40.04811
-            ],
-            [
-              -105.11658,
-              40.04822
-            ],
-            [
-              -105.11604,
-              40.04832
-            ],
-            [
-              -105.11549,
-              40.04841
-            ],
-            [
-              -105.11494,
-              40.04849
-            ],
-            [
-              -105.11396,
-              40.04863
-            ],
-            [
-              -105.11232,
-              40.04883
-            ],
-            [
-              -105.11232,
-              40.04855
-            ],
-            [
-              -105.11388,
-              40.04835
-            ],
-            [
-              -105.11471,
-              40.04824
-            ],
-            [
-              -105.11529,
-              40.04815
-            ],
-            [
-              -105.11587,
-              40.04806
-            ],
-            [
-              -105.11645,
-              40.04795
-            ],
-            [
-              -105.11703,
-              40.04784
-            ],
-            [
-              -105.12016,
-              40.04724
-            ],
-            [
-              -105.1217,
-              40.04695
-            ]
-          ]
-        ]
-      },
-      "estimated_annual_tax": 560262,
-      "tax_year": "2026",
-      "mill_levy": 84.576
-    },
-    {
       "candidate_id": "08013-550920",
       "account_number": "R0113864",
       "parcel_number": "146516010001",
@@ -78717,7 +78611,7 @@
       "mill_levy": 84.576
     },
     {
-      "candidate_id": "08013-547384",
+      "candidate_id": "08013-547383",
       "account_number": "R0113864",
       "parcel_number": "146516010001",
       "owner_name": "CITY OF BOULDER",
@@ -78725,7 +78619,7 @@
       "county": "Boulder",
       "state": "CO",
       "acres": 353.7878,
-      "situs_address": "4020 N 95TH ST",
+      "situs_address": "3934 N 95TH ST",
       "city": "UNINCORPORATED",
       "zoning_code": "",
       "zoning_description": "",
@@ -79631,7 +79525,7 @@
       "mill_levy": 84.576
     },
     {
-      "candidate_id": "08013-547385",
+      "candidate_id": "08013-547384",
       "account_number": "R0113864",
       "parcel_number": "146516010001",
       "owner_name": "CITY OF BOULDER",
@@ -79639,7 +79533,7 @@
       "county": "Boulder",
       "state": "CO",
       "acres": 353.7878,
-      "situs_address": "4022 N 95TH ST",
+      "situs_address": "4020 N 95TH ST",
       "city": "UNINCORPORATED",
       "zoning_code": "",
       "zoning_description": "",
@@ -80536,6 +80430,112 @@
             [
               -105.11576,
               40.0566
+            ]
+          ]
+        ]
+      },
+      "estimated_annual_tax": 560262,
+      "tax_year": "2026",
+      "mill_levy": 84.576
+    },
+    {
+      "candidate_id": "08013-547385",
+      "account_number": "R0113864",
+      "parcel_number": "146516010001",
+      "owner_name": "CITY OF BOULDER",
+      "secondary_owner": "",
+      "county": "Boulder",
+      "state": "CO",
+      "acres": 353.7878,
+      "situs_address": "4022 N 95TH ST",
+      "city": "UNINCORPORATED",
+      "zoning_code": "",
+      "zoning_description": "",
+      "land_use_code": "",
+      "land_use_description": "",
+      "sale_date": "9/27/2018",
+      "sale_price": 7700000,
+      "appraised_value": 25478300,
+      "assessed_value": 6879141,
+      "source_updated": "4/23/2026",
+      "source_url": "https://maps.bouldercounty.org/boco/PropertySearch/?page=Home",
+      "map_url": "https://www.google.com/maps?q=40.048030,-105.116515&t=k",
+      "score": 70,
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -105.1217,
+              40.04695
+            ],
+            [
+              -105.1217,
+              40.04723
+            ],
+            [
+              -105.11712,
+              40.04811
+            ],
+            [
+              -105.11658,
+              40.04822
+            ],
+            [
+              -105.11604,
+              40.04832
+            ],
+            [
+              -105.11549,
+              40.04841
+            ],
+            [
+              -105.11494,
+              40.04849
+            ],
+            [
+              -105.11396,
+              40.04863
+            ],
+            [
+              -105.11232,
+              40.04883
+            ],
+            [
+              -105.11232,
+              40.04855
+            ],
+            [
+              -105.11388,
+              40.04835
+            ],
+            [
+              -105.11471,
+              40.04824
+            ],
+            [
+              -105.11529,
+              40.04815
+            ],
+            [
+              -105.11587,
+              40.04806
+            ],
+            [
+              -105.11645,
+              40.04795
+            ],
+            [
+              -105.11703,
+              40.04784
+            ],
+            [
+              -105.12016,
+              40.04724
+            ],
+            [
+              -105.1217,
+              40.04695
             ]
           ]
         ]

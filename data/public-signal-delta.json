@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T18:26:26.807Z",
+  "generated_at": "2026-09-28T12:17:49.440Z",
   "compared_to": "2026-09-21T13:06:37.658Z",
   "privacy": {
     "public_safe": true,
@@ -18,16 +18,16 @@
       {
         "label": "Score 80+ rows",
         "path": "illinois_sangamon.score_bands.score_80_plus",
-        "current": 2959,
+        "current": 2955,
         "previous": 2955,
-        "change": 4
+        "change": 0
       },
       {
         "label": "Countywide unpaid-balance rows",
         "path": "illinois_sangamon.totals.taxes_due_count",
-        "current": 7398,
+        "current": 15634,
         "previous": 15634,
-        "change": -8236
+        "change": 0
       },
       {
         "label": "Due within 45 days",
@@ -39,9 +39,9 @@
       {
         "label": "Large owner groups",
         "path": "illinois_sangamon.totals.large_owner_rollup_count",
-        "current": 1768,
+        "current": 1770,
         "previous": 1770,
-        "change": -2
+        "change": 0
       },
       {
         "label": "Terrain-ready rows",
@@ -59,12 +59,12 @@
       }
     ],
     "largest_movement": {
-      "label": "Countywide unpaid-balance rows",
-      "path": "illinois_sangamon.totals.taxes_due_count",
-      "current": 7398,
-      "previous": 15634,
-      "change": -8236
+      "label": "Sangamon target rows",
+      "path": "illinois_sangamon.totals.public_target_rows",
+      "current": 22707,
+      "previous": 22707,
+      "change": 0
     },
-    "summary_line": "Countywide unpaid-balance rows changed by -8236."
+    "summary_line": "Sangamon target rows changed by +0."
   }
 }

@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-10-06T17:20:04.183916Z",
+  "generated_at": "2026-10-07T17:53:16.164306Z",
   "privacy": "Owner names and parcel identifiers are public assessor records. Owner mailing addresses are not published.",
   "counties": [
     {
       "name": "Boulder",
       "coverage": "official_bulk_assessor_roll",
-      "source_updated": "2026-10-06T17:20:04.183916Z",
+      "source_updated": "2026-10-07T17:53:16.164306Z",
       "tax_year": "2026",
-      "accounts": 149115,
-      "total_actual_value": 226786971913,
-      "total_assessed_value": 30523986558,
-      "estimated_annual_tax": 2865167802,
+      "accounts": 149109,
+      "total_actual_value": 226783987113,
+      "total_assessed_value": 30523863598,
+      "estimated_annual_tax": 2865158176,
       "average_mill_levy": 96.853,
       "payment_status_available": false,
       "source": "https://bouldercounty.gov/property-and-land/assessor/data-download/"
@@ -19,8 +19,8 @@
       "name": "Gilpin",
       "coverage": "public_treasurer_account_details",
       "accounts": 427,
-      "accounts_due": 8,
-      "total_due": 44522.72,
+      "accounts_due": 6,
+      "total_due": 40429.54,
       "payment_status_available": true,
       "source": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/web/login.jsp"
     },

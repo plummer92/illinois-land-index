@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T17:52:35.043Z",
+  "generated_at": "2026-10-08T17:56:01.538Z",
   "county": "Gilpin",
   "candidates": [
     {
@@ -209,7 +209,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 5,
       "latest_payment_date": "Feb 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:40.792167Z",
+      "tax_updated_at": "2026-10-08T17:56:06.339121Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114867"
     },
     {
@@ -331,7 +331,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:40.805953Z",
+      "tax_updated_at": "2026-10-08T17:56:06.397376Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002282"
     },
     {
@@ -609,7 +609,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:40.735478Z",
+      "tax_updated_at": "2026-10-08T17:56:06.318807Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012986"
     },
     {
@@ -867,7 +867,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:40.734168Z",
+      "tax_updated_at": "2026-10-08T17:56:06.331448Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013000"
     },
     {
@@ -1097,7 +1097,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:41.040415Z",
+      "tax_updated_at": "2026-10-08T17:56:07.285703Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012988"
     },
     {
@@ -1311,7 +1311,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:41.077880Z",
+      "tax_updated_at": "2026-10-08T17:56:07.225008Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002281"
     },
     {
@@ -1377,7 +1377,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:41.197710Z",
+      "tax_updated_at": "2026-10-08T17:56:07.281611Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012313"
     },
     {
@@ -1443,7 +1443,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:41.187604Z",
+      "tax_updated_at": "2026-10-08T17:56:07.284810Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001938"
     },
     {
@@ -1513,7 +1513,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:41.450894Z",
+      "tax_updated_at": "2026-10-08T17:56:07.876057Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013015"
     },
     {
@@ -1599,7 +1599,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:41.465564Z",
+      "tax_updated_at": "2026-10-08T17:56:07.920936Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114677"
     },
     {
@@ -1745,7 +1745,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:45.874417Z",
+      "tax_updated_at": "2026-10-08T17:56:16.962433Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012991"
     },
     {
@@ -1865,7 +1865,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:41.651522Z",
+      "tax_updated_at": "2026-10-08T17:56:08.026820Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012131"
     },
     {
@@ -1959,7 +1959,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:41.817627Z",
+      "tax_updated_at": "2026-10-08T17:56:08.485547Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000324"
     },
     {
@@ -2057,7 +2057,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:41.809023Z",
+      "tax_updated_at": "2026-10-08T17:56:08.686545Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012134"
     },
     {
@@ -2151,7 +2151,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:41.817090Z",
+      "tax_updated_at": "2026-10-08T17:56:08.628245Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012998"
     },
     {
@@ -2907,7 +2907,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Jul 21, 2026",
-      "tax_updated_at": "2026-10-07T17:52:42.033855Z",
+      "tax_updated_at": "2026-10-08T17:56:08.630157Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012137"
     },
     {
@@ -3305,7 +3305,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:42.133335Z",
+      "tax_updated_at": "2026-10-08T17:56:09.055571Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012975"
     },
     {
@@ -3687,7 +3687,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:42.139907Z",
+      "tax_updated_at": "2026-10-08T17:56:09.199743Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012976"
     },
     {
@@ -3873,7 +3873,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 5,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:42.170670Z",
+      "tax_updated_at": "2026-10-08T17:56:09.295046Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114866"
     },
     {
@@ -4865,7 +4865,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 2, 2026",
-      "tax_updated_at": "2026-10-07T17:52:42.341153Z",
+      "tax_updated_at": "2026-10-08T17:56:09.333156Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R011017"
     },
     {
@@ -4947,7 +4947,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:50.350759Z",
+      "tax_updated_at": "2026-10-08T17:56:26.422622Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012960"
     },
     {
@@ -5013,7 +5013,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 19, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.498613Z",
+      "tax_updated_at": "2026-10-08T17:56:58.002518Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012123"
     },
     {
@@ -5095,7 +5095,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:42.478951Z",
+      "tax_updated_at": "2026-10-08T17:56:09.897804Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012133"
     },
     {
@@ -5153,7 +5153,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:42.695942Z",
+      "tax_updated_at": "2026-10-08T17:56:09.975512Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012124"
     },
     {
@@ -5219,7 +5219,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:42.691109Z",
+      "tax_updated_at": "2026-10-08T17:56:10.172258Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003082"
     },
     {
@@ -5289,7 +5289,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:42.757957Z",
+      "tax_updated_at": "2026-10-08T17:56:10.385126Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N007036"
     },
     {
@@ -5363,7 +5363,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:42.775030Z",
+      "tax_updated_at": "2026-10-08T17:56:10.500857Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013047"
     },
     {
@@ -5437,7 +5437,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:43.044482Z",
+      "tax_updated_at": "2026-10-08T17:56:10.564548Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001800"
     },
     {
@@ -5689,7 +5689,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 3, 2026",
-      "tax_updated_at": "2026-10-07T17:52:43.043703Z",
+      "tax_updated_at": "2026-10-08T17:56:10.786080Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R007875"
     },
     {
@@ -5823,7 +5823,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 19, 2026",
-      "tax_updated_at": "2026-10-07T17:52:43.075167Z",
+      "tax_updated_at": "2026-10-08T17:56:10.978620Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001952"
     },
     {
@@ -5893,7 +5893,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:43.038565Z",
+      "tax_updated_at": "2026-10-08T17:56:11.094876Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012129"
     },
     {
@@ -5983,7 +5983,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:43.337191Z",
+      "tax_updated_at": "2026-10-08T17:56:11.160759Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R008782"
     },
     {
@@ -6101,7 +6101,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:43.358652Z",
+      "tax_updated_at": "2026-10-08T17:56:11.378518Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012205"
     },
     {
@@ -6307,7 +6307,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 5,
       "latest_payment_date": "Feb 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:43.334135Z",
+      "tax_updated_at": "2026-10-08T17:56:11.590203Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114862"
     },
     {
@@ -6441,7 +6441,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:43.342251Z",
+      "tax_updated_at": "2026-10-08T17:56:11.680936Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N007034"
     },
     {
@@ -6511,7 +6511,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:43.626090Z",
+      "tax_updated_at": "2026-10-08T17:56:11.739499Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N007037"
     },
     {
@@ -6677,7 +6677,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "Jun 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:43.635153Z",
+      "tax_updated_at": "2026-10-08T17:56:11.969849Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012285"
     },
     {
@@ -6855,7 +6855,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 7,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:43.694706Z",
+      "tax_updated_at": "2026-10-08T17:56:12.183739Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114822"
     },
     {
@@ -7041,7 +7041,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 31, 2026",
-      "tax_updated_at": "2026-10-07T17:52:43.777503Z",
+      "tax_updated_at": "2026-10-08T17:56:12.291105Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004871"
     },
     {
@@ -7111,7 +7111,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:43.887310Z",
+      "tax_updated_at": "2026-10-08T17:56:12.330448Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012130"
     },
     {
@@ -7229,7 +7229,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:43.935159Z",
+      "tax_updated_at": "2026-10-08T17:56:12.552177Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012206"
     },
     {
@@ -7391,7 +7391,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:43.953967Z",
+      "tax_updated_at": "2026-10-08T17:56:12.785203Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012135"
     },
     {
@@ -7485,7 +7485,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 30, 2026",
-      "tax_updated_at": "2026-10-07T17:52:44.089135Z",
+      "tax_updated_at": "2026-10-08T17:56:12.897095Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R006768"
     },
     {
@@ -7751,7 +7751,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "Jun 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:44.165221Z",
+      "tax_updated_at": "2026-10-08T17:56:12.927248Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012284"
     },
     {
@@ -7837,7 +7837,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:44.224595Z",
+      "tax_updated_at": "2026-10-08T17:56:13.159417Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003674"
     },
     {
@@ -8107,7 +8107,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 5,
       "latest_payment_date": "Feb 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:44.215926Z",
+      "tax_updated_at": "2026-10-08T17:56:13.395747Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114845"
     },
     {
@@ -8193,7 +8193,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:44.362386Z",
+      "tax_updated_at": "2026-10-08T17:56:13.478266Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R007126"
     },
     {
@@ -8255,7 +8255,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:44.454786Z",
+      "tax_updated_at": "2026-10-08T17:56:13.508259Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012132"
     },
     {
@@ -8321,7 +8321,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:44.497591Z",
+      "tax_updated_at": "2026-10-08T17:56:13.761593Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005485"
     },
     {
@@ -8383,7 +8383,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 19, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.498613Z",
+      "tax_updated_at": "2026-10-08T17:56:58.002518Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012123"
     },
     {
@@ -8445,7 +8445,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:44.628085Z",
+      "tax_updated_at": "2026-10-08T17:56:14.100774Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012227"
     },
     {
@@ -8543,7 +8543,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 7,
       "latest_payment_date": "Jul 21, 2026",
-      "tax_updated_at": "2026-10-07T17:52:44.709054Z",
+      "tax_updated_at": "2026-10-08T17:56:14.112941Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001929"
     },
     {
@@ -8613,7 +8613,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Feb 18, 2026",
-      "tax_updated_at": "2026-10-07T17:52:44.778888Z",
+      "tax_updated_at": "2026-10-08T17:56:14.366952Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R007171"
     },
     {
@@ -8687,7 +8687,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "Jun 18, 2026",
-      "tax_updated_at": "2026-10-07T17:52:44.768968Z",
+      "tax_updated_at": "2026-10-08T17:56:14.582230Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010101"
     },
     {
@@ -8753,7 +8753,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:44.880175Z",
+      "tax_updated_at": "2026-10-08T17:56:14.707415Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005484"
     },
     {
@@ -8819,7 +8819,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:44.951560Z",
+      "tax_updated_at": "2026-10-08T17:56:14.706455Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013045"
     },
     {
@@ -8945,7 +8945,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:45.033791Z",
+      "tax_updated_at": "2026-10-08T17:56:14.955660Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012323"
     },
     {
@@ -9031,7 +9031,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:45.036652Z",
+      "tax_updated_at": "2026-10-08T17:56:15.171780Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012228"
     },
     {
@@ -9089,7 +9089,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 2, 2026",
-      "tax_updated_at": "2026-10-07T17:52:45.161064Z",
+      "tax_updated_at": "2026-10-08T17:56:15.313344Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003351"
     },
     {
@@ -9247,7 +9247,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:12.156777Z",
+      "tax_updated_at": "2026-10-08T17:57:12.252059Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001008-R001010-R008099"
     },
     {
@@ -9305,7 +9305,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:45.298159Z",
+      "tax_updated_at": "2026-10-08T17:56:15.533746Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R009960"
     },
     {
@@ -9411,7 +9411,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:45.874417Z",
+      "tax_updated_at": "2026-10-08T17:56:16.962433Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012991"
     },
     {
@@ -9469,7 +9469,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:45.419622Z",
+      "tax_updated_at": "2026-10-08T17:56:15.840226Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R007135"
     },
     {
@@ -9591,7 +9591,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:12.156777Z",
+      "tax_updated_at": "2026-10-08T17:57:12.252059Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001008-R001010-R008099"
     },
     {
@@ -9673,7 +9673,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 19, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.498613Z",
+      "tax_updated_at": "2026-10-08T17:56:58.002518Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012123"
     },
     {
@@ -9831,7 +9831,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:45.584047Z",
+      "tax_updated_at": "2026-10-08T17:56:16.319530Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000467"
     },
     {
@@ -9897,7 +9897,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:45.626049Z",
+      "tax_updated_at": "2026-10-08T17:56:16.420338Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000322"
     },
     {
@@ -9959,7 +9959,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:45.704817Z",
+      "tax_updated_at": "2026-10-08T17:56:16.424204Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001845"
     },
     {
@@ -10069,7 +10069,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 12, 2026",
-      "tax_updated_at": "2026-10-07T17:52:45.861233Z",
+      "tax_updated_at": "2026-10-08T17:56:16.707762Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004993"
     },
     {
@@ -10155,7 +10155,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "Apr 20, 2026",
-      "tax_updated_at": "2026-10-07T17:52:45.866708Z",
+      "tax_updated_at": "2026-10-08T17:56:16.930628Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N001917"
     },
     {
@@ -10277,7 +10277,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:45.874417Z",
+      "tax_updated_at": "2026-10-08T17:56:16.962433Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012991"
     },
     {
@@ -10423,7 +10423,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 2, 2026",
-      "tax_updated_at": "2026-10-07T17:52:49.070503Z",
+      "tax_updated_at": "2026-10-08T17:56:23.610474Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003619"
     },
     {
@@ -10537,7 +10537,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:46.129898Z",
+      "tax_updated_at": "2026-10-08T17:56:17.280185Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012136"
     },
     {
@@ -10607,7 +10607,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Apr 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:46.161434Z",
+      "tax_updated_at": "2026-10-08T17:56:17.528255Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002161"
     },
     {
@@ -10681,7 +10681,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:46.158798Z",
+      "tax_updated_at": "2026-10-08T17:56:17.572642Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001954"
     },
     {
@@ -10747,7 +10747,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:46.228331Z",
+      "tax_updated_at": "2026-10-08T17:56:17.627016Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000323"
     },
     {
@@ -10965,7 +10965,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "May 14, 2026",
-      "tax_updated_at": "2026-10-07T17:52:46.408162Z",
+      "tax_updated_at": "2026-10-08T17:56:17.890673Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R006769"
     },
     {
@@ -11031,7 +11031,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 19, 2026",
-      "tax_updated_at": "2026-10-07T17:52:46.432671Z",
+      "tax_updated_at": "2026-10-08T17:56:18.126485Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003201"
     },
     {
@@ -11229,7 +11229,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 2,
       "latest_payment_date": "Jun 10, 2026",
-      "tax_updated_at": "2026-10-07T17:52:46.431622Z",
+      "tax_updated_at": "2026-10-08T17:56:18.168701Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114964"
     },
     {
@@ -11435,7 +11435,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 14, 2026",
-      "tax_updated_at": "2026-10-07T17:52:46.499774Z",
+      "tax_updated_at": "2026-10-08T17:56:18.215259Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004614"
     },
     {
@@ -11521,7 +11521,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:46.668438Z",
+      "tax_updated_at": "2026-10-08T17:56:18.509489Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013126"
     },
     {
@@ -11775,7 +11775,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 3,
       "latest_payment_date": "Aug 31, 2026",
-      "tax_updated_at": "2026-10-07T17:52:46.694528Z",
+      "tax_updated_at": "2026-10-08T17:56:18.722252Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114923"
     },
     {
@@ -12009,7 +12009,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 5, 2026",
-      "tax_updated_at": "2026-10-07T17:52:46.725540Z",
+      "tax_updated_at": "2026-10-08T17:56:18.768383Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R009508"
     },
     {
@@ -12099,7 +12099,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 12,
       "latest_payment_date": "May 26, 2026",
-      "tax_updated_at": "2026-10-07T17:52:46.810758Z",
+      "tax_updated_at": "2026-10-08T17:56:18.810888Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004251"
     },
     {
@@ -12169,7 +12169,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.847836Z",
+      "tax_updated_at": "2026-10-08T17:56:58.805344Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012138"
     },
     {
@@ -12239,7 +12239,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:47.043515Z",
+      "tax_updated_at": "2026-10-08T17:56:19.332912Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R009945"
     },
     {
@@ -12457,7 +12457,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Jun 18, 2026",
-      "tax_updated_at": "2026-10-07T17:52:47.008950Z",
+      "tax_updated_at": "2026-10-08T17:56:19.384619Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005697"
     },
     {
@@ -12659,7 +12659,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 5,
       "latest_payment_date": "Feb 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:47.075071Z",
+      "tax_updated_at": "2026-10-08T17:56:19.395883Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114843"
     },
     {
@@ -12737,7 +12737,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 19, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.498613Z",
+      "tax_updated_at": "2026-10-08T17:56:58.002518Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012123"
     },
     {
@@ -13023,7 +13023,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 6,
       "latest_payment_date": "Feb 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:47.279924Z",
+      "tax_updated_at": "2026-10-08T17:56:19.933177Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114820"
     },
     {
@@ -13233,7 +13233,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:47.355058Z",
+      "tax_updated_at": "2026-10-08T17:56:19.993753Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005901"
     },
     {
@@ -13331,7 +13331,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Feb 12, 2026",
-      "tax_updated_at": "2026-10-07T17:52:47.349204Z",
+      "tax_updated_at": "2026-10-08T17:56:19.994339Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002121"
     },
     {
@@ -13445,7 +13445,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:47.511337Z",
+      "tax_updated_at": "2026-10-08T17:56:20.290825Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N002120"
     },
     {
@@ -13567,7 +13567,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:12.156777Z",
+      "tax_updated_at": "2026-10-08T17:57:12.252059Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001008-R001010-R008099"
     },
     {
@@ -13737,7 +13737,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 2,
       "latest_payment_date": "Apr 29, 2026",
-      "tax_updated_at": "2026-10-07T17:52:47.633096Z",
+      "tax_updated_at": "2026-10-08T17:56:20.591574Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114955"
     },
     {
@@ -13905,7 +13905,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:47.650740Z",
+      "tax_updated_at": "2026-10-08T17:56:20.592367Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003555"
     },
     {
@@ -14051,7 +14051,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:47.732534Z",
+      "tax_updated_at": "2026-10-08T17:56:20.889262Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N007035"
     },
     {
@@ -14297,7 +14297,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 13, 2026",
-      "tax_updated_at": "2026-10-07T17:52:47.780192Z",
+      "tax_updated_at": "2026-10-08T17:56:21.064566Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R011226"
     },
     {
@@ -14455,7 +14455,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:47.919480Z",
+      "tax_updated_at": "2026-10-08T17:56:21.188410Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R009944"
     },
     {
@@ -14545,7 +14545,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Jun 18, 2026",
-      "tax_updated_at": "2026-10-07T17:52:47.933789Z",
+      "tax_updated_at": "2026-10-08T17:56:21.195246Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004600"
     },
     {
@@ -14635,7 +14635,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 7,
       "latest_payment_date": "Feb 10, 2026",
-      "tax_updated_at": "2026-10-07T17:52:48.074384Z",
+      "tax_updated_at": "2026-10-08T17:56:21.508051Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001606"
     },
     {
@@ -14753,7 +14753,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:48.062592Z",
+      "tax_updated_at": "2026-10-08T17:56:21.679069Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012170"
     },
     {
@@ -14939,7 +14939,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 3,
       "latest_payment_date": "Feb 26, 2026",
-      "tax_updated_at": "2026-10-07T17:52:48.205850Z",
+      "tax_updated_at": "2026-10-08T17:56:21.775200Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114921"
     },
     {
@@ -15025,7 +15025,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 14, 2026",
-      "tax_updated_at": "2026-10-07T17:52:48.223625Z",
+      "tax_updated_at": "2026-10-08T17:56:21.784933Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000697"
     },
     {
@@ -15199,7 +15199,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:48.289454Z",
+      "tax_updated_at": "2026-10-08T17:56:22.033193Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001577"
     },
     {
@@ -15257,7 +15257,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:49.327994Z",
+      "tax_updated_at": "2026-10-08T17:56:24.360890Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012955"
     },
     {
@@ -15343,7 +15343,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 17, 2026",
-      "tax_updated_at": "2026-10-07T17:52:48.509156Z",
+      "tax_updated_at": "2026-10-08T17:56:22.395779Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003643"
     },
     {
@@ -15401,7 +15401,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:49.327994Z",
+      "tax_updated_at": "2026-10-08T17:56:24.360890Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012955"
     },
     {
@@ -15459,7 +15459,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:49.327994Z",
+      "tax_updated_at": "2026-10-08T17:56:24.360890Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012955"
     },
     {
@@ -15517,7 +15517,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:49.327994Z",
+      "tax_updated_at": "2026-10-08T17:56:24.360890Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012955"
     },
     {
@@ -15743,7 +15743,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 13, 2026",
-      "tax_updated_at": "2026-10-07T17:52:48.759819Z",
+      "tax_updated_at": "2026-10-08T17:56:22.952501Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001581"
     },
     {
@@ -15801,7 +15801,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Sep 18, 2026",
-      "tax_updated_at": "2026-10-07T17:52:48.789275Z",
+      "tax_updated_at": "2026-10-08T17:56:23.011208Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005469"
     },
     {
@@ -15859,7 +15859,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:00.963695Z",
+      "tax_updated_at": "2026-10-08T17:56:48.375535Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012958"
     },
     {
@@ -15917,7 +15917,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:52.602038Z",
+      "tax_updated_at": "2026-10-08T17:56:31.422111Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013011"
     },
     {
@@ -16103,7 +16103,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Jan 29, 2026",
-      "tax_updated_at": "2026-10-07T17:52:49.063924Z",
+      "tax_updated_at": "2026-10-08T17:56:23.573749Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114711"
     },
     {
@@ -16193,7 +16193,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 2, 2026",
-      "tax_updated_at": "2026-10-07T17:52:49.070503Z",
+      "tax_updated_at": "2026-10-08T17:56:23.610474Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003619"
     },
     {
@@ -16331,7 +16331,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 20, 2026",
-      "tax_updated_at": "2026-10-07T17:52:49.060984Z",
+      "tax_updated_at": "2026-10-08T17:56:23.817645Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R008895"
     },
     {
@@ -16525,7 +16525,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 13, 2026",
-      "tax_updated_at": "2026-10-07T17:52:49.147727Z",
+      "tax_updated_at": "2026-10-08T17:56:24.050817Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010010"
     },
     {
@@ -16583,7 +16583,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.408954Z",
+      "tax_updated_at": "2026-10-08T17:56:51.330136Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012987"
     },
     {
@@ -16721,7 +16721,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Apr 28, 2026",
-      "tax_updated_at": "2026-10-07T17:52:49.335585Z",
+      "tax_updated_at": "2026-10-08T17:56:24.209027Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012219"
     },
     {
@@ -16783,7 +16783,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:49.327994Z",
+      "tax_updated_at": "2026-10-08T17:56:24.360890Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012955"
     },
     {
@@ -16841,7 +16841,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.408954Z",
+      "tax_updated_at": "2026-10-08T17:56:51.330136Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012987"
     },
     {
@@ -17027,7 +17027,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 3,
       "latest_payment_date": "May 13, 2026",
-      "tax_updated_at": "2026-10-07T17:52:49.620835Z",
+      "tax_updated_at": "2026-10-08T17:56:24.732161Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114922"
     },
     {
@@ -17085,7 +17085,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:51.522710Z",
+      "tax_updated_at": "2026-10-08T17:56:29.357652Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012954"
     },
     {
@@ -17143,7 +17143,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:51.522710Z",
+      "tax_updated_at": "2026-10-08T17:56:29.357652Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012954"
     },
     {
@@ -17321,7 +17321,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 29, 2026",
-      "tax_updated_at": "2026-10-07T17:52:49.706401Z",
+      "tax_updated_at": "2026-10-08T17:56:25.226745Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005426"
     },
     {
@@ -17379,7 +17379,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.408954Z",
+      "tax_updated_at": "2026-10-08T17:56:51.330136Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012987"
     },
     {
@@ -17437,7 +17437,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.408954Z",
+      "tax_updated_at": "2026-10-08T17:56:51.330136Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012987"
     },
     {
@@ -17495,7 +17495,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:49.889752Z",
+      "tax_updated_at": "2026-10-08T17:56:25.509305Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012122"
     },
     {
@@ -17557,7 +17557,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:49.978656Z",
+      "tax_updated_at": "2026-10-08T17:56:25.834447Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001941"
     },
     {
@@ -17615,7 +17615,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.408954Z",
+      "tax_updated_at": "2026-10-08T17:56:51.330136Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012987"
     },
     {
@@ -17673,7 +17673,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:00.963695Z",
+      "tax_updated_at": "2026-10-08T17:56:48.375535Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012958"
     },
     {
@@ -17731,7 +17731,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.408954Z",
+      "tax_updated_at": "2026-10-08T17:56:51.330136Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012987"
     },
     {
@@ -17789,7 +17789,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 30, 2026",
-      "tax_updated_at": "2026-10-07T17:52:50.265412Z",
+      "tax_updated_at": "2026-10-08T17:56:26.432417Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R009444"
     },
     {
@@ -17847,7 +17847,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:50.350759Z",
+      "tax_updated_at": "2026-10-08T17:56:26.422622Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012960"
     },
     {
@@ -17933,7 +17933,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 18, 2026",
-      "tax_updated_at": "2026-10-07T17:52:50.384814Z",
+      "tax_updated_at": "2026-10-08T17:56:26.544344Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003215"
     },
     {
@@ -17991,7 +17991,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 30, 2026",
-      "tax_updated_at": "2026-10-07T17:52:50.446099Z",
+      "tax_updated_at": "2026-10-08T17:56:26.702921Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004545"
     },
     {
@@ -18049,7 +18049,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:06.094811Z",
+      "tax_updated_at": "2026-10-08T17:56:59.365951Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012956"
     },
     {
@@ -18267,7 +18267,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 3,
       "latest_payment_date": "Feb 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:50.609485Z",
+      "tax_updated_at": "2026-10-08T17:56:27.021343Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114924"
     },
     {
@@ -18325,7 +18325,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 16, 2026",
-      "tax_updated_at": "2026-10-07T17:52:50.638889Z",
+      "tax_updated_at": "2026-10-08T17:56:27.128211Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003214"
     },
     {
@@ -18383,7 +18383,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:52.602038Z",
+      "tax_updated_at": "2026-10-08T17:56:31.422111Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013011"
     },
     {
@@ -18469,7 +18469,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 27, 2026",
-      "tax_updated_at": "2026-10-07T17:52:50.788253Z",
+      "tax_updated_at": "2026-10-08T17:56:27.614733Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010014"
     },
     {
@@ -18611,7 +18611,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 27, 2026",
-      "tax_updated_at": "2026-10-07T17:52:50.891849Z",
+      "tax_updated_at": "2026-10-08T17:56:27.609187Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010013"
     },
     {
@@ -18689,7 +18689,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 27, 2026",
-      "tax_updated_at": "2026-10-07T17:52:50.906709Z",
+      "tax_updated_at": "2026-10-08T17:56:27.724778Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010009"
     },
     {
@@ -18791,7 +18791,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 7, 2026",
-      "tax_updated_at": "2026-10-07T17:52:50.962062Z",
+      "tax_updated_at": "2026-10-08T17:56:27.897175Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000507"
     },
     {
@@ -18849,7 +18849,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:06.094811Z",
+      "tax_updated_at": "2026-10-08T17:56:59.365951Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012956"
     },
     {
@@ -18907,7 +18907,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:06.094811Z",
+      "tax_updated_at": "2026-10-08T17:56:59.365951Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012956"
     },
     {
@@ -18965,7 +18965,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:51.189136Z",
+      "tax_updated_at": "2026-10-08T17:56:28.292760Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012961"
     },
     {
@@ -19023,7 +19023,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.408954Z",
+      "tax_updated_at": "2026-10-08T17:56:51.330136Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012987"
     },
     {
@@ -19089,7 +19089,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 7,
       "latest_payment_date": "Feb 19, 2026",
-      "tax_updated_at": "2026-10-07T17:52:51.308596Z",
+      "tax_updated_at": "2026-10-08T17:56:28.928595Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001928"
     },
     {
@@ -19203,7 +19203,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:51.408486Z",
+      "tax_updated_at": "2026-10-08T17:56:28.781751Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012416"
     },
     {
@@ -19293,7 +19293,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 31, 2026",
-      "tax_updated_at": "2026-10-07T17:52:51.440803Z",
+      "tax_updated_at": "2026-10-08T17:56:28.887020Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114691"
     },
     {
@@ -19355,7 +19355,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 30, 2026",
-      "tax_updated_at": "2026-10-07T17:52:51.464248Z",
+      "tax_updated_at": "2026-10-08T17:56:29.073081Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004546"
     },
     {
@@ -19433,7 +19433,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:51.522710Z",
+      "tax_updated_at": "2026-10-08T17:56:29.357652Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012954"
     },
     {
@@ -19515,7 +19515,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 16, 2026",
-      "tax_updated_at": "2026-10-07T17:52:51.679598Z",
+      "tax_updated_at": "2026-10-08T17:56:29.496502Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010071"
     },
     {
@@ -19573,7 +19573,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 30, 2026",
-      "tax_updated_at": "2026-10-07T17:52:51.699562Z",
+      "tax_updated_at": "2026-10-08T17:56:29.569565Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005395"
     },
     {
@@ -19723,7 +19723,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:51.745044Z",
+      "tax_updated_at": "2026-10-08T17:56:29.701169Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004902"
     },
     {
@@ -19785,7 +19785,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 7,
       "latest_payment_date": "Sep 17, 2026",
-      "tax_updated_at": "2026-10-07T17:52:51.807466Z",
+      "tax_updated_at": "2026-10-08T17:56:29.967578Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000935"
     },
     {
@@ -19847,7 +19847,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.408954Z",
+      "tax_updated_at": "2026-10-08T17:56:51.330136Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012987"
     },
     {
@@ -19909,7 +19909,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:52.602038Z",
+      "tax_updated_at": "2026-10-08T17:56:31.422111Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013011"
     },
     {
@@ -19967,7 +19967,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:52.602038Z",
+      "tax_updated_at": "2026-10-08T17:56:31.422111Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013011"
     },
     {
@@ -20025,7 +20025,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:00.963695Z",
+      "tax_updated_at": "2026-10-08T17:56:48.375535Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012958"
     },
     {
@@ -20105,7 +20105,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 15,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:52.233962Z",
+      "tax_updated_at": "2026-10-08T17:56:30.701011Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005061"
     },
     {
@@ -20163,7 +20163,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:52.602038Z",
+      "tax_updated_at": "2026-10-08T17:56:31.422111Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013011"
     },
     {
@@ -20221,7 +20221,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:52.345128Z",
+      "tax_updated_at": "2026-10-08T17:56:30.854537Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002056"
     },
     {
@@ -20473,7 +20473,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:52.387043Z",
+      "tax_updated_at": "2026-10-08T17:56:31.159486Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005396"
     },
     {
@@ -20531,7 +20531,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:52.481732Z",
+      "tax_updated_at": "2026-10-08T17:56:31.309532Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005175"
     },
     {
@@ -20589,7 +20589,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "Jun 18, 2026",
-      "tax_updated_at": "2026-10-07T17:52:52.530299Z",
+      "tax_updated_at": "2026-10-08T17:56:31.296720Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003086"
     },
     {
@@ -20647,7 +20647,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:52.602038Z",
+      "tax_updated_at": "2026-10-08T17:56:31.422111Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013011"
     },
     {
@@ -20709,7 +20709,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.408954Z",
+      "tax_updated_at": "2026-10-08T17:56:51.330136Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012987"
     },
     {
@@ -20767,7 +20767,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:07.256705Z",
+      "tax_updated_at": "2026-10-08T17:57:01.856005Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012957"
     },
     {
@@ -20825,7 +20825,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.408954Z",
+      "tax_updated_at": "2026-10-08T17:56:51.330136Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012987"
     },
     {
@@ -20995,7 +20995,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "Feb 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:52.914142Z",
+      "tax_updated_at": "2026-10-08T17:56:32.037019Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012249"
     },
     {
@@ -21065,7 +21065,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 28, 2026",
-      "tax_updated_at": "2026-10-07T17:52:52.937164Z",
+      "tax_updated_at": "2026-10-08T17:56:32.311433Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003363"
     },
     {
@@ -21123,7 +21123,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 8, 2026",
-      "tax_updated_at": "2026-10-07T17:52:53.019322Z",
+      "tax_updated_at": "2026-10-08T17:56:32.472692Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004821"
     },
     {
@@ -21181,7 +21181,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "Mar 18, 2026",
-      "tax_updated_at": "2026-10-07T17:52:53.182839Z",
+      "tax_updated_at": "2026-10-08T17:56:32.483071Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R011305"
     },
     {
@@ -21471,7 +21471,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "May 14, 2026",
-      "tax_updated_at": "2026-10-07T17:52:53.224084Z",
+      "tax_updated_at": "2026-10-08T17:56:32.657719Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N002783"
     },
     {
@@ -21529,7 +21529,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.408954Z",
+      "tax_updated_at": "2026-10-08T17:56:51.330136Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012987"
     },
     {
@@ -21587,7 +21587,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:53.743196Z",
+      "tax_updated_at": "2026-10-08T17:56:33.636392Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012999"
     },
     {
@@ -21657,7 +21657,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "Mar 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:53.467525Z",
+      "tax_updated_at": "2026-10-08T17:56:33.085110Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003129"
     },
     {
@@ -21735,7 +21735,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Apr 8, 2026",
-      "tax_updated_at": "2026-10-07T17:52:53.473133Z",
+      "tax_updated_at": "2026-10-08T17:56:33.254521Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003701"
     },
     {
@@ -21809,7 +21809,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 20, 2026",
-      "tax_updated_at": "2026-10-07T17:52:53.521679Z",
+      "tax_updated_at": "2026-10-08T17:56:33.467917Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R011501"
     },
     {
@@ -21883,7 +21883,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:53.743196Z",
+      "tax_updated_at": "2026-10-08T17:56:33.636392Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012999"
     },
     {
@@ -21941,7 +21941,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:53.743196Z",
+      "tax_updated_at": "2026-10-08T17:56:33.636392Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012999"
     },
     {
@@ -21999,7 +21999,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:53.751241Z",
+      "tax_updated_at": "2026-10-08T17:56:33.878142Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004344"
     },
     {
@@ -22089,7 +22089,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 7,
       "latest_payment_date": "Feb 24, 2025",
-      "tax_updated_at": "2026-10-07T17:52:53.774294Z",
+      "tax_updated_at": "2026-10-08T17:56:34.072130Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002101"
     },
     {
@@ -22147,7 +22147,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:53.804079Z",
+      "tax_updated_at": "2026-10-08T17:56:34.235904Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003023"
     },
     {
@@ -22205,7 +22205,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:54.004221Z",
+      "tax_updated_at": "2026-10-08T17:56:34.245421Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013046"
     },
     {
@@ -22263,7 +22263,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 2, 2026",
-      "tax_updated_at": "2026-10-07T17:52:54.018662Z",
+      "tax_updated_at": "2026-10-08T17:56:34.456354Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003352"
     },
     {
@@ -22429,7 +22429,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.847836Z",
+      "tax_updated_at": "2026-10-08T17:56:58.805344Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012138"
     },
     {
@@ -22487,7 +22487,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 19, 2026",
-      "tax_updated_at": "2026-10-07T17:52:54.072876Z",
+      "tax_updated_at": "2026-10-08T17:56:34.826037Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003359"
     },
     {
@@ -22545,7 +22545,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:54.276655Z",
+      "tax_updated_at": "2026-10-08T17:56:34.830215Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003198"
     },
     {
@@ -22603,7 +22603,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 30, 2026",
-      "tax_updated_at": "2026-10-07T17:52:54.324516Z",
+      "tax_updated_at": "2026-10-08T17:56:35.061209Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003594"
     },
     {
@@ -22661,7 +22661,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:54.305013Z",
+      "tax_updated_at": "2026-10-08T17:56:35.239035Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003240"
     },
     {
@@ -22743,7 +22743,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:54.343245Z",
+      "tax_updated_at": "2026-10-08T17:56:35.413155Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010238"
     },
     {
@@ -22801,7 +22801,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 2, 2026",
-      "tax_updated_at": "2026-10-07T17:52:54.554907Z",
+      "tax_updated_at": "2026-10-08T17:56:35.414891Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003350"
     },
     {
@@ -22859,7 +22859,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Feb 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:54.584161Z",
+      "tax_updated_at": "2026-10-08T17:56:35.668151Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001205"
     },
     {
@@ -22917,7 +22917,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:54.593104Z",
+      "tax_updated_at": "2026-10-08T17:56:35.827295Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R008731"
     },
     {
@@ -22975,7 +22975,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.408954Z",
+      "tax_updated_at": "2026-10-08T17:56:51.330136Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012987"
     },
     {
@@ -23037,7 +23037,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Mar 2, 2026",
-      "tax_updated_at": "2026-10-07T17:52:54.845289Z",
+      "tax_updated_at": "2026-10-08T17:56:36.020289Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R007505"
     },
     {
@@ -23095,7 +23095,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:54.899294Z",
+      "tax_updated_at": "2026-10-08T17:56:36.258448Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013043"
     },
     {
@@ -23153,7 +23153,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:07.256705Z",
+      "tax_updated_at": "2026-10-08T17:57:01.856005Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012957"
     },
     {
@@ -23211,7 +23211,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:07.256705Z",
+      "tax_updated_at": "2026-10-08T17:57:01.856005Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012957"
     },
     {
@@ -23269,7 +23269,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.408954Z",
+      "tax_updated_at": "2026-10-08T17:56:51.330136Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012987"
     },
     {
@@ -23327,7 +23327,7 @@
       "tax_payment_status": "due",
       "tax_receipt_count": 2,
       "latest_payment_date": "Jul 1, 2020",
-      "tax_updated_at": "2026-10-07T17:52:55.134201Z",
+      "tax_updated_at": "2026-10-08T17:56:36.855426Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003347"
     },
     {
@@ -23385,7 +23385,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 8, 2026",
-      "tax_updated_at": "2026-10-07T17:52:55.244836Z",
+      "tax_updated_at": "2026-10-08T17:56:37.013213Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005128"
     },
     {
@@ -23451,7 +23451,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:55.257446Z",
+      "tax_updated_at": "2026-10-08T17:56:37.151491Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003405"
     },
     {
@@ -23553,7 +23553,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 1, 2026",
-      "tax_updated_at": "2026-10-07T17:52:55.407892Z",
+      "tax_updated_at": "2026-10-08T17:56:37.163951Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003186"
     },
     {
@@ -23611,7 +23611,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:55.439678Z",
+      "tax_updated_at": "2026-10-08T17:56:37.463179Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114646"
     },
     {
@@ -23799,7 +23799,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:55.457694Z",
+      "tax_updated_at": "2026-10-08T17:56:37.543508Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004994-R004875"
     },
     {
@@ -23869,7 +23869,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Jul 20, 2026",
-      "tax_updated_at": "2026-10-07T17:52:55.535818Z",
+      "tax_updated_at": "2026-10-08T17:56:37.765036Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003404"
     },
     {
@@ -23955,7 +23955,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 2, 2026",
-      "tax_updated_at": "2026-10-07T17:52:55.695309Z",
+      "tax_updated_at": "2026-10-08T17:56:37.783023Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001583"
     },
     {
@@ -24013,7 +24013,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:55.746973Z",
+      "tax_updated_at": "2026-10-08T17:56:38.095005Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003270"
     },
     {
@@ -24083,7 +24083,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:55.733986Z",
+      "tax_updated_at": "2026-10-08T17:56:38.147766Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012190"
     },
     {
@@ -24153,7 +24153,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 3, 2026",
-      "tax_updated_at": "2026-10-07T17:52:55.816004Z",
+      "tax_updated_at": "2026-10-08T17:56:38.372831Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003269"
     },
     {
@@ -24211,7 +24211,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:55.984900Z",
+      "tax_updated_at": "2026-10-08T17:56:38.392273Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003099"
     },
     {
@@ -24417,7 +24417,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 10, 2026",
-      "tax_updated_at": "2026-10-07T17:52:56.028930Z",
+      "tax_updated_at": "2026-10-08T17:56:38.715794Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114651"
     },
     {
@@ -24475,7 +24475,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:56.031836Z",
+      "tax_updated_at": "2026-10-08T17:56:38.773243Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003707"
     },
     {
@@ -24709,7 +24709,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 13, 2026",
-      "tax_updated_at": "2026-10-07T17:52:56.105837Z",
+      "tax_updated_at": "2026-10-08T17:56:38.972709Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001634"
     },
     {
@@ -24881,7 +24881,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:04.518335Z",
+      "tax_updated_at": "2026-10-08T17:56:55.607444Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R006111"
     },
     {
@@ -25091,7 +25091,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 12, 2026",
-      "tax_updated_at": "2026-10-07T17:52:56.325587Z",
+      "tax_updated_at": "2026-10-08T17:56:39.311990Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004618"
     },
     {
@@ -25153,7 +25153,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:56.378856Z",
+      "tax_updated_at": "2026-10-08T17:56:39.369486Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003448"
     },
     {
@@ -25219,7 +25219,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 28, 2026",
-      "tax_updated_at": "2026-10-07T17:52:56.405603Z",
+      "tax_updated_at": "2026-10-08T17:56:39.580950Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003364"
     },
     {
@@ -25345,7 +25345,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.334933Z",
+      "tax_updated_at": "2026-10-08T17:56:57.659774Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001584"
     },
     {
@@ -25403,7 +25403,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:10.803672Z",
+      "tax_updated_at": "2026-10-08T17:57:09.235431Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012963"
     },
     {
@@ -25461,7 +25461,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:56.669833Z",
+      "tax_updated_at": "2026-10-08T17:56:39.960421Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001849"
     },
     {
@@ -25627,7 +25627,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:56.690286Z",
+      "tax_updated_at": "2026-10-08T17:56:40.168767Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012449"
     },
     {
@@ -25685,7 +25685,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:56.885021Z",
+      "tax_updated_at": "2026-10-08T17:56:40.206084Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012128"
     },
     {
@@ -25743,7 +25743,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:10.803672Z",
+      "tax_updated_at": "2026-10-08T17:57:09.235431Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012963"
     },
     {
@@ -25801,7 +25801,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:10.803672Z",
+      "tax_updated_at": "2026-10-08T17:57:09.235431Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012963"
     },
     {
@@ -25867,7 +25867,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:00.963695Z",
+      "tax_updated_at": "2026-10-08T17:56:48.375535Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012958"
     },
     {
@@ -25971,7 +25971,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:57.108064Z",
+      "tax_updated_at": "2026-10-08T17:56:40.723296Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012147-R114696"
     },
     {
@@ -26029,7 +26029,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:10.803672Z",
+      "tax_updated_at": "2026-10-08T17:57:09.235431Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012963"
     },
     {
@@ -26087,7 +26087,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:57.177545Z",
+      "tax_updated_at": "2026-10-08T17:56:41.152753Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005098"
     },
     {
@@ -26145,7 +26145,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:10.803672Z",
+      "tax_updated_at": "2026-10-08T17:57:09.235431Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012963"
     },
     {
@@ -26203,7 +26203,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:10.803672Z",
+      "tax_updated_at": "2026-10-08T17:57:09.235431Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012963"
     },
     {
@@ -26265,7 +26265,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:52:57.539440Z",
+      "tax_updated_at": "2026-10-08T17:56:41.604788Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010752"
     },
     {
@@ -26479,7 +26479,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 13, 2026",
-      "tax_updated_at": "2026-10-07T17:52:57.473700Z",
+      "tax_updated_at": "2026-10-08T17:56:41.747815Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002274"
     },
     {
@@ -26537,7 +26537,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:10.803672Z",
+      "tax_updated_at": "2026-10-08T17:57:09.235431Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012963"
     },
     {
@@ -26763,7 +26763,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 13, 2026",
-      "tax_updated_at": "2026-10-07T17:52:57.684604Z",
+      "tax_updated_at": "2026-10-08T17:56:41.887581Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012286"
     },
     {
@@ -26933,7 +26933,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 2,
       "latest_payment_date": "Jun 10, 2026",
-      "tax_updated_at": "2026-10-07T17:52:57.764112Z",
+      "tax_updated_at": "2026-10-08T17:56:42.185548Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114967"
     },
     {
@@ -26995,7 +26995,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 11,
       "latest_payment_date": "Apr 13, 2026",
-      "tax_updated_at": "2026-10-07T17:52:57.967725Z",
+      "tax_updated_at": "2026-10-08T17:56:42.347015Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005149"
     },
     {
@@ -27145,7 +27145,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 30, 2026",
-      "tax_updated_at": "2026-10-07T17:52:57.889076Z",
+      "tax_updated_at": "2026-10-08T17:56:42.476874Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000401"
     },
     {
@@ -27323,7 +27323,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 5,
       "latest_payment_date": "Feb 23, 2026",
-      "tax_updated_at": "2026-10-07T17:52:57.992175Z",
+      "tax_updated_at": "2026-10-08T17:56:42.496160Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114844"
     },
     {
@@ -27381,7 +27381,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "Mar 16, 2026",
-      "tax_updated_at": "2026-10-07T17:52:58.144094Z",
+      "tax_updated_at": "2026-10-08T17:56:42.778717Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005404"
     },
     {
@@ -27559,7 +27559,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Apr 20, 2026",
-      "tax_updated_at": "2026-10-07T17:52:58.192524Z",
+      "tax_updated_at": "2026-10-08T17:56:42.969811Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000128"
     },
     {
@@ -27793,7 +27793,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 11,
       "latest_payment_date": "Jul 20, 2026",
-      "tax_updated_at": "2026-10-07T17:52:58.293206Z",
+      "tax_updated_at": "2026-10-08T17:56:43.075447Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R008117"
     },
     {
@@ -28037,7 +28037,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Apr 21, 2026",
-      "tax_updated_at": "2026-10-07T17:52:58.278843Z",
+      "tax_updated_at": "2026-10-08T17:56:43.083778Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002139"
     },
     {
@@ -28095,7 +28095,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:58.429021Z",
+      "tax_updated_at": "2026-10-08T17:56:43.367666Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013044"
     },
     {
@@ -28173,7 +28173,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 12,
       "latest_payment_date": "Jun 18, 2026",
-      "tax_updated_at": "2026-10-07T17:52:58.505323Z",
+      "tax_updated_at": "2026-10-08T17:56:43.553228Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R009956"
     },
     {
@@ -28231,7 +28231,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:10.803672Z",
+      "tax_updated_at": "2026-10-08T17:57:09.235431Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012963"
     },
     {
@@ -28333,7 +28333,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 15,
       "latest_payment_date": "Jun 11, 2026",
-      "tax_updated_at": "2026-10-07T17:52:58.658452Z",
+      "tax_updated_at": "2026-10-08T17:56:43.689629Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012197"
     },
     {
@@ -28439,7 +28439,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 31, 2026",
-      "tax_updated_at": "2026-10-07T17:52:58.747013Z",
+      "tax_updated_at": "2026-10-08T17:56:43.992885Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005513"
     },
     {
@@ -28601,7 +28601,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:58.775590Z",
+      "tax_updated_at": "2026-10-08T17:56:44.153947Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003223"
     },
     {
@@ -28703,7 +28703,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 12,
       "latest_payment_date": "May 14, 2026",
-      "tax_updated_at": "2026-10-07T17:52:58.865716Z",
+      "tax_updated_at": "2026-10-08T17:56:44.244309Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R008024"
     },
     {
@@ -28801,7 +28801,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "Jun 22, 2026",
-      "tax_updated_at": "2026-10-07T17:52:58.961695Z",
+      "tax_updated_at": "2026-10-08T17:56:44.275370Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012199"
     },
     {
@@ -28863,7 +28863,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:10.803672Z",
+      "tax_updated_at": "2026-10-08T17:57:09.235431Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012963"
     },
     {
@@ -29061,7 +29061,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 9, 2026",
-      "tax_updated_at": "2026-10-07T17:52:59.157322Z",
+      "tax_updated_at": "2026-10-08T17:56:44.740784Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000243"
     },
     {
@@ -29131,7 +29131,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:59.193037Z",
+      "tax_updated_at": "2026-10-08T17:56:44.819563Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003376"
     },
     {
@@ -29201,7 +29201,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "Jun 18, 2026",
-      "tax_updated_at": "2026-10-07T17:52:59.257858Z",
+      "tax_updated_at": "2026-10-08T17:56:44.865740Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012196"
     },
     {
@@ -29283,7 +29283,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 13, 2026",
-      "tax_updated_at": "2026-10-07T17:52:59.300518Z",
+      "tax_updated_at": "2026-10-08T17:56:45.133246Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002053"
     },
     {
@@ -29357,7 +29357,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "May 12, 2026",
-      "tax_updated_at": "2026-10-07T17:52:59.462427Z",
+      "tax_updated_at": "2026-10-08T17:56:45.340319Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R011988"
     },
     {
@@ -29519,7 +29519,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "Jul 28, 2026",
-      "tax_updated_at": "2026-10-07T17:52:59.528214Z",
+      "tax_updated_at": "2026-10-08T17:56:45.390728Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001155"
     },
     {
@@ -29597,7 +29597,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:59.546405Z",
+      "tax_updated_at": "2026-10-08T17:56:45.466180Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114791"
     },
     {
@@ -29729,7 +29729,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:52:59.618971Z",
+      "tax_updated_at": "2026-10-08T17:56:45.762991Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R011098"
     },
     {
@@ -29943,7 +29943,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 20, 2026",
-      "tax_updated_at": "2026-10-07T17:52:59.764297Z",
+      "tax_updated_at": "2026-10-08T17:56:45.984719Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001860"
     },
     {
@@ -30037,7 +30037,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 19, 2026",
-      "tax_updated_at": "2026-10-07T17:52:59.804792Z",
+      "tax_updated_at": "2026-10-08T17:56:46.007686Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012195"
     },
     {
@@ -30207,7 +30207,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 2,
       "latest_payment_date": "Jun 10, 2026",
-      "tax_updated_at": "2026-10-07T17:52:59.834516Z",
+      "tax_updated_at": "2026-10-08T17:56:46.030439Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114966"
     },
     {
@@ -30333,7 +30333,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:52:59.879191Z",
+      "tax_updated_at": "2026-10-08T17:56:46.364376Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012198"
     },
     {
@@ -30475,7 +30475,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Jun 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:00.045543Z",
+      "tax_updated_at": "2026-10-08T17:56:46.588325Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013133"
     },
     {
@@ -30609,7 +30609,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 12, 2026",
-      "tax_updated_at": "2026-10-07T17:53:00.095078Z",
+      "tax_updated_at": "2026-10-08T17:56:46.592082Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000433"
     },
     {
@@ -30863,7 +30863,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:53:00.145523Z",
+      "tax_updated_at": "2026-10-08T17:56:46.625523Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000047"
     },
     {
@@ -30929,7 +30929,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "Jun 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:00.172742Z",
+      "tax_updated_at": "2026-10-08T17:56:46.971581Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001524"
     },
     {
@@ -31167,7 +31167,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 2,
       "latest_payment_date": "Jun 10, 2026",
-      "tax_updated_at": "2026-10-07T17:53:00.322731Z",
+      "tax_updated_at": "2026-10-08T17:56:47.181613Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114965"
     },
     {
@@ -31293,7 +31293,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 2,
       "latest_payment_date": "Jun 10, 2026",
-      "tax_updated_at": "2026-10-07T17:53:00.357844Z",
+      "tax_updated_at": "2026-10-08T17:56:47.185893Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114968"
     },
     {
@@ -31355,7 +31355,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:00.356870Z",
+      "tax_updated_at": "2026-10-08T17:56:47.171438Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R008929"
     },
     {
@@ -31529,7 +31529,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 30, 2026",
-      "tax_updated_at": "2026-10-07T17:53:00.437066Z",
+      "tax_updated_at": "2026-10-08T17:56:47.574376Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000393"
     },
     {
@@ -31603,7 +31603,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "May 14, 2026",
-      "tax_updated_at": "2026-10-07T17:53:00.627082Z",
+      "tax_updated_at": "2026-10-08T17:56:47.792558Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000008"
     },
     {
@@ -31693,7 +31693,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 2,
       "latest_payment_date": "Jun 10, 2026",
-      "tax_updated_at": "2026-10-07T17:53:00.680642Z",
+      "tax_updated_at": "2026-10-08T17:56:47.797491Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114963"
     },
     {
@@ -31763,7 +31763,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:00.654513Z",
+      "tax_updated_at": "2026-10-08T17:56:47.801599Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004525"
     },
     {
@@ -31821,7 +31821,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 6, 2026",
-      "tax_updated_at": "2026-10-07T17:53:00.742704Z",
+      "tax_updated_at": "2026-10-08T17:56:48.164329Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004524"
     },
     {
@@ -31899,7 +31899,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 27, 2026",
-      "tax_updated_at": "2026-10-07T17:53:00.927465Z",
+      "tax_updated_at": "2026-10-08T17:56:48.397333Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R009946"
     },
     {
@@ -32137,7 +32137,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 12,
       "latest_payment_date": "Feb 23, 2026",
-      "tax_updated_at": "2026-10-07T17:53:00.940248Z",
+      "tax_updated_at": "2026-10-08T17:56:48.384531Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001324"
     },
     {
@@ -32227,7 +32227,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:00.963695Z",
+      "tax_updated_at": "2026-10-08T17:56:48.375535Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012958"
     },
     {
@@ -32285,7 +32285,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 20, 2026",
-      "tax_updated_at": "2026-10-07T17:53:01.034398Z",
+      "tax_updated_at": "2026-10-08T17:56:48.773210Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004920"
     },
     {
@@ -32383,7 +32383,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 23, 2026",
-      "tax_updated_at": "2026-10-07T17:53:01.208673Z",
+      "tax_updated_at": "2026-10-08T17:56:48.992535Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012189"
     },
     {
@@ -32441,7 +32441,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:07.256705Z",
+      "tax_updated_at": "2026-10-08T17:57:01.856005Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012957"
     },
     {
@@ -32507,7 +32507,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:01.240949Z",
+      "tax_updated_at": "2026-10-08T17:56:49.004778Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114735"
     },
     {
@@ -32625,7 +32625,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Jun 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:01.330909Z",
+      "tax_updated_at": "2026-10-08T17:56:49.365479Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005246"
     },
     {
@@ -32819,7 +32819,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Mar 2, 2026",
-      "tax_updated_at": "2026-10-07T17:53:01.459167Z",
+      "tax_updated_at": "2026-10-08T17:56:49.594603Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001519"
     },
     {
@@ -33053,7 +33053,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:01.496042Z",
+      "tax_updated_at": "2026-10-08T17:56:49.632887Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012058"
     },
     {
@@ -33537,7 +33537,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:01.539233Z",
+      "tax_updated_at": "2026-10-08T17:56:49.619162Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001339"
     },
     {
@@ -33711,7 +33711,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:01.807516Z",
+      "tax_updated_at": "2026-10-08T17:56:49.968333Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003056"
     },
     {
@@ -33785,7 +33785,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.287590Z",
+      "tax_updated_at": "2026-10-08T17:57:16.713832Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010804"
     },
     {
@@ -33891,7 +33891,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:12.156777Z",
+      "tax_updated_at": "2026-10-08T17:57:12.252059Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001008-R001010-R008099"
     },
     {
@@ -33957,7 +33957,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 19, 2026",
-      "tax_updated_at": "2026-10-07T17:53:01.885093Z",
+      "tax_updated_at": "2026-10-08T17:56:50.230447Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001956"
     },
     {
@@ -34015,7 +34015,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:02.177785Z",
+      "tax_updated_at": "2026-10-08T17:56:50.550952Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003267"
     },
     {
@@ -34157,7 +34157,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:02.149826Z",
+      "tax_updated_at": "2026-10-08T17:56:50.793442Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000113"
     },
     {
@@ -34231,7 +34231,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 12, 2026",
-      "tax_updated_at": "2026-10-07T17:53:02.300486Z",
+      "tax_updated_at": "2026-10-08T17:56:50.770657Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R011517"
     },
     {
@@ -34297,7 +34297,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Apr 21, 2026",
-      "tax_updated_at": "2026-10-07T17:53:02.261331Z",
+      "tax_updated_at": "2026-10-08T17:56:50.887268Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004481"
     },
     {
@@ -34367,7 +34367,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Apr 6, 2026",
-      "tax_updated_at": "2026-10-07T17:53:02.443931Z",
+      "tax_updated_at": "2026-10-08T17:56:51.191233Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003254"
     },
     {
@@ -34455,7 +34455,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.408954Z",
+      "tax_updated_at": "2026-10-08T17:56:51.330136Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012987"
     },
     {
@@ -34669,7 +34669,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.519915Z",
+      "tax_updated_at": "2026-10-08T17:56:51.391651Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012089"
     },
     {
@@ -34931,7 +34931,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:02.563254Z",
+      "tax_updated_at": "2026-10-08T17:56:51.500779Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000364"
     },
     {
@@ -35001,7 +35001,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "Jun 29, 2026",
-      "tax_updated_at": "2026-10-07T17:53:02.670349Z",
+      "tax_updated_at": "2026-10-08T17:56:51.798907Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R022243"
     },
     {
@@ -35271,7 +35271,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 11, 2026",
-      "tax_updated_at": "2026-10-07T17:53:02.746667Z",
+      "tax_updated_at": "2026-10-08T17:56:51.930462Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R011434"
     },
     {
@@ -35429,7 +35429,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Apr 23, 2026",
-      "tax_updated_at": "2026-10-07T17:53:02.773225Z",
+      "tax_updated_at": "2026-10-08T17:56:51.984319Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003552"
     },
     {
@@ -35615,7 +35615,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:02.816292Z",
+      "tax_updated_at": "2026-10-08T17:56:52.082453Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003079"
     },
     {
@@ -35757,7 +35757,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 3, 2026",
-      "tax_updated_at": "2026-10-07T17:53:02.934647Z",
+      "tax_updated_at": "2026-10-08T17:56:52.401821Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005414"
     },
     {
@@ -35823,7 +35823,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:03.049469Z",
+      "tax_updated_at": "2026-10-08T17:56:52.525878Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003622"
     },
     {
@@ -35925,7 +35925,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 17, 2026",
-      "tax_updated_at": "2026-10-07T17:53:03.038025Z",
+      "tax_updated_at": "2026-10-08T17:56:52.591069Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002972"
     },
     {
@@ -35983,7 +35983,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:07.256705Z",
+      "tax_updated_at": "2026-10-08T17:57:01.856005Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012957"
     },
     {
@@ -36073,7 +36073,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.850522Z",
+      "tax_updated_at": "2026-10-08T17:57:11.301592Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010803"
     },
     {
@@ -36203,7 +36203,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 10, 2026",
-      "tax_updated_at": "2026-10-07T17:53:03.340716Z",
+      "tax_updated_at": "2026-10-08T17:56:53.135248Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004457"
     },
     {
@@ -36473,7 +36473,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:03.312626Z",
+      "tax_updated_at": "2026-10-08T17:56:53.225611Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004260"
     },
     {
@@ -36539,7 +36539,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 11,
       "latest_payment_date": "Apr 21, 2026",
-      "tax_updated_at": "2026-10-07T17:53:03.378696Z",
+      "tax_updated_at": "2026-10-08T17:56:53.268852Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004736"
     },
     {
@@ -36605,7 +36605,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Mar 2, 2026",
-      "tax_updated_at": "2026-10-07T17:53:03.504271Z",
+      "tax_updated_at": "2026-10-08T17:56:53.576523Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001373"
     },
     {
@@ -36799,7 +36799,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:03.568402Z",
+      "tax_updated_at": "2026-10-08T17:56:53.731585Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013111"
     },
     {
@@ -36997,7 +36997,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 21, 2026",
-      "tax_updated_at": "2026-10-07T17:53:03.649430Z",
+      "tax_updated_at": "2026-10-08T17:56:53.836212Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001353"
     },
     {
@@ -37055,7 +37055,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 29, 2026",
-      "tax_updated_at": "2026-10-07T17:53:03.676502Z",
+      "tax_updated_at": "2026-10-08T17:56:53.852662Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001203"
     },
     {
@@ -37261,7 +37261,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 3, 2026",
-      "tax_updated_at": "2026-10-07T17:53:03.786806Z",
+      "tax_updated_at": "2026-10-08T17:56:54.160678Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005411"
     },
     {
@@ -37331,7 +37331,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "Apr 28, 2026",
-      "tax_updated_at": "2026-10-07T17:53:03.832720Z",
+      "tax_updated_at": "2026-10-08T17:56:54.320564Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001204"
     },
     {
@@ -37401,7 +37401,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:12.156777Z",
+      "tax_updated_at": "2026-10-08T17:57:12.252059Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001008-R001010-R008099"
     },
     {
@@ -37547,7 +37547,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "May 14, 2026",
-      "tax_updated_at": "2026-10-07T17:53:03.954831Z",
+      "tax_updated_at": "2026-10-08T17:56:54.435232Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003037"
     },
     {
@@ -37605,7 +37605,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "Oct 7, 2026",
-      "tax_updated_at": "2026-10-07T17:53:04.085260Z",
+      "tax_updated_at": "2026-10-08T17:56:54.759310Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R022242"
     },
     {
@@ -37663,7 +37663,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:07.256705Z",
+      "tax_updated_at": "2026-10-08T17:57:01.856005Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012957"
     },
     {
@@ -37721,7 +37721,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 11,
       "latest_payment_date": "Jun 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:04.102085Z",
+      "tax_updated_at": "2026-10-08T17:56:54.982773Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004462"
     },
     {
@@ -37851,7 +37851,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 25, 2026",
-      "tax_updated_at": "2026-10-07T17:53:04.229703Z",
+      "tax_updated_at": "2026-10-08T17:56:55.025840Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002065"
     },
     {
@@ -37933,7 +37933,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:04.326492Z",
+      "tax_updated_at": "2026-10-08T17:56:55.330138Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005773"
     },
     {
@@ -38111,7 +38111,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 12, 2026",
-      "tax_updated_at": "2026-10-07T17:53:04.359015Z",
+      "tax_updated_at": "2026-10-08T17:56:55.477386Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003036"
     },
     {
@@ -38185,7 +38185,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Apr 6, 2026",
-      "tax_updated_at": "2026-10-07T17:53:04.370109Z",
+      "tax_updated_at": "2026-10-08T17:56:55.583101Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005344"
     },
     {
@@ -38255,7 +38255,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:04.518335Z",
+      "tax_updated_at": "2026-10-08T17:56:55.607444Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R006111"
     },
     {
@@ -38321,7 +38321,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:04.516852Z",
+      "tax_updated_at": "2026-10-08T17:56:55.855113Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005231-R004269"
     },
     {
@@ -38463,7 +38463,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 11, 2026",
-      "tax_updated_at": "2026-10-07T17:53:04.652902Z",
+      "tax_updated_at": "2026-10-08T17:56:56.070443Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005042"
     },
     {
@@ -38545,7 +38545,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Jun 25, 2026",
-      "tax_updated_at": "2026-10-07T17:53:04.644065Z",
+      "tax_updated_at": "2026-10-08T17:56:56.442189Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004265"
     },
     {
@@ -38627,7 +38627,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Apr 20, 2026",
-      "tax_updated_at": "2026-10-07T17:53:04.774885Z",
+      "tax_updated_at": "2026-10-08T17:56:56.220812Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114639"
     },
     {
@@ -38689,7 +38689,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:04.768502Z",
+      "tax_updated_at": "2026-10-08T17:56:56.443328Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114641"
     },
     {
@@ -38751,7 +38751,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 11, 2026",
-      "tax_updated_at": "2026-10-07T17:53:04.909787Z",
+      "tax_updated_at": "2026-10-08T17:56:56.836363Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114640"
     },
     {
@@ -38945,7 +38945,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:04.938262Z",
+      "tax_updated_at": "2026-10-08T17:56:56.814297Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003063"
     },
     {
@@ -39067,7 +39067,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.044256Z",
+      "tax_updated_at": "2026-10-08T17:56:57.056696Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R007994"
     },
     {
@@ -39141,7 +39141,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 12,
       "latest_payment_date": "Mar 30, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.057919Z",
+      "tax_updated_at": "2026-10-08T17:56:57.081808Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004224"
     },
     {
@@ -39199,7 +39199,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:07.256705Z",
+      "tax_updated_at": "2026-10-08T17:57:01.856005Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012957"
     },
     {
@@ -39265,7 +39265,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 29, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.224876Z",
+      "tax_updated_at": "2026-10-08T17:56:57.425810Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002013"
     },
     {
@@ -39323,7 +39323,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 3,
       "latest_payment_date": "Jun 10, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.328836Z",
+      "tax_updated_at": "2026-10-08T17:56:57.646543Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114962"
     },
     {
@@ -39385,7 +39385,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.334933Z",
+      "tax_updated_at": "2026-10-08T17:56:57.659774Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001584"
     },
     {
@@ -39551,7 +39551,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 12, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.428241Z",
+      "tax_updated_at": "2026-10-08T17:56:57.951096Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010987"
     },
     {
@@ -39693,7 +39693,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 19, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.498613Z",
+      "tax_updated_at": "2026-10-08T17:56:58.002518Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012123"
     },
     {
@@ -39751,7 +39751,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:06.094811Z",
+      "tax_updated_at": "2026-10-08T17:56:59.365951Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012956"
     },
     {
@@ -39809,7 +39809,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.846807Z",
+      "tax_updated_at": "2026-10-08T17:56:58.863785Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002204"
     },
     {
@@ -39991,7 +39991,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Feb 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.708737Z",
+      "tax_updated_at": "2026-10-08T17:56:58.539801Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013036"
     },
     {
@@ -40049,7 +40049,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.771443Z",
+      "tax_updated_at": "2026-10-08T17:56:58.603061Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012139"
     },
     {
@@ -40107,7 +40107,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.847836Z",
+      "tax_updated_at": "2026-10-08T17:56:58.805344Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012138"
     },
     {
@@ -40165,7 +40165,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.846807Z",
+      "tax_updated_at": "2026-10-08T17:56:58.863785Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002204"
     },
     {
@@ -40223,7 +40223,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Sep 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:05.981267Z",
+      "tax_updated_at": "2026-10-08T17:56:59.131344Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012203"
     },
     {
@@ -40301,7 +40301,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 11,
       "latest_payment_date": "Feb 17, 2026",
-      "tax_updated_at": "2026-10-07T17:53:06.052463Z",
+      "tax_updated_at": "2026-10-08T17:56:59.197153Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013034"
     },
     {
@@ -40359,7 +40359,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:06.094811Z",
+      "tax_updated_at": "2026-10-08T17:56:59.365951Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012956"
     },
     {
@@ -40441,7 +40441,7 @@
       "tax_payment_status": "due",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:06.156215Z",
+      "tax_updated_at": "2026-10-08T17:56:59.503093Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R006510"
     },
     {
@@ -40499,7 +40499,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "May 12, 2026",
-      "tax_updated_at": "2026-10-07T17:53:06.273734Z",
+      "tax_updated_at": "2026-10-08T17:56:59.726306Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N001727"
     },
     {
@@ -40557,7 +40557,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 7,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:53:06.337328Z",
+      "tax_updated_at": "2026-10-08T17:56:59.784847Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N009863"
     },
     {
@@ -40623,7 +40623,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Mar 26, 2026",
-      "tax_updated_at": "2026-10-07T17:53:06.357464Z",
+      "tax_updated_at": "2026-10-08T17:56:59.962666Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N001075"
     },
     {
@@ -40705,7 +40705,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "Apr 27, 2026",
-      "tax_updated_at": "2026-10-07T17:53:06.433065Z",
+      "tax_updated_at": "2026-10-08T17:57:00.114930Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013032"
     },
     {
@@ -40883,7 +40883,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 15,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:06.560538Z",
+      "tax_updated_at": "2026-10-08T17:57:00.342321Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013035"
     },
     {
@@ -40941,7 +40941,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Mar 2, 2026",
-      "tax_updated_at": "2026-10-07T17:53:06.610418Z",
+      "tax_updated_at": "2026-10-08T17:57:00.395706Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R007960"
     },
     {
@@ -41015,7 +41015,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 7,
       "latest_payment_date": "Feb 19, 2026",
-      "tax_updated_at": "2026-10-07T17:53:06.621011Z",
+      "tax_updated_at": "2026-10-08T17:57:00.538523Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013025"
     },
     {
@@ -41081,7 +41081,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Jul 22, 2026",
-      "tax_updated_at": "2026-10-07T17:53:06.721020Z",
+      "tax_updated_at": "2026-10-08T17:57:00.703340Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013026"
     },
     {
@@ -41275,7 +41275,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 26, 2026",
-      "tax_updated_at": "2026-10-07T17:53:06.867342Z",
+      "tax_updated_at": "2026-10-08T17:57:00.918568Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013024"
     },
     {
@@ -41341,7 +41341,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 13, 2026",
-      "tax_updated_at": "2026-10-07T17:53:06.896792Z",
+      "tax_updated_at": "2026-10-08T17:57:00.976206Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013031"
     },
     {
@@ -41399,7 +41399,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:06.869836Z",
+      "tax_updated_at": "2026-10-08T17:57:01.119040Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004522"
     },
     {
@@ -41569,7 +41569,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:07.023095Z",
+      "tax_updated_at": "2026-10-08T17:57:01.300665Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114695"
     },
     {
@@ -41627,7 +41627,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:07.169135Z",
+      "tax_updated_at": "2026-10-08T17:57:01.544591Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001707"
     },
     {
@@ -41689,7 +41689,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Feb 17, 2026",
-      "tax_updated_at": "2026-10-07T17:53:07.145950Z",
+      "tax_updated_at": "2026-10-08T17:57:01.562855Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010064"
     },
     {
@@ -41751,7 +41751,7 @@
       "tax_payment_status": "due",
       "tax_receipt_count": 4,
       "latest_payment_date": "Aug 2, 2023",
-      "tax_updated_at": "2026-10-07T17:53:07.199328Z",
+      "tax_updated_at": "2026-10-08T17:57:01.765410Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013023"
     },
     {
@@ -41809,7 +41809,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:07.256705Z",
+      "tax_updated_at": "2026-10-08T17:57:01.856005Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012957"
     },
     {
@@ -41867,7 +41867,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Jul 7, 2026",
-      "tax_updated_at": "2026-10-07T17:53:07.426455Z",
+      "tax_updated_at": "2026-10-08T17:57:02.144266Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013027"
     },
     {
@@ -42065,7 +42065,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 12,
       "latest_payment_date": "Jun 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:07.443887Z",
+      "tax_updated_at": "2026-10-08T17:57:02.166161Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013028"
     },
     {
@@ -42123,7 +42123,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 11, 2026",
-      "tax_updated_at": "2026-10-07T17:53:07.476896Z",
+      "tax_updated_at": "2026-10-08T17:57:02.402598Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003733"
     },
     {
@@ -42261,7 +42261,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 13, 2026",
-      "tax_updated_at": "2026-10-07T17:53:07.535952Z",
+      "tax_updated_at": "2026-10-08T17:57:02.446904Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003299"
     },
     {
@@ -42319,7 +42319,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:07.702971Z",
+      "tax_updated_at": "2026-10-08T17:57:02.730508Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012017"
     },
     {
@@ -42545,7 +42545,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 24, 2026",
-      "tax_updated_at": "2026-10-07T17:53:07.775557Z",
+      "tax_updated_at": "2026-10-08T17:57:02.756139Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013030"
     },
     {
@@ -42603,7 +42603,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.287590Z",
+      "tax_updated_at": "2026-10-08T17:57:16.713832Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010804"
     },
     {
@@ -42661,7 +42661,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:07.831313Z",
+      "tax_updated_at": "2026-10-08T17:57:03.042051Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012120"
     },
     {
@@ -42719,7 +42719,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:07.985880Z",
+      "tax_updated_at": "2026-10-08T17:57:03.347397Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012119"
     },
     {
@@ -42837,7 +42837,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:07.937885Z",
+      "tax_updated_at": "2026-10-08T17:57:03.286400Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114974"
     },
     {
@@ -42895,7 +42895,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "Mar 24, 2026",
-      "tax_updated_at": "2026-10-07T17:53:08.064802Z",
+      "tax_updated_at": "2026-10-08T17:57:03.559795Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013033"
     },
     {
@@ -42957,7 +42957,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 11, 2026",
-      "tax_updated_at": "2026-10-07T17:53:08.125770Z",
+      "tax_updated_at": "2026-10-08T17:57:03.639058Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005439"
     },
     {
@@ -43107,7 +43107,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Apr 29, 2026",
-      "tax_updated_at": "2026-10-07T17:53:08.243858Z",
+      "tax_updated_at": "2026-10-08T17:57:03.882315Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013038"
     },
     {
@@ -43281,7 +43281,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 26, 2026",
-      "tax_updated_at": "2026-10-07T17:53:08.262760Z",
+      "tax_updated_at": "2026-10-08T17:57:03.937314Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013022"
     },
     {
@@ -43339,7 +43339,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:08.274438Z",
+      "tax_updated_at": "2026-10-08T17:57:04.096246Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003080"
     },
     {
@@ -43409,7 +43409,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:08.416189Z",
+      "tax_updated_at": "2026-10-08T17:57:04.227603Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013121"
     },
     {
@@ -43467,7 +43467,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 23, 2026",
-      "tax_updated_at": "2026-10-07T17:53:08.550382Z",
+      "tax_updated_at": "2026-10-08T17:57:04.468696Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012310"
     },
     {
@@ -43645,7 +43645,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "Jun 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:08.568342Z",
+      "tax_updated_at": "2026-10-08T17:57:04.551285Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013037"
     },
     {
@@ -43903,7 +43903,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:08.567755Z",
+      "tax_updated_at": "2026-10-08T17:57:04.683309Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013029"
     },
     {
@@ -44033,7 +44033,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:08.712398Z",
+      "tax_updated_at": "2026-10-08T17:57:04.808302Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N007104"
     },
     {
@@ -44095,7 +44095,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 30, 2026",
-      "tax_updated_at": "2026-10-07T17:53:08.844729Z",
+      "tax_updated_at": "2026-10-08T17:57:05.058277Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002200"
     },
     {
@@ -44177,7 +44177,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "May 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:13.226655Z",
+      "tax_updated_at": "2026-10-08T17:57:14.332209Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000425"
     },
     {
@@ -44279,7 +44279,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 25, 2026",
-      "tax_updated_at": "2026-10-07T17:53:08.881161Z",
+      "tax_updated_at": "2026-10-08T17:57:05.284449Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002064"
     },
     {
@@ -44461,7 +44461,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:09.048902Z",
+      "tax_updated_at": "2026-10-08T17:57:05.393017Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013122"
     },
     {
@@ -44531,7 +44531,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 20, 2026",
-      "tax_updated_at": "2026-10-07T17:53:09.140272Z",
+      "tax_updated_at": "2026-10-08T17:57:05.649745Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004293"
     },
     {
@@ -44677,7 +44677,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:09.161901Z",
+      "tax_updated_at": "2026-10-08T17:57:05.723866Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R007992"
     },
     {
@@ -44743,7 +44743,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.850522Z",
+      "tax_updated_at": "2026-10-08T17:57:11.301592Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010803"
     },
     {
@@ -44801,7 +44801,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 30, 2026",
-      "tax_updated_at": "2026-10-07T17:53:09.357146Z",
+      "tax_updated_at": "2026-10-08T17:57:05.981196Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003624"
     },
     {
@@ -44999,7 +44999,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 23, 2026",
-      "tax_updated_at": "2026-10-07T17:53:09.435439Z",
+      "tax_updated_at": "2026-10-08T17:57:06.244909Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013119"
     },
     {
@@ -45057,7 +45057,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:09.479305Z",
+      "tax_updated_at": "2026-10-08T17:57:06.317283Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005384"
     },
     {
@@ -45279,7 +45279,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 11,
       "latest_payment_date": "Feb 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:09.452251Z",
+      "tax_updated_at": "2026-10-08T17:57:06.465706Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013120"
     },
     {
@@ -45349,7 +45349,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:09.643865Z",
+      "tax_updated_at": "2026-10-08T17:57:06.582201Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002181"
     },
     {
@@ -45431,7 +45431,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "Jun 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:09.716041Z",
+      "tax_updated_at": "2026-10-08T17:57:06.872081Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N008667"
     },
     {
@@ -45505,7 +45505,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:09.715502Z",
+      "tax_updated_at": "2026-10-08T17:57:06.911227Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000345"
     },
     {
@@ -45575,7 +45575,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 17,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:09.756492Z",
+      "tax_updated_at": "2026-10-08T17:57:07.073247Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000229"
     },
     {
@@ -45849,7 +45849,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:09.937631Z",
+      "tax_updated_at": "2026-10-08T17:57:07.186634Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013042"
     },
     {
@@ -46091,7 +46091,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 5, 2026",
-      "tax_updated_at": "2026-10-07T17:53:09.986087Z",
+      "tax_updated_at": "2026-10-08T17:57:07.472621Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R011435"
     },
     {
@@ -46157,7 +46157,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 11,
       "latest_payment_date": "Mar 2, 2026",
-      "tax_updated_at": "2026-10-07T17:53:09.987714Z",
+      "tax_updated_at": "2026-10-08T17:57:07.512782Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005046"
     },
     {
@@ -46395,7 +46395,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:10.034678Z",
+      "tax_updated_at": "2026-10-08T17:57:07.660491Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R008781"
     },
     {
@@ -46691,7 +46691,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:10.200855Z",
+      "tax_updated_at": "2026-10-08T17:57:07.775662Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010984"
     },
     {
@@ -46765,7 +46765,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 17, 2026",
-      "tax_updated_at": "2026-10-07T17:53:10.272051Z",
+      "tax_updated_at": "2026-10-08T17:57:08.068632Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003419"
     },
     {
@@ -46947,7 +46947,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 7, 2026",
-      "tax_updated_at": "2026-10-07T17:53:10.264849Z",
+      "tax_updated_at": "2026-10-08T17:57:08.116258Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N000231"
     },
     {
@@ -47069,7 +47069,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:10.312622Z",
+      "tax_updated_at": "2026-10-08T17:57:08.230309Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013062"
     },
     {
@@ -47227,7 +47227,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:53:10.483564Z",
+      "tax_updated_at": "2026-10-08T17:57:08.373945Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003024"
     },
     {
@@ -47481,7 +47481,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 12,
       "latest_payment_date": "Apr 20, 2026",
-      "tax_updated_at": "2026-10-07T17:53:10.559724Z",
+      "tax_updated_at": "2026-10-08T17:57:08.674768Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013118"
     },
     {
@@ -47663,7 +47663,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 26, 2026",
-      "tax_updated_at": "2026-10-07T17:53:10.553980Z",
+      "tax_updated_at": "2026-10-08T17:57:08.731593Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003730"
     },
     {
@@ -47905,7 +47905,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 12, 2026",
-      "tax_updated_at": "2026-10-07T17:53:10.586434Z",
+      "tax_updated_at": "2026-10-08T17:57:08.838941Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012056"
     },
     {
@@ -48011,7 +48011,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "Mar 11, 2026",
-      "tax_updated_at": "2026-10-07T17:53:10.744872Z",
+      "tax_updated_at": "2026-10-08T17:57:08.964291Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003135"
     },
     {
@@ -48069,7 +48069,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:10.803672Z",
+      "tax_updated_at": "2026-10-08T17:57:09.235431Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012963"
     },
     {
@@ -48135,7 +48135,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 11,
       "latest_payment_date": "May 13, 2026",
-      "tax_updated_at": "2026-10-07T17:53:10.859744Z",
+      "tax_updated_at": "2026-10-08T17:57:09.322888Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R007913"
     },
     {
@@ -48405,7 +48405,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 20, 2026",
-      "tax_updated_at": "2026-10-07T17:53:10.878674Z",
+      "tax_updated_at": "2026-10-08T17:57:09.431846Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003003"
     },
     {
@@ -48467,7 +48467,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.031021Z",
+      "tax_updated_at": "2026-10-08T17:57:09.558583Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012182"
     },
     {
@@ -48557,7 +48557,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 20, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.092620Z",
+      "tax_updated_at": "2026-10-08T17:57:09.825454Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N007323"
     },
     {
@@ -48679,7 +48679,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 17,
       "latest_payment_date": "Jun 1, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.122260Z",
+      "tax_updated_at": "2026-10-08T17:57:09.928463Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114733"
     },
     {
@@ -48779,7 +48779,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:11.126615Z",
+      "tax_updated_at": "2026-10-08T17:57:10.011499Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R008783"
     },
     {
@@ -48869,7 +48869,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Jul 21, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.314309Z",
+      "tax_updated_at": "2026-10-08T17:57:10.151700Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012125"
     },
     {
@@ -49091,7 +49091,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:11.372248Z",
+      "tax_updated_at": "2026-10-08T17:57:10.423944Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005852"
     },
     {
@@ -49423,7 +49423,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.391171Z",
+      "tax_updated_at": "2026-10-08T17:57:10.532216Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003457"
     },
     {
@@ -49561,7 +49561,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 23, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.411849Z",
+      "tax_updated_at": "2026-10-08T17:57:10.605348Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004539"
     },
     {
@@ -49639,7 +49639,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 1, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.583752Z",
+      "tax_updated_at": "2026-10-08T17:57:10.732504Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012044"
     },
     {
@@ -49725,7 +49725,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 21, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.645338Z",
+      "tax_updated_at": "2026-10-08T17:57:11.010491Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R007914"
     },
     {
@@ -49975,7 +49975,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 11,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.685432Z",
+      "tax_updated_at": "2026-10-08T17:57:11.138661Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004632"
     },
     {
@@ -50065,7 +50065,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "Mar 16, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.680995Z",
+      "tax_updated_at": "2026-10-08T17:57:11.214396Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001180"
     },
     {
@@ -50143,7 +50143,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.850522Z",
+      "tax_updated_at": "2026-10-08T17:57:11.301592Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010803"
     },
     {
@@ -50277,7 +50277,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 16, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.931020Z",
+      "tax_updated_at": "2026-10-08T17:57:11.599650Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005298"
     },
     {
@@ -50391,7 +50391,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 5,
       "latest_payment_date": "Feb 23, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.960014Z",
+      "tax_updated_at": "2026-10-08T17:57:11.724813Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114842"
     },
     {
@@ -50531,7 +50531,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 29, 2026",
-      "tax_updated_at": "2026-10-07T17:53:11.955019Z",
+      "tax_updated_at": "2026-10-08T17:57:11.797261Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N001804"
     },
     {
@@ -50613,7 +50613,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Jun 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:12.125459Z",
+      "tax_updated_at": "2026-10-08T17:57:11.905224Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R022236"
     },
     {
@@ -50687,7 +50687,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:12.202134Z",
+      "tax_updated_at": "2026-10-08T17:57:12.203675Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004271"
     },
     {
@@ -50805,7 +50805,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:12.156777Z",
+      "tax_updated_at": "2026-10-08T17:57:12.252059Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001008-R001010-R008099"
     },
     {
@@ -50947,7 +50947,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 14, 2026",
-      "tax_updated_at": "2026-10-07T17:53:12.222048Z",
+      "tax_updated_at": "2026-10-08T17:57:12.387384Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012055"
     },
     {
@@ -51053,7 +51053,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:12.419848Z",
+      "tax_updated_at": "2026-10-08T17:57:12.510501Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010229"
     },
     {
@@ -51127,7 +51127,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:12.438577Z",
+      "tax_updated_at": "2026-10-08T17:57:12.790333Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R008139"
     },
     {
@@ -51193,7 +51193,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:12.489609Z",
+      "tax_updated_at": "2026-10-08T17:57:12.834889Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003026"
     },
     {
@@ -51263,7 +51263,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Sep 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:12.476998Z",
+      "tax_updated_at": "2026-10-08T17:57:12.985689Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003754"
     },
     {
@@ -51333,7 +51333,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 29, 2026",
-      "tax_updated_at": "2026-10-07T17:53:12.682786Z",
+      "tax_updated_at": "2026-10-08T17:57:13.116531Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N001635"
     },
     {
@@ -51403,7 +51403,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:12.712393Z",
+      "tax_updated_at": "2026-10-08T17:57:13.371386Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004272"
     },
     {
@@ -51469,7 +51469,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 14, 2026",
-      "tax_updated_at": "2026-10-07T17:53:12.760320Z",
+      "tax_updated_at": "2026-10-08T17:57:13.457785Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001681"
     },
     {
@@ -51531,7 +51531,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:12.740081Z",
+      "tax_updated_at": "2026-10-08T17:57:13.560506Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R008784"
     },
     {
@@ -51597,7 +51597,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "Jun 10, 2026",
-      "tax_updated_at": "2026-10-07T17:53:12.956572Z",
+      "tax_updated_at": "2026-10-08T17:57:13.746598Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001877"
     },
     {
@@ -51671,7 +51671,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Jun 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:12.973445Z",
+      "tax_updated_at": "2026-10-08T17:57:13.962756Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N010237"
     },
     {
@@ -51733,7 +51733,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:13.002272Z",
+      "tax_updated_at": "2026-10-08T17:57:14.052413Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R006476"
     },
     {
@@ -51811,7 +51811,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 7,
       "latest_payment_date": "Mar 2, 2026",
-      "tax_updated_at": "2026-10-07T17:53:13.028940Z",
+      "tax_updated_at": "2026-10-08T17:57:14.170037Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003288"
     },
     {
@@ -51869,7 +51869,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "May 18, 2026",
-      "tax_updated_at": "2026-10-07T17:53:13.226655Z",
+      "tax_updated_at": "2026-10-08T17:57:14.332209Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000425"
     },
     {
@@ -52075,7 +52075,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:13.256267Z",
+      "tax_updated_at": "2026-10-08T17:57:14.575532Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010110"
     },
     {
@@ -52141,7 +52141,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:53:13.286841Z",
+      "tax_updated_at": "2026-10-08T17:57:14.638996Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R011871"
     },
     {
@@ -52215,7 +52215,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 29, 2026",
-      "tax_updated_at": "2026-10-07T17:53:13.316134Z",
+      "tax_updated_at": "2026-10-08T17:57:14.778649Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005429"
     },
     {
@@ -52419,7 +52419,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:13.494178Z",
+      "tax_updated_at": "2026-10-08T17:57:14.907384Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000338"
     },
     {
@@ -52509,7 +52509,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:13.553935Z",
+      "tax_updated_at": "2026-10-08T17:57:15.178160Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010994"
     },
     {
@@ -52587,7 +52587,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 6,
       "latest_payment_date": "Apr 29, 2026",
-      "tax_updated_at": "2026-10-07T17:53:13.582481Z",
+      "tax_updated_at": "2026-10-08T17:57:15.232215Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114834"
     },
     {
@@ -52661,7 +52661,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "Feb 10, 2026",
-      "tax_updated_at": "2026-10-07T17:53:13.592891Z",
+      "tax_updated_at": "2026-10-08T17:57:15.374337Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001697"
     },
     {
@@ -52815,7 +52815,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 16,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:13.785853Z",
+      "tax_updated_at": "2026-10-08T17:57:15.537295Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R002964"
     },
     {
@@ -52921,7 +52921,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:13.755748Z",
+      "tax_updated_at": "2026-10-08T17:57:15.694213Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N001385-N009513"
     },
     {
@@ -53195,7 +53195,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 17, 2026",
-      "tax_updated_at": "2026-10-07T17:53:13.857894Z",
+      "tax_updated_at": "2026-10-08T17:57:15.822935Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R000129"
     },
     {
@@ -53261,7 +53261,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 12,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:13.847709Z",
+      "tax_updated_at": "2026-10-08T17:57:15.973644Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010487"
     },
     {
@@ -53443,7 +53443,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 26, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.013036Z",
+      "tax_updated_at": "2026-10-08T17:57:16.125456Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004801"
     },
     {
@@ -53649,7 +53649,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 13, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.083598Z",
+      "tax_updated_at": "2026-10-08T17:57:16.297303Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013092"
     },
     {
@@ -53871,7 +53871,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.112043Z",
+      "tax_updated_at": "2026-10-08T17:57:16.419915Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114794"
     },
     {
@@ -53981,7 +53981,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "May 4, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.151100Z",
+      "tax_updated_at": "2026-10-08T17:57:16.569006Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005524"
     },
     {
@@ -54083,7 +54083,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.287590Z",
+      "tax_updated_at": "2026-10-08T17:57:16.713832Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010804"
     },
     {
@@ -54173,7 +54173,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 6,
       "latest_payment_date": "Apr 29, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.360856Z",
+      "tax_updated_at": "2026-10-08T17:57:16.889747Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R114828"
     },
     {
@@ -54263,7 +54263,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 30, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.421065Z",
+      "tax_updated_at": "2026-10-08T17:57:17.017942Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N008333"
     },
     {
@@ -54329,7 +54329,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 9, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.416203Z",
+      "tax_updated_at": "2026-10-08T17:57:17.157646Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R010330"
     },
     {
@@ -54431,7 +54431,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 7,
       "latest_payment_date": "Oct 7, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.550389Z",
+      "tax_updated_at": "2026-10-08T17:57:17.297736Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004273"
     },
     {
@@ -54537,7 +54537,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 11,
       "latest_payment_date": "Jun 15, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.639646Z",
+      "tax_updated_at": "2026-10-08T17:57:17.506847Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005039"
     },
     {
@@ -54603,7 +54603,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 12,
       "latest_payment_date": "Aug 3, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.714046Z",
+      "tax_updated_at": "2026-10-08T17:57:17.637147Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R013125"
     },
     {
@@ -54669,7 +54669,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 13,
       "latest_payment_date": "Jun 11, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.732751Z",
+      "tax_updated_at": "2026-10-08T17:57:17.766277Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R003231"
     },
     {
@@ -54727,7 +54727,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 11, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.819704Z",
+      "tax_updated_at": "2026-10-08T17:57:17.893105Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R004443"
     },
     {
@@ -54833,7 +54833,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 9,
       "latest_payment_date": "Mar 23, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.925164Z",
+      "tax_updated_at": "2026-10-08T17:57:18.093553Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001947"
     },
     {
@@ -54899,7 +54899,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Feb 11, 2026",
-      "tax_updated_at": "2026-10-07T17:53:14.969128Z",
+      "tax_updated_at": "2026-10-08T17:57:18.247658Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005143"
     },
     {
@@ -54957,7 +54957,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:14.925766Z",
+      "tax_updated_at": "2026-10-08T17:57:18.297049Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012261-R012262"
     },
     {
@@ -55039,7 +55039,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:15.116254Z",
+      "tax_updated_at": "2026-10-08T17:57:18.476614Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R011140"
     },
     {
@@ -55097,7 +55097,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:15.128980Z",
+      "tax_updated_at": "2026-10-08T17:57:18.613138Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001782-R001857"
     },
     {
@@ -55187,7 +55187,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:15.228715Z",
+      "tax_updated_at": "2026-10-08T17:57:18.844865Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R007300"
     },
     {
@@ -55257,7 +55257,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 14,
       "latest_payment_date": "Feb 2, 2026",
-      "tax_updated_at": "2026-10-07T17:53:15.285022Z",
+      "tax_updated_at": "2026-10-08T17:57:18.904679Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005287"
     },
     {
@@ -55323,7 +55323,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 15,
       "latest_payment_date": "Jun 16, 2026",
-      "tax_updated_at": "2026-10-07T17:53:15.403472Z",
+      "tax_updated_at": "2026-10-08T17:57:19.081159Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R012263"
     },
     {
@@ -55381,7 +55381,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:15.332090Z",
+      "tax_updated_at": "2026-10-08T17:57:19.141030Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N000702-N000703-N001589-N002210-N002224"
     },
     {
@@ -55439,7 +55439,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Mar 26, 2026",
-      "tax_updated_at": "2026-10-07T17:53:15.489887Z",
+      "tax_updated_at": "2026-10-08T17:57:19.438388Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N000237"
     },
     {
@@ -55497,7 +55497,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:15.563657Z",
+      "tax_updated_at": "2026-10-08T17:57:19.490158Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N012269"
     },
     {
@@ -55555,7 +55555,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:15.598061Z",
+      "tax_updated_at": "2026-10-08T17:57:19.670587Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N010089"
     },
     {
@@ -55617,7 +55617,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 10,
       "latest_payment_date": "Apr 20, 2026",
-      "tax_updated_at": "2026-10-07T17:53:15.654727Z",
+      "tax_updated_at": "2026-10-08T17:57:19.739701Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N008328"
     },
     {
@@ -55683,7 +55683,7 @@
       "tax_payment_status": "due",
       "tax_receipt_count": 3,
       "latest_payment_date": "May 23, 2024",
-      "tax_updated_at": "2026-10-07T17:53:15.799212Z",
+      "tax_updated_at": "2026-10-08T17:57:20.058246Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N006737"
     },
     {
@@ -55749,7 +55749,7 @@
       "tax_payment_status": "due",
       "tax_receipt_count": 2,
       "latest_payment_date": "Apr 24, 2024",
-      "tax_updated_at": "2026-10-07T17:53:15.857127Z",
+      "tax_updated_at": "2026-10-08T17:57:20.124400Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N006729"
     },
     {
@@ -55819,7 +55819,7 @@
       "tax_payment_status": "due",
       "tax_receipt_count": 3,
       "latest_payment_date": "Apr 29, 2026",
-      "tax_updated_at": "2026-10-07T17:53:15.932849Z",
+      "tax_updated_at": "2026-10-08T17:57:20.277462Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=N006731"
     },
     {
@@ -55925,7 +55925,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 0,
       "latest_payment_date": "",
-      "tax_updated_at": "2026-10-07T17:53:15.890276Z",
+      "tax_updated_at": "2026-10-08T17:57:20.317028Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R006113"
     },
     {
@@ -55983,7 +55983,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 15,
       "latest_payment_date": "Jun 16, 2026",
-      "tax_updated_at": "2026-10-07T17:53:16.067984Z",
+      "tax_updated_at": "2026-10-08T17:57:20.661650Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R001781"
     },
     {
@@ -56057,7 +56057,7 @@
       "tax_payment_status": "paid_or_current",
       "tax_receipt_count": 8,
       "latest_payment_date": "Apr 29, 2026",
-      "tax_updated_at": "2026-10-07T17:53:16.125702Z",
+      "tax_updated_at": "2026-10-08T17:57:20.720385Z",
       "tax_source_url": "https://gilpincountyco-treasurer.tylerhost.net/treasurer/treasurerweb/account.jsp?account=R005006"
     }
   ]

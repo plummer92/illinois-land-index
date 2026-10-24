@@ -1,51 +1,49 @@
 {
-  "generated_at": "2026-10-24T17:02:08.478Z",
+  "generated_at": "2026-10-24T17:15:30.664Z",
   "sources": {
     "tennessee_statewide_parcels": {
       "name": "Tennessee statewide parcels (seven Knoxville-area counties)",
       "status": "ok",
-      "attempted_at": "2026-10-24T17:02:08.479Z",
-      "last_success_at": "2026-10-24T17:02:08.479Z",
+      "attempted_at": "2026-10-24T17:15:30.664Z",
+      "last_success_at": "2026-10-24T17:15:30.664Z",
       "error": null
     },
     "indiana_statewide_parcels": {
       "name": "Indiana statewide parcels (Indianapolis area)",
       "status": "ok",
-      "attempted_at": "2026-10-24T17:02:28.461Z",
-      "last_success_at": "2026-10-24T17:02:28.461Z",
+      "attempted_at": "2026-10-24T17:15:49.586Z",
+      "last_success_at": "2026-10-24T17:15:49.586Z",
       "error": null
     },
     "colorado_statewide_parcels": {
       "name": "Colorado statewide parcels (Gilpin area)",
       "status": "ok",
-      "attempted_at": "2026-10-24T17:02:38.153Z",
-      "last_success_at": "2026-10-24T17:02:38.153Z",
+      "attempted_at": "2026-10-24T17:16:00.361Z",
+      "last_success_at": "2026-10-24T17:16:00.361Z",
       "error": null
     },
     "colorado_property_taxes": {
       "name": "Colorado property taxes",
       "status": "ok",
-      "attempted_at": "2026-10-24T17:05:31.321Z",
-      "last_success_at": "2026-10-24T17:05:31.321Z",
+      "attempted_at": "2026-10-24T17:16:23.186Z",
+      "last_success_at": "2026-10-24T17:16:23.186Z",
       "error": null
     },
     "knox_county_parcels": {
       "name": "Knox County parcels",
       "status": "frozen",
-      "attempted_at": "2026-10-24T17:02:08.478Z",
+      "attempted_at": "2026-10-24T17:15:30.664Z",
       "last_success_at": "2026-10-15T15:38:58.574Z",
       "error": "No acceptable public no-login source is available: the Comptroller service was retired, the replacement statewide service excludes Knox, and KGIS requires authorization or a data license."
     }
   },
   "policy": {
-    "ok": false,
+    "ok": true,
     "stale_days": 7,
     "ok_count": 4,
-    "source_count": 5,
+    "source_count": 4,
     "every_source_failed": false,
-    "overdue_sources": [
-      "knox_county_parcels"
-    ],
-    "rule": "red when every source fails in the run or any source has no success within 7 day(s); green otherwise"
+    "overdue_sources": [],
+    "rule": "red when every source fails in the run or any source has no success within 7 day(s); frozen sources excluded; green otherwise"
   }
 }

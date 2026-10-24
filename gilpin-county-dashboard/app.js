@@ -132,12 +132,23 @@ function renderCandidates() {
 }
 
 async function init() {
-  const [response, taxResponse] = await Promise.all([
+  const [response, taxResponse, statusResponse] = await Promise.all([
     fetch(`./data/processed/gilpin_parcel_snapshot.json?v=${dataVersion}`),
     fetch(`./data/processed/colorado_property_tax_snapshot.json?v=${dataVersion}`),
+    fetch(`./data/processed/refresh_status.json?v=${dataVersion}`).catch(() => null),
   ]);
   if (!response.ok) throw new Error("Gilpin parcel snapshot could not be loaded.");
   snapshot = await response.json();
+  const refreshNote = document.getElementById("refreshNote");
+  const refreshStatus = statusResponse?.ok ? await statusResponse.json() : null;
+  const staleSources = Object.values(refreshStatus?.sources || {}).filter((source) => source.status !== "ok");
+  const dataDate = (value) => value ? new Date(value).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }) : "unknown";
+  if (staleSources.length) {
+    refreshNote.classList.add("stale");
+    refreshNote.textContent = `Data as of ${dataDate(staleSources[0].last_success_at || snapshot.generated_at)} · Source temporarily unavailable; last-good files are shown.`;
+  } else {
+    refreshNote.textContent = `Data as of ${dataDate(refreshStatus?.generated_at || snapshot.generated_at)} · Public parcel and tax sources refreshed successfully.`;
+  }
   if (taxResponse.ok) {
     const taxSnapshot = await taxResponse.json();
     document.getElementById("taxCoverage").innerHTML = taxSnapshot.counties.map((county) => `

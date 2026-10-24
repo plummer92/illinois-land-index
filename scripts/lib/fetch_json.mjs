@@ -16,6 +16,7 @@ export async function fetchJson(url, {
   fetchImpl = globalThis.fetch,
   sleep = delay,
   warn = console.warn,
+  userAgent = "IllinoisLandIndex/1.0 (+https://illinoislandindex.com/)",
 } = {}) {
   const endpoint = new URL(url);
   if (!["https:", "http:"].includes(endpoint.protocol)) throw new Error("Expected an HTTP(S) data source");
@@ -29,7 +30,13 @@ export async function fetchJson(url, {
     let waitMs = Math.min(1000 * 2 ** (attempt - 1), 8000);
     let failure;
     try {
-      const response = await fetchImpl(endpoint.toString(), { signal: controller.signal });
+      const response = await fetchImpl(endpoint.toString(), {
+        signal: controller.signal,
+        headers: {
+          Accept: "application/json",
+          "User-Agent": userAgent,
+        },
+      });
       if (!response.ok) {
         retry = transientStatus(response.status);
         waitMs = Math.max(waitMs, retryAfterMs(response.headers.get("retry-after")));

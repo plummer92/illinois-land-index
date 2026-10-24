@@ -24,6 +24,7 @@
     if (url.hostname === "dashboard.illinoislandindex.com") return "illinois_land_dashboard";
     if (url.pathname.includes("consumer-debt-dashboard")) return "debt_context";
     if (url.pathname.includes("knoxville-market-dashboard")) return "knoxville_market_dashboard";
+    if (url.pathname.includes("indianapolis-market-dashboard")) return "indianapolis_market_dashboard";
     if (url.pathname.includes("gilpin-county-dashboard")) return "gilpin_county_dashboard";
     if (url.hostname === "tally.so") return "market_request_form";
     if (url.pathname.endsWith(".html")) return "research_page";
@@ -65,6 +66,13 @@
 
     if (destinationType === "knoxville_market_dashboard") {
       trackEvent("open_knoxville_market_dashboard", {
+        link_text: link.textContent.trim().slice(0, 100),
+        page_path: window.location.pathname,
+      });
+    }
+
+    if (destinationType === "indianapolis_market_dashboard") {
+      trackEvent("open_indianapolis_market_dashboard", {
         link_text: link.textContent.trim().slice(0, 100),
         page_path: window.location.pathname,
       });

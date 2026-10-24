@@ -7,6 +7,7 @@ The repo also includes public market-kit dashboards at:
 ```text
 consumer-debt-dashboard/index.html
 knoxville-market-dashboard/index.html
+indianapolis-market-dashboard/index.html
 ```
 
 This repository is intentionally public-safe:
@@ -36,6 +37,10 @@ The registry tracks county assessor, assessment, and GIS source links plus the p
 The parcel summary is a public-safe aggregate import from Tennessee ArcGIS parcel services. It excludes
 owner names, mailing addresses, parcel IDs, and individual parcel geometry.
 
+The Indianapolis-area kit covers Marion, Hamilton, Hendricks, Boone, Johnson, Hancock, Morgan, and Shelby
+counties using the Indiana Geographic Information Office's current statewide parcel service. Source URLs,
+field mappings, terms notes, and known limitations for both markets are recorded in `DATA_SOURCES.md`.
+
 The latest public Illinois/Sangamon signal counts live at:
 
 ```text
@@ -55,15 +60,17 @@ To refresh the Knoxville parcel summary:
 node scripts\import_knoxville_parcel_summary.mjs
 ```
 
-To refresh all public Knoxville land data locally:
+To refresh every public land source locally:
 
 ```powershell
 node scripts\refresh_public_land_data.mjs
 ```
 
 GitHub Actions also runs `.github/workflows/refresh-public-land-data.yml` every morning and commits refreshed public-safe
-Knoxville summary/candidate files when the source data changes. The workflow can also be started manually from the
-repository's **Actions** tab.
+Knoxville, Indianapolis, Gilpin, and Colorado tax files when source data changes. Sources run independently and a failed
+source's last-good files are restored. The final workflow check is red only when every source failed or when any source
+has no successful refresh within `PUBLIC_DATA_STALE_DAYS` (default 7); otherwise partial recent outages remain green.
+The workflow can also be started manually from the repository's **Actions** tab.
 
 ## Local Preview
 

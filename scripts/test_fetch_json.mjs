@@ -5,6 +5,16 @@ import { fetchJson } from "./lib/fetch_json.mjs";
 const url = "https://example.test/FeatureServer/83/query?f=json";
 const quiet = { sleep: async () => {}, warn: () => {} };
 
+test("identifies the importer and requests JSON", async () => {
+  let options;
+  await fetchJson(url, { ...quiet, fetchImpl: async (_url, requestOptions) => {
+    options = requestOptions;
+    return Response.json({ ok: true });
+  } });
+  assert.match(options.headers["User-Agent"], /^IllinoisLandIndex\/1\.0/);
+  assert.equal(options.headers.Accept, "application/json");
+});
+
 test("retries the observed connection timeout and returns a later successful payload", async () => {
   let calls = 0;
   const sleeps = [];

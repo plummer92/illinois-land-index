@@ -12,6 +12,8 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      PUBLIC_DATA_STALE_DAYS: ${{ vars.PUBLIC_DATA_STALE_DAYS || '7' }}
 
     steps:
       - name: Check out repository
@@ -22,25 +24,20 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Test data-source retry handling
-        run: node --test scripts/test_fetch_json.mjs
+      - name: Test refresh and retry handling
+        run: node --test scripts/test_fetch_json.mjs scripts/test_refresh_status.mjs
 
-      - name: Refresh Knoxville public land data
+      - name: Refresh public land sources independently
         run: node scripts/refresh_public_land_data.mjs
 
-      - name: Refresh Gilpin County public land data
-        run: node scripts/import_gilpin_parcels.mjs
-
-      - name: Refresh Colorado property tax summary
-        run: python scripts/import_colorado_property_taxes.py
-
       - name: Commit refreshed data
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add knoxville-market-dashboard/data/processed/parcel_summary.json \
-            knoxville-market-dashboard/data/processed/parcel_candidates.geojson \
-            knoxville-market-dashboard/data/processed/refresh_status.json \
+          git add data/refresh_status.json \
+            knoxville-market-dashboard/data/processed \
+            indianapolis-market-dashboard/data/processed \
             gilpin-county-dashboard/data/processed
           if git diff --cached --quiet; then
             echo "No public land data changes to commit."
@@ -48,3 +45,7 @@ jobs:
             git commit -m "Refresh public land data"
             git push
           fi
+
+      - name: Enforce refresh health policy
+        if: always()
+        run: node scripts/evaluate_refresh_status.mjs

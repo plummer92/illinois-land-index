@@ -2,13 +2,14 @@ import { fetchJson } from "./lib/fetch_json.mjs";
 import fs from "node:fs/promises";
 
 const stateFeatureServer = "https://services.arcgis.com/rD2ylXRs80UroD90/arcgis/rest/services/TN_County_Parcel_Map/FeatureServer";
-const knoxFeatureServer = "https://geoviewer.cot.tn.gov/arcgis/rest/services/GeoViewer/NonImpact_Parcels/MapServer";
+const outputPath = "knoxville-market-dashboard/data/processed/parcel_summary.json";
+const retiredKnoxService = "https://geoviewer.cot.tn.gov/arcgis/rest/services/GeoViewer/NonImpact_Parcels/MapServer/3";
+const knoxUnavailableMessage = "The Tennessee Comptroller NonImpact Knox service was retired, the public-use statewide layer excludes Knox, and KGIS parcel data requires authorization or a data license.";
 
 const counties = [
   { county: "Anderson", fips: "47001", layerId: 83, source: "TN Comptroller FeatureServer", service: stateFeatureServer },
   { county: "Blount", fips: "47009", layerId: 79, source: "TN Comptroller FeatureServer", service: stateFeatureServer },
   { county: "Campbell", fips: "47013", layerId: 77, source: "TN Comptroller FeatureServer", service: stateFeatureServer },
-  { county: "Knox", fips: "47093", layerId: 3, source: "TN Comptroller NonImpact / Knox parcel map service", service: knoxFeatureServer, nonImpact: true },
   { county: "Loudon", fips: "47105", layerId: 38, source: "TN Comptroller FeatureServer", service: stateFeatureServer },
   { county: "Roane", fips: "47145", layerId: 19, source: "TN Comptroller FeatureServer", service: stateFeatureServer },
   { county: "Sevier", fips: "47155", layerId: 15, source: "TN Comptroller FeatureServer", service: stateFeatureServer },
@@ -186,11 +187,26 @@ const importCounty = async (county) => {
 };
 
 const main = async () => {
+  const previous = JSON.parse(await fs.readFile(outputPath, "utf8"));
+  const previousKnox = previous.counties?.find((county) => county.county === "Knox");
+  if (!previousKnox) throw new Error("No last-good Knox summary is available to preserve");
+
   const countySummaries = [];
   for (const county of counties) {
     console.log(`Importing ${county.county}...`);
-    countySummaries.push(await importCounty(county));
+    countySummaries.push({
+      ...await importCounty(county),
+      source_status: "ok",
+      data_as_of: new Date().toISOString(),
+    });
   }
+  countySummaries.push({
+    ...previousKnox,
+    source_status: "stale",
+    data_as_of: previousKnox.data_as_of ?? previous.generated_at,
+    source_error: knoxUnavailableMessage,
+  });
+  countySummaries.sort((a, b) => a.county.localeCompare(b.county));
 
   const totals = countySummaries.reduce(
     (acc, county) => {
@@ -216,9 +232,11 @@ const main = async () => {
         counties: countySummaries.filter((county) => county.source === "TN Comptroller FeatureServer").map((county) => county.county),
       },
       {
-        name: "Tennessee Comptroller NonImpact Parcels MapServer",
-        url: knoxFeatureServer,
-        counties: countySummaries.filter((county) => county.county === "Knox").map((county) => county.county),
+        name: "Retired Tennessee Comptroller NonImpact Knox parcel layer (last-good data retained)",
+        url: retiredKnoxService,
+        counties: ["Knox"],
+        status: "stale",
+        error: knoxUnavailableMessage,
       },
     ],
     totals: {
@@ -232,7 +250,7 @@ const main = async () => {
   };
 
   await fs.writeFile(
-    "knoxville-market-dashboard/data/processed/parcel_summary.json",
+    outputPath,
     `${JSON.stringify(output, null, 2)}\n`,
   );
   console.log(`Wrote ${output.totals.parcel_count.toLocaleString()} parcels across ${output.totals.counties_loaded} counties.`);

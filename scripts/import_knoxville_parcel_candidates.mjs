@@ -2,13 +2,12 @@ import { fetchJson } from "./lib/fetch_json.mjs";
 import fs from "node:fs/promises";
 
 const stateFeatureServer = "https://services.arcgis.com/rD2ylXRs80UroD90/arcgis/rest/services/TN_County_Parcel_Map/FeatureServer";
-const knoxFeatureServer = "https://geoviewer.cot.tn.gov/arcgis/rest/services/GeoViewer/NonImpact_Parcels/MapServer";
+const knoxUnavailableMessage = "The Tennessee Comptroller NonImpact Knox service was retired, the public-use statewide layer excludes Knox, and KGIS parcel data requires authorization or a data license.";
 
 const counties = [
   { county: "Anderson", fips: "47001", layerId: 83, source: "TN Comptroller FeatureServer", service: stateFeatureServer },
   { county: "Blount", fips: "47009", layerId: 79, source: "TN Comptroller FeatureServer", service: stateFeatureServer },
   { county: "Campbell", fips: "47013", layerId: 77, source: "TN Comptroller FeatureServer", service: stateFeatureServer },
-  { county: "Knox", fips: "47093", layerId: 3, source: "TN Comptroller NonImpact / Knox parcel map service", service: knoxFeatureServer, nonImpact: true },
   { county: "Loudon", fips: "47105", layerId: 38, source: "TN Comptroller FeatureServer", service: stateFeatureServer },
   { county: "Roane", fips: "47145", layerId: 19, source: "TN Comptroller FeatureServer", service: stateFeatureServer },
   { county: "Sevier", fips: "47155", layerId: 15, source: "TN Comptroller FeatureServer", service: stateFeatureServer },
@@ -214,13 +213,31 @@ const importCounty = async (county) => {
 };
 
 const main = async () => {
+  const previous = JSON.parse(await fs.readFile(outputPath, "utf8"));
+  const previousKnoxFeatures = (previous.features ?? []).filter((feature) => feature.properties?.county === "Knox");
+  if (!previousKnoxFeatures.length) throw new Error("No last-good Knox candidate geometries are available to preserve");
+
   const countyFeatures = [];
   for (const county of counties) {
     countyFeatures.push(...await importCounty(county));
   }
+  const generatedAt = new Date().toISOString();
+  for (const feature of countyFeatures) {
+    feature.properties.source_status = "ok";
+    feature.properties.data_as_of = generatedAt;
+  }
+  countyFeatures.push(...previousKnoxFeatures.map((feature) => ({
+    ...feature,
+    properties: {
+      ...feature.properties,
+      source_status: "stale",
+      data_as_of: feature.properties?.data_as_of ?? previous.generated_at,
+      source_error: knoxUnavailableMessage,
+    },
+  })));
   const output = {
     type: "FeatureCollection",
-    generated_at: new Date().toISOString(),
+    generated_at: generatedAt,
     title: "Knoxville-East Tennessee Public Parcel Candidate Geometry",
     privacy_note: "Public-safe parcel candidate geometry for dashboard screening only. Owner names, mailing addresses, and parcel identifiers are intentionally excluded.",
     selection_logic: `${minAcres}+ acre parcels, capped at ${perCountyLimit} largest candidates per county before terrain, flood, zoning, utility, and access validation. Geometry is simplified for web-map performance.`,

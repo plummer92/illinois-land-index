@@ -1,0 +1,465 @@
+{
+  "generated_at": "2026-10-24T17:02:28.789Z",
+  "title": "Indianapolis-Area Public Parcel Summary",
+  "privacy_note": "Public-safe aggregate import only. Owner names, addresses, parcel identifiers, and individual geometry are excluded.",
+  "source": {
+    "name": "Parcel Boundaries of Indiana Current",
+    "owner": "Indiana Geographic Information Office (IGIO)",
+    "url": "https://gisdata.in.gov/server/rest/services/Hosted/Parcel_Boundaries_of_Indiana_Current/FeatureServer"
+  },
+  "totals": {
+    "counties_loaded": 8,
+    "parcel_count": 821121,
+    "total_acres": null
+  },
+  "counties": [
+    {
+      "county": "Marion",
+      "fips": "18097",
+      "role": "Core county",
+      "source": "Indiana Geographic Information Office / IndianaMap",
+      "service_url": "https://gisdata.in.gov/server/rest/services/Hosted/Parcel_Boundaries_of_Indiana_Current/FeatureServer/0",
+      "source_status": "ok",
+      "data_as_of": "2026-10-24T17:02:28.789Z",
+      "parcel_count": 345862,
+      "total_acres": null,
+      "avg_acres": null,
+      "max_acres": null,
+      "acreage_buckets": [],
+      "acreage_note": "The statewide layer has no acreage attribute; summary acreage totals and buckets are not published.",
+      "top_classes": [
+        {
+          "label": "510",
+          "count": 246911
+        },
+        {
+          "label": "500",
+          "count": 19241
+        },
+        {
+          "label": "550",
+          "count": 18989
+        },
+        {
+          "label": "511",
+          "count": 16047
+        },
+        {
+          "label": "520",
+          "count": 9055
+        },
+        {
+          "label": "501",
+          "count": 2490
+        },
+        {
+          "label": "599",
+          "count": 2301
+        },
+        {
+          "label": "640",
+          "count": 2179
+        }
+      ],
+      "fields_used": {
+        "county": "county_fips",
+        "class": "dlgf_prop_class_code",
+        "township": "tax_township",
+        "source_originator": "source_originator",
+        "geometry_area": "SHAPE__Area (ordering only; candidate acres are calculated geodesically from geometry)"
+      }
+    },
+    {
+      "county": "Hamilton",
+      "fips": "18057",
+      "role": "North",
+      "source": "Indiana Geographic Information Office / IndianaMap",
+      "service_url": "https://gisdata.in.gov/server/rest/services/Hosted/Parcel_Boundaries_of_Indiana_Current/FeatureServer/0",
+      "source_status": "ok",
+      "data_as_of": "2026-10-24T17:02:28.789Z",
+      "parcel_count": 150707,
+      "total_acres": null,
+      "avg_acres": null,
+      "max_acres": null,
+      "acreage_buckets": [],
+      "acreage_note": "The statewide layer has no acreage attribute; summary acreage totals and buckets are not published.",
+      "top_classes": [
+        {
+          "label": "510",
+          "count": 105306
+        },
+        {
+          "label": "500",
+          "count": 11145
+        },
+        {
+          "label": "550",
+          "count": 9469
+        },
+        {
+          "label": "511",
+          "count": 5588
+        },
+        {
+          "label": "100",
+          "count": 3174
+        },
+        {
+          "label": "400",
+          "count": 1525
+        },
+        {
+          "label": "520",
+          "count": 1401
+        },
+        {
+          "label": "101",
+          "count": 1204
+        }
+      ],
+      "fields_used": {
+        "county": "county_fips",
+        "class": "dlgf_prop_class_code",
+        "township": "tax_township",
+        "source_originator": "source_originator",
+        "geometry_area": "SHAPE__Area (ordering only; candidate acres are calculated geodesically from geometry)"
+      }
+    },
+    {
+      "county": "Hendricks",
+      "fips": "18063",
+      "role": "West",
+      "source": "Indiana Geographic Information Office / IndianaMap",
+      "service_url": "https://gisdata.in.gov/server/rest/services/Hosted/Parcel_Boundaries_of_Indiana_Current/FeatureServer/0",
+      "source_status": "ok",
+      "data_as_of": "2026-10-24T17:02:28.789Z",
+      "parcel_count": 90541,
+      "total_acres": null,
+      "avg_acres": null,
+      "max_acres": null,
+      "acreage_buckets": [],
+      "acreage_note": "The statewide layer has no acreage attribute; summary acreage totals and buckets are not published.",
+      "top_classes": [
+        {
+          "label": "510",
+          "count": 51137
+        },
+        {
+          "label": "511",
+          "count": 6759
+        },
+        {
+          "label": "500",
+          "count": 4814
+        },
+        {
+          "label": "100",
+          "count": 3747
+        },
+        {
+          "label": "550",
+          "count": 2686
+        },
+        {
+          "label": "520",
+          "count": 2108
+        },
+        {
+          "label": "501",
+          "count": 1997
+        },
+        {
+          "label": "640",
+          "count": 1566
+        }
+      ],
+      "fields_used": {
+        "county": "county_fips",
+        "class": "dlgf_prop_class_code",
+        "township": "tax_township",
+        "source_originator": "source_originator",
+        "geometry_area": "SHAPE__Area (ordering only; candidate acres are calculated geodesically from geometry)"
+      }
+    },
+    {
+      "county": "Boone",
+      "fips": "18011",
+      "role": "Northwest",
+      "source": "Indiana Geographic Information Office / IndianaMap",
+      "service_url": "https://gisdata.in.gov/server/rest/services/Hosted/Parcel_Boundaries_of_Indiana_Current/FeatureServer/0",
+      "source_status": "ok",
+      "data_as_of": "2026-10-24T17:02:28.789Z",
+      "parcel_count": 42842,
+      "total_acres": null,
+      "avg_acres": null,
+      "max_acres": null,
+      "acreage_buckets": [],
+      "acreage_note": "The statewide layer has no acreage attribute; summary acreage totals and buckets are not published.",
+      "top_classes": [
+        {
+          "label": "510",
+          "count": 20654
+        },
+        {
+          "label": "511",
+          "count": 5425
+        },
+        {
+          "label": "100",
+          "count": 3942
+        },
+        {
+          "label": "500",
+          "count": 2797
+        },
+        {
+          "label": "550",
+          "count": 843
+        },
+        {
+          "label": "101",
+          "count": 779
+        },
+        {
+          "label": "640",
+          "count": 766
+        },
+        {
+          "label": "501",
+          "count": 656
+        }
+      ],
+      "fields_used": {
+        "county": "county_fips",
+        "class": "dlgf_prop_class_code",
+        "township": "tax_township",
+        "source_originator": "source_originator",
+        "geometry_area": "SHAPE__Area (ordering only; candidate acres are calculated geodesically from geometry)"
+      }
+    },
+    {
+      "county": "Johnson",
+      "fips": "18081",
+      "role": "South",
+      "source": "Indiana Geographic Information Office / IndianaMap",
+      "service_url": "https://gisdata.in.gov/server/rest/services/Hosted/Parcel_Boundaries_of_Indiana_Current/FeatureServer/0",
+      "source_status": "ok",
+      "data_as_of": "2026-10-24T17:02:28.789Z",
+      "parcel_count": 71793,
+      "total_acres": null,
+      "avg_acres": null,
+      "max_acres": null,
+      "acreage_buckets": [],
+      "acreage_note": "The statewide layer has no acreage attribute; summary acreage totals and buckets are not published.",
+      "top_classes": [
+        {
+          "label": "510",
+          "count": 44194
+        },
+        {
+          "label": "511",
+          "count": 4416
+        },
+        {
+          "label": "100",
+          "count": 2969
+        },
+        {
+          "label": "520",
+          "count": 2423
+        },
+        {
+          "label": "500",
+          "count": 2353
+        },
+        {
+          "label": "101",
+          "count": 1806
+        },
+        {
+          "label": "550",
+          "count": 1568
+        },
+        {
+          "label": "557",
+          "count": 1325
+        }
+      ],
+      "fields_used": {
+        "county": "county_fips",
+        "class": "dlgf_prop_class_code",
+        "township": "tax_township",
+        "source_originator": "source_originator",
+        "geometry_area": "SHAPE__Area (ordering only; candidate acres are calculated geodesically from geometry)"
+      }
+    },
+    {
+      "county": "Hancock",
+      "fips": "18059",
+      "role": "East",
+      "source": "Indiana Geographic Information Office / IndianaMap",
+      "service_url": "https://gisdata.in.gov/server/rest/services/Hosted/Parcel_Boundaries_of_Indiana_Current/FeatureServer/0",
+      "source_status": "ok",
+      "data_as_of": "2026-10-24T17:02:28.789Z",
+      "parcel_count": 45323,
+      "total_acres": null,
+      "avg_acres": null,
+      "max_acres": null,
+      "acreage_buckets": [],
+      "acreage_note": "The statewide layer has no acreage attribute; summary acreage totals and buckets are not published.",
+      "top_classes": [
+        {
+          "label": "510",
+          "count": 25337
+        },
+        {
+          "label": "511",
+          "count": 4589
+        },
+        {
+          "label": "100",
+          "count": 3661
+        },
+        {
+          "label": "500",
+          "count": 2285
+        },
+        {
+          "label": "101",
+          "count": 1784
+        },
+        {
+          "label": "620",
+          "count": 789
+        },
+        {
+          "label": "610",
+          "count": 581
+        },
+        {
+          "label": "501",
+          "count": 543
+        }
+      ],
+      "fields_used": {
+        "county": "county_fips",
+        "class": "dlgf_prop_class_code",
+        "township": "tax_township",
+        "source_originator": "source_originator",
+        "geometry_area": "SHAPE__Area (ordering only; candidate acres are calculated geodesically from geometry)"
+      }
+    },
+    {
+      "county": "Morgan",
+      "fips": "18109",
+      "role": "Southwest",
+      "source": "Indiana Geographic Information Office / IndianaMap",
+      "service_url": "https://gisdata.in.gov/server/rest/services/Hosted/Parcel_Boundaries_of_Indiana_Current/FeatureServer/0",
+      "source_status": "ok",
+      "data_as_of": "2026-10-24T17:02:28.789Z",
+      "parcel_count": 43627,
+      "total_acres": null,
+      "avg_acres": null,
+      "max_acres": null,
+      "acreage_buckets": [],
+      "acreage_note": "The statewide layer has no acreage attribute; summary acreage totals and buckets are not published.",
+      "top_classes": [
+        {
+          "label": "510",
+          "count": 14704
+        },
+        {
+          "label": "511",
+          "count": 8200
+        },
+        {
+          "label": "100",
+          "count": 4449
+        },
+        {
+          "label": "500",
+          "count": 3013
+        },
+        {
+          "label": "501",
+          "count": 2215
+        },
+        {
+          "label": "101",
+          "count": 1581
+        },
+        {
+          "label": "599",
+          "count": 1529
+        },
+        {
+          "label": "541",
+          "count": 987
+        }
+      ],
+      "fields_used": {
+        "county": "county_fips",
+        "class": "dlgf_prop_class_code",
+        "township": "tax_township",
+        "source_originator": "source_originator",
+        "geometry_area": "SHAPE__Area (ordering only; candidate acres are calculated geodesically from geometry)"
+      }
+    },
+    {
+      "county": "Shelby",
+      "fips": "18145",
+      "role": "Southeast",
+      "source": "Indiana Geographic Information Office / IndianaMap",
+      "service_url": "https://gisdata.in.gov/server/rest/services/Hosted/Parcel_Boundaries_of_Indiana_Current/FeatureServer/0",
+      "source_status": "ok",
+      "data_as_of": "2026-10-24T17:02:28.789Z",
+      "parcel_count": 30426,
+      "total_acres": null,
+      "avg_acres": null,
+      "max_acres": null,
+      "acreage_buckets": [],
+      "acreage_note": "The statewide layer has no acreage attribute; summary acreage totals and buckets are not published.",
+      "top_classes": [
+        {
+          "label": "510",
+          "count": 8488
+        },
+        {
+          "label": "511",
+          "count": 5765
+        },
+        {
+          "label": "100",
+          "count": 5673
+        },
+        {
+          "label": "500",
+          "count": 1847
+        },
+        {
+          "label": "101",
+          "count": 1305
+        },
+        {
+          "label": "501",
+          "count": 997
+        },
+        {
+          "label": "610",
+          "count": 854
+        },
+        {
+          "label": "599",
+          "count": 761
+        }
+      ],
+      "fields_used": {
+        "county": "county_fips",
+        "class": "dlgf_prop_class_code",
+        "township": "tax_township",
+        "source_originator": "source_originator",
+        "geometry_area": "SHAPE__Area (ordering only; candidate acres are calculated geodesically from geometry)"
+      }
+    }
+  ]
+}

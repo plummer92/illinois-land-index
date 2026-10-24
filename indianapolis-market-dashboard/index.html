@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Indianapolis Area Land Market Dashboard | Illinois Land Index</title>
+    <meta name="description" content="Compare public parcel counts, property classes, and large-parcel screening candidates across Marion County and seven surrounding Indianapolis-area counties." />
+    <link rel="canonical" href="https://illinoislandindex.com/indianapolis-market-dashboard/" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="../analytics.js" defer></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+      :root { --page:#f5f7f4; --surface:#fff; --ink:#17202a; --muted:#5f6a73; --line:#dce3df; --green:#197257; --blue:#245b9e; --gold:#b7791f; --shadow:0 12px 28px rgba(28,42,34,.08); }
+      * { box-sizing:border-box; }
+      body { margin:0; font-family:"Aptos","Segoe UI",sans-serif; color:var(--ink); background:linear-gradient(180deg,rgba(25,114,87,.12),transparent 300px),var(--page); }
+      a { color:inherit; }
+      .app { width:min(1260px,calc(100% - 32px)); margin:auto; padding:18px 0 42px; }
+      .topbar { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:18px; align-items:end; padding:14px 0 20px; border-bottom:1px solid var(--line); }
+      .eyebrow,.label { margin:0 0 7px; color:var(--green); font-size:.75rem; font-weight:850; letter-spacing:.08em; text-transform:uppercase; }
+      h1,h2,h3,p { margin-top:0; } h1 { margin-bottom:8px; font-size:clamp(1.9rem,3.2vw,3.2rem); line-height:1.06; } h2 { font-size:1.2rem; }
+      .subtitle,.note { color:var(--muted); line-height:1.5; }
+      .switcher { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px; }
+      .chip { display:inline-grid; min-height:40px; place-items:center; border:1px solid var(--line); border-radius:8px; background:var(--surface); padding:0 13px; font-size:.86rem; font-weight:800; text-decoration:none; box-shadow:var(--shadow); }
+      .chip.active { background:var(--green); color:white; }
+      .status { margin:16px 0 0; border:1px solid rgba(25,114,87,.28); border-radius:8px; background:#eef7f2; padding:11px 13px; color:#31584a; font-size:.9rem; }
+      .status.stale { border-color:rgba(183,121,31,.45); background:#fff8e8; color:#76500f; }
+      .summary { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin:16px 0; }
+      .metric,.panel,.county { border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:var(--shadow); }
+      .metric { padding:15px; min-height:116px; } .metric span { display:block; color:var(--muted); font-size:.74rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; }
+      .metric strong { display:block; margin:8px 0; color:var(--green); font-size:2rem; } .metric p { margin:0; color:var(--muted); font-size:.85rem; line-height:1.4; }
+      .grid { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr); gap:14px; }
+      .panel { min-width:0; padding:14px; } #map { height:520px; border-radius:6px; }
+      .county-list { display:grid; gap:9px; max-height:520px; overflow:auto; } .county { box-shadow:none; padding:12px; }
+      .county h3 { display:flex; justify-content:space-between; gap:8px; margin-bottom:7px; } .county h3 span { color:var(--gold); font-size:.8rem; }
+      .county p { margin:0; color:var(--muted); font-size:.86rem; line-height:1.4; }
+      .lower { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; }
+      .rows { display:grid; gap:8px; } .row { display:grid; grid-template-columns:1fr auto; gap:12px; border-bottom:1px solid var(--line); padding:8px 0; }
+      .row span { color:var(--muted); } footer { margin-top:20px; border-top:1px solid var(--line); padding-top:18px; color:var(--muted); font-size:.86rem; }
+      @media (max-width:850px) { .topbar,.grid,.lower { grid-template-columns:1fr; } .switcher { justify-content:flex-start; } .summary { grid-template-columns:1fr; } #map { height:430px; } }
+    </style>
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Indianapolis area land market</p>
+          <h1>Screen public parcel supply around Indianapolis.</h1>
+          <p class="subtitle">Compare Marion County with Hamilton, Hendricks, Boone, Johnson, Hancock, Morgan, and Shelby counties using Indiana’s public statewide parcel layer.</p>
+        </div>
+        <nav class="switcher" aria-label="Market selector">
+          <a class="chip" href="../index.html">Home</a>
+          <a class="chip" href="../knoxville-market-dashboard/">Knoxville</a>
+          <a class="chip active" href="./">Indianapolis</a>
+          <a class="chip" href="../indianapolis-in-land-research.html">Research guide</a>
+        </nav>
+      </header>
+
+      <div class="status" id="data-status" role="status">Loading refresh status…</div>
+
+      <section class="summary" aria-label="Market summary">
+        <article class="metric"><span>Counties</span><strong id="county-count">—</strong><p>Marion plus the seven requested surrounding counties.</p></article>
+        <article class="metric"><span>Parcel records</span><strong id="parcel-count">—</strong><p>Aggregate count from the current IndianaMap service.</p></article>
+        <article class="metric"><span>Large-parcel samples</span><strong id="candidate-count">—</strong><p>Small geometry-derived screening set; not a listing feed.</p></article>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <p class="label">Candidate map</p>
+          <h2>Largest public parcel polygons sampled by county</h2>
+          <div id="map" aria-label="Indianapolis area parcel candidate map"></div>
+          <p class="note">Candidate acres are calculated from public polygon geometry. Verify acreage, boundaries, access, zoning, utilities, flood risk, soils, and taxes with the county before making decisions.</p>
+        </article>
+        <aside class="panel">
+          <p class="label">County comparison</p>
+          <h2>Parcel coverage</h2>
+          <div class="county-list" id="county-list"></div>
+        </aside>
+      </section>
+
+      <section class="lower">
+        <article class="panel">
+          <p class="label">Property classes</p>
+          <h2>Leading DLGF class codes by county</h2>
+          <div class="rows" id="class-list"></div>
+          <p class="note">The source publishes class codes, not plain-language labels in this layer. Codes are shown as recorded.</p>
+        </article>
+        <article class="panel">
+          <p class="label">Data limits</p>
+          <h2>What this first release does not claim</h2>
+          <p class="note">The current statewide layer does not publish acreage, assessed value, market value, or building counts. Aggregate acreage and valuation statistics are marked unavailable. Candidate acreage is geometry-derived and intended only to shorten a research list.</p>
+          <p class="note">Owner names, addresses, parcel identifiers, and mailing information are not included in these processed public files.</p>
+          <p><a href="../DATA_SOURCES.md">Read source and field notes</a></p>
+        </article>
+      </section>
+
+      <footer>
+        <p>Illinois Land Index</p>
+        <p>Parcel intelligence is for research only. Verify all records with county sources before making decisions. <a href="../disclaimer.html">Disclaimer &amp; Privacy</a></p>
+      </footer>
+    </main>
+    <script>
+      const number = new Intl.NumberFormat("en-US");
+      const dateText = value => value ? new Date(value).toLocaleDateString("en-US", { year:"numeric", month:"short", day:"numeric" }) : "unknown";
+
+      function renderStatus(status, summary) {
+        const source = status.sources?.indiana_statewide_parcels;
+        const box = document.getElementById("data-status");
+        const asOf = source?.last_success_at || summary.generated_at;
+        if (source?.status === "ok") box.textContent = `Data as of ${dateText(asOf)} · Indiana statewide parcel source refreshed successfully.`;
+        else {
+          box.classList.add("stale");
+          box.textContent = `Data as of ${dateText(asOf)} · Source temporarily unavailable; last-good files are being shown. ${source?.error || ""}`;
+        }
+      }
+
+      function renderCounties(summary) {
+        document.getElementById("county-list").innerHTML = summary.counties.map(county => `
+          <article class="county"><h3>${county.county}<span>${number.format(county.parcel_count)}</span></h3>
+          <p>${county.role} · acreage totals unavailable from this statewide layer.</p></article>`).join("");
+        document.getElementById("class-list").innerHTML = summary.counties.map(county => `
+          <div class="row"><strong>${county.county}</strong><span>${county.top_classes.slice(0,3).map(item => `${item.label}: ${number.format(item.count)}`).join(" · ") || "Not available"}</span></div>`).join("");
+      }
+
+      function renderMap(candidates) {
+        const map = L.map("map").setView([39.77, -86.16], 8);
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom:19, attribution:"&copy; OpenStreetMap contributors" }).addTo(map);
+        const layer = L.geoJSON(candidates, {
+          style: { color:"#197257", weight:1.4, fillColor:"#b7791f", fillOpacity:.28 },
+          onEachFeature(feature, polygon) {
+            const p = feature.properties;
+            polygon.bindPopup(`<strong>${p.county} County sample</strong><br>${number.format(p.acres)} geometry-derived acres<br>Class ${p.parcel_class}<br>${p.township}`);
+          },
+        }).addTo(map);
+        if (layer.getBounds().isValid()) map.fitBounds(layer.getBounds(), { padding:[18,18] });
+      }
+
+      async function init() {
+        const [summaryRes, candidateRes, statusRes] = await Promise.all([
+          fetch("./data/processed/parcel_summary.json"),
+          fetch("./data/processed/parcel_candidates.geojson"),
+          fetch("./data/processed/refresh_status.json"),
+        ]);
+        if (!summaryRes.ok || !candidateRes.ok || !statusRes.ok) throw new Error("Processed data is unavailable");
+        const [summary, candidates, status] = await Promise.all([summaryRes.json(), candidateRes.json(), statusRes.json()]);
+        document.getElementById("county-count").textContent = number.format(summary.totals.counties_loaded);
+        document.getElementById("parcel-count").textContent = number.format(summary.totals.parcel_count);
+        document.getElementById("candidate-count").textContent = number.format(candidates.features.length);
+        renderStatus(status, summary); renderCounties(summary); renderMap(candidates);
+      }
+      init().catch(error => { document.getElementById("data-status").textContent = `Could not load Indianapolis market data: ${error.message}`; });
+    </script>
+  </body>
+</html>

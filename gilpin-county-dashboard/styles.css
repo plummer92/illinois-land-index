@@ -30,3 +30,19 @@ th { background: var(--mist); font-size: 12px; text-transform: uppercase; }
 footer { padding: 32px; text-align: center; background: #13241f; color: #dce8e3; }
 @media (max-width: 850px) { .gilpin-hero, .map-layout { grid-template-columns: 1fr; } .summary-band, .bucket-grid, .check-grid { grid-template-columns: repeat(2, 1fr); } .filters { border-left: 0; border-top: 1px solid #cad7d0; } }
 @media (max-width: 560px) { .gilpin-hero { padding-top: 48px; } .summary-band, .bucket-grid, .check-grid { grid-template-columns: 1fr; } .dashboard-section { padding: 44px 18px; } }
+.refresh-note {
+  width: min(1180px, calc(100% - 32px));
+  margin: 14px auto 0;
+  border: 1px solid rgba(25, 114, 87, 0.28);
+  border-radius: 8px;
+  background: rgba(25, 114, 87, 0.07);
+  padding: 10px 13px;
+  color: #197257;
+  font-size: 0.88rem;
+}
+
+.refresh-note.stale {
+  border-color: rgba(183, 121, 31, 0.45);
+  background: #fff8e8;
+  color: #76500f;
+}

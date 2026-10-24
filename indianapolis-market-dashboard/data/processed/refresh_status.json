@@ -1,0 +1,23 @@
+{
+  "generated_at": "2026-10-24T17:02:08.478Z",
+  "policy": {
+    "ok": false,
+    "stale_days": 7,
+    "ok_count": 4,
+    "source_count": 5,
+    "every_source_failed": false,
+    "overdue_sources": [
+      "knox_county_parcels"
+    ],
+    "rule": "red when every source fails in the run or any source has no success within 7 day(s); green otherwise"
+  },
+  "sources": {
+    "indiana_statewide_parcels": {
+      "name": "Indiana statewide parcels (Indianapolis area)",
+      "status": "ok",
+      "attempted_at": "2026-10-24T17:02:28.461Z",
+      "last_success_at": "2026-10-24T17:02:28.461Z",
+      "error": null
+    }
+  }
+}

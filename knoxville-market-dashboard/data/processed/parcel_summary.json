@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T15:38:58.574Z",
+  "generated_at": "2026-10-24T17:02:11.084Z",
   "title": "Knoxville-East Tennessee Public Parcel Summary",
   "privacy_note": "Public-safe aggregate import only. This file intentionally excludes owner names, mailing addresses, parcel IDs, and individual parcel geometry.",
   "sources": [
@@ -17,11 +17,13 @@
       ]
     },
     {
-      "name": "Tennessee Comptroller NonImpact Parcels MapServer",
-      "url": "https://geoviewer.cot.tn.gov/arcgis/rest/services/GeoViewer/NonImpact_Parcels/MapServer",
+      "name": "Retired Tennessee Comptroller NonImpact Knox parcel layer (last-good data retained)",
+      "url": "https://geoviewer.cot.tn.gov/arcgis/rest/services/GeoViewer/NonImpact_Parcels/MapServer/3",
       "counties": [
         "Knox"
-      ]
+      ],
+      "status": "stale",
+      "error": "The Tennessee Comptroller NonImpact Knox service was retired, the public-use statewide layer excludes Knox, and KGIS parcel data requires authorization or a data license."
     }
   ],
   "totals": {
@@ -152,7 +154,9 @@
           "label": "79 - RECREATION",
           "count": 153
         }
-      ]
+      ],
+      "source_status": "ok",
+      "data_as_of": "2026-10-24T17:02:09.209Z"
     },
     {
       "county": "Blount",
@@ -274,7 +278,9 @@
           "label": "91 - UNDEVELOPED AND UNUSED LAND AREA",
           "count": 102
         }
-      ]
+      ],
+      "source_status": "ok",
+      "data_as_of": "2026-10-24T17:02:09.527Z"
     },
     {
       "county": "Campbell",
@@ -396,7 +402,9 @@
           "label": "53 - RETAIL TRADE - GENERAL",
           "count": 61
         }
-      ]
+      ],
+      "source_status": "ok",
+      "data_as_of": "2026-10-24T17:02:09.734Z"
     },
     {
       "county": "Knox",
@@ -514,7 +522,10 @@
           "label": "363: BUSINESS",
           "count": 1678
         }
-      ]
+      ],
+      "source_status": "stale",
+      "data_as_of": "2026-10-15T15:38:58.574Z",
+      "source_error": "The Tennessee Comptroller NonImpact Knox service was retired, the public-use statewide layer excludes Knox, and KGIS parcel data requires authorization or a data license."
     },
     {
       "county": "Loudon",
@@ -636,7 +647,9 @@
           "label": "91 - UNDEVELOPED AND UNUSED LAND AREA",
           "count": 44
         }
-      ]
+      ],
+      "source_status": "ok",
+      "data_as_of": "2026-10-24T17:02:10.007Z"
     },
     {
       "county": "Roane",
@@ -758,7 +771,9 @@
           "label": "63 - BUSINESS SERVICES",
           "count": 63
         }
-      ]
+      ],
+      "source_status": "ok",
+      "data_as_of": "2026-10-24T17:02:10.304Z"
     },
     {
       "county": "Sevier",
@@ -880,7 +895,9 @@
           "label": "11:14:74:81 - MULTIPLE LAND USES",
           "count": 166
         }
-      ]
+      ],
+      "source_status": "ok",
+      "data_as_of": "2026-10-24T17:02:10.818Z"
     },
     {
       "county": "Union",
@@ -1002,7 +1019,9 @@
           "label": "62 - PERSONAL SERVICES",
           "count": 170
         }
-      ]
+      ],
+      "source_status": "ok",
+      "data_as_of": "2026-10-24T17:02:11.073Z"
     }
   ]
 }

@@ -26,6 +26,7 @@
     if (url.pathname.includes("knoxville-market-dashboard")) return "knoxville_market_dashboard";
     if (url.pathname.includes("indianapolis-market-dashboard")) return "indianapolis_market_dashboard";
     if (url.pathname.includes("gilpin-county-dashboard")) return "gilpin_county_dashboard";
+    if (url.pathname.includes("tax-sale-land-watch")) return "tax_sale_land_watch";
     if (url.hostname === "tally.so") return "market_request_form";
     if (url.pathname.endsWith(".html")) return "research_page";
     return url.hostname === window.location.hostname ? "internal_link" : "external_link";
@@ -73,6 +74,13 @@
 
     if (destinationType === "indianapolis_market_dashboard") {
       trackEvent("open_indianapolis_market_dashboard", {
+        link_text: link.textContent.trim().slice(0, 100),
+        page_path: window.location.pathname,
+      });
+    }
+
+    if (destinationType === "tax_sale_land_watch") {
+      trackEvent("open_tax_sale_land_watch", {
         link_text: link.textContent.trim().slice(0, 100),
         page_path: window.location.pathname,
       });

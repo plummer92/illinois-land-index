@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T17:28:48.669Z",
+  "generated_at": "2026-10-27T16:44:37.161Z",
   "policy": {
     "ok": true,
     "stale_days": 7,
@@ -13,14 +13,14 @@
     "tennessee_statewide_parcels": {
       "name": "Tennessee statewide parcels (seven Knoxville-area counties)",
       "status": "ok",
-      "attempted_at": "2026-10-26T17:28:48.669Z",
-      "last_success_at": "2026-10-26T17:28:48.669Z",
+      "attempted_at": "2026-10-27T16:44:37.161Z",
+      "last_success_at": "2026-10-27T16:44:37.161Z",
       "error": null
     },
     "knox_county_parcels": {
       "name": "Knox County parcels",
       "status": "frozen",
-      "attempted_at": "2026-10-26T17:28:48.669Z",
+      "attempted_at": "2026-10-27T16:44:37.161Z",
       "last_success_at": "2026-10-15T15:38:58.574Z",
       "error": "No acceptable public no-login source is available: the Comptroller service was retired, the replacement statewide service excludes Knox, and KGIS requires authorization or a data license."
     }

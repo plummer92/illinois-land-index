@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-29T17:28:25.885Z",
+  "generated_at": "2026-10-30T17:03:27.666Z",
   "policy": {
     "ok": true,
     "stale_days": 7,
-    "ok_count": 4,
+    "ok_count": 3,
     "source_count": 4,
     "every_source_failed": false,
     "overdue_sources": [],
@@ -12,16 +12,16 @@
   "sources": {
     "colorado_statewide_parcels": {
       "name": "Colorado statewide parcels (Gilpin area)",
-      "status": "ok",
-      "attempted_at": "2026-10-29T17:28:58.900Z",
+      "status": "stale",
+      "attempted_at": "2026-10-30T17:03:57.618Z",
       "last_success_at": "2026-10-29T17:28:58.900Z",
-      "error": null
+      "error": "node scripts/import_gilpin_parcels.mjs exited 1"
     },
     "colorado_property_taxes": {
       "name": "Colorado property taxes",
       "status": "ok",
-      "attempted_at": "2026-10-29T17:31:07.836Z",
-      "last_success_at": "2026-10-29T17:31:07.836Z",
+      "attempted_at": "2026-10-30T17:07:22.429Z",
+      "last_success_at": "2026-10-30T17:07:22.429Z",
       "error": null
     }
   }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T18:30:14.231Z",
+  "generated_at": "2026-11-04T18:43:24.913Z",
   "policy": {
     "ok": true,
     "stale_days": 7,
@@ -13,15 +13,15 @@
     "colorado_statewide_parcels": {
       "name": "Colorado statewide parcels (Gilpin area)",
       "status": "ok",
-      "attempted_at": "2026-11-03T18:30:43.203Z",
-      "last_success_at": "2026-11-03T18:30:43.203Z",
+      "attempted_at": "2026-11-04T18:43:56.159Z",
+      "last_success_at": "2026-11-04T18:43:56.159Z",
       "error": null
     },
     "colorado_property_taxes": {
       "name": "Colorado property taxes",
       "status": "ok",
-      "attempted_at": "2026-11-03T18:31:59.880Z",
-      "last_success_at": "2026-11-03T18:31:59.880Z",
+      "attempted_at": "2026-11-04T18:46:10.133Z",
+      "last_success_at": "2026-11-04T18:46:10.133Z",
       "error": null
     }
   }

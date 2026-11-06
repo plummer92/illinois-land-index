@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T18:51:24.135Z",
+  "generated_at": "2026-11-06T18:07:59.188Z",
   "policy": {
     "ok": true,
     "stale_days": 7,
@@ -13,8 +13,8 @@
     "indiana_statewide_parcels": {
       "name": "Indiana statewide parcels (Indianapolis area)",
       "status": "ok",
-      "attempted_at": "2026-11-05T18:51:43.469Z",
-      "last_success_at": "2026-11-05T18:51:43.469Z",
+      "attempted_at": "2026-11-06T18:08:23.269Z",
+      "last_success_at": "2026-11-06T18:08:23.269Z",
       "error": null
     }
   }

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T21:34:17.244Z",
+  "generated_at": "2026-11-10T18:46:01.699Z",
   "county": "Grand",
   "candidates": [
     {
@@ -74220,10 +74220,10 @@
       }
     },
     {
-      "candidate_id": "08049-1439579",
-      "account_number": "M092482",
+      "candidate_id": "08049-1439538",
+      "account_number": "M200324",
       "parcel_number": "145118300083",
-      "owner_name": "BAKER, VINCENT",
+      "owner_name": "BAKER, VINCENT ADAM & MORROW, KAREN SUE",
       "secondary_owner": "",
       "county": "Grand",
       "state": "CO",
@@ -74687,10 +74687,10 @@
       }
     },
     {
-      "candidate_id": "08049-1439538",
-      "account_number": "M200324",
+      "candidate_id": "08049-1439579",
+      "account_number": "M092482",
       "parcel_number": "145118300083",
-      "owner_name": "BAKER, VINCENT ADAM & MORROW, KAREN SUE",
+      "owner_name": "BAKER, VINCENT",
       "secondary_owner": "",
       "county": "Grand",
       "state": "CO",
@@ -160580,10 +160580,10 @@
       }
     },
     {
-      "candidate_id": "08049-1438916",
-      "account_number": "R311431",
+      "candidate_id": "08049-1439651",
+      "account_number": "M013930",
       "parcel_number": "133525200016",
-      "owner_name": "KRENZIEN, THE STEVEN L LIVING TRUST,",
+      "owner_name": "KRENZIAN, RICHARD S",
       "secondary_owner": "",
       "county": "Grand",
       "state": "CO",
@@ -160691,10 +160691,10 @@
       }
     },
     {
-      "candidate_id": "08049-1439651",
-      "account_number": "M013930",
+      "candidate_id": "08049-1438916",
+      "account_number": "R311431",
       "parcel_number": "133525200016",
-      "owner_name": "KRENZIAN, RICHARD S",
+      "owner_name": "KRENZIEN, THE STEVEN L LIVING TRUST,",
       "secondary_owner": "",
       "county": "Grand",
       "state": "CO",

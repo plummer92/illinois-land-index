@@ -10,7 +10,7 @@
       "legal_description",
       "parcel_id"
     ],
-    "note": "Aggregate counts only. Verify parcel-level details in county sources and the private dashboard."
+    "note": "Aggregate counts only. Verify parcel-level details in county sources."
   },
   "illinois_sangamon": {
     "county": "Sangamon",

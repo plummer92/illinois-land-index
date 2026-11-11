@@ -57,6 +57,8 @@ try:
         page.get_by_role('link', name='Parcel dashboard', exact=True).click()
         assert page.url == base + '/parcel-dashboard/'
         assert page.get_by_role('heading', name='Parcel dashboard', exact=True).is_visible()
+        assert page.get_by_role('button', name='Find parcel', exact=True).is_visible()
+        assert page.locator('input[type=password], a[href*="dashboard.illinoislandindex.com"]').count() == 0
         page.get_by_role('link', name='Water & parcel map', exact=True).click()
         page.wait_for_selector('.map-label')
         page.wait_for_function("document.querySelector('#water-layer-status').textContent.startsWith('USGS inventory:')",timeout=60000)

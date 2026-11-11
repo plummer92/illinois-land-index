@@ -21,14 +21,12 @@
   }
 
   function classifyLink(url) {
-    if (url.hostname === "dashboard.illinoislandindex.com" ||
-        (url.origin === window.location.origin && url.pathname === "/parcel-dashboard/")) return "illinois_land_dashboard";
+    if (url.origin === window.location.origin && url.pathname === "/parcel-dashboard/") return "illinois_land_dashboard";
     if (url.pathname.includes("consumer-debt-dashboard")) return "debt_context";
     if (url.pathname.includes("knoxville-market-dashboard")) return "knoxville_market_dashboard";
     if (url.pathname.includes("indianapolis-market-dashboard")) return "indianapolis_market_dashboard";
     if (url.pathname.includes("gilpin-county-dashboard")) return "gilpin_county_dashboard";
     if (url.pathname.includes("tax-sale-land-watch")) return "tax_sale_land_watch";
-    if (url.hostname === "tally.so") return "market_request_form";
     if (url.pathname.endsWith(".html")) return "research_page";
     return url.hostname === window.location.hostname ? "internal_link" : "external_link";
   }
@@ -87,12 +85,6 @@
       });
     }
 
-    if (destinationType === "market_request_form") {
-      trackEvent("open_market_request_form", {
-        link_text: link.textContent.trim().slice(0, 100),
-        page_path: window.location.pathname,
-      });
-    }
   }
 
   if (isConfigured) {

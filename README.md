@@ -1,6 +1,6 @@
 # Illinois Land Index
 
-Public marketing site for Illinois Land Index, a Central Illinois parcel intelligence project.
+Public website for the Illinois Land Index. Its parcel dashboard, water map and county signals are served from this repository at `illinoislandindex.com`.
 
 The repo also includes public market-kit dashboards at:
 
@@ -15,7 +15,7 @@ This repository is intentionally public-safe:
 - No parcel owner records
 - No mailing-address exports
 - No generated CSV/XLSX tax data
-- No private dashboard watchlist data
+- No saved account or watchlist records
 - No individual consumer debt records
 
 The Illinois consumer-debt dashboard uses aggregate public datasets and Census context only.
@@ -48,7 +48,7 @@ data/public-signal-summary.json
 data/public-signal-delta.json
 ```
 
-That file is generated from the private Chatham/Sangamon dashboard repo by `export_public_signal_summary.js`.
+The summary is generated from the Chatham/Sangamon data-processing repository by `export_public_signal_summary.js`.
 It includes aggregate score bands, tax timing counts, owner-rollup counts, acreage buckets, terrain readiness,
 township summaries, and property-class summaries. It intentionally excludes owner names, mailing addresses,
 site addresses, legal descriptions, and parcel IDs. The delta file compares the newest public summary to the previous
@@ -110,11 +110,7 @@ before calculating acreage to avoid double-counting. Stream/canal intersections 
 flow paths. Measurements are approximate and do not establish water rights, service, flood risk,
 year-round flow or buildable acreage. No ranking or opportunity-score change is made.
 
-The parcel dashboard companion can open this page with a longitude/latitude interior point. The
-map consumes and removes those parameters before site analytics loads, then selects a unique
-county boundary containing that point. No owner record, PIN, tax data or watchlist is forwarded.
-Coordinate links are supported only inside the three-county extent. The companion lives in the
-private Chatham Land Index project, not in this public repository.
+The public parcel dashboard at `parcel-dashboard/` accepts a Sangamon PIN or street address and city. It queries the county GIS directly and links to county tax and GIS records. The water-map link passes an interior coordinate. The map removes those parameters before analytics loads and selects the containing county boundary within the three-county extent.
 
 Run `node scripts/test_parcel_water.mjs` for geometry checks covering intersections, holes,
 duplicate areas and artificial flow paths.
@@ -124,7 +120,7 @@ To check interactions, install Python Playwright with Chromium, then run
 
 ## Local Preview
 
-Open `index.html` directly, or serve the folder with any static server.
+Serve the repository root with a static server to use the home page, parcel dashboard and map together.
 
 ```powershell
 python -m http.server 8080
@@ -147,15 +143,9 @@ const GA_MEASUREMENT_ID = "G-8JFK3CZ7LE";
 ```
 
 The tracker records page views plus link-click events for the Illinois dashboard, debt context,
-Knoxville dashboard, research pages, and market request form.
+Knoxville dashboard and research pages. The parcel lookup page omits analytics.
 
 ## Deploy
 
-This site is ready for GitHub Pages, Netlify, Vercel, Firebase Hosting, or any static web host.
-
-For GitHub Pages:
-
-1. Push this folder as the root of a clean public repository.
-2. Open repository settings.
-3. Go to `Pages`.
-4. Deploy from the `main` branch root.
+GitHub Pages publishes the root of the `main` branch at `https://illinoislandindex.com/`.
+The home page, parcel dashboard, water map and public signals deploy together.

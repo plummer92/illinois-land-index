@@ -9,19 +9,20 @@
       content="Disclaimer and privacy notes for Illinois Land Index."
     />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./navigation.css" />
     <script src="./analytics.js" defer></script>
   </head>
   <body>
-    <header class="site-header">
+    <header class="site-header index-navigation">
       <a class="brand" href="./index.html" aria-label="Illinois Land Index home">
         <span>ILI</span>
         <strong>Illinois Land Index</strong>
       </a>
-      <nav aria-label="Primary navigation">
-        <a href="./index.html#signals">Signals</a>
-        <a href="./index.html#preview">Preview</a>
-        <a href="./index.html#workflow">Workflow</a>
-        <a href="./index.html#access">Access</a>
+      <nav class="core-navigation" aria-label="Primary navigation">
+        <a href="./">Home</a>
+        <a href="./infrastructure-map/">Water &amp; parcel map</a>
+        <a href="./parcel-dashboard/">Parcel dashboard</a>
+        <a href="./latest-land-signals.html">County signals</a>
       </nav>
     </header>
 
@@ -67,26 +68,22 @@
         <article>
           <h2>Public Records And Owner Data</h2>
           <p>
-            Some future private tools may organize public-record parcel information such as ownership, mailing address,
-            tax status, assessment data, parcel class, acreage, and GIS links. Illinois Land Index is intended to make
-            public records easier to research, not to encourage harassment, misuse, discrimination, or unlawful contact.
+            The Sangamon parcel dashboard sends the address or parcel number you enter directly to the county GIS.
+            Results link to county parcel and tax records. The county signals page publishes aggregate counts.
           </p>
         </article>
 
         <article>
-          <h2>Waitlist Privacy</h2>
+          <h2>Map and parcel searches</h2>
           <p>
-            If you submit the early access form, we may collect your name, email, counties of interest, and land
-            research preferences. That information is used to follow up about Illinois Land Index and shape the private
-            beta. We do not sell waitlist submissions.
+            The water map remembers the selected place and view in your browser. Opening a parcel on the water map
+            passes a point inside its boundary so the map can select it.
           </p>
         </article>
 
         <article>
-          <h2>Contact</h2>
-          <p>
-            Questions or corrections can be sent through the early access form on the homepage.
-          </p>
+          <h2>Earlier form submissions</h2>
+          <p>We do not sell contact details or research preferences submitted through the former interest form.</p>
         </article>
       </section>
     </main>

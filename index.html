@@ -10,7 +10,6 @@
     />
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./home-navigation.css" />
-    <script src="./navigation.js" defer></script>
     <script src="./analytics.js" defer></script>
   </head>
   <body class="home-page">
@@ -36,7 +35,7 @@
             <p>Click a parcel to see mapped water and nearby infrastructure in Sangamon, Morgan and Macoupin counties.</p>
             <span class="home-arrow" aria-hidden="true">→</span>
           </article>
-          <article class="home-tool">
+          <article class="home-tool" id="access">
             <h2><a href="./parcel-dashboard/">Parcel dashboard</a></h2>
             <p>Find a Sangamon County parcel by number or street address and open its boundary on the water map.</p>
             <span class="home-arrow" aria-hidden="true">→</span>
@@ -86,123 +85,26 @@
       <section class="home-about" id="about" aria-labelledby="about-title">
         <h2 id="about-title">About the index</h2>
         <details class="home-method">
-          <summary>Dashboard preview and research methods</summary>
-      <section class="section" id="signals">
-        <div class="section-heading">
-          <p class="eyebrow">Signals</p>
-          <h2>Built around the things land buyers actually check.</h2>
-        </div>
-        <div class="feature-grid">
-          <article>
-            <h3>Opportunity Scoring</h3>
-            <p>Ranks parcels using land class, acreage, ownership concentration, assessment proxies, and tax-sale flags.</p>
-          </article>
-          <article>
-            <h3>Owner Intelligence</h3>
-            <p>Groups parcels by owner so you can see who controls the most acreage and where their holdings sit.</p>
-          </article>
-          <article>
-            <h3>Target Filtering</h3>
-            <p>Downranks government, utilities, railroads, cemeteries, schools, and other low-probability owners.</p>
-          </article>
-          <article>
-            <h3>County Linkout</h3>
-            <p>Connects each parcel to GIS, tax summary, and owner-history pages for fast due diligence.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="preview-section" id="preview">
-        <div class="section-heading">
-          <p class="eyebrow">Preview</p>
-          <h2>A practical dashboard for narrowing thousands of parcels into a short list.</h2>
-        </div>
-        <div class="dashboard-preview-grid">
-          <article class="preview-card wide">
-            <div class="preview-card-header">
-              <div>
-                <h3>Deal Queue</h3>
-                <p>Public preview. Verify parcel details with county sources.</p>
-              </div>
-              <span>Score high to low</span>
+          <summary>Data sources and research methods</summary>
+          <section class="section" id="signals">
+            <div class="section-heading">
+              <h2>County records and water features</h2>
             </div>
-            <div class="mini-table">
-              <div class="mini-row mini-head">
-                <span>Score</span>
-                <span>Owner Type</span>
-                <span>Class</span>
-                <span>Acres</span>
-                <span>Status</span>
-              </div>
-              <div class="mini-row">
-                <strong>93</strong>
-                <span>Trust / Estate</span>
-                <span>Farm land</span>
-                <span>78.4</span>
-                <em>Interested</em>
-              </div>
-              <div class="mini-row">
-                <strong>86</strong>
-                <span>Farm Entity</span>
-                <span>Unimproved</span>
-                <span>42.0</span>
-                <em>Review</em>
-              </div>
-              <div class="mini-row">
-                <strong>74</strong>
-                <span>Individual</span>
-                <span>Wooded acreage</span>
-                <span>18.9</span>
-                <em>Contacted</em>
-              </div>
+            <div class="feature-grid">
+              <article id="preview">
+                <h3>Parcel lookup</h3>
+                <p>Sangamon County GIS supplies parcel boundaries and recorded acreage. Each result links to the county tax record and parcel viewer.</p>
+              </article>
+              <article id="workflow">
+                <h3>Water coverage</h3>
+                <p>The map compares county parcel boundaries with USGS lakes, ponds, streams and canals in Sangamon, Morgan and Macoupin counties.</p>
+              </article>
+              <article>
+                <h3>County signals</h3>
+                <p>Aggregate snapshots track changes in Sangamon County parcel counts, unpaid balances and acreage.</p>
+              </article>
             </div>
-          </article>
-
-          <article class="preview-card">
-            <div class="preview-card-header">
-              <div>
-                <h3>Owner Rollup</h3>
-                <p>Group holdings by owner.</p>
-              </div>
-            </div>
-            <div class="owner-stack">
-              <div>
-                <span>Prairie Holdings LLC</span>
-                <strong>412 acres</strong>
-              </div>
-              <div>
-                <span>Central IL Family Trust</span>
-                <strong>186 acres</strong>
-              </div>
-              <div>
-                <span>Local Farm Entity</span>
-                <strong>94 acres</strong>
-              </div>
-            </div>
-          </article>
-
-          <article class="preview-card">
-            <div class="preview-card-header">
-              <div>
-                <h3>Parcel Detail</h3>
-                <p>Score breakdown and due diligence links.</p>
-              </div>
-            </div>
-            <div class="detail-mock">
-              <div><span>Parcel</span><strong>XX-XX-000-000</strong></div>
-              <div><span>Land Score</span><strong>34</strong></div>
-              <div><span>Buyability</span><strong>31</strong></div>
-              <div><span>Risk Score</span><strong>22</strong></div>
-              <div><span>Estimated Value</span><strong>$112k</strong></div>
-            </div>
-            <div class="mock-buttons">
-              <span>GIS</span>
-              <span>Tax</span>
-              <span>History</span>
-            </div>
-          </article>
-        </div>
-      </section>
+          </section>
 
       <section class="section" id="debt-context">
         <div class="section-heading">
@@ -229,39 +131,7 @@
         </div>
       </section>
 
-      <section class="workflow-band" id="workflow">
-        <div class="section-heading">
-          <p class="eyebrow">Workflow</p>
-          <h2>From raw county data to a practical deal queue.</h2>
-        </div>
-        <div class="workflow">
-          <article>
-            <span>01</span>
-            <h3>Import</h3>
-            <p>Load county parcel and tax files into a normalized local index.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Score</h3>
-            <p>Separate likely land opportunities from residential, public, and low-probability parcels.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Review</h3>
-            <p>Use GIS, owner history, estimated value, and tax details to decide what deserves attention.</p>
-          </article>
-          <article>
-            <span>04</span>
-            <h3>Track</h3>
-            <p>Move parcels through Interested, Contacted, Offer Made, Skip, and future follow-up states.</p>
-          </article>
-        </div>
-      </section>
-
         </details>
-        <div class="home-secondary" id="access">
-          <a href="https://tally.so/r/VLbEeM">Request coverage for another market</a>
-        </div>
       </section>
     </main>
 

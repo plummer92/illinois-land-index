@@ -11,7 +11,6 @@
     <link rel="canonical" href="https://illinoislandindex.com/latest-land-signals.html" />
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./navigation.css" />
-    <script src="./navigation.js" defer></script>
     <script src="./analytics.js" defer></script>
     <script src="./latest-land-signals.js" defer></script>
   </head>
@@ -51,7 +50,6 @@
         <div class="hero-actions">
           <a class="button primary" href="./parcel-dashboard/">Open Illinois dashboard</a>
           <a class="button secondary" href="./knoxville-market-dashboard/">Open Knoxville dashboard</a>
-          <a class="button secondary" href="https://tally.so/r/VLbEeM">Request a market</a>
         </div>
       </section>
 
@@ -107,10 +105,9 @@
         </p>
         <div class="feature-grid">
           <article>
-            <h3>Sangamon Deal Queue</h3>
+            <h3>Sangamon parcels</h3>
             <p>
-              Start with high-score parcels, acreage filters, owner rollups, GIS links, and parcel detail views in the
-              live Illinois dashboard.
+              Search a Sangamon address or parcel number to open the county tax record or compare its boundary with mapped water.
             </p>
           </article>
           <article>
@@ -140,7 +137,7 @@
       <section class="preview-section">
         <div class="section-heading">
           <p class="eyebrow">Illinois readout</p>
-          <h2>What to open in the Sangamon land dashboard.</h2>
+          <h2>Sangamon County parcel and tax trends</h2>
         </div>
         <div class="preview-card wide signal-change-panel">
           <div class="preview-card-header">
@@ -149,7 +146,7 @@
               <p>
                 Previous snapshot: <span data-signal-stat="delta-compared-to">loading</span> · New snapshot:
                 <span data-signal-stat="delta-current-week">loading</span>. Each card shows previous → new (net change).
-                These are aggregate movements only; parcel and owner details stay in the private dashboard.
+                These figures summarize the records in each snapshot.
               </p>
             </div>
             <span data-signal-stat="delta-largest-movement">Loading movement</span>
@@ -185,17 +182,17 @@
           <article>
             <span>Sangamon target rows</span>
             <strong data-signal-stat="illinois-targets">...</strong>
-            <p>Public-safe count of target-area rows feeding the private Illinois dashboard.</p>
+            <p>Number of target-area parcel records in the current snapshot.</p>
           </article>
           <article>
             <span>Score 80+ parcels</span>
             <strong data-signal-stat="illinois-score-80">...</strong>
-            <p>High-opportunity score band count. Parcel IDs and owner details stay private.</p>
+            <p>Number of target-area parcels with a screening score of 80 or higher.</p>
           </article>
           <article>
             <span>Max opportunity score</span>
             <strong data-signal-stat="illinois-max-score">...</strong>
-            <p>Highest current screening score in the Sangamon target queue.</p>
+            <p>Highest screening score in the current target-area snapshot.</p>
           </article>
           <article>
             <span>Taxes still due</span>
@@ -247,14 +244,14 @@
               </div>
               <div class="mini-row">
                 <strong>Scores</strong>
-                <span>Deal queue</span>
-                <span>Ranks parcels for first review</span>
+                <span>County signals</span>
+                <span>Counts parcels by score band</span>
                 <em><span data-signal-stat="illinois-score-80">...</span> at 80+</em>
                 <span>Max score <span data-signal-stat="illinois-max-score">...</span></span>
               </div>
               <div class="mini-row">
                 <strong>Taxes</strong>
-                <span>Parcel detail</span>
+                <span>County tax record</span>
                 <span>Shows timing and pressure clues</span>
                 <em><span data-signal-stat="illinois-taxes-due">...</span> due</em>
                 <span><span data-signal-stat="illinois-taxes-due-soon">...</span> due soon</span>
@@ -264,7 +261,7 @@
                 <span>Owner rollups</span>
                 <span>Finds concentration and holdings</span>
                 <em><span data-signal-stat="illinois-large-owner-rollups">...</span> large groups</em>
-                <span>No names public</span>
+                <span>See group counts above</span>
               </div>
             </div>
           </article>
@@ -273,17 +270,17 @@
             <div class="preview-card-header">
               <div>
                 <h3>Best Illinois Follow-Up</h3>
-                <p>Open the dashboard, filter for acreage, then inspect tax timing.</p>
+                <p>Look up a parcel in the dashboard, check its acreage and open the county tax record.</p>
               </div>
             </div>
             <div class="owner-stack">
               <div>
                 <span>Start</span>
-                <strong>High score parcels</strong>
+                <strong>Parcel number or street address</strong>
               </div>
               <div>
                 <span>Then</span>
-                <strong>Taxes due soon</strong>
+                <strong>County acreage</strong>
               </div>
               <div>
                 <span>Verify</span>

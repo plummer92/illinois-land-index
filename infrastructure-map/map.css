@@ -1,0 +1,19 @@
+#illinois-water-data-map {display:grid;gap:calc(var(--font-size-base) * .75);color:var(--foreground)}
+    #illinois-water-data-map .map-title {display:grid;gap:calc(var(--font-size-base) * .25);padding-right:90px}
+    #illinois-water-data-map .map-controls {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:calc(var(--font-size-base) * .75)}
+    #illinois-water-data-map .control-label {display:grid;gap:calc(var(--font-size-base) * .25);min-width:0}
+    #illinois-water-data-map .map-surface {width:100%;height:570px;display:block;overflow:hidden;touch-action:none;cursor:grab}
+    #illinois-water-data-map .map-surface.dragging {cursor:grabbing}
+    #illinois-water-data-map .map-label {fill:var(--foreground);paint-order:stroke;stroke:var(--background);stroke-width:3;stroke-linejoin:round;pointer-events:none}
+    #illinois-water-data-map .county-label {fill:var(--muted-foreground);paint-order:stroke;stroke:var(--background);stroke-width:3;stroke-linejoin:round;pointer-events:none}
+    #illinois-water-data-map .map-legend {display:flex;gap:calc(var(--font-size-base) * .9);flex-wrap:wrap}
+    #illinois-water-data-map .key {display:inline-flex;align-items:center;gap:calc(var(--font-size-base) * .35)}
+    #illinois-water-data-map .lake-key {width:14px;height:9px;background:var(--viz-series-1)}
+    #illinois-water-data-map .site-key {width:9px;height:9px;background:var(--viz-series-2)}
+    #illinois-water-data-map .reference-key {width:9px;height:9px;box-sizing:border-box;border:1.5px solid var(--viz-series-2)}
+    #illinois-water-data-map .project-key {color:var(--viz-series-3)}
+    #illinois-water-data-map .link-key {width:21px;border-top:1.5px dashed var(--viz-series-1)}
+    #illinois-water-data-map .map-detail {display:grid;gap:calc(var(--font-size-base) * .25)}
+    #illinois-water-data-map .detail-sources,#illinois-water-data-map .base-sources {display:flex;gap:calc(var(--font-size-base) * .5);flex-wrap:wrap}
+    #illinois-water-data-map details {display:grid;gap:calc(var(--font-size-base) * .5)}
+    @media(max-width:480px){#illinois-water-data-map .map-controls{grid-template-columns:minmax(0,1fr)}#illinois-water-data-map .map-surface{height:460px}}

@@ -72,6 +72,28 @@ source's last-good files are restored. The final workflow check is red only when
 has no successful refresh within `PUBLIC_DATA_STALE_DAYS` (default 7); otherwise partial recent outages remain green.
 The workflow can also be started manually from the repository's **Actions** tab.
 
+## Infrastructure research map
+
+The Central Illinois map is at `infrastructure-map/index.html`, linked from the home page,
+Sangamon guide and Chatham page. It combines public water-source geometry, a union of the proposed
+CyrusOne project footprint, county/municipal context and ten institutional/project site records.
+The map distinguishes documented facilities, proposed/development projects and historical or reported
+references; ten records do not mean ten verified operating data centers.
+
+`infrastructure-map/data/research-map.json` is a November 10, 2026 research snapshot with source links.
+It contains public institutional/project locations, not private parcel-owner records, tax exports,
+watchlists, emails or correspondence. Its project footprint is not an ownership layer. Dashed water
+links are schematic relationships, not surveyed pipes or proof of a signed or operating connection.
+The existing aggregate land signals remain separate; the map does not infer parcel value or utility capacity.
+
+The page is buildless: edit `map.js`, `map.css`, `site.css`, the page markup or the JSON directly.
+D3 7.9.0 and its license are vendored in `infrastructure-map/vendor/` so map rendering does not
+depend on a CDN. Map preferences are saved in browser-local storage only. The sitewide analytics
+script is retained; no map coordinates or selections are sent to it by the map code.
+
+To check interactions, install Python Playwright with Chromium, then run
+`python scripts/test_infrastructure_map.py`. The check starts and stops its own local server.
+
 ## Local Preview
 
 Open `index.html` directly, or serve the folder with any static server.

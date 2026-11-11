@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Water & Infrastructure Research Map | Illinois Land Index</title>
+    <meta name="description" content="Explore Central Illinois water sources, the proposed CyrusOne site, and documented data-center references alongside Illinois Land Index research." />
+    <link rel="canonical" href="https://illinoislandindex.com/infrastructure-map/" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./map.css" />
+    <link rel="stylesheet" href="./site.css" />
+    <script src="../analytics.js" defer></script>
+    <script src="./vendor/d3.v7.min.js" defer></script>
+    <script src="./map.js" defer></script>
+  </head>
+  <body class="infrastructure-page">
+    <header class="site-header">
+      <a class="brand" href="../index.html" aria-label="Illinois Land Index home"><span>ILI</span><strong>Illinois Land Index</strong></a>
+      <nav aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../sangamon-land-dashboard.html">Sangamon</a>
+        <a href="../latest-land-signals.html">Latest Signals</a>
+        <a href="./" aria-current="page">Infrastructure Map</a>
+        <a href="../disclaimer.html">Disclaimer</a>
+      </nav>
+    </header>
+    <main class="research-page">
+      <section class="research-intro" aria-labelledby="research-title">
+        <p class="eyebrow">Central Illinois infrastructure research</p>
+        <h1 id="research-title">Follow the water.<br />See the land around it.</h1>
+        <p class="lede">Explore water sources, the proposed CyrusOne campus and publicly documented data-center references alongside the county and community records in Illinois Land Index.</p>
+        <p class="research-snapshot">Sangamon · Morgan · Macoupin · Research snapshot: November 10, 2026</p>
+      </section>
+      <section aria-label="Interactive infrastructure map">
+        <div id="illinois-water-data-map">
+
+
+  <div class="map-controls">
+    <label class="control-label"><span class="text-small">Map area</span><select class="form-select" id="water-map-area"><option value="water">Lakes &amp; proposed CyrusOne</option><option value="local">Three-county overview</option><option value="springfield">Springfield data-center sites</option><option value="state">Illinois overview</option><option value="aurora">Aurora / Lombard comparison</option></select></label>
+    <label class="control-label"><span class="text-small">Selected place or facility</span><select class="form-select" id="water-map-selection" aria-label="Select a lake, facility, county, city or village"></select></label>
+  </div>
+  <div class="viz-controls" aria-label="Map navigation"><button class="btn" type="button" id="water-zoom-in" aria-label="Zoom in">Zoom +</button><button class="btn" type="button" id="water-zoom-out" aria-label="Zoom out">Zoom −</button><button class="btn" type="button" id="water-reset">Reset view</button><span class="text-small text-muted" id="water-map-help">Drag to move · Scroll or pinch to zoom · Double-click to zoom in</span></div>
+  <p id="water-map-error" role="alert" hidden></p>
+  <svg class="map-surface" role="img" tabindex="0" aria-describedby="water-map-help" aria-label="Interactive map showing Waverly Lake, Otter Lake, the four proposed CyrusOne parcels and publicly documented data-center locations. Drag to pan, scroll or pinch to zoom. Arrow keys move the map; plus and minus zoom; Home resets. Dashed water relationships are schematic, not pipeline routes. All locations can be selected from the menu."></svg>
+  <div class="map-legend text-small" aria-label="Map legend"><span class="key"><span class="lake-key" aria-hidden="true"></span>Lake</span><span class="key"><span class="site-key" aria-hidden="true"></span>Documented DC</span><span class="key"><span class="reference-key" aria-hidden="true"></span>Historical / reported</span><span class="key"><span class="project-key" aria-hidden="true">▲</span>Proposed / development</span><span class="key"><span class="link-key" aria-hidden="true"></span>Supply relationship</span></div>
+  <span class="text-small text-muted">Dashed links show supply relationships through Waverly / Apple Creek, not pipe routes. Future CyrusOne service and the Otter Lake backup are not verified operating connections.</span>
+  <div class="map-detail" aria-live="polite"><h3 id="water-map-name"></h3><span class="text-small" id="water-map-status"></span><span class="text-small text-muted" id="water-map-address"></span><p id="water-map-description"></p><div class="detail-sources text-small" id="water-map-sources"></div></div>
+  <details><summary class="text-small">Inventory coverage &amp; map sources</summary><div class="text-small text-muted" id="water-map-coverage"></div><div class="base-sources text-small"><a href="https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer" target="_blank" rel="noopener noreferrer">USGS lake geometry</a><a href="https://sangis.co.sangamon.il.us/server/rest/services/TyleratENTParcels/MapServer/0" target="_blank" rel="noopener noreferrer">County parcels</a><a href="https://sangis.co.sangamon.il.us/server/rest/services/SangamonCountyStreets/MapServer/2" target="_blank" rel="noopener noreferrer">County roads</a><a href="https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Places_CouSub_ConCity_SubMCD/MapServer/4" target="_blank" rel="noopener noreferrer">Census municipalities, 2026</a><a href="https://github.com/topojson/us-atlas" target="_blank" rel="noopener noreferrer">County atlas, 2017</a></div></details>
+
+
+
+</div>
+
+        <noscript><p>JavaScript is needed for the map. You can still use the <a href="../sangamon-land-dashboard.html">Sangamon land guide</a> and the <a href="https://sangamonil.gov/departments/a-c/county-board/proposed-cyrusone-data-center">county project records</a>.</p></noscript>
+      </section>
+      <section class="research-connections" aria-labelledby="connections-title">
+        <h2 id="connections-title">Connect the map to the land records</h2>
+        <p>Use location as a starting point, then check the records behind each project. A nearby lake or facility does not establish water availability, utility capacity, an operating connection or a property's value.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="../sangamon-land-dashboard.html">Sangamon land research</a>
+          <a class="button secondary" href="../chatham-il-land-for-sale-research.html">Chatham land research</a>
+          <a class="button secondary" href="../latest-land-signals.html">Latest county signals</a>
+        </div>
+      </section>
+    </main>
+    <footer><p>Illinois Land Index</p><p>Public-source research. <a href="../disclaimer.html">Disclaimer &amp; Privacy</a></p></footer>
+  </body>
+</html>

@@ -9,289 +9,84 @@
       content="Parcel intelligence for finding overlooked land opportunities across Central Illinois."
     />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./home-navigation.css" />
+    <script src="./navigation.js" defer></script>
     <script src="./analytics.js" defer></script>
   </head>
-  <body>
+  <body class="home-page">
+    <a class="home-skip" href="#research-tools">Skip to research tools</a>
     <header class="site-header">
       <a class="brand" href="./index.html" aria-label="Illinois Land Index home">
-        <span>ILI</span>
-        <strong>Illinois Land Index</strong>
+        <span>ILI</span><strong>Illinois Land Index</strong>
       </a>
-      <nav aria-label="Primary navigation">
-        <a href="#signals">Signals</a>
-        <a href="#preview">Preview</a>
-        <a href="#market-kits">Market Kits</a>
+      <nav class="home-nav" aria-label="Home page sections">
+        <a href="#research-tools">Tools</a>
         <a href="#guides">Guides</a>
-        <a href="./latest-land-signals.html">Latest Signals</a>
-        <a href="https://dashboard.illinoislandindex.com/land-dashboard/index.html">Land Dashboard</a>
-        <a href="./consumer-debt-dashboard/">Debt Context</a>
-        <a href="./knoxville-market-dashboard/">Knoxville Kit</a>
-        <a href="./indianapolis-market-dashboard/">Indianapolis</a>
-        <a href="./gilpin-county-dashboard/">Gilpin County</a>
-        <a href="#workflow">Workflow</a>
-        <a href="./disclaimer.html">Disclaimer</a>
+        <a href="#market-kits">Markets</a>
+        <a href="#about">About</a>
       </nav>
     </header>
 
     <main>
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Central Illinois land intelligence</p>
-          <h1>Find better land opportunities before they look obvious.</h1>
-          <p class="lede">
-            Illinois Land Index turns county parcel records, ownership patterns, tax signals, and GIS links into a
-            focused dashboard for spotting overlooked acreage across Central Illinois growth corridors. Start with
-            Illinois, compare expansion markets, and build land funnels using parcel, tax, terrain, and credit-access logic.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="https://dashboard.illinoislandindex.com/land-dashboard/index.html">Open Illinois Land Dashboard</a>
-            <a class="button secondary" href="./consumer-debt-dashboard/">Open Illinois Debt Context</a>
-            <a class="button secondary" href="./knoxville-market-dashboard/">Open Knoxville Market Kit</a>
-            <a class="button secondary" href="./indianapolis-market-dashboard/">Open Indianapolis Market Kit</a>
-            <a class="button secondary" href="./gilpin-county-dashboard/">Open Gilpin County Kit</a>
-            <a class="button secondary" href="./latest-land-signals.html">View Latest Land Signals</a>
-            <a class="button secondary" href="./infrastructure-map/">Explore Water &amp; Infrastructure</a>
-          </div>
+      <section class="home-start" id="research-tools" aria-labelledby="home-title">
+        <h1 id="home-title">Central Illinois land research</h1>
+        <div class="home-tools">
+          <article class="home-tool">
+            <h2><a href="./infrastructure-map/">Water &amp; parcel map</a></h2>
+            <p>Click a parcel to see mapped water and nearby infrastructure in Sangamon, Morgan and Macoupin counties.</p>
+            <span class="home-arrow" aria-hidden="true">→</span>
+          </article>
+          <article class="home-tool">
+            <h2><a href="https://dashboard.illinoislandindex.com/land-dashboard/index.html">Parcel dashboard</a></h2>
+            <p>Find Sangamon County land by parcel number, owner or acreage and open its tax and GIS records.</p>
+            <span class="home-arrow" aria-hidden="true">→</span>
+          </article>
+          <article class="home-tool">
+            <h2><a href="./latest-land-signals.html">County signals</a></h2>
+            <p>Check Sangamon County parcel totals, unpaid balances and changes since the previous update.</p>
+            <span class="home-arrow" aria-hidden="true">→</span>
+          </article>
         </div>
-
-        <div class="product-preview" aria-label="Dashboard preview">
-          <div class="preview-top">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="preview-metrics">
-            <article>
-              <small>Target Parcels</small>
-              <strong>22.7k</strong>
-            </article>
-            <article>
-              <small>Owner Rollups</small>
-              <strong>73.2k</strong>
-            </article>
-            <article>
-              <small>Top Score</small>
-              <strong>93</strong>
-            </article>
-          </div>
-          <div class="preview-table">
-            <div class="row head">
-              <span>Score</span>
-              <span>Owner Type</span>
-              <span>Acres</span>
-              <span>Status</span>
-            </div>
-            <div class="row">
-              <strong>93</strong>
-              <span>Trust / Estate</span>
-              <span>78.4</span>
-              <em>Interested</em>
-            </div>
-            <div class="row">
-              <strong>87</strong>
-              <span>Farm Entity</span>
-              <span>42.0</span>
-              <em>Review</em>
-            </div>
-            <div class="row">
-              <strong>76</strong>
-              <span>Individual</span>
-              <span>18.9</span>
-              <em>Contacted</em>
-            </div>
-          </div>
+        <div class="home-secondary">
+          <a href="./tax-sale-land-watch/">Tax-sale dates &amp; deadlines</a>
+          <a href="./consumer-debt-dashboard/">Illinois debt &amp; housing data</a>
         </div>
       </section>
 
-      <section class="trust-strip" aria-label="Platform highlights">
-        <span>Parcel scoring</span>
-        <span>Owner rollups</span>
-        <span>Tax assessment signals</span>
-        <span>Consumer debt context</span>
-        <span>Market funnel kits</span>
-        <span>GIS deep links</span>
-        <span>Watchlist workflow</span>
-      </section>
+      <div class="home-directory">
+        <section id="guides" aria-labelledby="guides-title">
+          <h2 id="guides-title">Research guides</h2>
+          <ul id="local-search">
+            <li><a href="./sangamon-land-dashboard.html">Sangamon County parcel research</a></li>
+            <li><a href="./chatham-il-land-for-sale-research.html">Chatham land research</a></li>
+            <li><a href="./sangamon-county-property-tax-research.html">Sangamon County property taxes</a></li>
+            <li><a href="./central-illinois-acreage-research.html">Central Illinois acreage</a></li>
+            <li><a href="./how-to-research-land-before-buying.html">How to research land before buying</a></li>
+          </ul>
+        </section>
+        <section id="market-kits" aria-labelledby="markets-title">
+          <h2 id="markets-title">Other markets</h2>
+          <ul>
+            <li><a href="./knoxville-market-dashboard/">Knoxville market dashboard</a></li>
+            <li><a href="./indianapolis-market-dashboard/">Indianapolis market dashboard</a></li>
+            <li><a href="./gilpin-county-dashboard/">Gilpin County market dashboard</a></li>
+          </ul>
+          <details class="market-guides">
+            <summary>Market research guides</summary>
+            <ul>
+              <li><a href="./knoxville-land-market-kit.html">Knoxville market kit guide</a></li>
+              <li><a href="./knoxville-tn-land-research.html">Knoxville land research</a></li>
+              <li><a href="./maryville-tn-land-research.html">Maryville land research</a></li>
+              <li><a href="./indianapolis-in-land-research.html">Indianapolis land research</a></li>
+            </ul>
+          </details>
+        </section>
+      </div>
 
-      <section class="section" id="market-kits">
-        <div class="section-heading">
-          <p class="eyebrow">Start here</p>
-          <h2>Explore the index and its research tools.</h2>
-        </div>
-        <div class="feature-grid">
-          <article>
-            <h3>Water &amp; Infrastructure Map</h3>
-            <p>Explore Central Illinois water sources, the proposed CyrusOne campus and documented data-center references alongside county and community research.</p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./infrastructure-map/">Open infrastructure map</a>
-            </div>
-          </article>
-          <article>
-            <h3>Illinois Land Dashboard</h3>
-            <p>
-              Search the live Sangamon/Chatham deal queue, due-soon tax payments, terrain metrics, owner rollups, and parcel detail links.
-            </p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="https://dashboard.illinoislandindex.com/land-dashboard/index.html">Open land dashboard</a>
-            </div>
-          </article>
-          <article>
-            <h3>Illinois Debt Context</h3>
-            <p>
-              Review consumer debt, housing distress, FDIC credit access, high-cost credit, and county-level economic context.
-            </p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./consumer-debt-dashboard/">Open debt context</a>
-            </div>
-          </article>
-          <article>
-            <h3>Knoxville Market Kit</h3>
-            <p>
-              Compare the I-75, Knoxville, Maryville, and foothills corridor with parcel summaries, credit access, and next import layers.
-            </p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./knoxville-market-dashboard/">Open Knoxville kit</a>
-            </div>
-          </article>
-          <article>
-            <h3>Shared Funnel Logic</h3>
-            <p>
-              Every market is moving toward the same score stack: parcel supply, tax pressure, terrain, flood, credit access, and distress.
-            </p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./latest-land-signals.html">View latest signals</a>
-            </div>
-          </article>
-          <article>
-            <h3>Gilpin County Market Kit</h3>
-            <p>
-              Screen Colorado mountain parcels by acreage, zoning, land use, appraised value, and public candidate geometry.
-            </p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./gilpin-county-dashboard/">Open Gilpin County kit</a>
-            </div>
-          </article>
-          <article>
-            <h3>Indianapolis Area Market Kit</h3>
-            <p>
-              Compare Marion County and seven surrounding counties with public parcel counts, class codes, and large-parcel samples.
-            </p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./indianapolis-market-dashboard/">Open Indianapolis kit</a>
-            </div>
-          </article>
-          <article>
-            <h3>Tax-Sale Land Watch</h3>
-            <p>
-              Track county sale dates, deadlines, land-only counts, broad value and acreage bands, and approximate vacant-land locations without publishing personal data.
-            </p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./tax-sale-land-watch/">Open Tax-Sale Land Watch</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="guides">
-        <div class="section-heading">
-          <p class="eyebrow">Land research guides</p>
-          <h2>Search-focused pages for buyers, researchers, and market comparison.</h2>
-        </div>
-        <div class="feature-grid">
-          <article>
-            <h3>Sangamon County Land Dashboard</h3>
-            <p>
-              A public landing page for people searching Sangamon County, Chatham-area parcels, tax signals, owner rollups, and acreage.
-            </p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./sangamon-land-dashboard.html">Open Sangamon guide</a>
-            </div>
-          </article>
-          <article>
-            <h3>Knoxville Land Market Kit</h3>
-            <p>
-              A market page for Knoxville, Maryville, I-75, and East Tennessee land research across parcel, credit, and terrain signals.
-            </p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./knoxville-land-market-kit.html">Open Knoxville guide</a>
-            </div>
-          </article>
-          <article>
-            <h3>How to Research Land</h3>
-            <p>
-              A practical buyer checklist for parcel identity, ownership, taxes, terrain, flood risk, soils, access, and utilities.
-            </p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./how-to-research-land-before-buying.html">Open checklist</a>
-            </div>
-          </article>
-          <article>
-            <h3>Dashboard and Debt Context</h3>
-            <p>
-              Use parcel intelligence with county-level debt, housing distress, credit access, and economic context for a fuller read.
-            </p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./consumer-debt-dashboard/">Open debt context</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="local-search">
-        <div class="section-heading">
-          <p class="eyebrow">Local search pages</p>
-          <h2>More specific research pages for the places buyers are already searching.</h2>
-        </div>
-        <div class="feature-grid">
-          <article>
-            <h3>Chatham IL Land</h3>
-            <p>Research Chatham-area land using acreage, owner rollups, tax timing, terrain notes, and county source links.</p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./chatham-il-land-for-sale-research.html">Open Chatham page</a>
-            </div>
-          </article>
-          <article>
-            <h3>Sangamon Property Tax</h3>
-            <p>Use annual tax, unpaid balances, due dates, and treasurer links as one layer of land due diligence.</p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./sangamon-county-property-tax-research.html">Open tax page</a>
-            </div>
-          </article>
-          <article>
-            <h3>Central Illinois Acreage</h3>
-            <p>Screen acreage by parcel class, usable land, owner scale, county records, and market context.</p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./central-illinois-acreage-research.html">Open acreage page</a>
-            </div>
-          </article>
-          <article>
-            <h3>Knoxville TN Land</h3>
-            <p>Compare Knoxville land using parcel supply, slope, flood, soil, access, and credit-access context.</p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./knoxville-tn-land-research.html">Open Knoxville page</a>
-            </div>
-          </article>
-          <article>
-            <h3>Maryville TN Land</h3>
-            <p>Research Maryville and Blount County land with foothills terrain, access, utilities, and county record checks.</p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./maryville-tn-land-research.html">Open Maryville page</a>
-            </div>
-          </article>
-          <article>
-            <h3>Indianapolis IN Land</h3>
-            <p>Research Indianapolis-area land with public parcel coverage, class codes, and county verification steps.</p>
-            <div class="hero-actions" style="margin-top: 18px">
-              <a class="button primary" href="./indianapolis-in-land-research.html">Open Indianapolis page</a>
-            </div>
-          </article>
-          <article>
-            <h3>Build the Funnel</h3>
-            <p>Each page feeds back into the same dashboard workflow: find candidates, verify records, then track decisions.</p>
-          </article>
-        </div>
-      </section>
-
+      <section class="home-about" id="about" aria-labelledby="about-title">
+        <h2 id="about-title">About the index</h2>
+        <details class="home-method">
+          <summary>Dashboard preview and research methods</summary>
       <section class="section" id="signals">
         <div class="section-heading">
           <p class="eyebrow">Signals</p>
@@ -432,10 +227,6 @@
             <p>Explore local economic context where tract data is available. Debt data remains aggregate only.</p>
           </article>
         </div>
-        <div class="hero-actions" style="margin-top: 24px">
-          <a class="button primary" href="./consumer-debt-dashboard/">Open Illinois debt context</a>
-          <a class="button secondary" href="./knoxville-market-dashboard/">Open Knoxville market kit</a>
-        </div>
       </section>
 
       <section class="workflow-band" id="workflow">
@@ -467,22 +258,9 @@
         </div>
       </section>
 
-      <section class="access" id="access">
-        <div>
-          <p class="eyebrow">Public research tools</p>
-          <h2>The live dashboard is open for research.</h2>
-          <p>
-            The Illinois dashboard is public for parcel research. Saved watchlists and admin tools stay private, and
-            every parcel decision should still be verified with the county source before outreach or purchase.
-          </p>
-        </div>
-        <div class="access-card tally-card">
-          <h3>Want another market added?</h3>
-          <p>
-            Share the county or corridor you care about. New market kits can reuse the same parcel, debt, terrain, and
-            credit-access framework.
-          </p>
-          <a class="button primary" href="https://tally.so/r/VLbEeM">Request a market</a>
+        </details>
+        <div class="home-secondary" id="access">
+          <a href="https://tally.so/r/VLbEeM">Request coverage for another market</a>
         </div>
       </section>
     </main>

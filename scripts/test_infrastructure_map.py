@@ -54,14 +54,17 @@ try:
         page.on('pageerror', lambda e: errors.append(str(e)))
         page.on('response', lambda r: failed.append(r.url) if r.status >= 400 and r.url.startswith(base) else None)
         page.goto(base + '/')
-        page.get_by_role('link', name='Explore Water & Infrastructure', exact=True).click()
+        page.get_by_role('link', name='Water & parcel map', exact=True).click()
         page.wait_for_selector('.map-label')
         page.wait_for_function("document.querySelector('#water-layer-status').textContent.startsWith('USGS inventory:')",timeout=60000)
         assert page.locator('.all-waterbodies path').count()>0
+        map_options = page.get_by_text('Map area & layers', exact=True)
+        map_options.click()
         page.locator('#layer-streams').uncheck()
         page.wait_for_timeout(150)
         assert page.locator('.all-streams path').count()==0
         page.locator('#layer-streams').check()
+        map_options.click()
         results['surface_water_layer_and_toggle'] = 'passed'
         assert page.url == base + '/infrastructure-map/'
         assert page.locator('h1').count() == 1
@@ -99,7 +102,9 @@ try:
         page.mouse.wheel(0,-400)
         page.wait_for_timeout(400)
         assert state()['k'] > 1.5
+        map_options.click()
         page.locator('#water-map-area').select_option('springfield')
+        map_options.click()
         settle()
         assert state() == {'k':1,'x':0,'y':0}
         page.locator('#water-map-selection').select_option('site-memorial')
@@ -119,7 +124,9 @@ try:
         page.get_by_role('link', name='Explore water & infrastructure').click()
         page.wait_for_selector('.map-label')
         results['land_index_navigation_and_deep_link'] = 'passed'
+        map_options.click()
         page.locator('#water-map-area').select_option('water')
+        map_options.click()
         settle()
         page.screenshot(path=str(SCREENSHOTS/'infrastructure-map-desktop.png'), full_page=True)
         for width in [768,390,320]:
@@ -127,6 +134,11 @@ try:
             settle()
             assert page.locator('body').evaluate('(b)=>b.scrollWidth<=innerWidth'), width
             assert page.locator('#water-map-help').is_visible()
+            assert svg.evaluate('s => s.getBoundingClientRect().top + scrollY < 500'), width
+        page.get_by_role('link', name='View selection').click()
+        assert page.url.endswith('#selection')
+        page.get_by_role('link', name='Back to map').click()
+        assert page.url.endswith('#map-canvas')
         page.screenshot(path=str(SCREENSHOTS/'infrastructure-map-mobile.png'), full_page=True)
         mobile = browser.new_context(viewport={'width':390,'height':844},is_mobile=True,has_touch=True)
         mobile.route('**/*', lambda route: route.continue_() if route.request.url.startswith(base) else route.abort())

@@ -61,7 +61,11 @@
       if(move)resetView();areaPicker.value=area;draw();
     }
     function draw(){
-      const node=root.querySelector('.map-surface'),surface=d3.select(node),w=node.getBoundingClientRect().width;if(w<1)return;const small=w<=480,h=small?460:570;surface.attr('viewBox','0 0 '+w+' '+h);surface.selectAll('*').remove();
+      const node=root.querySelector('.map-surface'),surface=d3.select(node);
+      const {width:w,height:h}=node.getBoundingClientRect();
+      if(w<1||h<1)return;
+      const small=w<=480;
+      surface.attr('viewBox','0 0 '+w+' '+h);surface.selectAll('*').remove();
       let fit;
       if(area==='state')fit=fc(data.counties);
       else if(area==='aurora')fit=fc(data.counties.filter(f=>auroraIds.includes(String(f.id))));
@@ -164,7 +168,7 @@
       else{const f=data.places.find(f=>f.properties.BASENAME===selected);if(f)coordinate=[+f.properties.INTPTLON,+f.properties.INTPTLAT];}
       if(Array.isArray(centerOverride))coordinate=centerOverride;
       if(!coordinate)coordinate=[-89.7,39.6];area='local';areaPicker.value=area;resetView();draw();
-      const w=svg.node().getBoundingClientRect().width,h=w<=480?460:570,p=lastProjection(coordinate);
+      const {width:w,height:h}=svg.node().getBoundingClientRect(),p=lastProjection(coordinate);
       const widthKm=d3.geoDistance(lastProjection.invert([0,h/2]),lastProjection.invert([w,h/2]))*6371;
       const k=Math.max(.65,Math.min(256,widthKm/(Array.isArray(centerOverride)?1.3:5)));svg.call(zoom.transform,d3.zoomIdentity.translate(w/2,h/2).scale(k).translate(-p[0],-p[1]));
     }

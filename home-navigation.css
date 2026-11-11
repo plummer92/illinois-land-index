@@ -1,0 +1,61 @@
+.home-page { --home-gutter: clamp(18px, 5vw, 64px); }
+.home-page :where(section, details, ul, #access)[id] { scroll-margin-top: 100px; }
+.home-page .home-nav { flex-wrap: wrap; align-items: center; gap: 2px 14px; }
+.home-nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 4px; }
+.home-nav a:hover, .home-nav a:focus-visible { color: var(--green-dark); text-decoration: underline; }
+.home-skip { position: absolute; left: 12px; top: -90px; z-index: 5; padding: 12px; background: var(--white); }
+.home-skip:focus { top: 8px; }
+.home-start, .home-directory, .home-about {
+  width: min(100%, 1260px);
+  margin: 0 auto;
+  padding-inline: var(--home-gutter);
+}
+.home-start { padding-top: clamp(30px, 5vw, 70px); }
+.home-start h1 { max-width: none; font-size: clamp(32px, 4.6vw, 60px); line-height: 1.06; }
+.home-tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 24px; }
+.home-tool {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: clamp(18px, 2.1vw, 30px);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--green);
+  border-radius: 8px;
+  background: var(--white);
+}
+.home-tool:first-child { border-top-color: var(--blue); }
+.home-tool:last-child { border-top-color: var(--gold); }
+.home-tool h2 { font-size: clamp(20px, 2vw, 26px); line-height: 1.15; }
+.home-tool a { color: var(--green-dark); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.home-tool a::after { position: absolute; inset: 0; content: ""; border-radius: 8px; }
+.home-tool:focus-within { outline: 2px solid var(--green-dark); outline-offset: 3px; }
+.home-tool:hover { border-color: var(--green); }
+.home-tool p { max-width: 45ch; color: var(--ink); line-height: 1.5; }
+.home-arrow { color: var(--green-dark); font-size: 22px; line-height: 1; }
+.home-secondary { display: flex; flex-wrap: wrap; gap: 0 24px; margin-top: 12px; }
+.home-secondary a, .home-directory a, .market-guides summary, .home-method > summary {
+  display: inline-flex; align-items: center; min-height: 44px; color: var(--green-dark); text-underline-offset: 3px;
+}
+.home-directory { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
+.home-directory section, .home-about { padding-top: 20px; }
+.home-directory section { border-top: 1px solid var(--line); }
+.home-directory h2, .home-about > h2 { margin-bottom: 8px; font-size: 25px; }
+.home-directory ul { list-style: none; padding: 0; margin: 0; }
+.market-guides summary, .home-method > summary { display: list-item; align-content: center; cursor: pointer; font-weight: 650; }
+.home-about { margin-top: 28px; margin-bottom: 40px; }
+.home-method { border-block: 1px solid var(--line); }
+.home-method .section, .home-method .preview-section, .home-method .workflow-band { padding: 24px 0; }
+.home-method .section-heading h2 { font-size: 24px; }
+@media(max-width: 700px) {
+  .home-page .site-header { position: static; gap: 4px; padding: 10px var(--home-gutter) 0; }
+  .home-page .home-nav { width: auto; max-width: 100%; justify-content: flex-start; gap: 0 14px; }
+  .home-page :where(section, details, ul, #access)[id] { scroll-margin-top: 12px; }
+  .home-tools { grid-template-columns: 1fr; gap: 8px; margin-top: 16px; }
+  .home-tool { padding: 14px 44px 14px 16px; gap: 5px; border-top-width: 1px; border-left: 3px solid var(--green); }
+  .home-tool:first-child { border-left-color: var(--blue); border-top-color: var(--line); }
+  .home-tool:last-child { border-left-color: var(--gold); border-top-color: var(--line); }
+  .home-arrow { position: absolute; right: 14px; top: 15px; pointer-events: none; }
+  .home-tool p { font-size: 15px; }
+  .home-directory { grid-template-columns: 1fr; margin-top: 18px; gap: 15px; }
+}

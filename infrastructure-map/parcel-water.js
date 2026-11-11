@@ -90,7 +90,7 @@
     queueParcels(view){
       const key=view.map(v=>v.toFixed(4)).join(',');if(key===this.requestKey)return;
       clearTimeout(this.timer);this.requestKey=key;this.request++;this.pending?.abort();this.parcels=[];
-      if(view[2]-view[0]>.13||view[3]-view[1]>.12){this.parcelStatus.textContent='Zoom in for parcel boundaries, or use “Parcel view” to zoom to the selected place.';return;}
+      if(view[2]-view[0]>.13||view[3]-view[1]>.12){this.parcelStatus.textContent='Zoom in or choose “Show nearby parcels” to see county parcel boundaries.';return;}
       this.parcelStatus.textContent='Loading county parcel boundaries…';
       const seq=this.request;
       this.timer=setTimeout(()=>this.loadParcels(view,key,seq),120);

@@ -54,6 +54,9 @@ try:
         page.on('pageerror', lambda e: errors.append(str(e)))
         page.on('response', lambda r: failed.append(r.url) if r.status >= 400 and r.url.startswith(base) else None)
         page.goto(base + '/')
+        page.get_by_role('link', name='Parcel dashboard', exact=True).click()
+        assert page.url == base + '/parcel-dashboard/'
+        assert page.get_by_role('heading', name='Parcel dashboard', exact=True).is_visible()
         page.get_by_role('link', name='Water & parcel map', exact=True).click()
         page.wait_for_selector('.map-label')
         page.wait_for_function("document.querySelector('#water-layer-status').textContent.startsWith('USGS inventory:')",timeout=60000)

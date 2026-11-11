@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Parcel dashboard | Illinois Land Index</title>
+    <meta name="description" content="Look up a Sangamon County parcel in county GIS, check its acreage and open its water map.">
+    <link rel="canonical" href="https://illinoislandindex.com/parcel-dashboard/">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../navigation.css">
+    <link rel="stylesheet" href="./dashboard.css">
+    <script src="./lookup.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header index-navigation">
+      <a class="brand" href="../" aria-label="Illinois Land Index home"><span>ILI</span><strong>Illinois Land Index</strong></a>
+      <nav class="core-navigation" aria-label="Primary navigation">
+        <a href="../">Home</a>
+        <a href="../infrastructure-map/">Water &amp; parcel map</a>
+        <a href="./" aria-current="page">Parcel dashboard</a>
+        <a href="../latest-land-signals.html">County signals</a>
+      </nav>
+    </header>
+    <main class="parcel-page">
+      <header>
+        <h1>Parcel dashboard</h1>
+        <p>Look up a Sangamon County parcel by number or street address, check its acreage and open it on the water map.</p>
+      </header>
+      <section class="lookup" aria-label="County parcel lookup">
+        <form id="parcel-form">
+          <label for="parcel-number">Parcel number or street address</label>
+          <div class="search-row">
+            <input id="parcel-number" type="text" autocomplete="off" maxlength="160" aria-describedby="format-help" required>
+            <button class="button primary" type="submit">Find parcel</button>
+          </div>
+          <p class="hint" id="format-help">Use a 10- or 11-digit PIN. For an address, enter the house number and street, followed by a comma and city.</p>
+        </form>
+        <button type="button" class="example" id="example">Try a proposed CyrusOne site parcel</button>
+        <p id="lookup-status" role="status" aria-live="polite"></p>
+        <section id="result" hidden aria-label="County parcel result">
+          <h2 id="result-title"></h2>
+          <p id="acreage"></p>
+          <a id="open-map" class="button primary" href="../infrastructure-map/">Open parcel water map</a>
+          <div class="county-links"><a id="county-tax">County tax record</a><a id="county-map">County parcel viewer</a></div>
+        </section>
+        <noscript><p>Enable JavaScript for the county lookup or use the county GIS link below.</p></noscript>
+      </section>
+      <section class="related" aria-label="Other parcel tools">
+        <p><a href="https://tax.sangamonil.gov/SangamonCountyWeb/app/searchByParcelNumber.action">Search the county property records</a> for additional address and owner searches. Parcel boundaries and acreage come from Sangamon County GIS.</p>
+        <p>For Morgan or Macoupin County, choose a place on the <a href="../infrastructure-map/">water &amp; parcel map</a> to browse nearby parcels.</p>
+        <p>The <a href="https://dashboard.illinoislandindex.com/land-dashboard/index.html">account dashboard</a> and saved watchlists are temporarily offline.</p>
+      </section>
+    </main>
+  </body>
+</html>

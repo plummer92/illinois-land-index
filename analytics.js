@@ -21,7 +21,8 @@
   }
 
   function classifyLink(url) {
-    if (url.hostname === "dashboard.illinoislandindex.com") return "illinois_land_dashboard";
+    if (url.hostname === "dashboard.illinoislandindex.com" ||
+        (url.origin === window.location.origin && url.pathname === "/parcel-dashboard/")) return "illinois_land_dashboard";
     if (url.pathname.includes("consumer-debt-dashboard")) return "debt_context";
     if (url.pathname.includes("knoxville-market-dashboard")) return "knoxville_market_dashboard";
     if (url.pathname.includes("indianapolis-market-dashboard")) return "indianapolis_market_dashboard";

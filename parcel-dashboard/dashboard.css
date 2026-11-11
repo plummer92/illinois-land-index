@@ -1,0 +1,41 @@
+.parcel-page {
+  width: min(100%, 54rem);
+  margin: 0 auto;
+  padding: clamp(22px, 5vw, 64px) clamp(16px, 4vw, 42px);
+  overflow: visible;
+}
+.parcel-page h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; }
+.parcel-page header p { margin-top: 8px; color: var(--muted); }
+.parcel-page p { line-height: 1.55; }
+.lookup {
+  margin: 24px 0 16px;
+  padding: clamp(16px, 4vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+}
+.lookup label { display: block; margin-bottom: 6px; font-weight: 700; }
+.search-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.search-row input {
+  min-width: 0;
+  flex: 1 1 13rem;
+  min-height: 46px;
+  padding: 8px 12px;
+  border: 1px solid var(--muted);
+  border-radius: 7px;
+  font: inherit;
+  font-size: 16px;
+}
+.lookup .button { border: 0; cursor: pointer; font: inherit; font-weight: 650; }
+.lookup .hint { margin: 6px 0; color: var(--muted); font-size: 14px; }
+.example { display: inline-block; padding: 8px 0; min-height: 44px; border: 0; background: transparent; font: inherit; cursor: pointer; }
+.example, .related a { color: var(--green-dark); text-decoration: underline; text-underline-offset: 3px; }
+#lookup-status:not(:empty) { padding-top: 8px; }
+#result { margin-top: 14px; padding-top: 16px; border-top: 1px solid var(--line); }
+#result h2 { font-size: clamp(19px, 3vw, 24px); line-height: 1.3; }
+#result p { margin: 4px 0 14px; }
+.related { display: grid; gap: 8px; }
+.county-links { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 8px; }
+.county-links a { padding: 8px 0; color: var(--green-dark); text-underline-offset: 3px; }
+.lookup [hidden] { display: none; }
+@media (max-width: 425px) { .search-row input, .search-row button { flex-basis: 100%; } }

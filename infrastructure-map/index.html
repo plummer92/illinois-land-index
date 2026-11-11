@@ -9,8 +9,11 @@
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="./map.css" />
     <link rel="stylesheet" href="./site.css" />
+    <script src="./parcel-location.js"></script>
     <script src="../analytics.js" defer></script>
     <script src="./vendor/d3.v7.min.js" defer></script>
+    <script src="./vendor/turf.v7.min.js" defer></script>
+    <script src="./parcel-water.js" defer></script>
     <script src="./map.js" defer></script>
   </head>
   <body class="infrastructure-page">
@@ -28,7 +31,7 @@
       <section class="research-intro" aria-labelledby="research-title">
         <p class="eyebrow">Central Illinois infrastructure research</p>
         <h1 id="research-title">Follow the water.<br />See the land around it.</h1>
-        <p class="lede">Explore water sources, the proposed CyrusOne campus and publicly documented data-center references alongside the county and community records in Illinois Land Index.</p>
+        <p class="lede">Explore lakes, ponds, rivers and streams alongside land parcel boundaries in Sangamon, Morgan and Macoupin counties. Select a parcel to compare mapped water features, or inspect the proposed CyrusOne campus and documented data-center references.</p>
         <p class="research-snapshot">Sangamon · Morgan · Macoupin · Research snapshot: November 10, 2026</p>
       </section>
       <section aria-label="Interactive infrastructure map">
@@ -39,11 +42,14 @@
     <label class="control-label"><span class="text-small">Map area</span><select class="form-select" id="water-map-area"><option value="water">Lakes &amp; proposed CyrusOne</option><option value="local">Three-county overview</option><option value="springfield">Springfield data-center sites</option><option value="state">Illinois overview</option><option value="aurora">Aurora / Lombard comparison</option></select></label>
     <label class="control-label"><span class="text-small">Selected place or facility</span><select class="form-select" id="water-map-selection" aria-label="Select a lake, facility, county, city or village"></select></label>
   </div>
-  <div class="viz-controls" aria-label="Map navigation"><button class="btn" type="button" id="water-zoom-in" aria-label="Zoom in">Zoom +</button><button class="btn" type="button" id="water-zoom-out" aria-label="Zoom out">Zoom −</button><button class="btn" type="button" id="water-reset">Reset view</button><span class="text-small text-muted" id="water-map-help">Drag to move · Scroll or pinch to zoom · Double-click to zoom in</span></div>
+  <fieldset class="water-layer-controls"><legend>Map layers</legend><label><input id="layer-waterbodies" type="checkbox" checked /> Lakes, ponds &amp; water areas</label><label><input id="layer-streams" type="checkbox" checked /> Streams &amp; canals</label><label><input id="layer-parcels" type="checkbox" checked /> Parcel boundaries</label></fieldset>
+  <div class="viz-controls" aria-label="Map navigation"><button class="btn" type="button" id="water-zoom-in" aria-label="Zoom in">Zoom +</button><button class="btn" type="button" id="water-zoom-out" aria-label="Zoom out">Zoom −</button><button class="btn" type="button" id="water-reset">Reset view</button><button class="btn" type="button" id="water-parcel-view">Parcel view</button><span class="text-small text-muted" id="water-map-help">Drag to move · Scroll or pinch to zoom · Double-click to zoom in</span></div>
+  <div class="water-layer-status text-small text-muted" aria-live="polite"><p id="water-layer-status">Loading the three-county USGS water inventory…</p><p id="parcel-layer-status">Zoom in or choose Parcel view to load county boundaries.</p></div>
   <p id="water-map-error" role="alert" hidden></p>
   <svg class="map-surface" role="img" tabindex="0" aria-describedby="water-map-help" aria-label="Interactive map showing Waverly Lake, Otter Lake, the four proposed CyrusOne parcels and publicly documented data-center locations. Drag to pan, scroll or pinch to zoom. Arrow keys move the map; plus and minus zoom; Home resets. Dashed water relationships are schematic, not pipeline routes. All locations can be selected from the menu."></svg>
-  <div class="map-legend text-small" aria-label="Map legend"><span class="key"><span class="lake-key" aria-hidden="true"></span>Lake</span><span class="key"><span class="site-key" aria-hidden="true"></span>Documented DC</span><span class="key"><span class="reference-key" aria-hidden="true"></span>Historical / reported</span><span class="key"><span class="project-key" aria-hidden="true">▲</span>Proposed / development</span><span class="key"><span class="link-key" aria-hidden="true"></span>Supply relationship</span></div>
+  <div class="map-legend text-small" aria-label="Map legend"><span class="key"><span class="lake-key" aria-hidden="true"></span>Waterbody</span><span class="key"><span class="stream-key" aria-hidden="true"></span>Stream / canal</span><span class="key"><span class="parcel-key" aria-hidden="true"></span>Parcel boundary</span><span class="key"><span class="site-key" aria-hidden="true"></span>Documented DC</span><span class="key"><span class="reference-key" aria-hidden="true"></span>Historical / reported</span><span class="key"><span class="project-key" aria-hidden="true">▲</span>Proposed / development</span><span class="key"><span class="link-key" aria-hidden="true"></span>Supply relationship</span></div>
   <span class="text-small text-muted">Dashed links show supply relationships through Waverly / Apple Creek, not pipe routes. Future CyrusOne service and the Otter Lake backup are not verified operating connections.</span>
+  <div class="parcel-water-detail" id="parcel-water-detail" aria-live="polite" hidden></div>
   <div class="map-detail" aria-live="polite"><h3 id="water-map-name"></h3><span class="text-small" id="water-map-status"></span><span class="text-small text-muted" id="water-map-address"></span><p id="water-map-description"></p><div class="detail-sources text-small" id="water-map-sources"></div></div>
   <details><summary class="text-small">Inventory coverage &amp; map sources</summary><div class="text-small text-muted" id="water-map-coverage"></div><div class="base-sources text-small"><a href="https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer" target="_blank" rel="noopener noreferrer">USGS lake geometry</a><a href="https://sangis.co.sangamon.il.us/server/rest/services/TyleratENTParcels/MapServer/0" target="_blank" rel="noopener noreferrer">County parcels</a><a href="https://sangis.co.sangamon.il.us/server/rest/services/SangamonCountyStreets/MapServer/2" target="_blank" rel="noopener noreferrer">County roads</a><a href="https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Places_CouSub_ConCity_SubMCD/MapServer/4" target="_blank" rel="noopener noreferrer">Census municipalities, 2026</a><a href="https://github.com/topojson/us-atlas" target="_blank" rel="noopener noreferrer">County atlas, 2017</a></div></details>
 
@@ -55,7 +61,7 @@
       </section>
       <section class="research-connections" aria-labelledby="connections-title">
         <h2 id="connections-title">Connect the map to the land records</h2>
-        <p>Use location as a starting point, then check the records behind each project. A nearby lake or facility does not establish water availability, utility capacity, an operating connection or a property's value.</p>
+        <p>Parcel boundaries load from each county's GIS as you zoom in. Water geometry comes from USGS NHD and includes intermittent streams and artificial flow paths; the Streams layer displays river/stream and canal/ditch features. This is surface-water screening, not a complete wetlands or floodplain inventory. A nearby lake or facility does not establish water rights, utility service, buildable acreage or property value.</p>
         <div class="hero-actions">
           <a class="button primary" href="../sangamon-land-dashboard.html">Sangamon land research</a>
           <a class="button secondary" href="../chatham-il-land-for-sale-research.html">Chatham land research</a>

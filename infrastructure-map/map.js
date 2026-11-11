@@ -8,9 +8,9 @@
     const detailName=root.querySelector('#water-map-name'),detailStatus=root.querySelector('#water-map-status'),detailAddress=root.querySelector('#water-map-address'),detailDescription=root.querySelector('#water-map-description'),detailSources=root.querySelector('#water-map-sources');
     const focusIds=['17167','17137','17117'],auroraIds=['17089','17043','17093','17197'];
     const comparisons=['Aurora','Lombard'];
-    let area='water',selected='site-cyrusone',viewTransform=d3.zoomIdentity,gestureStart=d3.zoomIdentity,drawPending=false;
+    let area='water',selected='site-cyrusone',viewTransform=d3.zoomIdentity,gestureStart=d3.zoomIdentity,drawPending=false,waterLayers=null,lastProjection=null;
     function scheduleDraw(){if(!drawPending){drawPending=true;requestAnimationFrame(()=>{drawPending=false;draw();});}}
-    const zoom=d3.zoom().scaleExtent([.65,32]).clickDistance(5)
+    const zoom=d3.zoom().scaleExtent([.65,256]).clickDistance(5)
       .on('start',event=>{gestureStart=viewTransform;if(event.sourceEvent&&['mousedown','touchstart'].includes(event.sourceEvent.type))svg.classed('dragging',true);})
       .on('zoom',event=>{viewTransform=event.transform;const k=viewTransform.k/gestureStart.k;svg.select('.map-content').attr('transform','translate('+(viewTransform.x-gestureStart.x*k)+','+(viewTransform.y-gestureStart.y*k)+') scale('+k+')');})
       .on('end',()=>{svg.classed('dragging',false);draw();save();});
@@ -39,12 +39,12 @@
     const known=new Set(Array.from(picker.options).map(o=>o.value));
     const storageKey='ili-infrastructure-map-v1';
     let saved=null;try{saved=JSON.parse(localStorage.getItem(storageKey));}catch{}
-    function restore(s){if(!s||![2,3].includes(s.version))return;if(['water','local','springfield','state','aurora'].includes(s.area))area=s.area;if(known.has(s.selected))selected=s.selected;if(s.version===3&&Array.isArray(s.view)&&s.view.length===3&&s.view.every(Number.isFinite)){const [x,y,k]=s.view;if(k>=.65&&k<=32)viewTransform=d3.zoomIdentity.translate(x,y).scale(k);}}
+    function restore(s){if(!s||![2,3].includes(s.version))return;if(['water','local','springfield','state','aurora'].includes(s.area))area=s.area;if(known.has(s.selected))selected=s.selected;if(s.version===3&&Array.isArray(s.view)&&s.view.length===3&&s.view.every(Number.isFinite)){const [x,y,k]=s.view;if(k>=.65&&k<=256)viewTransform=d3.zoomIdentity.translate(x,y).scale(k);}}
     if(saved)restore(saved.privateContent);
     function save(){try{localStorage.setItem(storageKey,JSON.stringify({privateContent:{version:3,area,selected,view:[viewTransform.x,viewTransform.y,viewTransform.k]}}));}catch{}}
     function source(label,url){const a=document.createElement('a');a.textContent=label;a.href=url;if(!url.startsWith('../')){a.target='_blank';a.rel='noopener noreferrer';}detailSources.appendChild(a);}
     function choose(key,move){
-      if(!known.has(key))return;selected=key;picker.value=key;detailSources.replaceChildren();
+      if(!known.has(key))return;waterLayers?.clearSelection();selected=key;picker.value=key;detailSources.replaceChildren();
       if(key.startsWith('site-')){
         const s=data.sites.find(s=>'site-'+s.id===key);detailName.textContent=s.name;detailStatus.textContent=s.status;detailAddress.textContent=s.address+' · '+s.locationQuality;detailDescription.textContent=s.detail;s.sources.forEach(s=>source(s.label,s.url));
         if(move)area=s.id==='cyrusone'?'water':'springfield';
@@ -71,6 +71,7 @@
       const rail=area==='springfield'?(small?125:190):24;
       const base=d3.geoMercator().fitExtent([[24,32],[w-rail-12,h-42]],fit);
       const projection=d3.geoMercator().scale(base.scale()*viewTransform.k).translate(viewTransform.apply(base.translate())).clipExtent([[-w,-h],[2*w,2*h]]),path=d3.geoPath(projection);
+      lastProjection=projection;
       surface.attr('data-zoom',viewTransform.k).attr('data-pan-x',viewTransform.x).attr('data-pan-y',viewTransform.y);
       const inFrame=p=>p[0]>2&&p[0]<w-2&&p[1]>18&&p[1]<h-24;
       surface.append('desc').text('Ten public data-center site records are mapped in Sangamon County. Markers distinguish documented facilities, development projects, and historical or reported references. Two lake sources and schematic supply links show the water relationship without implying a constructed pipe route.');
@@ -79,16 +80,18 @@
       counties.selectAll('path').data(data.counties).join('path').attr('d',path).attr('fill',f=>focusIds.includes(String(f.id))?'color-mix(in srgb,var(--viz-series-1) 10%,var(--background))':'color-mix(in srgb,var(--muted-foreground) 4%,var(--background))').attr('stroke','var(--border)').attr('stroke-width',.8).attr('data-tooltip',f=>f.properties.name+' County').on('click',(e,f)=>{if(focusIds.includes(String(f.id))){choose('county-'+f.id,false);save();}});
       svg.append('g').selectAll('path').data(data.places).join('path').attr('d',path).attr('fill','color-mix(in srgb,var(--muted-foreground) 6%,var(--background))').attr('stroke','var(--border)').attr('stroke-width',.7);
       if(base.scale()*viewTransform.k>15000)svg.append('g').selectAll('path').data(data.roads).join('path').attr('d',path).attr('fill','none').attr('stroke','color-mix(in srgb,var(--muted-foreground) 22%,var(--background))').attr('stroke-width',.5).attr('pointer-events','none');
+      waterLayers?.render({projection,path,layer:svg,width:w,height:h});
       const boundaryLabels=area==='local'?data.counties.filter(f=>focusIds.includes(String(f.id))):area==='aurora'?data.counties.filter(f=>auroraIds.includes(String(f.id))):[];
       boundaryLabels.forEach(f=>{const p=projection(d3.geoCentroid(f));if(String(f.id)==='17167'){p[1]-=small?62:84;p[0]+=small?0:50;}svg.append('text').attr('class','county-label text-small').attr('x',p[0]).attr('y',p[1]).attr('text-anchor','middle').text(f.properties.name+' County');});
       const lakes=svg.append('g');
-      lakes.selectAll('path').data(data.lakes).join('path').attr('d',path).attr('fill','var(--viz-series-1)').attr('fill-opacity',.72).attr('stroke','var(--viz-series-1)').attr('stroke-width',.7).attr('class','cursor-interaction').attr('data-tooltip',f=>f.properties.name+' · '+f.properties.status).on('click',(e,f)=>{choose('lake-'+f.properties.id,false);save();});
+      lakes.selectAll('path').data(waterLayers&&!waterLayers.checks.waterbodies.checked?[]:data.lakes).join('path').attr('d',path).attr('fill','var(--viz-series-1)').attr('fill-opacity',.72).attr('stroke','var(--viz-series-1)').attr('stroke-width',.7).attr('class','cursor-interaction').attr('data-tooltip',f=>f.properties.name+' · '+f.properties.status).on('click',(e,f)=>{choose('lake-'+f.properties.id,false);save();});
       const footprint=svg.append('path').datum(data.cyrusoneFootprint).attr('d',path).attr('fill','var(--viz-series-3)').attr('fill-opacity',.35).attr('stroke','var(--viz-series-3)').attr('stroke-width',1).attr('class','cursor-interaction').attr('data-tooltip','Four CyrusOne petition parcels · 280 acres').on('click',()=>{choose('site-cyrusone',false);save();});
       if(area!=='aurora'){
         const target=projection(data.sites.find(s=>s.id==='cyrusone').coordinates);
         const defs=svg.append('defs');defs.append('marker').attr('id','water-map-arrow').attr('viewBox','0 0 10 10').attr('refX',9).attr('refY',5).attr('markerWidth',7).attr('markerHeight',7).attr('orient','auto').append('path').attr('d','M1 1 L9 5 L1 9').attr('fill','none').attr('stroke','var(--viz-series-1)').attr('stroke-width',1.3);
         data.lakes.forEach(f=>{const p=projection(f.properties.coordinates);svg.append('line').attr('x1',p[0]).attr('y1',p[1]).attr('x2',target[0]).attr('y2',target[1]).attr('stroke','var(--viz-series-1)').attr('stroke-width',1.3).attr('stroke-dasharray','5 5').attr('marker-end','url(#water-map-arrow)').attr('pointer-events','none');});
       }
+      waterLayers?.renderHits({path,layer:svg});
       const occupied=[];
       function label(text,p,dx,dy,anchor='start',secondary=false){
         let x=p[0]+dx,y=p[1]+dy;
@@ -151,11 +154,28 @@
     picker.addEventListener('change',()=>{choose(picker.value,true);save();});
     areaPicker.addEventListener('change',()=>{area=areaPicker.value;resetView();if(area==='water')selected='site-cyrusone';else if(area==='springfield')selected='site-ccf-existing';else if(area==='aurora')selected='Aurora';choose(selected,false);save();});
     svg.call(zoom).property('__zoom',viewTransform);
+    waterLayers=new ParcelWaterLayer({root,context:data,onChange:scheduleDraw});
+    function parcelView(centerOverride){
+      waterLayers.checks.parcels.checked=true;
+      let coordinate;
+      if(selected.startsWith('site-'))coordinate=data.sites.find(s=>'site-'+s.id===selected)?.coordinates;
+      else if(selected.startsWith('lake-'))coordinate=data.lakes.find(f=>'lake-'+f.properties.id===selected)?.properties.coordinates;
+      else if(selected.startsWith('county-'))coordinate=d3.geoCentroid(data.counties.find(f=>'county-'+f.id===selected));
+      else{const f=data.places.find(f=>f.properties.BASENAME===selected);if(f)coordinate=[+f.properties.INTPTLON,+f.properties.INTPTLAT];}
+      if(Array.isArray(centerOverride))coordinate=centerOverride;
+      if(!coordinate)coordinate=[-89.7,39.6];area='local';areaPicker.value=area;resetView();draw();
+      const w=svg.node().getBoundingClientRect().width,h=w<=480?460:570,p=lastProjection(coordinate);
+      const widthKm=d3.geoDistance(lastProjection.invert([0,h/2]),lastProjection.invert([w,h/2]))*6371;
+      const k=Math.max(.65,Math.min(256,widthKm/(Array.isArray(centerOverride)?1.3:5)));svg.call(zoom.transform,d3.zoomIdentity.translate(w/2,h/2).scale(k).translate(-p[0],-p[1]));
+    }
+    root.querySelector('#water-parcel-view').addEventListener('click',()=>parcelView());
     root.querySelector('#water-zoom-in').addEventListener('click',()=>svg.call(zoom.scaleBy,1.5));
     root.querySelector('#water-zoom-out').addEventListener('click',()=>svg.call(zoom.scaleBy,1/1.5));
     root.querySelector('#water-reset').addEventListener('click',resetView);
     svg.on('keydown.navigation',event=>{const moves={ArrowLeft:[80,0],ArrowRight:[-80,0],ArrowUp:[0,80],ArrowDown:[0,-80]};if(moves[event.key]){event.preventDefault();const [x,y]=moves[event.key];svg.call(zoom.translateBy,x/viewTransform.k,y/viewTransform.k);}else if(['+','=','-','Home'].includes(event.key)){event.preventDefault();if(event.key==='Home')resetView();else svg.call(zoom.scaleBy,event.key==='-'?1/1.5:1.5);}});
-    const requested=new URLSearchParams(location.search).get('place');
+    const query=new URLSearchParams(location.search),requested=query.get('place');
     choose(known.has(requested)?requested:selected,known.has(requested));
+    const [lon,lat]=window.ILIParcelCoordinate||[NaN,NaN];
+    if(Number.isFinite(lon)&&Number.isFinite(lat)&&lon>=-90.61&&lon<=-89.20&&lat>=38.99&&lat<=39.99){waterLayers.focusPoint=[lon,lat];parcelView([lon,lat]);}
     new ResizeObserver(scheduleDraw).observe(svg.node());document.fonts.ready.then(scheduleDraw);
   })().catch(error=>{console.error(error);const warning=document.getElementById('water-map-error');warning.hidden=false;warning.textContent='The map could not load. Refresh this page or use the county research links below.';});

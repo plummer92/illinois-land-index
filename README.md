@@ -91,6 +91,34 @@ D3 7.9.0 and its license are vendored in `infrastructure-map/vendor/` so map ren
 depend on a CDN. Map preferences are saved in browser-local storage only. The sitewide analytics
 script is retained; no map coordinates or selections are sent to it by the map code.
 
+### Water and parcel layers
+
+The map now also includes USGS NHD waterbodies, flowlines and water areas for Sangamon,
+Morgan and Macoupin counties. The compressed snapshot is `infrastructure-map/data/three-county-water.json.gz`;
+the adjacent manifest records counts, source layers, download time and precision. Refresh with
+`python scripts/import_three_county_water.py` (requires Shapely). The import verifies source pagination,
+clips features to the three map county boundaries and retains a last-good snapshot on source-query failure.
+It is not a complete inventory of floodplains, wetlands, groundwater or utility connections.
+
+Parcel boundaries load on demand from the counties' published GIS services. Requests use acreage
+fields only; returned geometry is reduced to county, acreage and source URL. The map does not fetch
+owner names, mailing addresses, tax records or watchlists. Broad/dense views ask users to zoom in;
+an incomplete response is never presented as complete. County services require network access.
+
+Parcel water screening uses Turf 7.2.0, vendored with its license. Polygon intersections are unioned
+before calculating acreage to avoid double-counting. Stream/canal intersections exclude artificial
+flow paths. Measurements are approximate and do not establish water rights, service, flood risk,
+year-round flow or buildable acreage. No ranking or opportunity-score change is made.
+
+The parcel dashboard companion can open this page with a longitude/latitude interior point. The
+map consumes and removes those parameters before site analytics loads, then selects a unique
+county boundary containing that point. No owner record, PIN, tax data or watchlist is forwarded.
+Coordinate links are supported only inside the three-county extent. The companion lives in the
+private Chatham Land Index project, not in this public repository.
+
+Run `node scripts/test_parcel_water.mjs` for geometry checks covering intersections, holes,
+duplicate areas and artificial flow paths.
+
 To check interactions, install Python Playwright with Chromium, then run
 `python scripts/test_infrastructure_map.py`. The check starts and stops its own local server.
 

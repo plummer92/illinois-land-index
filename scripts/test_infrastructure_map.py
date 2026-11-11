@@ -56,6 +56,13 @@ try:
         page.goto(base + '/')
         page.get_by_role('link', name='Explore Water & Infrastructure', exact=True).click()
         page.wait_for_selector('.map-label')
+        page.wait_for_function("document.querySelector('#water-layer-status').textContent.startsWith('USGS inventory:')",timeout=60000)
+        assert page.locator('.all-waterbodies path').count()>0
+        page.locator('#layer-streams').uncheck()
+        page.wait_for_timeout(150)
+        assert page.locator('.all-streams path').count()==0
+        page.locator('#layer-streams').check()
+        results['surface_water_layer_and_toggle'] = 'passed'
         assert page.url == base + '/infrastructure-map/'
         assert page.locator('h1').count() == 1
         svg = page.locator('.map-surface')

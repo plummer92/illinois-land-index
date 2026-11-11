@@ -31,5 +31,16 @@
 #illinois-water-data-map .map-detail p {max-width:1000px}
 #illinois-water-data-map summary {cursor:pointer}
 #illinois-water-data-map .base-sources {margin-top:10px}
+#illinois-water-data-map [hidden] {display:none!important}
+#illinois-water-data-map .water-layer-controls {border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px 22px;min-width:0}
+#illinois-water-data-map .water-layer-controls legend {font-size:13px;margin-bottom:6px}
+#illinois-water-data-map .water-layer-controls label {display:inline-flex;align-items:center;gap:7px;font-size:14px;min-height:36px}
+#illinois-water-data-map .water-layer-controls input {accent-color:var(--green);width:18px;height:18px}
+#illinois-water-data-map .water-layer-status {display:grid;gap:4px}
+#illinois-water-data-map .parcel-water-detail {display:grid;gap:8px}
+#illinois-water-data-map .parcel-water-detail .btn {justify-self:start}
+#illinois-water-data-map .water-layer-status [data-error="true"] {color:var(--clay)}
+#illinois-water-data-map .parcel-key {width:14px;height:10px;border:1px solid var(--green-dark)}
+#illinois-water-data-map .stream-key {width:20px;border-top:1px solid var(--blue)}
 @media(max-width:700px){.infrastructure-page .site-header{position:static}.research-page{padding-top:24px}.research-intro .lede{font-size:16px}}
 @media(pointer:coarse){#illinois-water-data-map .btn{min-height:44px}#illinois-water-data-map .form-select{font-size:16px}}

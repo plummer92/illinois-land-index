@@ -1,0 +1,23 @@
+// Geometry tests use actual Turf operations, including holes and duplicate areas.
+import {createRequire} from 'node:module';
+import assert from 'node:assert/strict';
+const require=createRequire(import.meta.url);
+globalThis.turf=require('../infrastructure-map/vendor/turf.v7.min.js');
+globalThis.window={};
+require('../infrastructure-map/parcel-water.js');
+const {screenParcel,polygonOverlap}=window.ParcelWaterScreen;
+const rect=(x0,y0,x1,y1)=>turf.polygon([[[x0,y0],[x1,y0],[x1,y1],[x0,y1],[x0,y0]]]);
+const parcel=rect(-90,39,-89.99,39.01);
+const water=rect(-90.001,39.004,-89.995,39.008);
+const area=polygonOverlap(parcel,[water]);
+assert(area>0&&area<turf.area(parcel));
+assert(Math.abs(polygonOverlap(parcel,[water,water])-area)<.1,'Duplicate polygons must not double-count water acreage');
+const hole=turf.polygon([[[-90.01,38.99],[-89.98,38.99],[-89.98,39.02],[-90.01,39.02],[-90.01,38.99]],[[-90.001,38.999],[-90.001,39.011],[-89.989,39.011],[-89.989,38.999],[-90.001,38.999]]]);
+assert.equal(polygonOverlap(parcel,[hole]),0,'A parcel inside a water polygon hole must remain dry');
+const crossing=turf.lineString([[-90.01,39.005],[-89.98,39.005]],{feature_type:460});
+const artificial=turf.lineString([[-90.01,39.005],[-89.98,39.005]],{feature_type:558});
+const inventory=streams=>({layers:{waterbodies:{features:[water]},water_areas:{features:[]},streams:{features:streams}}});
+assert.equal(screenParcel(parcel,inventory([crossing])).stream_intersects,true);
+assert.equal(screenParcel(parcel,inventory([artificial])).stream_intersects,false,'Artificial flow paths must not be called streams');
+assert.equal(screenParcel(parcel,inventory([])).stream_intersects,false);
+console.log('Passed: polygon overlap, duplicate-area union, holes, stream crossing and artificial-path distinction.');

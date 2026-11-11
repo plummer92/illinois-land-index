@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "retrieved_at": "2026-11-11T02:04:25.725719+00:00",
+    "source": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer",
+    "counties": [
+      "Sangamon",
+      "Morgan",
+      "Macoupin"
+    ],
+    "county_fips": [
+      "17167",
+      "17137",
+      "17117"
+    ],
+    "coverage": "USGS NHD large-scale waterbodies, flowlines and water areas intersecting the three counties. Geometry clipped to the map county boundaries. Full source pagination checked. Not a complete wetlands, floodplain, groundwater or utility-service inventory.",
+    "precision": "Coordinates rounded to six decimals at download; topology-preserving simplification of 0.00001 degrees. Screening geometry, not a survey.",
+    "bounds": [
+      -90.59946,
+      38.99865,
+      -89.21758,
+      39.97712
+    ]
+  },
+  "layers": {
+    "waterbodies": {
+      "source_layer": 12,
+      "source_count_in_envelope": 14079,
+      "count_in_counties": 7130
+    },
+    "streams": {
+      "source_layer": 6,
+      "source_count_in_envelope": 67037,
+      "count_in_counties": 36395
+    },
+    "water_areas": {
+      "source_layer": 9,
+      "source_count_in_envelope": 159,
+      "count_in_counties": 86
+    }
+  }
+}

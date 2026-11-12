@@ -55,6 +55,9 @@
       }else{
         detailName.textContent=key;detailStatus.textContent='Place connected to our research';detailAddress.textContent='Municipal boundary and point from Census TIGERweb';detailDescription.textContent=places[key]||'';if(move)area=comparisons.includes(key)?'aurora':key==='Springfield'?'springfield':'local';
       }
+      if (['site-cyrusone', 'lake-waverly-lake', 'Waverly'].includes(key)) {
+        source('Apple Creek water purchases and CyrusOne demand', '../infrastructure-map/waverly-water/');
+      }
       if(key==='Chatham')source('Chatham land research','../chatham-il-land-for-sale-research.html');
       if(key.startsWith('site-')||key==='county-17167'||key==='Springfield'||key==='Chatham')source('Sangamon land research','../sangamon-land-dashboard.html');
       source('Latest county signals','../latest-land-signals.html');

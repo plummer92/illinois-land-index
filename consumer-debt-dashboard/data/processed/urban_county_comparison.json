@@ -1,0 +1,476 @@
+{
+  "periods": [
+    "2025-08",
+    "2026-08"
+  ],
+  "metrics": {
+    "collections_rate": {
+      "label": "Debt in collections",
+      "unit": "rate",
+      "definition": "Share of people with a credit record showing a collection account.",
+      "source_column": "totcoll"
+    },
+    "median_collections_debt": {
+      "label": "Median debt in collections",
+      "unit": "usd",
+      "definition": "Middle dollar amount among people whose credit records show debt in collections.",
+      "source_column": "totcollpos_p50"
+    },
+    "credit_card_delinquency_rate": {
+      "label": "Credit card delinquency",
+      "unit": "rate",
+      "definition": "Share of people carrying credit or charge card debt who are at least 60 days late.",
+      "source_column": "carddelrate"
+    },
+    "median_credit_card_delinquent_debt": {
+      "label": "Median delinquent credit card debt",
+      "unit": "usd",
+      "definition": "Middle amount in delinquent credit or charge card debt among people with a delinquent card.",
+      "source_column": "carddelpos_p50"
+    },
+    "auto_retail_delinquency_rate": {
+      "label": "Auto or retail loan delinquency",
+      "unit": "rate",
+      "definition": "Share of auto loan, auto lease or retail installment borrowers who are at least 60 days late.",
+      "source_column": "autoretdelrate"
+    },
+    "share_with_auto_loans": {
+      "label": "People with an auto loan or lease",
+      "unit": "rate",
+      "definition": "Share of people with a credit record who have an auto loan or vehicle lease.",
+      "source_column": "autoopen"
+    },
+    "share_with_auto_retail_debt": {
+      "label": "People with auto or retail debt",
+      "unit": "rate",
+      "definition": "Share of people with a credit record who have an auto loan, auto lease or retail installment loan.",
+      "source_column": "autoretopen"
+    },
+    "student_loan_delinquency_rate": {
+      "label": "Student loan delinquency",
+      "unit": "rate",
+      "definition": "Share of student borrowers whose loans are in default or at least 60 days late.",
+      "source_column": "stddelderogofstdtot"
+    },
+    "share_with_student_loan_debt": {
+      "label": "People with student debt",
+      "unit": "rate",
+      "definition": "Share of people with a credit record showing student debt, including deferred and delinquent accounts.",
+      "source_column": "stdtot"
+    },
+    "median_student_loan_debt": {
+      "label": "Median student loan debt",
+      "unit": "usd",
+      "definition": "Middle student debt balance among people who have student loans.",
+      "source_column": "stdtotpos_p50"
+    },
+    "median_monthly_student_loan_payment": {
+      "label": "Median monthly student payment",
+      "unit": "usd",
+      "definition": "Middle monthly payment owed by people who have open student loan accounts.",
+      "source_column": "stdmonthpos_p50"
+    }
+  },
+  "places": [
+    {
+      "id": "17167",
+      "name": "Sangamon County",
+      "type": "county",
+      "values": {
+        "2025-08": {
+          "share_with_auto_loans": 0.3299561,
+          "share_with_auto_retail_debt": 0.3841608,
+          "collections_rate": 0.2087133,
+          "median_collections_debt": 2272.5,
+          "credit_card_delinquency_rate": 0.0532077,
+          "median_credit_card_delinquent_debt": 594.0,
+          "auto_retail_delinquency_rate": 0.051349,
+          "student_loan_delinquency_rate": 0.173913,
+          "share_with_student_loan_debt": 0.1592367,
+          "median_student_loan_debt": 19630.0,
+          "median_monthly_student_loan_payment": 180.0
+        },
+        "2026-08": {
+          "share_with_auto_loans": 0.3139846,
+          "share_with_auto_retail_debt": 0.378722,
+          "collections_rate": 0.2221479,
+          "median_collections_debt": 2621.5,
+          "credit_card_delinquency_rate": 0.0473313,
+          "median_credit_card_delinquent_debt": 677.0,
+          "auto_retail_delinquency_rate": 0.0586957,
+          "student_loan_delinquency_rate": 0.1503842,
+          "share_with_student_loan_debt": 0.1523921,
+          "median_student_loan_debt": 19546.0,
+          "median_monthly_student_loan_payment": 208.5
+        }
+      }
+    },
+    {
+      "id": "17017",
+      "name": "Cass County",
+      "type": "county",
+      "values": {
+        "2025-08": {
+          "share_with_auto_loans": 0.3276699,
+          "share_with_auto_retail_debt": 0.3980583,
+          "collections_rate": 0.1723301,
+          "median_collections_debt": 2551.0,
+          "credit_card_delinquency_rate": 0.0765957,
+          "median_credit_card_delinquent_debt": null,
+          "auto_retail_delinquency_rate": 0.0426829,
+          "student_loan_delinquency_rate": null,
+          "share_with_student_loan_debt": 0.092233,
+          "median_student_loan_debt": null,
+          "median_monthly_student_loan_payment": null
+        },
+        "2026-08": {
+          "share_with_auto_loans": 0.3507109,
+          "share_with_auto_retail_debt": 0.4312796,
+          "collections_rate": 0.2109005,
+          "median_collections_debt": 3065.0,
+          "credit_card_delinquency_rate": 0.045082,
+          "median_credit_card_delinquent_debt": null,
+          "auto_retail_delinquency_rate": 0.0326087,
+          "student_loan_delinquency_rate": null,
+          "share_with_student_loan_debt": 0.0758294,
+          "median_student_loan_debt": null,
+          "median_monthly_student_loan_payment": null
+        }
+      }
+    },
+    {
+      "id": "17021",
+      "name": "Christian County",
+      "type": "county",
+      "values": {
+        "2025-08": {
+          "share_with_auto_loans": 0.323378,
+          "share_with_auto_retail_debt": 0.3934089,
+          "collections_rate": 0.1812564,
+          "median_collections_debt": 2472.5,
+          "credit_card_delinquency_rate": 0.0794473,
+          "median_credit_card_delinquent_debt": null,
+          "auto_retail_delinquency_rate": 0.0642674,
+          "student_loan_delinquency_rate": 0.184,
+          "share_with_student_loan_debt": 0.1287333,
+          "median_student_loan_debt": 15242.0,
+          "median_monthly_student_loan_payment": 132.0
+        },
+        "2026-08": {
+          "share_with_auto_loans": 0.3204082,
+          "share_with_auto_retail_debt": 0.4081633,
+          "collections_rate": 0.205102,
+          "median_collections_debt": 3220.0,
+          "credit_card_delinquency_rate": 0.059754,
+          "median_credit_card_delinquent_debt": null,
+          "auto_retail_delinquency_rate": 0.0371287,
+          "student_loan_delinquency_rate": 0.1680672,
+          "share_with_student_loan_debt": 0.1214286,
+          "median_student_loan_debt": 15709.0,
+          "median_monthly_student_loan_payment": 160.5
+        }
+      }
+    },
+    {
+      "id": "17107",
+      "name": "Logan County",
+      "type": "county",
+      "values": {
+        "2025-08": {
+          "share_with_auto_loans": 0.3861386,
+          "share_with_auto_retail_debt": 0.470297,
+          "collections_rate": 0.2351485,
+          "median_collections_debt": 2168.0,
+          "credit_card_delinquency_rate": 0.0616016,
+          "median_credit_card_delinquent_debt": null,
+          "auto_retail_delinquency_rate": 0.0571429,
+          "student_loan_delinquency_rate": 0.1616162,
+          "share_with_student_loan_debt": 0.1225248,
+          "median_student_loan_debt": 15468.0,
+          "median_monthly_student_loan_payment": 176.0
+        },
+        "2026-08": {
+          "share_with_auto_loans": 0.3576733,
+          "share_with_auto_retail_debt": 0.434406,
+          "collections_rate": 0.2438119,
+          "median_collections_debt": 2933.0,
+          "credit_card_delinquency_rate": 0.0710059,
+          "median_credit_card_delinquent_debt": null,
+          "auto_retail_delinquency_rate": 0.0696379,
+          "student_loan_delinquency_rate": 0.1428571,
+          "share_with_student_loan_debt": 0.1212871,
+          "median_student_loan_debt": 14360.0,
+          "median_monthly_student_loan_payment": 176.0
+        }
+      }
+    },
+    {
+      "id": "17115",
+      "name": "Macon County",
+      "type": "county",
+      "values": {
+        "2025-08": {
+          "share_with_auto_loans": 0.3079922,
+          "share_with_auto_retail_debt": 0.3879142,
+          "collections_rate": 0.2651072,
+          "median_collections_debt": 2091.0,
+          "credit_card_delinquency_rate": 0.0593407,
+          "median_credit_card_delinquent_debt": 675.0,
+          "auto_retail_delinquency_rate": 0.0660611,
+          "student_loan_delinquency_rate": 0.1873418,
+          "share_with_student_loan_debt": 0.1283301,
+          "median_student_loan_debt": 19631.0,
+          "median_monthly_student_loan_payment": 170.5
+        },
+        "2026-08": {
+          "share_with_auto_loans": 0.3156179,
+          "share_with_auto_retail_debt": 0.3919139,
+          "collections_rate": 0.2777959,
+          "median_collections_debt": 2354.5,
+          "credit_card_delinquency_rate": 0.0644986,
+          "median_credit_card_delinquent_debt": 532.0,
+          "auto_retail_delinquency_rate": 0.0631148,
+          "student_loan_delinquency_rate": 0.2041885,
+          "share_with_student_loan_debt": 0.1245517,
+          "median_student_loan_debt": 20405.5,
+          "median_monthly_student_loan_payment": 203.0
+        }
+      }
+    },
+    {
+      "id": "17117",
+      "name": "Macoupin County",
+      "type": "county",
+      "values": {
+        "2025-08": {
+          "share_with_auto_loans": 0.3626142,
+          "share_with_auto_retail_debt": 0.4385102,
+          "collections_rate": 0.1876318,
+          "median_collections_debt": 2039.0,
+          "credit_card_delinquency_rate": 0.061294,
+          "median_credit_card_delinquent_debt": 348.0,
+          "auto_retail_delinquency_rate": 0.0461783,
+          "student_loan_delinquency_rate": 0.198895,
+          "share_with_student_loan_debt": 0.1271961,
+          "median_student_loan_debt": 11236.0,
+          "median_monthly_student_loan_payment": 131.0
+        },
+        "2026-08": {
+          "share_with_auto_loans": 0.3539761,
+          "share_with_auto_retail_debt": 0.4257565,
+          "collections_rate": 0.1942294,
+          "median_collections_debt": 2219.5,
+          "credit_card_delinquency_rate": 0.0618785,
+          "median_credit_card_delinquent_debt": 616.0,
+          "auto_retail_delinquency_rate": 0.0458265,
+          "student_loan_delinquency_rate": 0.1899441,
+          "share_with_student_loan_debt": 0.1259676,
+          "median_student_loan_debt": 12018.0,
+          "median_monthly_student_loan_payment": 152.0
+        }
+      }
+    },
+    {
+      "id": "17129",
+      "name": "Menard County",
+      "type": "county",
+      "values": {
+        "2025-08": {
+          "share_with_auto_loans": 0.3530997,
+          "share_with_auto_retail_debt": 0.4177898,
+          "collections_rate": 0.1132075,
+          "median_collections_debt": null,
+          "credit_card_delinquency_rate": 0.0348837,
+          "median_credit_card_delinquent_debt": null,
+          "auto_retail_delinquency_rate": 0.0384615,
+          "student_loan_delinquency_rate": null,
+          "share_with_student_loan_debt": 0.1266846,
+          "median_student_loan_debt": null,
+          "median_monthly_student_loan_payment": null
+        },
+        "2026-08": {
+          "share_with_auto_loans": 0.3451087,
+          "share_with_auto_retail_debt": 0.3994565,
+          "collections_rate": 0.1331522,
+          "median_collections_debt": null,
+          "credit_card_delinquency_rate": 0.028,
+          "median_credit_card_delinquent_debt": null,
+          "auto_retail_delinquency_rate": 0.0272109,
+          "student_loan_delinquency_rate": null,
+          "share_with_student_loan_debt": 0.1005435,
+          "median_student_loan_debt": null,
+          "median_monthly_student_loan_payment": null
+        }
+      }
+    },
+    {
+      "id": "17135",
+      "name": "Montgomery County",
+      "type": "county",
+      "values": {
+        "2025-08": {
+          "share_with_auto_loans": 0.3478803,
+          "share_with_auto_retail_debt": 0.436409,
+          "collections_rate": 0.2057357,
+          "median_collections_debt": 1945.0,
+          "credit_card_delinquency_rate": 0.0391753,
+          "median_credit_card_delinquent_debt": null,
+          "auto_retail_delinquency_rate": 0.0568182,
+          "student_loan_delinquency_rate": 0.2164948,
+          "share_with_student_loan_debt": 0.1209476,
+          "median_student_loan_debt": 18634.0,
+          "median_monthly_student_loan_payment": 166.5
+        },
+        "2026-08": {
+          "share_with_auto_loans": 0.3239264,
+          "share_with_auto_retail_debt": 0.411043,
+          "collections_rate": 0.2134969,
+          "median_collections_debt": 2860.0,
+          "credit_card_delinquency_rate": 0.0499002,
+          "median_credit_card_delinquent_debt": null,
+          "auto_retail_delinquency_rate": 0.0789474,
+          "student_loan_delinquency_rate": 0.2087912,
+          "share_with_student_loan_debt": 0.1116564,
+          "median_student_loan_debt": 19336.0,
+          "median_monthly_student_loan_payment": 173.0
+        }
+      }
+    },
+    {
+      "id": "17137",
+      "name": "Morgan County",
+      "type": "county",
+      "values": {
+        "2025-08": {
+          "share_with_auto_loans": 0.3204188,
+          "share_with_auto_retail_debt": 0.4073299,
+          "collections_rate": 0.2314136,
+          "median_collections_debt": 2544.0,
+          "credit_card_delinquency_rate": 0.0700855,
+          "median_credit_card_delinquent_debt": null,
+          "auto_retail_delinquency_rate": 0.0433673,
+          "student_loan_delinquency_rate": 0.1707317,
+          "share_with_student_loan_debt": 0.1287958,
+          "median_student_loan_debt": 14064.0,
+          "median_monthly_student_loan_payment": 153.0
+        },
+        "2026-08": {
+          "share_with_auto_loans": 0.30625,
+          "share_with_auto_retail_debt": 0.3979167,
+          "collections_rate": 0.2427083,
+          "median_collections_debt": 2873.0,
+          "credit_card_delinquency_rate": 0.0764007,
+          "median_credit_card_delinquent_debt": null,
+          "auto_retail_delinquency_rate": 0.0595855,
+          "student_loan_delinquency_rate": 0.1415929,
+          "share_with_student_loan_debt": 0.1177083,
+          "median_student_loan_debt": 16997.0,
+          "median_monthly_student_loan_payment": 164.0
+        }
+      }
+    },
+    {
+      "id": "17",
+      "name": "Illinois",
+      "type": "state",
+      "values": {
+        "2025-08": {
+          "share_with_auto_loans": 0.2677202,
+          "share_with_auto_retail_debt": 0.3237014,
+          "collections_rate": 0.1925992,
+          "median_collections_debt": 2455.0,
+          "credit_card_delinquency_rate": 0.0511462,
+          "median_credit_card_delinquent_debt": 692.0,
+          "auto_retail_delinquency_rate": 0.0555324,
+          "student_loan_delinquency_rate": 0.1495577,
+          "share_with_student_loan_debt": 0.1500252,
+          "median_student_loan_debt": 22103.0,
+          "median_monthly_student_loan_payment": 198.0
+        },
+        "2026-08": {
+          "share_with_auto_loans": 0.2627421,
+          "share_with_auto_retail_debt": 0.3219174,
+          "collections_rate": 0.2067272,
+          "median_collections_debt": 2761.0,
+          "credit_card_delinquency_rate": 0.0537489,
+          "median_credit_card_delinquent_debt": 656.0,
+          "auto_retail_delinquency_rate": 0.0519455,
+          "student_loan_delinquency_rate": 0.1431359,
+          "share_with_student_loan_debt": 0.1442789,
+          "median_student_loan_debt": 22450.5,
+          "median_monthly_student_loan_payment": 215.0
+        }
+      }
+    },
+    {
+      "id": "USA",
+      "name": "United States",
+      "type": "national",
+      "values": {
+        "2025-08": {
+          "share_with_auto_loans": 0.2865879,
+          "share_with_auto_retail_debt": 0.3479759,
+          "collections_rate": 0.2270967,
+          "median_collections_debt": 2528.0,
+          "credit_card_delinquency_rate": 0.05573,
+          "median_credit_card_delinquent_debt": 713.0,
+          "auto_retail_delinquency_rate": 0.0574001,
+          "student_loan_delinquency_rate": 0.1589477,
+          "share_with_student_loan_debt": 0.1440837,
+          "median_student_loan_debt": 21314.0,
+          "median_monthly_student_loan_payment": 182.0
+        },
+        "2026-08": {
+          "share_with_auto_loans": 0.282052,
+          "share_with_auto_retail_debt": 0.3455209,
+          "collections_rate": 0.2353732,
+          "median_collections_debt": 2913.0,
+          "credit_card_delinquency_rate": 0.0577697,
+          "median_credit_card_delinquent_debt": 680.0,
+          "auto_retail_delinquency_rate": 0.0551938,
+          "student_loan_delinquency_rate": 0.1579987,
+          "share_with_student_loan_debt": 0.1384344,
+          "median_student_loan_debt": 21606.0,
+          "median_monthly_student_loan_payment": 200.0
+        }
+      }
+    }
+  ],
+  "sources": [
+    {
+      "period": "2025-08",
+      "label": "Debt in America 2025",
+      "authors": "Breno Braga, Signe-Mary McKernan, Samantha Atherton, and Kassandra Martinchek",
+      "url": "https://github.com/UrbanInstitute/debt-interactive-map/tree/master/data/20251023-update",
+      "appendix": "https://apps.urban.org/features/debt-interactive-map/downloadable-docs/debt_interactive_technical_appendix_2025.pdf",
+      "files": [
+        "https://apps.urban.org/features/debt-interactive-map/data/20251023-update/county_auto.csv",
+        "https://apps.urban.org/features/debt-interactive-map/data/20251023-update/state_national_auto.csv",
+        "https://apps.urban.org/features/debt-interactive-map/data/20251023-update/county_overall.csv",
+        "https://apps.urban.org/features/debt-interactive-map/data/20251023-update/state_national_overall.csv",
+        "https://apps.urban.org/features/debt-interactive-map/data/20251023-update/county_student.csv",
+        "https://apps.urban.org/features/debt-interactive-map/data/20251023-update/state_national_student.csv"
+      ]
+    },
+    {
+      "period": "2026-08",
+      "label": "Debt in America 2026",
+      "authors": "Breno Braga, Signe-Mary McKernan, and Thea Garon",
+      "url": "https://datacatalog.urban.org/dataset/debt-america-2026",
+      "appendix": "https://apps.urban.org/features/debt-interactive-map/downloadable-docs/debt_interactive_technical_appendix_2026.pdf",
+      "files": [
+        "https://apps.urban.org/features/debt-interactive-map/data/20261022-update/county_auto.csv",
+        "https://apps.urban.org/features/debt-interactive-map/data/20261022-update/state_national_auto.csv",
+        "https://apps.urban.org/features/debt-interactive-map/data/20261022-update/county_overall.csv",
+        "https://apps.urban.org/features/debt-interactive-map/data/20261022-update/state_national_overall.csv",
+        "https://apps.urban.org/features/debt-interactive-map/data/20261022-update/county_student.csv",
+        "https://apps.urban.org/features/debt-interactive-map/data/20261022-update/state_national_student.csv"
+      ]
+    }
+  ],
+  "attribution": "Adapted from Urban Institute, Debt in America, August 2025 and August 2026 credit bureau estimates.",
+  "license": {
+    "label": "Open Data Commons Attribution License (ODC-By)",
+    "url": "https://opendatacommons.org/licenses/by/1-0/"
+  }
+}

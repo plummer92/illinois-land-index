@@ -1,0 +1,61 @@
+.debt-nav,.section-links,.explorer-title,.explorer-controls,.comparison-cards,.comparison-grid { display:flex; flex-wrap:wrap; gap:12px 24px; }
+.debt-nav { align-items:center; border-bottom:1px solid #d9e0e8; }
+.debt-nav a,.section-links a,.download-link { display:inline-flex; align-items:center; min-height:44px; font-weight:650; text-underline-offset:.2em; }
+.debt-nav a,.section-links a,#county-explorer a,#bankruptcies a { color:#075b52; }
+.debt-nav .ili-brand { margin-right:auto; color:#123e39; font-size:1.02rem; }
+.debt-intro { margin:clamp(20px,3vw,44px) 0 10px; }
+.debt-intro h1 { font-size:clamp(2rem,4vw,3.2rem); }
+.debt-intro > p:last-child { max-width:70ch; margin:.55rem 0; color:#405463; line-height:1.55; }
+.section-links { gap:4px 18px; margin-bottom:16px; }
+#county-explorer,#bankruptcies { background:#fff; border:1px solid #d9e0e8; border-radius:12px; padding:clamp(14px,2.7vw,32px); margin:0 0 24px; }
+.explorer-title { justify-content:space-between; align-items:center; gap:0 16px; }
+.explorer-title h2,#bankruptcies h2 { font-size:clamp(1.45rem,3vw,2rem); margin:0; color:#1a3735; }
+.period { margin:0 0 4px; font-size:.84rem; color:#536776; }
+.explorer-controls { margin:18px 0 6px; }
+.explorer-controls label { display:grid; gap:5px; font-size:.86rem; font-weight:700; min-width:min(100%,190px); }
+.explorer-controls select { min-height:44px; font-weight:500; }
+#measure-description,.map-hint,.measure-sources,.court-source { color:#435564; line-height:1.5; }
+#measure-description { margin:.75rem 0; }
+.comparison-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:1rem 0 1.4rem; }
+.comparison-cards > div { display:grid; gap:.15rem; border-top:3px solid #a5b8c2; background:#f4f7f8; padding:10px 14px; }
+.comparison-cards > div:first-child { border-color:#00796b; background:#e6f3ef; }
+.comparison-cards span { font-size:.86rem; font-weight:700; }
+.comparison-cards strong { font-size:clamp(1.4rem,2.8vw,2.1rem); font-variant-numeric:tabular-nums; }
+.comparison-cards small { color:#435564; }
+.comparison-grid { display:grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items:start; }
+.comparison-grid h3 { margin:.25rem 0; font-size:1.1rem; }
+.comparison-grid h3 span,.vintage-heading span { color:#4e616e; font-size:.85rem; font-weight:500; }
+.map-hint { font-size:.84rem; margin:0; }
+#comparison-map { height:350px; min-width:0; }
+#comparison-table,#bankruptcies table { width:100%; min-width:0; font-size:.9rem; table-layout:auto; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+#comparison-table td,#comparison-table th,#bankruptcies td,#bankruptcies th { padding:7px 5px; text-align:right; white-space:normal; }
+#comparison-table th:first-child,#bankruptcies th:first-child { text-align:left; }
+#comparison-table .focus-county,#bankruptcies .focus-county { background:#e6f3ef; }
+.measure-sources { padding-top:12px; margin-top:12px; border-top:1px solid #dce4ea; font-size:.88rem; }
+.measure-sources summary { cursor:pointer; font-weight:700; color:#194d46; min-height:34px; }
+.measure-sources p { max-width:100ch; margin:5px 0; }
+.vintage-heading { font-size:1.1rem; } .vintage-heading span { display:inline-block; margin-left:.25rem; }
+.sr-debt { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+#county-explorer [hidden] { display:none; }
+.debt-intro + nav a:focus-visible, #county-explorer :focus-visible,#bankruptcies :focus-visible { outline:3px solid #248178; outline-offset:2px; }
+.court-filter { display:grid; gap:.3rem; font-weight:650; max-width:350px; margin:1rem 0; }
+#bankruptcies table { max-width:750px; }
+#bankruptcies tbody tr:first-child { background:#f0f6f5; }
+#bankruptcies [hidden] { display:none; }
+@media(max-width:760px) {
+  .debt-nav,.section-links { gap:0 12px; } .debt-nav a,.section-links a { font-size:.85rem; }
+  .comparison-grid { grid-template-columns:minmax(0,1fr); }
+  #comparison-map { height:280px; }
+  .comparison-cards { gap:4px; } .comparison-cards>div { padding:8px; }
+  .explorer-controls { gap:8px; } .explorer-controls label { flex:1 1 210px; min-width:0; }
+}
+@media(max-width:430px) {
+  .app .panel-header { flex-wrap:wrap; }
+  .app .panel-meta { min-width:0; max-width:100%; }
+  .app .panel-meta select { max-width:100%; }
+  .comparison-cards { grid-template-columns:1fr 1fr; }
+  .comparison-cards>div:first-child { grid-column:1/-1; }
+  .comparison-cards>div:first-child strong { font-size:1.8rem; }
+  #comparison-table td,#comparison-table th,#bankruptcies td,#bankruptcies th { padding:6px 2px; font-size:.78rem; }
+  .debt-nav .ili-brand { flex-basis:100%; }
+}

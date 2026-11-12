@@ -3,9 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>County Debt Map</title>
+    <title>Central Illinois consumer debt | Illinois Land Index</title>
+    <meta name="description" content="Compare consumer debt in Sangamon and eight neighboring counties with Illinois and the United States. Explore August 2025 and 2026 credit records, housing filings and local credit access.">
+    <link rel="canonical" href="https://illinoislandindex.com/consumer-debt-dashboard/">
+    <link rel="stylesheet" href="./explorer.css">
+    <script src="./explorer.js" defer></script>
     <script src="../analytics.js" defer></script>
-    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <link rel="stylesheet" href="./debt-maps.css" />
+    <script src="../infrastructure-map/vendor/d3.v7.min.js"></script>
+    <script src="./debt-maps.js"></script>
+    <script src="./vendor/plotly-basic-2.35.2.min.js"></script>
     <style>
       :root {
         --page: #f6f8fb;
@@ -183,7 +190,7 @@
 
       .debt-row {
         display: grid;
-        grid-template-columns: minmax(0, 1.25fr) 110px 120px 74px;
+        grid-template-columns: minmax(0, 1.25fr) 110px 84px;
         gap: 10px;
         align-items: center;
         padding: 10px;
@@ -873,29 +880,88 @@
   </head>
   <body>
     <main class="app">
-      <header class="topbar">
+      <nav class="debt-nav" aria-label="Illinois Land Index">
+        <a class="ili-brand" href="../">Illinois Land Index</a>
+        <a href="../infrastructure-map/">Water &amp; parcel map</a>
+        <a href="../parcel-dashboard/">Parcel dashboard</a>
+      </nav>
+      <header class="debt-intro">
+        <p class="eyebrow">Sangamon County &amp; its neighbors</p>
+        <h1>Consumer debt in central Illinois</h1>
+        <p>Compare two August snapshots of credit records for nine counties, Illinois and the United States. For Chatham, choose Sangamon County.</p>
+      </header>
+      <nav class="section-links" aria-label="Dashboard sections">
+        <a href="#county-explorer">Compare counties</a>
+        <a href="#bankruptcies">Bankruptcies</a>
+        <a href="#housing-access">Housing &amp; credit access</a>
+        <a href="#archive">Historical detail</a>
+      </nav>
+      <section id="county-explorer" aria-labelledby="explorer-heading">
+        <div class="explorer-title">
+          <div><p class="period">August 2025 to August 2026</p><h2 id="explorer-heading">County debt comparison</h2></div>
+          <a class="download-link" id="comparison-csv" hidden>Download comparison CSV</a>
+        </div>
+        <div class="explorer-controls" hidden>
+          <label>County<select id="compare-county"></select></label>
+          <label>Measure<select id="compare-metric"></select></label>
+        </div>
+        <p id="comparison-status" role="status">Loading county comparisons…</p>
+        <noscript><p>Enable JavaScript to change the county or measure. The <a href="./data/processed/urban_county_comparison.json">county data download</a> includes both years.</p></noscript>
+        <div id="comparison-results" hidden>
+          <p id="measure-description"></p>
+          <div class="comparison-cards" id="comparison-cards"></div>
+          <div class="comparison-grid">
+            <div><h3>County map <span>August 2026</span></h3><p class="map-hint">Select a county on the map or in the county menu.</p><div id="comparison-map"></div></div>
+            <div><h3>Regional comparison</h3><table id="comparison-table">
+              <caption class="sr-debt"></caption>
+              <thead><tr><th scope="col">Place</th><th scope="col">Aug ’25</th><th scope="col">Aug ’26</th><th scope="col">Change</th></tr></thead>
+              <tbody></tbody>
+            </table></div>
+          </div>
+        </div>
+        <details class="measure-sources" open>
+          <summary>Sources and coverage</summary>
+          <p>Urban Institute estimates use a 4% sample of people with credit records. A borrower delinquency rate applies to people with that type of debt. The two releases describe groups at each date. Dollar amounts are in each year’s dollars. A dash means a value is unavailable.</p>
+          <p>Illinois limits the reporting of medical debt on credit reports, so these comparisons omit medical collections. The county figures cannot show how many Chatham residents owe money.</p>
+          <p><a href="https://apps.urban.org/features/debt-interactive-map/">Urban Institute’s Debt in America</a> · <a href="https://apps.urban.org/features/debt-interactive-map/data/20261022-update/county_overall.csv">2026 county source (CSV)</a> · <a href="./data/processed/urban_county_comparison.json">Download both years (JSON)</a></p>
+          <p>Adapted from Urban Institute’s <em>Debt in America</em>. The 2026 release is by Breno Braga, Signe-Mary McKernan and Thea Garon. The 2025 release is by Braga, McKernan, Samantha Atherton and Kassandra Martinchek. <a href="https://datacatalog.urban.org/dataset/debt-america-2026">2026 catalog</a> · <a href="https://apps.urban.org/features/debt-interactive-map/downloadable-docs/debt_interactive_technical_appendix_2026.pdf">Technical appendix</a> · <a href="https://apps.urban.org/features/debt-interactive-map/data/20251023-update/county_overall.csv">2025 county source</a> · <a href="https://opendatacommons.org/licenses/by/1-0/">ODC Attribution license</a>.</p>
+        </details>
+      </section>
+      <section id="bankruptcies" aria-labelledby="court-heading">
+        <p class="period">Federal bankruptcy court filings</p>
+        <h2 id="court-heading">Bankruptcy cases by county</h2>
+        <p class="court-source">Compare the two 12-month periods ending September 30. Nonbusiness cases are included in the total. The court classifies each case by the predominant type of debt.</p>
+        <label class="court-filter">Cases to compare<select id="court-measure"><option value="total">All bankruptcy cases</option><option value="nonbusiness">Predominantly nonbusiness cases</option></select></label>
+        <p id="court-status" role="status">Loading federal court counts…</p>
+        <table id="court-table" hidden>
+          <caption class="sr-debt">Bankruptcy cases commenced by county in the years ending September 30</caption>
+          <thead><tr><th scope="col">County</th><th scope="col">2025</th><th scope="col">2026</th><th scope="col">Change</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <p class="court-source">U.S. Courts Table F-5A counts cases commenced across all chapters. Counts include filings made outside the county’s home district. One case can cover joint filers. <a href="https://www.uscourts.gov/data-news/data-tables/2025/09/30/bankruptcy-filings/f-5a">2025 court table</a> · <a href="https://www.uscourts.gov/data-news/data-tables/2026/09/30/bankruptcy-filings/f-5a">2026 court table</a>.</p>
+      </section>
+      <div class="topbar" id="archive">
         <div>
-          <p class="eyebrow">Public aggregate debt dashboard</p>
-          <h1 id="title">County Debt Map</h1>
-          <p class="subtitle" id="coverage-text"></p>
+          <p class="eyebrow">Historical detail</p>
+          <h2 id="title">Sangamon County in August 2025</h2>
+          <p class="subtitle" id="coverage-text">The credit figures below use the 2025 release. Housing, branch and Census records have separate reporting dates.</p>
         </div>
         <div class="toolbar">
-          <label class="label" for="metric-select">Metric</label>
+          <label class="label" for="metric-select">August 2025 measure</label>
           <select id="metric-select"></select>
         </div>
-      </header>
+      </div>
 
       <section class="summary" id="cards"></section>
 
-      <section class="story-grid" id="story"></section>
-
+      <h3 class="vintage-heading">Sangamon County household context <span>2020–2024 Census ACS estimates</span></h3>
       <section class="context-grid" id="economic-context"></section>
 
       <section class="debt-detail">
         <div class="panel">
           <div class="panel-header">
             <h2>Sangamon Debt Detail</h2>
-            <span class="panel-meta">Rates, estimates, and nearby rank</span>
+            <span class="panel-meta">August 2025 · County rate and regional rank</span>
           </div>
           <div class="debt-list" id="debt-detail-list"></div>
         </div>
@@ -931,29 +997,21 @@
         </div>
       </section>
 
-      <section class="active-layer-grid">
+      <section class="active-layer-grid" id="housing-access">
         <div class="panel">
           <div class="panel-header">
             <h2>Foreclosure + Eviction Layer</h2>
-            <span class="panel-meta">Housing distress</span>
+            <span class="panel-meta">Sangamon County filings · through August 2024</span>
           </div>
           <div class="active-layer-body" id="housing-distress-layer"></div>
         </div>
         <div class="panel">
           <div class="panel-header">
             <h2>Credit Access Map</h2>
-            <span class="panel-meta">Mainstream vs high-cost credit</span>
+            <span class="panel-meta">May 2026 snapshot</span>
           </div>
           <div class="active-layer-body" id="credit-access-layer"></div>
         </div>
-      </section>
-
-      <section class="panel" style="margin-bottom: 18px">
-        <div class="panel-header">
-          <h2>More Debt Data To Add</h2>
-          <span class="panel-meta">Source plan and target geography</span>
-        </div>
-        <div class="data-layer-grid" id="debt-data-layers" style="padding: 12px"></div>
       </section>
 
       <section class="credit-market">
@@ -981,7 +1039,7 @@
       <section class="layout">
         <div class="panel">
           <div class="panel-header">
-            <h2>County Map</h2>
+            <h2>August 2025 county map</h2>
             <span class="panel-meta" id="map-meta"></span>
           </div>
           <div id="map"></div>
@@ -989,7 +1047,7 @@
 
         <div class="panel">
           <div class="panel-header">
-            <h2>Ranked Counties</h2>
+            <h2>August 2025 county rankings</h2>
             <span class="panel-meta" id="rank-meta"></span>
           </div>
           <div id="bars"></div>
@@ -998,7 +1056,7 @@
 
       <section class="panel" style="margin-top: 14px">
         <div class="panel-header">
-          <h2>Sangamon Tract Context</h2>
+          <h2>Sangamon tract context · 2020–2024 ACS</h2>
           <span class="panel-meta">
             <label class="label" for="tract-metric-select" style="display: inline; margin-right: 6px">Tract metric</label>
             <select id="tract-metric-select" style="width: 260px; height: 34px"></select>
@@ -1009,7 +1067,7 @@
 
       <section class="panel" style="margin-top: 14px">
         <div class="panel-header">
-          <h2>County Table</h2>
+          <h2>August 2025 county table</h2>
           <span class="panel-meta" id="table-meta"></span>
         </div>
         <div class="table-wrap">
@@ -1019,7 +1077,6 @@
                 <th>County</th>
                 <th>State</th>
                 <th id="metric-header" style="text-align: right">Metric</th>
-                <th style="text-align: right">Estimated people</th>
                 <th style="text-align: right">Rank</th>
               </tr>
             </thead>
@@ -1113,106 +1170,6 @@
         }
       };
 
-      const debtDataLayers = [
-        {
-          title: "Mortgage delinquency / foreclosure filings",
-          geography: "County court / parcel match",
-          readiness: "Medium",
-          value: "Early distress signal for properties where a lender has started a foreclosure case.",
-          source: "Sangamon County Circuit Clerk foreclosure case filing statistics and records search.",
-          url: "https://sangamoncountycircuitclerk.org/general-information/circuit-clerk-statistics/"
-        },
-        {
-          title: "Tax delinquency / tax sale",
-          geography: "Parcel",
-          readiness: "High",
-          value: "Best direct property-level distress layer because it ties unpaid taxes to a parcel number.",
-          source: "Sangamon County tax sale search and property tax portal.",
-          url: "https://tax.co.sangamon.il.us/SangamonCountyWeb/app/searchForTaxSales.action"
-        },
-        {
-          title: "Bankruptcy filings",
-          geography: "County",
-          readiness: "High",
-          value: "County-level household financial pressure indicator, useful as a benchmark beside debt collections.",
-          source: "U.S. Courts bankruptcy filing statistics, including county tables.",
-          url: "https://www.uscourts.gov/data-news/reports/statistical-reports/bankruptcy-filings-statistics"
-        },
-        {
-          title: "Eviction filings / rent distress",
-          geography: "County / tract if geocoded",
-          readiness: "Medium",
-          value: "Housing stress layer that can reveal rent burden and displacement pressure near parcels.",
-          source: "Sangamon County Circuit Clerk eviction filing statistics and records.",
-          url: "https://sangamoncountycircuitclerk.org/general-information/circuit-clerk-statistics/"
-        },
-        {
-          title: "Payday loan / alternative credit locations",
-          geography: "Point locations",
-          readiness: "Medium",
-          value: "Shows where high-cost credit storefronts cluster compared with debt stress, income, and transit access.",
-          source: "Illinois IDFPR financial services license lookup and historical payday lender license research.",
-          url: "https://idfpr.illinois.gov/consumers/financialservices.html"
-        },
-        {
-          title: "Credit access: banks and credit unions",
-          geography: "Point locations",
-          readiness: "High",
-          value: "Adds the opposite side of the map: mainstream bank access, branch density, and credit deserts.",
-          source: "FDIC open data for bank branches; NCUA can supplement credit union branches.",
-          url: "https://www.fdic.gov/about/open-data-fdic"
-        }
-      ];
-
-      const activeLayerBuildout = {
-        housingDistress: {
-          summary: [
-            { label: "Starting geography", value: "County stats" },
-            { label: "Next upgrade", value: "Case/address geocoding" },
-            { label: "Source", value: "Circuit Clerk" }
-          ],
-          steps: [
-            {
-              title: "Foreclosure filings",
-              detail: "Use Sangamon Circuit Clerk foreclosure case filing statistics first; later match case records to parcels when addresses are available.",
-              url: "https://sangamoncountycircuitclerk.org/general-information/circuit-clerk-statistics/"
-            },
-            {
-              title: "Eviction filings",
-              detail: "Add eviction filing counts as a rent-stress signal before attempting address-level geocoding.",
-              url: "https://sangamoncountycircuitclerk.org/general-information/circuit-clerk-statistics/"
-            },
-            {
-              title: "Map fields to capture",
-              detail: "Year, case type, filings, rate per 1,000 households, source date, and optional geocoded address/parcel match."
-            }
-          ]
-        },
-        creditAccess: {
-          summary: [
-            { label: "Starting geography", value: "Point locations" },
-            { label: "Map logic", value: "Access vs pressure" },
-            { label: "Sources", value: "FDIC + IDFPR" }
-          ],
-          steps: [
-            {
-              title: "Bank branches",
-              detail: "Use FDIC open data to map insured bank branches, deposits, and branch density near parcels.",
-              url: "https://www.fdic.gov/about/open-data-fdic"
-            },
-            {
-              title: "High-cost credit locations",
-              detail: "Use IDFPR license lookup categories for payday lenders, currency exchanges, consumer lenders, and finance companies.",
-              url: "https://idfpr.illinois.gov/consumers/financialservices.html"
-            },
-            {
-              title: "Map fields to capture",
-              detail: "Name, type, address, license/status, source date, latitude/longitude, distance to parcel, and tract-level count."
-            }
-          ]
-        }
-      };
-
       const metricCopy = {
         avg_total_debt: {
           title: "Typical collections balance",
@@ -1220,14 +1177,14 @@
           description: "Median amount owed by adults who have debt in collections."
         },
         collections_rate: {
-          title: "Adults with any debt in collections",
+          title: "Credit records with debt in collections",
           unit: "Rate",
-          description: "Share of adults with at least one debt item in collections."
+          description: "Share of people with a credit record showing at least one debt in collections."
         },
         medical_debt_rate: {
-          title: "Adults with medical debt in collections",
+          title: "Medical collections on credit records",
           unit: "Rate",
-          description: "Share of adults with medical debt that has reached collections."
+          description: "Share of people whose credit records show medical collections. Illinois reporting restrictions limit what this measure captures."
         },
         student_loan_delinquency_rate: {
           title: "Student-loan borrowers 60+ days late",
@@ -1250,9 +1207,9 @@
           description: "Median delinquent balance among people with delinquent credit-card debt."
         },
         share_with_student_loan_debt: {
-          title: "Adults with student-loan debt",
+          title: "Credit records with student debt",
           unit: "Share",
-          description: "Share of adults carrying student-loan debt."
+          description: "Share of people with credit records carrying student-loan debt."
         },
         median_student_loan_debt: {
           title: "Typical student-loan balance",
@@ -1265,14 +1222,14 @@
           description: "Median monthly student-loan payment among borrowers."
         },
         share_with_auto_loans: {
-          title: "Adults with auto loans",
+          title: "Credit records with auto loans",
           unit: "Share",
-          description: "Share of adults with auto loan debt."
+          description: "Share of people with a credit record who have an auto loan or lease."
         },
         share_with_auto_retail_debt: {
-          title: "Adults with auto or retail debt",
+          title: "Credit records with auto or retail debt",
           unit: "Share",
-          description: "Share of adults carrying auto or retail loan debt."
+          description: "Share of people with credit records carrying auto or retail loan debt."
         },
         uninsured_rate: {
           title: "Adults without health insurance",
@@ -1333,12 +1290,6 @@
         return new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(value);
       };
 
-      const formatSignedCount = value => {
-        if (value === null || value === undefined || Number.isNaN(value)) return "N/A";
-        const sign = value > 0 ? "+" : "";
-        return `${sign}${formatCount(value)}`;
-      };
-
       const formatDelta = (value, type) => {
         if (value === null || value === undefined || Number.isNaN(value)) return "N/A";
         const sign = value > 0 ? "+" : "";
@@ -1357,8 +1308,23 @@
         return value > 0 ? "delta-up" : "delta-down";
       };
 
+      function showChart(id, draw) {
+        const container = document.getElementById(id);
+        const failed = error => {
+          if (container?.isConnected) container.textContent = "This chart could not load.";
+          console.warn("Chart unavailable:", id, error);
+        };
+        try {
+          Promise.resolve(draw()).catch(failed);
+        } catch (error) {
+          failed(error);
+        }
+      }
+      function drawPlot(id, traces, layout, options) {
+        showChart(id, () => Plotly.react(id, traces, layout, options));
+      }
+
       const byMetric = (county, metric) => county.metrics?.[metric] ?? null;
-      const byEstimate = (county, metric) => county.estimated_people?.[metric] ?? null;
       const byRank = (county, metric) => county.rank?.[metric] ?? {};
       const valueType = metric => (metric.kind === "currency" ? "currency" : "percent");
 
@@ -1391,8 +1357,7 @@
                   Illinois ${formatValue(meta.state_value, valueType(meta))}<br />
                   U.S. ${formatValue(meta.us_value, valueType(meta))}<br />
                   Rank ${meta.rank?.rank || "N/A"} of ${meta.rank?.total || "N/A"} nearby<br />
-                  IL gap <span class="${deltaClass(meta.state_delta)}">${formatDelta(meta.state_delta, valueType(meta))}</span><br />
-                  ${meta.kind === "rate" ? `Est. vs IL <span class="${deltaClass(meta.estimated_people_vs_state)}">${formatSignedCount(meta.estimated_people_vs_state)}</span>` : `Adult pop ${formatCount(data.selected_county.population?.adult_population)}`}
+                  IL gap <span class="${deltaClass(meta.state_delta)}">${formatDelta(meta.state_delta, valueType(meta))}</span>
                 </p>
                 <p class="metric-desc">${metricDescription(key, meta)}</p>
               </article>
@@ -1433,19 +1398,6 @@
         });
       };
 
-      const renderStory = data => {
-        const story = data.story || [];
-        document.getElementById("story").innerHTML = story
-          .slice(0, 4)
-          .map(item => `
-            <article class="story-card">
-              <p class="story-title">${item.title}</p>
-              <p class="story-body">${item.body}</p>
-            </article>
-          `)
-          .join("");
-      };
-
       const renderEconomicContext = data => {
         const context = data.economic_context?.county_metrics || {};
         document.getElementById("economic-context").innerHTML = Object.entries(context)
@@ -1474,8 +1426,7 @@
                   <span>${metricDescription(key, meta)}</span>
                 </div>
                 <div class="debt-number">${formatValue(byMetric(selectedCounty, key), valueType(meta))}</div>
-                <div class="debt-number">${formatCount(byEstimate(selectedCounty, key))}</div>
-                <div class="debt-number">${rank.rank || "N/A"} / ${rank.total || "N/A"}</div>
+                <div class="debt-number">Rank ${rank.rank || "N/A"} / ${rank.total || "N/A"}</div>
               </article>
             `;
           })
@@ -1497,27 +1448,8 @@
             })
             .join("")}
           <h3>How to read this</h3>
-          <p>Estimated adults affected is approximate. It applies county-level public rates to the adult population and does not identify individual people.</p>
+          <p>Each credit measure describes the group covered by that measure. A delinquency rate uses borrowers who hold the relevant debt. Dollar balances are medians among the people described.</p>
         `;
-      };
-
-      const renderDebtDataLayers = () => {
-        document.getElementById("debt-data-layers").innerHTML = debtDataLayers
-          .map(layer => `
-            <article class="data-layer-card">
-              <div class="data-layer-top">
-                <h3>${layer.title}</h3>
-                <span class="layer-badge">${layer.readiness}</span>
-              </div>
-              <p>${layer.value}</p>
-              <div class="layer-meta">
-                <strong>Best map level:</strong> ${layer.geography}<br />
-                <strong>Likely source:</strong> ${layer.source}<br />
-                <a href="${layer.url}" target="_blank" rel="noreferrer">Open source</a>
-              </div>
-            </article>
-          `)
-          .join("");
       };
 
       const renderHousingDistressLayer = data => {
@@ -1553,27 +1485,27 @@
             </div>
           </div>
           <div class="layer-check">
-            <strong>Loaded into the program</strong>
-            <span>County-level case filing counts are now stored in <code>housing_distress_filings.json</code>. Address geocoding can be added later if court records expose usable property addresses.</span>
+            <strong>Coverage</strong>
+            <span>The clerk’s 2024 series ends in August. The 2022 and 2023 bars include twelve months. Filing a case does not establish a completed foreclosure or eviction. <a href="${layer.source.page_url}">Circuit Clerk filing statistics</a></span>
           </div>
           <div class="layer-chart" id="housing-distress-chart"></div>
         `;
 
         const years = [...new Set([...evictionAnnual.map(record => record.year), ...foreclosureAnnual.map(record => record.year)])].sort();
-        Plotly.newPlot(
+        drawPlot(
           "housing-distress-chart",
           [
             {
               type: "bar",
               name: "Evictions",
-              x: years,
+              x: years.map(year => year === 2024 ? "Jan–Aug 2024" : String(year)),
               y: years.map(year => evictionAnnual.find(record => record.year === year)?.filings ?? null),
               marker: { color: "#b98219" }
             },
             {
               type: "bar",
               name: "Foreclosures",
-              x: years,
+              x: years.map(year => year === 2024 ? "Jan–Aug 2024" : String(year)),
               y: years.map(year => foreclosureAnnual.find(record => record.year === year)?.filings ?? null),
               marker: { color: "#c4553d" }
             }
@@ -1595,8 +1527,8 @@
         const access = data.credit_access;
         const highCost = data.high_cost_credit;
         const container = document.getElementById("credit-access-layer");
-        if (!access) {
-          container.innerHTML = "<p>Credit access location data file is missing.</p>";
+        if (!access || !highCost) {
+          container.textContent = "The full credit-location comparison is unavailable.";
           return;
         }
         const locations = access.locations || [];
@@ -1604,8 +1536,6 @@
         const limited = access.summary?.limited_service_locations || 0;
         const fullService = access.summary?.full_service_locations || 0;
         const totalAccessPoints = locations.length + highCostLocations.length;
-        const highCostShare = totalAccessPoints ? highCostLocations.length / totalAccessPoints : 0;
-        const bankToHighCostRatio = highCostLocations.length ? fullService / highCostLocations.length : null;
         const highCostCategories = topEntries(highCost?.summary?.categories || countBy(highCostLocations, "category"), 6);
         const highCostZips = topEntries(countBy(highCostLocations, "zip"), 4);
         const bankCities = topEntries(access.summary?.cities || countBy(locations, "city"), 4);
@@ -1613,24 +1543,24 @@
         container.innerHTML = `
           <div class="layer-summary">
             <div class="layer-stat">
-              <small>Total access points</small>
+              <small>Mapped locations</small>
               <strong>${formatCount(totalAccessPoints)}</strong>
               <span>${access.selected_county.name}</span>
             </div>
             <div class="layer-stat">
-              <small>Bank branches</small>
+              <small>Full-service bank branches</small>
               <strong>${formatCount(fullService)}</strong>
-              <span>${bankToHighCostRatio === null ? "No high-cost records loaded" : `${bankToHighCostRatio.toFixed(1)} full-service banks per high-cost point`}</span>
+              <span>Sangamon County FDIC list</span>
             </div>
             <div class="layer-stat">
-              <small>High-cost credit</small>
-              <strong>${formatCount(highCostLocations.length)}</strong>
-              <span>${(highCostShare * 100).toFixed(1)}% of mapped access points</span>
+              <small>Licensed credit locations</small>
+              <strong>${highCost ? formatCount(highCostLocations.length) : "Unavailable"}</strong>
+              <span>Springfield licensing search</span>
             </div>
           </div>
           <div class="layer-check">
-            <strong>Loaded into the program</strong>
-            <span>FDIC bank branch points and IDFPR high-cost credit points are now both local datasets. Payday Loan and Consumer Legal Funding returned zero active Springfield records in the IDFPR lookup.</span>
+            <strong>Coverage of the two searches</strong>
+            <span>The FDIC snapshot covers bank locations across Sangamon County. The Illinois licensing search covered Springfield only. Locations and license classifications do not establish prices or credit use.</span>
           </div>
           <div class="access-breakdown">
             <div class="access-breakdown-card">
@@ -1676,52 +1606,13 @@
           </div>
         `;
 
-        Plotly.newPlot(
-          "credit-access-map",
-          [
-            {
-              type: "scattermapbox",
-              mode: "markers",
-              name: "Bank branches",
-              lat: locations.map(location => location.latitude),
-              lon: locations.map(location => location.longitude),
-              text: locations.map(location => `${location.institution}<br>${location.address}, ${location.city}`),
-              hovertemplate: "%{text}<extra></extra>",
-              marker: {
-                size: locations.map(location => location.service_type.toLowerCase().includes("full service") ? 10 : 7),
-                color: locations.map(location => location.service_type.toLowerCase().includes("full service") ? "#00796b" : "#b98219"),
-                opacity: 0.82
-              }
-            },
-            {
-              type: "scattermapbox",
-              mode: "markers",
-              name: "High-cost credit",
-              lat: highCostLocations.map(location => location.latitude),
-              lon: highCostLocations.map(location => location.longitude),
-              text: highCostLocations.map(location => `${location.name}<br>${location.category}<br>${location.address}, ${location.city}`),
-              hovertemplate: "%{text}<extra></extra>",
-              marker: {
-                size: 13,
-                color: "#c4553d",
-                symbol: "circle",
-                opacity: 0.9
-              }
-            }
-          ],
-          {
-            margin: { t: 8, r: 8, b: 8, l: 8 },
-            mapbox: {
-              style: "open-street-map",
-              center: { lat: 39.79, lon: -89.65 },
-              zoom: 8.8
-            },
-            paper_bgcolor: "rgba(0,0,0,0)",
-            plot_bgcolor: "rgba(0,0,0,0)",
-            legend: { orientation: "h", y: 0.02, x: 0.02 }
-          },
-          { responsive: true, displayModeBar: false }
-        );
+        const mapContainer = document.getElementById("credit-access-map");
+        showChart("credit-access-map", async () => {
+          const outlines = await DebtMaps.boundaries();
+          // County metrics may redraw this panel while its boundaries are loading.
+          if (!container.contains(mapContainer)) return;
+          DebtMaps.credit(outlines.filter(feature => feature.id === access.selected_county.fips), locations, highCostLocations);
+        });
       };
 
       const renderActiveLayers = data => {
@@ -1758,12 +1649,11 @@
           .filter(key => data.selected_metrics[key])
           .map(key => {
             const meta = data.selected_metrics[key];
-            const estimate = byEstimate(selectedCounty, key);
             return `
               <article class="loan-kpi">
                 <small>${metricUnit(key, meta)}</small>
                 <strong>${formatValue(byMetric(selectedCounty, key), valueType(meta))}</strong>
-                <span>${metricTitle(key, meta)}${estimate === null ? "" : `, est. ${formatCount(estimate)} adults`}</span>
+                <span>${metricTitle(key, meta)}</span>
               </article>
             `;
           });
@@ -1809,7 +1699,7 @@
           hovertemplate: `%{x}<br>${series}: %{y}<extra></extra>`
         }));
 
-        Plotly.newPlot(
+        drawPlot(
           focus.chartId,
           traces,
           {
@@ -1868,7 +1758,7 @@
           hovertemplate: `%{x}<br>${loanLabel}: %{y}<extra></extra>`
         }));
 
-        Plotly.newPlot(
+        drawPlot(
           "cfpb-trend",
           traces,
           {
@@ -1888,47 +1778,12 @@
 
       const renderTractMap = (data, metricKey) => {
         const context = data.economic_context;
-        if (!context?.tract_geojson) return;
-        const metric = context.county_metrics?.[metricKey];
-        const tracts = context.tracts || [];
-        const metricColor = metricTone[metricKey] || "#245b9e";
-
-        Plotly.newPlot(
-          "tract-map",
-          [
-            {
-              type: "choroplethmapbox",
-              geojson: context.tract_geojson,
-              locations: tracts.map(tract => tract.geoid),
-              z: tracts.map(tract => tract.metrics?.[metricKey]),
-              featureidkey: "properties.GEOID",
-              text: tracts.map(tract => tract.name),
-              hovertemplate: "%{text}<br>%{z}<extra></extra>",
-              colorscale: [
-                [0, "#e8f1f0"],
-                [0.5, metricColor],
-                [1, "#17202a"]
-              ],
-              marker: { line: { color: "#ffffff", width: 1 } },
-              colorbar: {
-                title: "",
-                thickness: 12,
-                tickformat: metric?.kind === "currency" ? "$,.0f" : ".0%"
-              }
-            }
-          ],
-          {
-            margin: { t: 8, r: 8, b: 8, l: 8 },
-            mapbox: {
-              style: "carto-positron",
-              center: { lat: 39.78, lon: -89.65 },
-              zoom: 8.5
-            },
-            paper_bgcolor: "rgba(0,0,0,0)",
-            plot_bgcolor: "rgba(0,0,0,0)"
-          },
-          { responsive: true, displayModeBar: false }
-        );
+        const metric = context?.county_metrics?.[metricKey];
+        const values = new Map((context?.tracts || []).map(tract => [tract.geoid, tract.metrics?.[metricKey]]));
+        showChart("tract-map", () => DebtMaps.areas("tract-map", "Sangamon tract context",
+          context?.tract_geojson?.features, values, feature => feature.properties.GEOID,
+          feature => feature.properties.NAME, value => formatValue(value, metric?.kind === "currency" ? "currency" : "percent"),
+          metricTone[metricKey] || "#245b9e"));
       };
 
       const render = (data, metricKey) => {
@@ -1940,10 +1795,6 @@
           return (bVal ?? -Infinity) - (aVal ?? -Infinity);
         });
 
-        document.getElementById("title").textContent =
-          `${data.selected_county.county}, ${data.selected_county.state}`;
-        document.getElementById("coverage-text").textContent =
-          `${counties.length} counties shown: Sangamon County and adjacent counties from the Census county adjacency file.`;
         document.getElementById("metric-header").textContent = metricTitle(metricKey, metricMeta);
         document.getElementById("map-meta").textContent =
           `${metricUnit(metricKey, metricMeta)} - ${metricDescription(metricKey, metricMeta)}`;
@@ -1951,13 +1802,11 @@
         document.getElementById("table-meta").textContent = "Selected county highlighted";
 
         renderCards(data, metricKey);
-        renderStory(data);
         renderEconomicContext(data);
         renderDebtDetail(data);
         renderLoanFocus(data, loanFocus.creditCard);
         renderLoanFocus(data, loanFocus.autoLoan);
         renderActiveLayers(data);
-        renderDebtDataLayers();
         renderCfpbStateCards(data);
         renderMetricGroups(data, metricKey);
 
@@ -1968,50 +1817,21 @@
                 <td>${county.county}${county.is_selected ? '<span class="selected-pill">selected</span>' : ""}</td>
                 <td>${county.state}</td>
                 <td class="value-cell">${formatValue(byMetric(county, metricKey), valueType(metricMeta))}</td>
-                <td class="estimate-cell">${metricMeta.kind === "rate" ? formatCount(byEstimate(county, metricKey)) : "N/A"}</td>
                 <td class="rank-cell">${byRank(county, metricKey).rank || "N/A"} / ${byRank(county, metricKey).total || "N/A"}</td>
               </tr>
             `
           )
           .join("");
 
-        Plotly.newPlot(
-          "map",
-          [
-            {
-              type: "choropleth",
-              locationmode: "USA-counties",
-              locations: counties.map(county => county.fips),
-              z: counties.map(county => byMetric(county, metricKey)),
-              text: counties.map(countyLabel),
-              hovertemplate: "%{text}<br>%{z}<extra></extra>",
-              colorscale: [
-                [0, "#e8f1f0"],
-                [0.5, metricColor],
-                [1, "#17202a"]
-              ],
-              marker: { line: { color: "#ffffff", width: 1 } },
-              colorbar: {
-                title: "",
-                thickness: 12,
-                tickformat: metricMeta.kind === "currency" ? "$,.0f" : ".0%"
-              }
-            }
-          ],
-          {
-            margin: { t: 8, r: 8, b: 8, l: 8 },
-            geo: {
-              scope: "usa",
-              fitbounds: "locations",
-              bgcolor: "rgba(0,0,0,0)"
-            },
-            paper_bgcolor: "rgba(0,0,0,0)",
-            plot_bgcolor: "rgba(0,0,0,0)"
-          },
-          { responsive: true, displayModeBar: false }
-        );
+        const rows = counties.map(county => ({
+          fips: county.fips, name: county.county, value: byMetric(county, metricKey)
+        }));
+        showChart("map", () => DebtMaps.counties("map", rows,
+          value => formatValue(value, valueType(metricMeta)), {
+            selectedFips: data.selected_county.fips, title: metricTitle(metricKey, metricMeta), color: metricColor
+          }));
 
-        Plotly.newPlot(
+        drawPlot(
           "bars",
           [
             {
@@ -2054,7 +1874,6 @@
           <a href="${data.sources.census_tiger_tracts}" target="_blank" rel="noreferrer">Census tract geography</a>,
           <a href="${data.sources.cfpb_consumer_credit_trends}" target="_blank" rel="noreferrer">CFPB credit trends</a>,
           <a href="${data.sources.new_york_fed_report}" target="_blank" rel="noreferrer">New York Fed</a>.
-          ${data.notes?.population_estimates || ""}
         `;
       };
 
@@ -2062,18 +1881,26 @@
         const response = await fetch("./data/processed/county_debt_snapshot.json");
         if (!response.ok) throw new Error("Dashboard data file is missing.");
         const data = await response.json();
-        const [housingResponse, creditAccessResponse, highCostCreditResponse] = await Promise.all([
-          fetch("./data/processed/housing_distress_filings.json"),
-          fetch("./data/processed/credit_access_locations.json"),
-          fetch("./data/processed/high_cost_credit_locations.json")
+        const optionalData = async path => {
+          if (!path) return null;
+          try {
+            const result = await fetch(path);
+            if (result.ok) return await result.json();
+          } catch (error) {
+            console.warn("Optional dataset unavailable:", path, error);
+          }
+          return null;
+        };
+        const [housing, banks, lenders, tracts] = await Promise.all([
+          optionalData("./data/processed/housing_distress_filings.json"),
+          optionalData("./data/processed/credit_access_locations.json"),
+          optionalData("./data/processed/high_cost_credit_locations.json"),
+          optionalData(data.economic_context?.tract_geojson_path)
         ]);
-        data.housing_distress = housingResponse.ok ? await housingResponse.json() : null;
-        data.credit_access = creditAccessResponse.ok ? await creditAccessResponse.json() : null;
-        data.high_cost_credit = highCostCreditResponse.ok ? await highCostCreditResponse.json() : null;
-        if (data.economic_context?.tract_geojson_path) {
-          const tractResponse = await fetch(data.economic_context.tract_geojson_path);
-          data.economic_context.tract_geojson = await tractResponse.json();
-        }
+        data.housing_distress = housing;
+        data.credit_access = banks;
+        data.high_cost_credit = lenders;
+        if (data.economic_context) data.economic_context.tract_geojson = tracts;
 
         const select = document.getElementById("metric-select");
         Object.entries(data.selected_metrics).forEach(([key, meta]) => {
@@ -2107,17 +1934,12 @@
       };
 
       boot().catch(error => {
-        document.body.innerHTML = `
-          <main class="app">
-            <section class="panel">
-              <div class="panel-header"><h2>Dashboard data not found</h2></div>
-              <div style="padding: 14px; color: var(--muted)">
-                ${error.message} Run the build script first so
-                <code>data/processed/county_debt_snapshot.json</code> exists.
-              </div>
-            </section>
-          </main>
-        `;
+        console.warn("County snapshot could not load.", error);
+        const status = document.getElementById("coverage-text");
+        if (status) {
+          status.setAttribute("role", "alert");
+          status.textContent = "The archived county snapshot could not load. Refresh to try again.";
+        }
       });
     </script>
   </body>

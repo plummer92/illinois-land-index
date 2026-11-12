@@ -1,0 +1,131 @@
+{
+  "source": "United States Courts, Bankruptcy Filings, Table F-5A",
+  "unit": "Bankruptcy cases commenced, all chapters",
+  "method": "Cases are summed by county code across filing districts. Nonbusiness cases are a subset of total filings, classified by the predominant nature of debt.",
+  "periods": [
+    {
+      "start": "2024-10-01",
+      "end": "2025-09-30",
+      "source_url": "https://www.uscourts.gov/data-news/data-tables/2025/09/30/bankruptcy-filings/f-5a",
+      "workbook_url": "https://www.uscourts.gov/sites/default/files/document/bf_f5a_0930.2025.xlsx",
+      "counties": [
+        {
+          "fips": "17167",
+          "county": "Sangamon County",
+          "total": 257,
+          "nonbusiness": 246
+        },
+        {
+          "fips": "17017",
+          "county": "Cass County",
+          "total": 11,
+          "nonbusiness": 11
+        },
+        {
+          "fips": "17021",
+          "county": "Christian County",
+          "total": 47,
+          "nonbusiness": 46
+        },
+        {
+          "fips": "17107",
+          "county": "Logan County",
+          "total": 40,
+          "nonbusiness": 40
+        },
+        {
+          "fips": "17115",
+          "county": "Macon County",
+          "total": 214,
+          "nonbusiness": 209
+        },
+        {
+          "fips": "17117",
+          "county": "Macoupin County",
+          "total": 50,
+          "nonbusiness": 50
+        },
+        {
+          "fips": "17129",
+          "county": "Menard County",
+          "total": 13,
+          "nonbusiness": 11
+        },
+        {
+          "fips": "17135",
+          "county": "Montgomery County",
+          "total": 19,
+          "nonbusiness": 19
+        },
+        {
+          "fips": "17137",
+          "county": "Morgan County",
+          "total": 33,
+          "nonbusiness": 32
+        }
+      ]
+    },
+    {
+      "start": "2025-10-01",
+      "end": "2026-09-30",
+      "source_url": "https://www.uscourts.gov/data-news/data-tables/2026/09/30/bankruptcy-filings/f-5a",
+      "workbook_url": "https://www.uscourts.gov/sites/default/files/document/bf_f5a_0930.2026.xlsx",
+      "counties": [
+        {
+          "fips": "17167",
+          "county": "Sangamon County",
+          "total": 298,
+          "nonbusiness": 290
+        },
+        {
+          "fips": "17017",
+          "county": "Cass County",
+          "total": 12,
+          "nonbusiness": 12
+        },
+        {
+          "fips": "17021",
+          "county": "Christian County",
+          "total": 43,
+          "nonbusiness": 43
+        },
+        {
+          "fips": "17107",
+          "county": "Logan County",
+          "total": 45,
+          "nonbusiness": 41
+        },
+        {
+          "fips": "17115",
+          "county": "Macon County",
+          "total": 248,
+          "nonbusiness": 243
+        },
+        {
+          "fips": "17117",
+          "county": "Macoupin County",
+          "total": 66,
+          "nonbusiness": 66
+        },
+        {
+          "fips": "17129",
+          "county": "Menard County",
+          "total": 14,
+          "nonbusiness": 14
+        },
+        {
+          "fips": "17135",
+          "county": "Montgomery County",
+          "total": 28,
+          "nonbusiness": 28
+        },
+        {
+          "fips": "17137",
+          "county": "Morgan County",
+          "total": 39,
+          "nonbusiness": 37
+        }
+      ]
+    }
+  ]
+}

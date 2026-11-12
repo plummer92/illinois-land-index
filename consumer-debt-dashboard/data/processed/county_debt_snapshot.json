@@ -39,23 +39,6 @@
         "average_household_income": 96499.14,
         "share_people_of_color": 0.2298
       },
-      "estimated_people": {
-        "avg_total_debt": null,
-        "collections_rate": 31879,
-        "medical_debt_rate": 0,
-        "student_loan_delinquency_rate": 26563,
-        "avg_auto_retail_debt": 7836,
-        "credit_card_delinquency_rate": 8126,
-        "median_credit_card_delinquent_debt": null,
-        "share_with_student_loan_debt": 24317,
-        "median_student_loan_debt": null,
-        "median_monthly_student_loan_payment": null,
-        "share_with_auto_loans": 50407,
-        "share_with_auto_retail_debt": 58686,
-        "uninsured_rate": 6385,
-        "average_household_income": null,
-        "share_people_of_color": 35101
-      },
       "rank": {
         "avg_total_debt": {
           "rank": 4,
@@ -146,23 +129,6 @@
         "uninsured_rate": 0.0729,
         "average_household_income": 78833.87,
         "share_people_of_color": 0.2884
-      },
-      "estimated_people": {
-        "avg_total_debt": null,
-        "collections_rate": 1657,
-        "medical_debt_rate": 0,
-        "student_loan_delinquency_rate": null,
-        "avg_auto_retail_debt": 411,
-        "credit_card_delinquency_rate": 737,
-        "median_credit_card_delinquent_debt": null,
-        "share_with_student_loan_debt": 887,
-        "median_student_loan_debt": null,
-        "median_monthly_student_loan_payment": null,
-        "share_with_auto_loans": 3152,
-        "share_with_auto_retail_debt": 3829,
-        "uninsured_rate": 701,
-        "average_household_income": null,
-        "share_people_of_color": 2774
       },
       "rank": {
         "avg_total_debt": {
@@ -255,23 +221,6 @@
         "average_household_income": 74729.2,
         "share_people_of_color": 0.0857
       },
-      "estimated_people": {
-        "avg_total_debt": null,
-        "collections_rate": 4894,
-        "medical_debt_rate": 0,
-        "student_loan_delinquency_rate": 4967,
-        "avg_auto_retail_debt": 1736,
-        "credit_card_delinquency_rate": 2143,
-        "median_credit_card_delinquent_debt": null,
-        "share_with_student_loan_debt": 3474,
-        "median_student_loan_debt": null,
-        "median_monthly_student_loan_payment": null,
-        "share_with_auto_loans": 8731,
-        "share_with_auto_retail_debt": 10620,
-        "uninsured_rate": 1201,
-        "average_household_income": null,
-        "share_people_of_color": 2314
-      },
       "rank": {
         "avg_total_debt": {
           "rank": 3,
@@ -362,23 +311,6 @@
         "uninsured_rate": 0.0237,
         "average_household_income": 83184.55,
         "share_people_of_color": 0.1352
-      },
-      "estimated_people": {
-        "avg_total_debt": null,
-        "collections_rate": 5242,
-        "medical_debt_rate": 0,
-        "student_loan_delinquency_rate": 3603,
-        "avg_auto_retail_debt": 1273,
-        "credit_card_delinquency_rate": 1373,
-        "median_credit_card_delinquent_debt": null,
-        "share_with_student_loan_debt": 2731,
-        "median_student_loan_debt": null,
-        "median_monthly_student_loan_payment": null,
-        "share_with_auto_loans": 8608,
-        "share_with_auto_retail_debt": 10486,
-        "uninsured_rate": 528,
-        "average_household_income": null,
-        "share_people_of_color": 3014
       },
       "rank": {
         "avg_total_debt": {
@@ -471,23 +403,6 @@
         "average_household_income": 80184.35,
         "share_people_of_color": 0.2706
       },
-      "estimated_people": {
-        "avg_total_debt": null,
-        "collections_rate": 20680,
-        "medical_debt_rate": 0,
-        "student_loan_delinquency_rate": 14611,
-        "avg_auto_retail_debt": 5156,
-        "credit_card_delinquency_rate": 4626,
-        "median_credit_card_delinquent_debt": null,
-        "share_with_student_loan_debt": 10008,
-        "median_student_loan_debt": null,
-        "median_monthly_student_loan_payment": null,
-        "share_with_auto_loans": 24026,
-        "share_with_auto_retail_debt": 30259,
-        "uninsured_rate": 2114,
-        "average_household_income": null,
-        "share_people_of_color": 21109
-      },
       "rank": {
         "avg_total_debt": {
           "rank": 6,
@@ -578,23 +493,6 @@
         "uninsured_rate": 0.0432,
         "average_household_income": 85961.95,
         "share_people_of_color": 0.0572
-      },
-      "estimated_people": {
-        "avg_total_debt": null,
-        "collections_rate": 6574,
-        "medical_debt_rate": 0,
-        "student_loan_delinquency_rate": 6969,
-        "avg_auto_retail_debt": 1619,
-        "credit_card_delinquency_rate": 2148,
-        "median_credit_card_delinquent_debt": null,
-        "share_with_student_loan_debt": 4457,
-        "median_student_loan_debt": null,
-        "median_monthly_student_loan_payment": null,
-        "share_with_auto_loans": 12706,
-        "share_with_auto_retail_debt": 15365,
-        "uninsured_rate": 1514,
-        "average_household_income": null,
-        "share_people_of_color": 2004
       },
       "rank": {
         "avg_total_debt": {
@@ -687,23 +585,6 @@
         "average_household_income": 97365.16,
         "share_people_of_color": 0.0495
       },
-      "estimated_people": {
-        "avg_total_debt": null,
-        "collections_rate": 1065,
-        "medical_debt_rate": 0,
-        "student_loan_delinquency_rate": null,
-        "avg_auto_retail_debt": 362,
-        "credit_card_delinquency_rate": 328,
-        "median_credit_card_delinquent_debt": null,
-        "share_with_student_loan_debt": 1192,
-        "median_student_loan_debt": null,
-        "median_monthly_student_loan_payment": null,
-        "share_with_auto_loans": 3322,
-        "share_with_auto_retail_debt": 3930,
-        "uninsured_rate": 274,
-        "average_household_income": null,
-        "share_people_of_color": 466
-      },
       "rank": {
         "avg_total_debt": {
           "rank": null,
@@ -794,23 +675,6 @@
         "uninsured_rate": 0.0449,
         "average_household_income": 80653.94,
         "share_people_of_color": 0.0799
-      },
-      "estimated_people": {
-        "avg_total_debt": null,
-        "collections_rate": 4563,
-        "medical_debt_rate": 0,
-        "student_loan_delinquency_rate": 4803,
-        "avg_auto_retail_debt": 1260,
-        "credit_card_delinquency_rate": 870,
-        "median_credit_card_delinquent_debt": null,
-        "share_with_student_loan_debt": 2682,
-        "median_student_loan_debt": null,
-        "median_monthly_student_loan_payment": null,
-        "share_with_auto_loans": 7717,
-        "share_with_auto_retail_debt": 9681,
-        "uninsured_rate": 996,
-        "average_household_income": null,
-        "share_people_of_color": 1772
       },
       "rank": {
         "avg_total_debt": {
@@ -903,23 +767,6 @@
         "average_household_income": 85287.68,
         "share_people_of_color": 0.124
       },
-      "estimated_people": {
-        "avg_total_debt": null,
-        "collections_rate": 6102,
-        "medical_debt_rate": 0,
-        "student_loan_delinquency_rate": 4501,
-        "avg_auto_retail_debt": 1144,
-        "credit_card_delinquency_rate": 1848,
-        "median_credit_card_delinquent_debt": null,
-        "share_with_student_loan_debt": 3396,
-        "median_student_loan_debt": null,
-        "median_monthly_student_loan_payment": null,
-        "share_with_auto_loans": 8449,
-        "share_with_auto_retail_debt": 10740,
-        "uninsured_rate": 1060,
-        "average_household_income": null,
-        "share_people_of_color": 3270
-      },
       "rank": {
         "avg_total_debt": {
           "rank": 2,
@@ -992,11 +839,6 @@
       "us_value": 2528.0,
       "state_delta": -182.5,
       "us_delta": -255.5,
-      "estimated_people": null,
-      "estimated_people_if_state_rate": null,
-      "estimated_people_if_us_rate": null,
-      "estimated_people_vs_state": null,
-      "estimated_people_vs_us": null,
       "rank": {
         "rank": 4,
         "total": 8
@@ -1012,11 +854,6 @@
       "us_value": 0.2271,
       "state_delta": 0.0161,
       "us_delta": -0.0184,
-      "estimated_people": 31879,
-      "estimated_people_if_state_rate": 29419,
-      "estimated_people_if_us_rate": 34689,
-      "estimated_people_vs_state": 2460,
-      "estimated_people_vs_us": -2810,
       "rank": {
         "rank": 4,
         "total": 9
@@ -1032,11 +869,6 @@
       "us_value": 0.0322,
       "state_delta": 0.0,
       "us_delta": -0.0322,
-      "estimated_people": 0,
-      "estimated_people_if_state_rate": 0,
-      "estimated_people_if_us_rate": 4918,
-      "estimated_people_vs_state": 0,
-      "estimated_people_vs_us": -4918,
       "rank": {
         "rank": 1,
         "total": 9
@@ -1052,11 +884,6 @@
       "us_value": 0.1589,
       "state_delta": 0.0243,
       "us_delta": 0.015,
-      "estimated_people": 26563,
-      "estimated_people_if_state_rate": 22851,
-      "estimated_people_if_us_rate": 24272,
-      "estimated_people_vs_state": 3712,
-      "estimated_people_vs_us": 2291,
       "rank": {
         "rank": 5,
         "total": 7
@@ -1072,11 +899,6 @@
       "us_value": 0.0574,
       "state_delta": -0.0042,
       "us_delta": -0.0061,
-      "estimated_people": 7836,
-      "estimated_people_if_state_rate": 8478,
-      "estimated_people_if_us_rate": 8768,
-      "estimated_people_vs_state": -642,
-      "estimated_people_vs_us": -932,
       "rank": {
         "rank": 5,
         "total": 9
@@ -1092,11 +914,6 @@
       "us_value": 0.0557,
       "state_delta": 0.0021,
       "us_delta": -0.0025,
-      "estimated_people": 8126,
-      "estimated_people_if_state_rate": 7805,
-      "estimated_people_if_us_rate": 8508,
-      "estimated_people_vs_state": 321,
-      "estimated_people_vs_us": -382,
       "rank": {
         "rank": 7,
         "total": 9
@@ -1112,11 +929,6 @@
       "us_value": 713.0,
       "state_delta": -98.0,
       "us_delta": -119.0,
-      "estimated_people": null,
-      "estimated_people_if_state_rate": null,
-      "estimated_people_if_us_rate": null,
-      "estimated_people_vs_state": null,
-      "estimated_people_vs_us": null,
       "rank": {
         "rank": 2,
         "total": 3
@@ -1132,11 +944,6 @@
       "us_value": 0.1441,
       "state_delta": 0.0092,
       "us_delta": 0.0151,
-      "estimated_people": 24317,
-      "estimated_people_if_state_rate": 22912,
-      "estimated_people_if_us_rate": 22011,
-      "estimated_people_vs_state": 1405,
-      "estimated_people_vs_us": 2306,
       "rank": {
         "rank": 1,
         "total": 9
@@ -1152,11 +959,6 @@
       "us_value": 21314.0,
       "state_delta": -2473.0,
       "us_delta": -1684.0,
-      "estimated_people": null,
-      "estimated_people_if_state_rate": null,
-      "estimated_people_if_us_rate": null,
-      "estimated_people_vs_state": null,
-      "estimated_people_vs_us": null,
       "rank": {
         "rank": 2,
         "total": 7
@@ -1172,11 +974,6 @@
       "us_value": 182.0,
       "state_delta": -18.0,
       "us_delta": -2.0,
-      "estimated_people": null,
-      "estimated_people_if_state_rate": null,
-      "estimated_people_if_us_rate": null,
-      "estimated_people_vs_state": null,
-      "estimated_people_vs_us": null,
       "rank": {
         "rank": 1,
         "total": 7
@@ -1192,11 +989,6 @@
       "us_value": 0.2866,
       "state_delta": 0.0623,
       "us_delta": 0.0434,
-      "estimated_people": 50407,
-      "estimated_people_if_state_rate": 40891,
-      "estimated_people_if_us_rate": 43778,
-      "estimated_people_vs_state": 9516,
-      "estimated_people_vs_us": 6629,
       "rank": {
         "rank": 5,
         "total": 9
@@ -1212,11 +1004,6 @@
       "us_value": 0.348,
       "state_delta": 0.0605,
       "us_delta": 0.0362,
-      "estimated_people": 58686,
-      "estimated_people_if_state_rate": 49445,
-      "estimated_people_if_us_rate": 53156,
-      "estimated_people_vs_state": 9241,
-      "estimated_people_vs_us": 5530,
       "rank": {
         "rank": 9,
         "total": 9
@@ -1232,11 +1019,6 @@
       "us_value": 0.0793,
       "state_delta": -0.0198,
       "us_delta": -0.0375,
-      "estimated_people": 6385,
-      "estimated_people_if_state_rate": 9409,
-      "estimated_people_if_us_rate": 12113,
-      "estimated_people_vs_state": -3024,
-      "estimated_people_vs_us": -5728,
       "rank": {
         "rank": 5,
         "total": 9
@@ -1252,11 +1034,6 @@
       "us_value": 109160.2,
       "state_delta": -14430.96,
       "us_delta": -12661.06,
-      "estimated_people": null,
-      "estimated_people_if_state_rate": null,
-      "estimated_people_if_us_rate": null,
-      "estimated_people_vs_state": null,
-      "estimated_people_vs_us": null,
       "rank": {
         "rank": 2,
         "total": 9
@@ -1272,11 +1049,6 @@
       "us_value": 0.4287,
       "state_delta": -0.1917,
       "us_delta": -0.1989,
-      "estimated_people": 35101,
-      "estimated_people_if_state_rate": 64383,
-      "estimated_people_if_us_rate": 65483,
-      "estimated_people_vs_state": -29282,
-      "estimated_people_vs_us": -30382,
       "rank": {
         "rank": 3,
         "total": 9
@@ -1286,28 +1058,6 @@
       "source_column": "Share of people of color"
     }
   },
-  "story": [
-    {
-      "title": "Largest local rate",
-      "metric": "share_with_auto_retail_debt",
-      "body": "Sangamon County's highest percentage measure is share with auto/retail debt at 38.4%. That represents an estimated 58,686 adults."
-    },
-    {
-      "title": "Biggest Illinois gap",
-      "metric": "average_household_income",
-      "body": "The biggest gap versus Illinois is average household income: $14,431 below the state benchmark."
-    },
-    {
-      "title": "Estimated people impact",
-      "metric": "share_with_auto_loans",
-      "body": "Compared with the Illinois rate, Sangamon County has about 9,516 more adults with auto loans."
-    },
-    {
-      "title": "Nearby-county rank",
-      "metric": "share_with_student_loan_debt",
-      "body": "Sangamon County ranks #1 of 9 nearby counties on share with student loan debt."
-    }
-  ],
   "economic_context": {
     "year": 2024,
     "county_metrics": {
@@ -5939,7 +5689,5 @@
     "census_tiger_tracts": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Tracts_Blocks/MapServer",
     "cfpb_consumer_credit_trends": "https://files.consumerfinance.gov/data/consumer-credit-trends/all_data.csv"
   },
-  "notes": {
-    "population_estimates": "Estimated people affected applies Urban percentage measures to Census Population Estimates Program adult population counts. These are approximations, not direct credit bureau counts."
-  }
+  "notes": {}
 }

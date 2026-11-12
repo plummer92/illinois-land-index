@@ -1,0 +1,9 @@
+.debt-geography { position: relative; display: grid; grid-template-rows: auto minmax(0, 1fr) auto auto; gap: 4px; padding: 6px 10px; background: #f8faf9; }
+.debt-geography svg { display: block; width: 100%; height: 100%; touch-action: none; }
+.debt-geography [tabindex] { cursor: pointer; }
+.debt-geography [tabindex]:focus { outline: none; stroke: #162e4b; stroke-width: 3px; }
+.debt-geography .map-key, .debt-geography .map-readout { font-size: .79rem; line-height: 1.35; color: #41515c; }
+.debt-geography .map-readout { color: #17202a; }
+.debt-geography .map-zoom { display: flex; gap: 5px; }
+.debt-geography .map-zoom button { min-width: 38px; min-height: 32px; border: 1px solid #bcc9ce; border-radius: 4px; background: white; color: #174e49; font: inherit; cursor: pointer; }
+@media (pointer: coarse) { .debt-geography .map-zoom button { min-width: 44px; min-height: 44px; } }

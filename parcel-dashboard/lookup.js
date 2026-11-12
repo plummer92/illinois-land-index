@@ -76,6 +76,8 @@ async function lookup() {
   currentRequest = controller;
   history.replaceState(null, "");
   result.hidden = true;
+  delete result.dataset.parcelNumber;
+  document.querySelector("#lookup-score").hidden = true;
   numberInput.removeAttribute("aria-invalid");
   const input = numberInput.value.trim();
   const pin = normalizePin(input);
@@ -136,6 +138,8 @@ async function lookup() {
       mapLink.href = url.href;
     }
     result.hidden = false;
+    result.dataset.parcelNumber = matchedPin;
+    result.dispatchEvent(new Event("parcel-found"));
     history.replaceState({parcelLookupPin: matchedPin}, "");
     statusLine.textContent = matchedAddress
       ? "The county address point for " + matchedAddress + " falls on this parcel. Confirm the boundary in the county viewer."

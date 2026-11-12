@@ -7,6 +7,10 @@
 .parcel-page h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.1; }
 .parcel-page header p { margin-top: 8px; color: var(--muted); }
 .parcel-page p { line-height: 1.55; }
+.parcel-sections { display:flex; flex-wrap:wrap; gap:0 1.3rem; margin-top:8px; }
+.parcel-sections a { display:inline-flex; align-items:center; min-height:44px; color:var(--green-dark); font-weight:650; text-underline-offset:3px; }
+#scored-properties, #parcel-lookup { scroll-margin-top:8rem; }
+#parcel-lookup h2 { margin:0 0 .75rem; }
 .lookup {
   margin: 24px 0 16px;
   padding: clamp(16px, 4vw, 32px);

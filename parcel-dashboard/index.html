@@ -4,12 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Parcel dashboard | Illinois Land Index</title>
-    <meta name="description" content="Look up a Sangamon County parcel in county GIS, check its acreage and open its water map.">
+    <meta name="description" content="Browse ranked Sangamon County properties by opportunity score or look up a parcel by number or street address.">
     <link rel="canonical" href="https://illinoislandindex.com/parcel-dashboard/">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../navigation.css">
     <link rel="stylesheet" href="./dashboard.css">
+    <link rel="stylesheet" href="./rankings.css">
     <script src="./lookup.js" defer></script>
+    <script src="./rankings.js" defer></script>
   </head>
   <body>
     <header class="site-header index-navigation">
@@ -24,9 +26,16 @@
     <main class="parcel-page">
       <header>
         <h1>Parcel dashboard</h1>
-        <p>Look up a Sangamon County parcel by number or street address, check its acreage and open it on the water map.</p>
+        <p>Browse properties ranked by the land index, or look up a parcel in Sangamon County GIS.</p>
+        <nav class="parcel-sections" aria-label="Parcel tools"><a href="#scored-properties">Scored properties</a><a href="#parcel-lookup">Look up an address or parcel number</a></nav>
       </header>
-      <section class="lookup" aria-label="County parcel lookup">
+      <section id="scored-properties" aria-labelledby="scores-title">
+        <h2 id="scores-title">Scored properties</h2>
+        <div id="parcel-rankings"></div>
+        <noscript>Enable JavaScript to browse and filter the scored properties.</noscript>
+      </section>
+      <section class="lookup" id="parcel-lookup" aria-label="County parcel lookup">
+        <h2>Look up a parcel</h2>
         <form id="parcel-form">
           <label for="parcel-number">Parcel number or street address</label>
           <div class="search-row">
@@ -40,6 +49,7 @@
         <section id="result" hidden aria-label="County parcel result">
           <h2 id="result-title"></h2>
           <p id="acreage"></p>
+          <p id="lookup-score" hidden></p>
           <a id="open-map" class="button primary" href="../infrastructure-map/">Open parcel water map</a>
           <div class="county-links"><a id="county-tax">County tax record</a><a id="county-map">County parcel viewer</a></div>
         </section>

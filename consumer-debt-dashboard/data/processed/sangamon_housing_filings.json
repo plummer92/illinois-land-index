@@ -1,0 +1,118 @@
+{
+  "source": {
+    "name": "Administrative Office of the Illinois Courts, Circuit Court Statistical Dashboard",
+    "url": "https://www.illinoiscourts.gov/courts/circuit-court/illinois-circuit-court-statistical-reports/",
+    "dashboard_url": "https://app.powerbigov.us/view?r=eyJrIjoiMThmYmQxZTEtYWQxMi00NDliLTliNTEtYTQ4MzYzZDJjZTNkIiwidCI6ImRjNjQxZWU0LTViNWQtNDlhMC04ZmY0LTdhYWZjNjExOGE0MiJ9"
+  },
+  "checked_on": "2026-11-12",
+  "quarters": [
+    {
+      "year": 2022,
+      "quarter": 1,
+      "eviction": 356,
+      "foreclosure": 54
+    },
+    {
+      "year": 2022,
+      "quarter": 2,
+      "eviction": 452,
+      "foreclosure": 66
+    },
+    {
+      "year": 2022,
+      "quarter": 3,
+      "eviction": 470,
+      "foreclosure": 78
+    },
+    {
+      "year": 2022,
+      "quarter": 4,
+      "eviction": 492,
+      "foreclosure": 61
+    },
+    {
+      "year": 2023,
+      "quarter": 1,
+      "eviction": 474,
+      "foreclosure": 76
+    },
+    {
+      "year": 2023,
+      "quarter": 2,
+      "eviction": 455,
+      "foreclosure": 55
+    },
+    {
+      "year": 2023,
+      "quarter": 3,
+      "eviction": 503,
+      "foreclosure": 41
+    },
+    {
+      "year": 2023,
+      "quarter": 4,
+      "eviction": 409,
+      "foreclosure": 55
+    },
+    {
+      "year": 2024,
+      "quarter": 1,
+      "eviction": 385,
+      "foreclosure": 49
+    },
+    {
+      "year": 2024,
+      "quarter": 2,
+      "eviction": 376,
+      "foreclosure": 47
+    },
+    {
+      "year": 2024,
+      "quarter": 3,
+      "eviction": 466,
+      "foreclosure": 46
+    },
+    {
+      "year": 2024,
+      "quarter": 4,
+      "eviction": 403,
+      "foreclosure": 47
+    },
+    {
+      "year": 2025,
+      "quarter": 1,
+      "eviction": 464,
+      "foreclosure": 63
+    },
+    {
+      "year": 2025,
+      "quarter": 2,
+      "eviction": 453,
+      "foreclosure": 62
+    },
+    {
+      "year": 2025,
+      "quarter": 3,
+      "eviction": 446,
+      "foreclosure": 67
+    },
+    {
+      "year": 2025,
+      "quarter": 4,
+      "eviction": 403,
+      "foreclosure": 56
+    },
+    {
+      "year": 2026,
+      "quarter": 1,
+      "eviction": 371,
+      "foreclosure": 69
+    },
+    {
+      "year": 2026,
+      "quarter": 2,
+      "eviction": 438,
+      "foreclosure": 61
+    }
+  ]
+}

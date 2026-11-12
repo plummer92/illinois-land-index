@@ -39,6 +39,23 @@
 #county-explorer [hidden] { display:none; }
 .debt-intro + nav a:focus-visible, #county-explorer :focus-visible,#bankruptcies :focus-visible { outline:3px solid #248178; outline-offset:2px; }
 .court-filter { display:grid; gap:.3rem; font-weight:650; max-width:350px; margin:1rem 0; }
+#housing-access { background:#fff; border:1px solid #d9e0e8; border-radius:12px; padding:clamp(14px,2.7vw,32px); margin:0 0 24px; }
+#housing-access h2 { font-size:clamp(1.45rem,3vw,2rem); margin:0; color:#1a3735; }
+#housing-access [hidden] { display:none; }
+#housing-access a { color:#075b52; }
+#housing-cards { grid-template-columns:repeat(2,minmax(0,1fr)); max-width:750px; }
+#housing-cards > div:last-child { border-color:#986b22; background:#f8f4eb; }
+#housing-access .housing-table { width:100%; min-width:0; max-width:750px; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+.housing-table caption { text-align:left; margin-bottom:.4em; color:#435564; }
+#housing-access .housing-table th,#housing-access .housing-table td { padding:8px; text-align:right; white-space:normal; }
+#housing-access .housing-table th:first-child { text-align:left; width:44%; }
+.housing-table .filing-bar { display:block; border-radius:2px; height:4px; margin:.3em 0 0 auto; background:#348477; }
+.housing-table .foreclosure { background:#986b22; }
+#housing-history { margin-bottom:14px; }
+@media(max-width:530px) {
+  #housing-cards { grid-template-columns:minmax(0,1fr); }
+  #housing-access .housing-table th,#housing-access .housing-table td { padding:6px 3px; font-size:.84rem; }
+}
 #bankruptcies table { max-width:750px; }
 #bankruptcies tbody tr:first-child { background:#f0f6f5; }
 #bankruptcies [hidden] { display:none; }

@@ -8,6 +8,7 @@
     <link rel="canonical" href="https://illinoislandindex.com/consumer-debt-dashboard/">
     <link rel="stylesheet" href="./explorer.css">
     <script src="./explorer.js" defer></script>
+    <script src="./housing-filings.js" defer></script>
     <script src="../analytics.js" defer></script>
     <link rel="stylesheet" href="./debt-maps.css" />
     <script src="../infrastructure-map/vendor/d3.v7.min.js"></script>
@@ -893,7 +894,8 @@
       <nav class="section-links" aria-label="Dashboard sections">
         <a href="#county-explorer">Compare counties</a>
         <a href="#bankruptcies">Bankruptcies</a>
-        <a href="#housing-access">Housing &amp; credit access</a>
+        <a href="#housing-access">Evictions &amp; foreclosures</a>
+        <a href="#credit-access">Credit access</a>
         <a href="#archive">Historical detail</a>
       </nav>
       <section id="county-explorer" aria-labelledby="explorer-heading">
@@ -939,6 +941,34 @@
           <tbody></tbody>
         </table>
         <p class="court-source">U.S. Courts Table F-5A counts cases commenced across all chapters. Counts include filings made outside the county’s home district. One case can cover joint filers. <a href="https://www.uscourts.gov/data-news/data-tables/2025/09/30/bankruptcy-filings/f-5a">2025 court table</a> · <a href="https://www.uscourts.gov/data-news/data-tables/2026/09/30/bankruptcy-filings/f-5a">2026 court table</a>.</p>
+      </section>
+      <section id="housing-access" aria-labelledby="housing-heading">
+        <p class="period">Sangamon County Circuit Court</p>
+        <h2 id="housing-heading">Eviction and foreclosure filings</h2>
+        <p class="court-source"><strong id="housing-vintage"></strong> Counts include new residential and commercial cases. A filing alone does not tell us whether anyone moved out or a property was sold.</p>
+        <p id="housing-loading" role="status">Loading Illinois Courts filing counts…</p>
+        <noscript><p>Read the <a href="./data/processed/sangamon_housing_filings.json">quarterly counts</a> or open the court reports below.</p></noscript>
+        <div id="housing-results" hidden>
+          <label class="court-filter">Compare the same period across years
+            <select id="housing-period"></select>
+          </label>
+          <div class="comparison-cards" id="housing-cards" aria-live="polite"></div>
+          <table class="housing-table" id="housing-period-table">
+            <caption></caption>
+            <thead><tr><th scope="col">Period</th><th scope="col">Eviction filings</th><th scope="col">Foreclosure filings</th></tr></thead>
+            <tbody></tbody>
+          </table>
+          <details class="measure-sources" id="housing-history">
+            <summary>See every reported quarter</summary>
+            <table class="housing-table" id="housing-quarter-table">
+              <caption class="sr-debt">New filings by quarter in Sangamon County, most recent first</caption>
+              <thead><tr><th scope="col">Quarter</th><th scope="col">Eviction filings</th><th scope="col">Foreclosure filings</th></tr></thead><tbody></tbody>
+            </table>
+          </details>
+        </div>
+        <div class="measure-sources">
+          <p>The court classifies these cases as “New Filed” and counts reinstated cases separately. The eviction category includes ejectment proceedings. <a href="https://www.illinoiscourts.gov/courts/circuit-court/illinois-circuit-court-statistical-reports/">Illinois Courts quarterly reports</a> · <a href="https://www.illinoiscourts.gov/reports/annual-report-illinois-courts/">Annual reports</a> · <a href="https://sangamoncountycircuitclerk.org/application/files/8916/4985/6220/Case_Type_Outline.pdf">County case definitions</a> · <a href="./data/processed/sangamon_housing_filings.json">Download quarterly counts (JSON)</a>.</p>
+        </div>
       </section>
       <div class="topbar" id="archive">
         <div>
@@ -997,13 +1027,18 @@
         </div>
       </section>
 
-      <section class="active-layer-grid" id="housing-access">
+      <section class="active-layer-grid" id="credit-access">
         <div class="panel">
           <div class="panel-header">
-            <h2>Foreclosure + Eviction Layer</h2>
-            <span class="panel-meta">Sangamon County filings · through August 2024</span>
+            <h2>County clerk’s housing records</h2>
+            <span class="panel-meta">Archive through August 2024</span>
           </div>
-          <div class="active-layer-body" id="housing-distress-layer"></div>
+          <div class="active-layer-body">
+            <p>The clerk’s September 2024 reports contain monthly counts and an older foreclosure history. The clerk lists 13 foreclosure filings for 2023. Illinois Courts lists 227 for the same county and year. The clerk’s table does not explain the difference.</p>
+            <p>The <a href="#housing-access">current comparison</a> uses Illinois Courts for every year. The clerk’s 2024 tables stop in August.</p>
+            <p><a href="https://www.sangamoncountycircuitclerk.org/download_file/view/3210/">Clerk’s eviction table (PDF)</a> · <a href="https://www.sangamoncountycircuitclerk.org/download_file/view/3211/">Clerk’s foreclosure table (PDF)</a> · <a href="./data/processed/housing_distress_filings.json">Archive data (JSON)</a></p>
+            <div id="housing-distress-layer"></div>
+          </div>
         </div>
         <div class="panel">
           <div class="panel-header">
@@ -1471,12 +1506,12 @@
             <div class="layer-stat">
               <small>Eviction filings</small>
               <strong>${formatCount(latestEviction.filings)}</strong>
-              <span>${latestEviction.year} ${latestEviction.period.replaceAll("_", " ")}</span>
+              <span>January–August ${latestEviction.year}</span>
             </div>
             <div class="layer-stat">
               <small>Foreclosure filings</small>
               <strong>${formatCount(latestForeclosure.filings)}</strong>
-              <span>${latestForeclosure.year} ${latestForeclosure.period.replaceAll("_", " ")}</span>
+              <span>January–August ${latestForeclosure.year}</span>
             </div>
             <div class="layer-stat">
               <small>Last full year</small>
@@ -1486,26 +1521,26 @@
           </div>
           <div class="layer-check">
             <strong>Coverage</strong>
-            <span>The clerk’s 2024 series ends in August. The 2022 and 2023 bars include twelve months. Filing a case does not establish a completed foreclosure or eviction. <a href="${layer.source.page_url}">Circuit Clerk filing statistics</a></span>
+            <span>The cards above include the clerk’s partial 2024 counts. The chart shows full calendar years only. <a href="${layer.source.page_url}">Circuit Clerk filing statistics</a></span>
           </div>
           <div class="layer-chart" id="housing-distress-chart"></div>
         `;
 
-        const years = [...new Set([...evictionAnnual.map(record => record.year), ...foreclosureAnnual.map(record => record.year)])].sort();
+        const years = [...new Set([...evictionAnnual, ...foreclosureAnnual].filter(record => record.period === "full_year").map(record => record.year))].sort();
         drawPlot(
           "housing-distress-chart",
           [
             {
               type: "bar",
               name: "Evictions",
-              x: years.map(year => year === 2024 ? "Jan–Aug 2024" : String(year)),
+              x: years.map(String),
               y: years.map(year => evictionAnnual.find(record => record.year === year)?.filings ?? null),
               marker: { color: "#b98219" }
             },
             {
               type: "bar",
               name: "Foreclosures",
-              x: years.map(year => year === 2024 ? "Jan–Aug 2024" : String(year)),
+              x: years.map(String),
               y: years.map(year => foreclosureAnnual.find(record => record.year === year)?.filings ?? null),
               marker: { color: "#c4553d" }
             }
@@ -1613,11 +1648,6 @@
           if (!container.contains(mapContainer)) return;
           DebtMaps.credit(outlines.filter(feature => feature.id === access.selected_county.fips), locations, highCostLocations);
         });
-      };
-
-      const renderActiveLayers = data => {
-        renderHousingDistressLayer(data);
-        renderCreditAccessLayer(data);
       };
 
       const latestTrendRecord = (records, loanLabel, series) =>
@@ -1806,7 +1836,8 @@
         renderDebtDetail(data);
         renderLoanFocus(data, loanFocus.creditCard);
         renderLoanFocus(data, loanFocus.autoLoan);
-        renderActiveLayers(data);
+        renderHousingDistressLayer(data);
+        renderCreditAccessLayer(data);
         renderCfpbStateCards(data);
         renderMetricGroups(data, metricKey);
 

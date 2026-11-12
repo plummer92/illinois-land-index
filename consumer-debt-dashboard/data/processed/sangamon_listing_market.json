@@ -1,0 +1,1263 @@
+{
+  "scope": "Sangamon County, Illinois",
+  "fips": "17167",
+  "source": {
+    "name": "Realtor.com® Economic Research",
+    "url": "https://www.realtor.com/research/data/",
+    "download_url": "https://econdata.s3-us-west-2.amazonaws.com/Reports/Core/RDC_Inventory_Core_Metrics_County_History.csv",
+    "zip_download_url": "https://econdata.s3-us-west-2.amazonaws.com/Reports/Core/RDC_Inventory_Core_Metrics_Zip.csv"
+  },
+  "months": [
+    {
+      "month": "2016-07",
+      "quality_flag": null,
+      "median_listing_price": 144900,
+      "median_days_on_market": 55,
+      "active_listing_count": 988,
+      "new_listing_count": 368,
+      "pending_listing_count": 7,
+      "price_reduced_count": 314
+    },
+    {
+      "month": "2016-08",
+      "quality_flag": null,
+      "median_listing_price": 143350,
+      "median_days_on_market": 65,
+      "active_listing_count": 985,
+      "new_listing_count": 296,
+      "pending_listing_count": 6,
+      "price_reduced_count": 318
+    },
+    {
+      "month": "2016-09",
+      "quality_flag": null,
+      "median_listing_price": 143200,
+      "median_days_on_market": 69,
+      "active_listing_count": 973,
+      "new_listing_count": 278,
+      "pending_listing_count": 5,
+      "price_reduced_count": 312
+    },
+    {
+      "month": "2016-10",
+      "quality_flag": null,
+      "median_listing_price": 145000,
+      "median_days_on_market": 72,
+      "active_listing_count": 946,
+      "new_listing_count": 256,
+      "pending_listing_count": 5,
+      "price_reduced_count": 312
+    },
+    {
+      "month": "2016-11",
+      "quality_flag": null,
+      "median_listing_price": 144500,
+      "median_days_on_market": 70,
+      "active_listing_count": 933,
+      "new_listing_count": 232,
+      "pending_listing_count": 4,
+      "price_reduced_count": 248
+    },
+    {
+      "month": "2016-12",
+      "quality_flag": null,
+      "median_listing_price": 135950,
+      "median_days_on_market": 76,
+      "active_listing_count": 815,
+      "new_listing_count": 124,
+      "pending_listing_count": 5,
+      "price_reduced_count": 100
+    },
+    {
+      "month": "2017-01",
+      "quality_flag": null,
+      "median_listing_price": 134950,
+      "median_days_on_market": 84,
+      "active_listing_count": 763,
+      "new_listing_count": 210,
+      "pending_listing_count": 9,
+      "price_reduced_count": 146
+    },
+    {
+      "month": "2017-02",
+      "quality_flag": null,
+      "median_listing_price": 135225,
+      "median_days_on_market": 90,
+      "active_listing_count": 759,
+      "new_listing_count": 260,
+      "pending_listing_count": 6,
+      "price_reduced_count": 208
+    },
+    {
+      "month": "2017-03",
+      "quality_flag": null,
+      "median_listing_price": 140750,
+      "median_days_on_market": 62,
+      "active_listing_count": 825,
+      "new_listing_count": 330,
+      "pending_listing_count": 9,
+      "price_reduced_count": 222
+    },
+    {
+      "month": "2017-04",
+      "quality_flag": null,
+      "median_listing_price": 149000,
+      "median_days_on_market": 53,
+      "active_listing_count": 870,
+      "new_listing_count": 360,
+      "pending_listing_count": 7,
+      "price_reduced_count": 272
+    },
+    {
+      "month": "2017-05",
+      "quality_flag": null,
+      "median_listing_price": 154250,
+      "median_days_on_market": 51,
+      "active_listing_count": 935,
+      "new_listing_count": 420,
+      "pending_listing_count": 8,
+      "price_reduced_count": 292
+    },
+    {
+      "month": "2017-06",
+      "quality_flag": null,
+      "median_listing_price": 159900,
+      "median_days_on_market": 51,
+      "active_listing_count": 964,
+      "new_listing_count": 360,
+      "pending_listing_count": 8,
+      "price_reduced_count": 342
+    },
+    {
+      "month": "2017-07",
+      "quality_flag": 0,
+      "median_listing_price": 154900,
+      "median_days_on_market": 53,
+      "active_listing_count": 1047,
+      "new_listing_count": 364,
+      "pending_listing_count": 7,
+      "price_reduced_count": 392
+    },
+    {
+      "month": "2017-08",
+      "quality_flag": 0,
+      "median_listing_price": 152400,
+      "median_days_on_market": 58,
+      "active_listing_count": 1069,
+      "new_listing_count": 308,
+      "pending_listing_count": 7,
+      "price_reduced_count": 396
+    },
+    {
+      "month": "2017-09",
+      "quality_flag": 0,
+      "median_listing_price": 149900,
+      "median_days_on_market": 71,
+      "active_listing_count": 1031,
+      "new_listing_count": 272,
+      "pending_listing_count": 4,
+      "price_reduced_count": 348
+    },
+    {
+      "month": "2017-10",
+      "quality_flag": 0,
+      "median_listing_price": 145700,
+      "median_days_on_market": 77,
+      "active_listing_count": 1014,
+      "new_listing_count": 270,
+      "pending_listing_count": 2,
+      "price_reduced_count": 310
+    },
+    {
+      "month": "2017-11",
+      "quality_flag": 0,
+      "median_listing_price": 138675,
+      "median_days_on_market": 75,
+      "active_listing_count": 978,
+      "new_listing_count": 242,
+      "pending_listing_count": 2,
+      "price_reduced_count": 220
+    },
+    {
+      "month": "2017-12",
+      "quality_flag": 0,
+      "median_listing_price": 135000,
+      "median_days_on_market": 81,
+      "active_listing_count": 853,
+      "new_listing_count": 152,
+      "pending_listing_count": 3,
+      "price_reduced_count": 124
+    },
+    {
+      "month": "2018-01",
+      "quality_flag": 0,
+      "median_listing_price": 134900,
+      "median_days_on_market": 88,
+      "active_listing_count": 783,
+      "new_listing_count": 208,
+      "pending_listing_count": 4,
+      "price_reduced_count": 132
+    },
+    {
+      "month": "2018-02",
+      "quality_flag": 0,
+      "median_listing_price": 135950,
+      "median_days_on_market": 89,
+      "active_listing_count": 787,
+      "new_listing_count": 258,
+      "pending_listing_count": 6,
+      "price_reduced_count": 178
+    },
+    {
+      "month": "2018-03",
+      "quality_flag": 0,
+      "median_listing_price": 139900,
+      "median_days_on_market": 68,
+      "active_listing_count": 829,
+      "new_listing_count": 288,
+      "pending_listing_count": 6,
+      "price_reduced_count": 184
+    },
+    {
+      "month": "2018-04",
+      "quality_flag": 0,
+      "median_listing_price": 140575,
+      "median_days_on_market": 58,
+      "active_listing_count": 840,
+      "new_listing_count": 342,
+      "pending_listing_count": 11,
+      "price_reduced_count": 232
+    },
+    {
+      "month": "2018-05",
+      "quality_flag": 0,
+      "median_listing_price": 139900,
+      "median_days_on_market": 56,
+      "active_listing_count": 889,
+      "new_listing_count": 362,
+      "pending_listing_count": 8,
+      "price_reduced_count": 296
+    },
+    {
+      "month": "2018-06",
+      "quality_flag": 1,
+      "median_listing_price": 139900,
+      "median_days_on_market": 53,
+      "active_listing_count": 969,
+      "new_listing_count": 360,
+      "pending_listing_count": 3,
+      "price_reduced_count": 316
+    },
+    {
+      "month": "2018-07",
+      "quality_flag": 1,
+      "median_listing_price": 138575,
+      "median_days_on_market": 57,
+      "active_listing_count": 1003,
+      "new_listing_count": 348,
+      "pending_listing_count": 2,
+      "price_reduced_count": 342
+    },
+    {
+      "month": "2018-08",
+      "quality_flag": 0,
+      "median_listing_price": 139900,
+      "median_days_on_market": 63,
+      "active_listing_count": 986,
+      "new_listing_count": 316,
+      "pending_listing_count": 8,
+      "price_reduced_count": 334
+    },
+    {
+      "month": "2018-09",
+      "quality_flag": 0,
+      "median_listing_price": 145000,
+      "median_days_on_market": 68,
+      "active_listing_count": 975,
+      "new_listing_count": 272,
+      "pending_listing_count": 6,
+      "price_reduced_count": 332
+    },
+    {
+      "month": "2018-10",
+      "quality_flag": 0,
+      "median_listing_price": 149475,
+      "median_days_on_market": 73,
+      "active_listing_count": 931,
+      "new_listing_count": 236,
+      "pending_listing_count": 3,
+      "price_reduced_count": 284
+    },
+    {
+      "month": "2018-11",
+      "quality_flag": 0,
+      "median_listing_price": 147750,
+      "median_days_on_market": 75,
+      "active_listing_count": 892,
+      "new_listing_count": 210,
+      "pending_listing_count": 4,
+      "price_reduced_count": 190
+    },
+    {
+      "month": "2018-12",
+      "quality_flag": 0,
+      "median_listing_price": 139000,
+      "median_days_on_market": 80,
+      "active_listing_count": 816,
+      "new_listing_count": 164,
+      "pending_listing_count": 2,
+      "price_reduced_count": 120
+    },
+    {
+      "month": "2019-01",
+      "quality_flag": 0,
+      "median_listing_price": 134900,
+      "median_days_on_market": 87,
+      "active_listing_count": 782,
+      "new_listing_count": 190,
+      "pending_listing_count": 2,
+      "price_reduced_count": 148
+    },
+    {
+      "month": "2019-02",
+      "quality_flag": 0,
+      "median_listing_price": 139000,
+      "median_days_on_market": 91,
+      "active_listing_count": 776,
+      "new_listing_count": 260,
+      "pending_listing_count": 4,
+      "price_reduced_count": 166
+    },
+    {
+      "month": "2019-03",
+      "quality_flag": 0,
+      "median_listing_price": 141829,
+      "median_days_on_market": 69,
+      "active_listing_count": 755,
+      "new_listing_count": 312,
+      "pending_listing_count": 54,
+      "price_reduced_count": 256
+    },
+    {
+      "month": "2019-04",
+      "quality_flag": 0,
+      "median_listing_price": 146333,
+      "median_days_on_market": 51,
+      "active_listing_count": 731,
+      "new_listing_count": 332,
+      "pending_listing_count": 115,
+      "price_reduced_count": 282
+    },
+    {
+      "month": "2019-05",
+      "quality_flag": 0,
+      "median_listing_price": 149550,
+      "median_days_on_market": 51,
+      "active_listing_count": 737,
+      "new_listing_count": 334,
+      "pending_listing_count": 117,
+      "price_reduced_count": 254
+    },
+    {
+      "month": "2019-06",
+      "quality_flag": 0,
+      "median_listing_price": 153500,
+      "median_days_on_market": 51,
+      "active_listing_count": 800,
+      "new_listing_count": 436,
+      "pending_listing_count": 117,
+      "price_reduced_count": 252
+    },
+    {
+      "month": "2019-07",
+      "quality_flag": 0,
+      "median_listing_price": 151350,
+      "median_days_on_market": 56,
+      "active_listing_count": 859,
+      "new_listing_count": 308,
+      "pending_listing_count": 386,
+      "price_reduced_count": 342
+    },
+    {
+      "month": "2019-08",
+      "quality_flag": 0,
+      "median_listing_price": 149236,
+      "median_days_on_market": 61,
+      "active_listing_count": 842,
+      "new_listing_count": 260,
+      "pending_listing_count": 371,
+      "price_reduced_count": 348
+    },
+    {
+      "month": "2019-09",
+      "quality_flag": 0,
+      "median_listing_price": 144041,
+      "median_days_on_market": 64,
+      "active_listing_count": 806,
+      "new_listing_count": 246,
+      "pending_listing_count": 353,
+      "price_reduced_count": 312
+    },
+    {
+      "month": "2019-10",
+      "quality_flag": 0,
+      "median_listing_price": 140577,
+      "median_days_on_market": 66,
+      "active_listing_count": 783,
+      "new_listing_count": 234,
+      "pending_listing_count": 337,
+      "price_reduced_count": 278
+    },
+    {
+      "month": "2019-11",
+      "quality_flag": 1,
+      "median_listing_price": 131950,
+      "median_days_on_market": 68,
+      "active_listing_count": 754,
+      "new_listing_count": 208,
+      "pending_listing_count": 288,
+      "price_reduced_count": 220
+    },
+    {
+      "month": "2019-12",
+      "quality_flag": 0,
+      "median_listing_price": 129900,
+      "median_days_on_market": 73,
+      "active_listing_count": 674,
+      "new_listing_count": 146,
+      "pending_listing_count": 254,
+      "price_reduced_count": 146
+    },
+    {
+      "month": "2020-01",
+      "quality_flag": 0,
+      "median_listing_price": 129175,
+      "median_days_on_market": 82,
+      "active_listing_count": 617,
+      "new_listing_count": 210,
+      "pending_listing_count": 217,
+      "price_reduced_count": 118
+    },
+    {
+      "month": "2020-02",
+      "quality_flag": 0,
+      "median_listing_price": 129900,
+      "median_days_on_market": 81,
+      "active_listing_count": 601,
+      "new_listing_count": 184,
+      "pending_listing_count": 297,
+      "price_reduced_count": 132
+    },
+    {
+      "month": "2020-03",
+      "quality_flag": 0,
+      "median_listing_price": 140500,
+      "median_days_on_market": 65,
+      "active_listing_count": 569,
+      "new_listing_count": 290,
+      "pending_listing_count": 355,
+      "price_reduced_count": 150
+    },
+    {
+      "month": "2020-04",
+      "quality_flag": 0,
+      "median_listing_price": 145325,
+      "median_days_on_market": 65,
+      "active_listing_count": 569,
+      "new_listing_count": 222,
+      "pending_listing_count": 339,
+      "price_reduced_count": 100
+    },
+    {
+      "month": "2020-05",
+      "quality_flag": 0,
+      "median_listing_price": 140000,
+      "median_days_on_market": 64,
+      "active_listing_count": 498,
+      "new_listing_count": 272,
+      "pending_listing_count": 447,
+      "price_reduced_count": 164
+    },
+    {
+      "month": "2020-06",
+      "quality_flag": 0,
+      "median_listing_price": 149000,
+      "median_days_on_market": 51,
+      "active_listing_count": 494,
+      "new_listing_count": 318,
+      "pending_listing_count": 482,
+      "price_reduced_count": 198
+    },
+    {
+      "month": "2020-07",
+      "quality_flag": 0,
+      "median_listing_price": 150950,
+      "median_days_on_market": 50,
+      "active_listing_count": 484,
+      "new_listing_count": 298,
+      "pending_listing_count": 487,
+      "price_reduced_count": 198
+    },
+    {
+      "month": "2020-08",
+      "quality_flag": 0,
+      "median_listing_price": 139900,
+      "median_days_on_market": 51,
+      "active_listing_count": 457,
+      "new_listing_count": 344,
+      "pending_listing_count": 514,
+      "price_reduced_count": 216
+    },
+    {
+      "month": "2020-09",
+      "quality_flag": 0,
+      "median_listing_price": 134925,
+      "median_days_on_market": 51,
+      "active_listing_count": 424,
+      "new_listing_count": 292,
+      "pending_listing_count": 550,
+      "price_reduced_count": 190
+    },
+    {
+      "month": "2020-10",
+      "quality_flag": 1,
+      "median_listing_price": 124500,
+      "median_days_on_market": 50,
+      "active_listing_count": 414,
+      "new_listing_count": 276,
+      "pending_listing_count": 491,
+      "price_reduced_count": 168
+    },
+    {
+      "month": "2020-11",
+      "quality_flag": 1,
+      "median_listing_price": 110000,
+      "median_days_on_market": 48,
+      "active_listing_count": 410,
+      "new_listing_count": 212,
+      "pending_listing_count": 421,
+      "price_reduced_count": 130
+    },
+    {
+      "month": "2020-12",
+      "quality_flag": 1,
+      "median_listing_price": 101400,
+      "median_days_on_market": 55,
+      "active_listing_count": 376,
+      "new_listing_count": 168,
+      "pending_listing_count": 326,
+      "price_reduced_count": 84
+    },
+    {
+      "month": "2021-01",
+      "quality_flag": 1,
+      "median_listing_price": 99900,
+      "median_days_on_market": 67,
+      "active_listing_count": 314,
+      "new_listing_count": 156,
+      "pending_listing_count": 278,
+      "price_reduced_count": 72
+    },
+    {
+      "month": "2021-02",
+      "quality_flag": 1,
+      "median_listing_price": 98200,
+      "median_days_on_market": 75,
+      "active_listing_count": 271,
+      "new_listing_count": 166,
+      "pending_listing_count": 331,
+      "price_reduced_count": 86
+    },
+    {
+      "month": "2021-03",
+      "quality_flag": 1,
+      "median_listing_price": 99900,
+      "median_days_on_market": 66,
+      "active_listing_count": 222,
+      "new_listing_count": 206,
+      "pending_listing_count": 369,
+      "price_reduced_count": 70
+    },
+    {
+      "month": "2021-04",
+      "quality_flag": 1,
+      "median_listing_price": 99450,
+      "median_days_on_market": 42,
+      "active_listing_count": 208,
+      "new_listing_count": 284,
+      "pending_listing_count": 438,
+      "price_reduced_count": 64
+    },
+    {
+      "month": "2021-05",
+      "quality_flag": 1,
+      "median_listing_price": 109900,
+      "median_days_on_market": 30,
+      "active_listing_count": 207,
+      "new_listing_count": 304,
+      "pending_listing_count": 497,
+      "price_reduced_count": 80
+    },
+    {
+      "month": "2021-06",
+      "quality_flag": 1,
+      "median_listing_price": 119900,
+      "median_days_on_market": 31,
+      "active_listing_count": 248,
+      "new_listing_count": 294,
+      "pending_listing_count": 473,
+      "price_reduced_count": 100
+    },
+    {
+      "month": "2021-07",
+      "quality_flag": 1,
+      "median_listing_price": 126450,
+      "median_days_on_market": 38,
+      "active_listing_count": 248,
+      "new_listing_count": 316,
+      "pending_listing_count": 455,
+      "price_reduced_count": 108
+    },
+    {
+      "month": "2021-08",
+      "quality_flag": 1,
+      "median_listing_price": 125425,
+      "median_days_on_market": 31,
+      "active_listing_count": 263,
+      "new_listing_count": 308,
+      "pending_listing_count": 458,
+      "price_reduced_count": 138
+    },
+    {
+      "month": "2021-09",
+      "quality_flag": 0,
+      "median_listing_price": 124925,
+      "median_days_on_market": 39,
+      "active_listing_count": 255,
+      "new_listing_count": 244,
+      "pending_listing_count": 390,
+      "price_reduced_count": 116
+    },
+    {
+      "month": "2021-10",
+      "quality_flag": 0,
+      "median_listing_price": 117230,
+      "median_days_on_market": 39,
+      "active_listing_count": 257,
+      "new_listing_count": 244,
+      "pending_listing_count": 386,
+      "price_reduced_count": 120
+    },
+    {
+      "month": "2021-11",
+      "quality_flag": 0,
+      "median_listing_price": 106625,
+      "median_days_on_market": 43,
+      "active_listing_count": 226,
+      "new_listing_count": 184,
+      "pending_listing_count": 343,
+      "price_reduced_count": 80
+    },
+    {
+      "month": "2021-12",
+      "quality_flag": 0,
+      "median_listing_price": 114925,
+      "median_days_on_market": 51,
+      "active_listing_count": 195,
+      "new_listing_count": 162,
+      "pending_listing_count": 277,
+      "price_reduced_count": 60
+    },
+    {
+      "month": "2022-01",
+      "quality_flag": 0,
+      "median_listing_price": 106250,
+      "median_days_on_market": 65,
+      "active_listing_count": 169,
+      "new_listing_count": 164,
+      "pending_listing_count": 246,
+      "price_reduced_count": 40
+    },
+    {
+      "month": "2022-02",
+      "quality_flag": 0,
+      "median_listing_price": 103400,
+      "median_days_on_market": 50,
+      "active_listing_count": 135,
+      "new_listing_count": 154,
+      "pending_listing_count": 265,
+      "price_reduced_count": 40
+    },
+    {
+      "month": "2022-03",
+      "quality_flag": 0,
+      "median_listing_price": 122400,
+      "median_days_on_market": 33,
+      "active_listing_count": 131,
+      "new_listing_count": 268,
+      "pending_listing_count": 288,
+      "price_reduced_count": 32
+    },
+    {
+      "month": "2022-04",
+      "quality_flag": 0,
+      "median_listing_price": 139900,
+      "median_days_on_market": 25,
+      "active_listing_count": 139,
+      "new_listing_count": 276,
+      "pending_listing_count": 374,
+      "price_reduced_count": 56
+    },
+    {
+      "month": "2022-05",
+      "quality_flag": 0,
+      "median_listing_price": 146850,
+      "median_days_on_market": 28,
+      "active_listing_count": 135,
+      "new_listing_count": 262,
+      "pending_listing_count": 383,
+      "price_reduced_count": 44
+    },
+    {
+      "month": "2022-06",
+      "quality_flag": 0,
+      "median_listing_price": 162198,
+      "median_days_on_market": 36,
+      "active_listing_count": 176,
+      "new_listing_count": 284,
+      "pending_listing_count": 342,
+      "price_reduced_count": 70
+    },
+    {
+      "month": "2022-07",
+      "quality_flag": 0,
+      "median_listing_price": 164990,
+      "median_days_on_market": 35,
+      "active_listing_count": 204,
+      "new_listing_count": 276,
+      "pending_listing_count": 345,
+      "price_reduced_count": 92
+    },
+    {
+      "month": "2022-08",
+      "quality_flag": 0,
+      "median_listing_price": 175225,
+      "median_days_on_market": 43,
+      "active_listing_count": 197,
+      "new_listing_count": 218,
+      "pending_listing_count": 325,
+      "price_reduced_count": 86
+    },
+    {
+      "month": "2022-09",
+      "quality_flag": 0,
+      "median_listing_price": 184900,
+      "median_days_on_market": 43,
+      "active_listing_count": 186,
+      "new_listing_count": 210,
+      "pending_listing_count": 315,
+      "price_reduced_count": 100
+    },
+    {
+      "month": "2022-10",
+      "quality_flag": 1,
+      "median_listing_price": 185000,
+      "median_days_on_market": 38,
+      "active_listing_count": 201,
+      "new_listing_count": 208,
+      "pending_listing_count": 282,
+      "price_reduced_count": 104
+    },
+    {
+      "month": "2022-11",
+      "quality_flag": 1,
+      "median_listing_price": 167400,
+      "median_days_on_market": 39,
+      "active_listing_count": 213,
+      "new_listing_count": 188,
+      "pending_listing_count": 262,
+      "price_reduced_count": 88
+    },
+    {
+      "month": "2022-12",
+      "quality_flag": 0,
+      "median_listing_price": 164900,
+      "median_days_on_market": 45,
+      "active_listing_count": 204,
+      "new_listing_count": 132,
+      "pending_listing_count": 187,
+      "price_reduced_count": 52
+    },
+    {
+      "month": "2023-01",
+      "quality_flag": 0,
+      "median_listing_price": 154975,
+      "median_days_on_market": 56,
+      "active_listing_count": 172,
+      "new_listing_count": 146,
+      "pending_listing_count": 200,
+      "price_reduced_count": 56
+    },
+    {
+      "month": "2023-02",
+      "quality_flag": 1,
+      "median_listing_price": 160200,
+      "median_days_on_market": 53,
+      "active_listing_count": 131,
+      "new_listing_count": 160,
+      "pending_listing_count": 237,
+      "price_reduced_count": 52
+    },
+    {
+      "month": "2023-03",
+      "quality_flag": 0,
+      "median_listing_price": 154950,
+      "median_days_on_market": 43,
+      "active_listing_count": 137,
+      "new_listing_count": 206,
+      "pending_listing_count": 247,
+      "price_reduced_count": 46
+    },
+    {
+      "month": "2023-04",
+      "quality_flag": 0,
+      "median_listing_price": 178700,
+      "median_days_on_market": 39,
+      "active_listing_count": 124,
+      "new_listing_count": 208,
+      "pending_listing_count": 281,
+      "price_reduced_count": 36
+    },
+    {
+      "month": "2023-05",
+      "quality_flag": 0,
+      "median_listing_price": 182000,
+      "median_days_on_market": 36,
+      "active_listing_count": 122,
+      "new_listing_count": 212,
+      "pending_listing_count": 295,
+      "price_reduced_count": 54
+    },
+    {
+      "month": "2023-06",
+      "quality_flag": 0,
+      "median_listing_price": 189950,
+      "median_days_on_market": 37,
+      "active_listing_count": 134,
+      "new_listing_count": 208,
+      "pending_listing_count": 287,
+      "price_reduced_count": 38
+    },
+    {
+      "month": "2023-07",
+      "quality_flag": 0,
+      "median_listing_price": 180000,
+      "median_days_on_market": 36,
+      "active_listing_count": 156,
+      "new_listing_count": 228,
+      "pending_listing_count": 273,
+      "price_reduced_count": 52
+    },
+    {
+      "month": "2023-08",
+      "quality_flag": 0,
+      "median_listing_price": 194800,
+      "median_days_on_market": 33,
+      "active_listing_count": 175,
+      "new_listing_count": 228,
+      "pending_listing_count": 285,
+      "price_reduced_count": 84
+    },
+    {
+      "month": "2023-09",
+      "quality_flag": 0,
+      "median_listing_price": 185000,
+      "median_days_on_market": 39,
+      "active_listing_count": 171,
+      "new_listing_count": 208,
+      "pending_listing_count": 275,
+      "price_reduced_count": 76
+    },
+    {
+      "month": "2023-10",
+      "quality_flag": 0,
+      "median_listing_price": 177725,
+      "median_days_on_market": 40,
+      "active_listing_count": 185,
+      "new_listing_count": 182,
+      "pending_listing_count": 234,
+      "price_reduced_count": 84
+    },
+    {
+      "month": "2023-11",
+      "quality_flag": 0,
+      "median_listing_price": 184925,
+      "median_days_on_market": 38,
+      "active_listing_count": 197,
+      "new_listing_count": 192,
+      "pending_listing_count": 217,
+      "price_reduced_count": 94
+    },
+    {
+      "month": "2023-12",
+      "quality_flag": 0,
+      "median_listing_price": 165000,
+      "median_days_on_market": 47,
+      "active_listing_count": 176,
+      "new_listing_count": 104,
+      "pending_listing_count": 183,
+      "price_reduced_count": 68
+    },
+    {
+      "month": "2024-01",
+      "quality_flag": 0,
+      "median_listing_price": 168675,
+      "median_days_on_market": 51,
+      "active_listing_count": 159,
+      "new_listing_count": 142,
+      "pending_listing_count": 153,
+      "price_reduced_count": 64
+    },
+    {
+      "month": "2024-02",
+      "quality_flag": 0,
+      "median_listing_price": 174950,
+      "median_days_on_market": 42,
+      "active_listing_count": 156,
+      "new_listing_count": 180,
+      "pending_listing_count": 208,
+      "price_reduced_count": 28
+    },
+    {
+      "month": "2024-03",
+      "quality_flag": 0,
+      "median_listing_price": 179900,
+      "median_days_on_market": 35,
+      "active_listing_count": 175,
+      "new_listing_count": 240,
+      "pending_listing_count": 250,
+      "price_reduced_count": 84
+    },
+    {
+      "month": "2024-04",
+      "quality_flag": 0,
+      "median_listing_price": 197200,
+      "median_days_on_market": 32,
+      "active_listing_count": 193,
+      "new_listing_count": 252,
+      "pending_listing_count": 281,
+      "price_reduced_count": 74
+    },
+    {
+      "month": "2024-05",
+      "quality_flag": 0,
+      "median_listing_price": 219300,
+      "median_days_on_market": 28,
+      "active_listing_count": 198,
+      "new_listing_count": 224,
+      "pending_listing_count": 317,
+      "price_reduced_count": 82
+    },
+    {
+      "month": "2024-06",
+      "quality_flag": 0,
+      "median_listing_price": 215000,
+      "median_days_on_market": 38,
+      "active_listing_count": 206,
+      "new_listing_count": 244,
+      "pending_listing_count": 290,
+      "price_reduced_count": 92
+    },
+    {
+      "month": "2024-07",
+      "quality_flag": 0,
+      "median_listing_price": 212450,
+      "median_days_on_market": 32,
+      "active_listing_count": 218,
+      "new_listing_count": 258,
+      "pending_listing_count": 277,
+      "price_reduced_count": 104
+    },
+    {
+      "month": "2024-08",
+      "quality_flag": 0,
+      "median_listing_price": 212500,
+      "median_days_on_market": 36,
+      "active_listing_count": 230,
+      "new_listing_count": 232,
+      "pending_listing_count": 279,
+      "price_reduced_count": 124
+    },
+    {
+      "month": "2024-09",
+      "quality_flag": 0,
+      "median_listing_price": 214913,
+      "median_days_on_market": 40,
+      "active_listing_count": 238,
+      "new_listing_count": 198,
+      "pending_listing_count": 267,
+      "price_reduced_count": 116
+    },
+    {
+      "month": "2024-10",
+      "quality_flag": 0,
+      "median_listing_price": 207450,
+      "median_days_on_market": 38,
+      "active_listing_count": 231,
+      "new_listing_count": 210,
+      "pending_listing_count": 251,
+      "price_reduced_count": 90
+    },
+    {
+      "month": "2024-11",
+      "quality_flag": 0,
+      "median_listing_price": 199900,
+      "median_days_on_market": 40,
+      "active_listing_count": 246,
+      "new_listing_count": 220,
+      "pending_listing_count": 234,
+      "price_reduced_count": 96
+    },
+    {
+      "month": "2024-12",
+      "quality_flag": 0,
+      "median_listing_price": 172500,
+      "median_days_on_market": 46,
+      "active_listing_count": 229,
+      "new_listing_count": 114,
+      "pending_listing_count": 197,
+      "price_reduced_count": 66
+    },
+    {
+      "month": "2025-01",
+      "quality_flag": 0,
+      "median_listing_price": 174900,
+      "median_days_on_market": 58,
+      "active_listing_count": 210,
+      "new_listing_count": 112,
+      "pending_listing_count": 153,
+      "price_reduced_count": 64
+    },
+    {
+      "month": "2025-02",
+      "quality_flag": 0,
+      "median_listing_price": 164900,
+      "median_days_on_market": 60,
+      "active_listing_count": 177,
+      "new_listing_count": 140,
+      "pending_listing_count": 209,
+      "price_reduced_count": 60
+    },
+    {
+      "month": "2025-03",
+      "quality_flag": 0,
+      "median_listing_price": 175000,
+      "median_days_on_market": 44,
+      "active_listing_count": 158,
+      "new_listing_count": 184,
+      "pending_listing_count": 211,
+      "price_reduced_count": 56
+    },
+    {
+      "month": "2025-04",
+      "quality_flag": 0,
+      "median_listing_price": 198225,
+      "median_days_on_market": 33,
+      "active_listing_count": 171,
+      "new_listing_count": 232,
+      "pending_listing_count": 248,
+      "price_reduced_count": 62
+    },
+    {
+      "month": "2025-05",
+      "quality_flag": 0,
+      "median_listing_price": 217900,
+      "median_days_on_market": 32,
+      "active_listing_count": 180,
+      "new_listing_count": 220,
+      "pending_listing_count": 296,
+      "price_reduced_count": 92
+    },
+    {
+      "month": "2025-06",
+      "quality_flag": 0,
+      "median_listing_price": 229975,
+      "median_days_on_market": 36,
+      "active_listing_count": 198,
+      "new_listing_count": 266,
+      "pending_listing_count": 313,
+      "price_reduced_count": 78
+    },
+    {
+      "month": "2025-07",
+      "quality_flag": 0,
+      "median_listing_price": 225000,
+      "median_days_on_market": 33,
+      "active_listing_count": 213,
+      "new_listing_count": 236,
+      "pending_listing_count": 302,
+      "price_reduced_count": 94
+    },
+    {
+      "month": "2025-08",
+      "quality_flag": 0,
+      "median_listing_price": 211000,
+      "median_days_on_market": 35,
+      "active_listing_count": 241,
+      "new_listing_count": 244,
+      "pending_listing_count": 257,
+      "price_reduced_count": 116
+    },
+    {
+      "month": "2025-09",
+      "quality_flag": 0,
+      "median_listing_price": 201722,
+      "median_days_on_market": 33,
+      "active_listing_count": 238,
+      "new_listing_count": 224,
+      "pending_listing_count": 250,
+      "price_reduced_count": 112
+    },
+    {
+      "month": "2025-10",
+      "quality_flag": 0,
+      "median_listing_price": 192311,
+      "median_days_on_market": 36,
+      "active_listing_count": 236,
+      "new_listing_count": 228,
+      "pending_listing_count": 247,
+      "price_reduced_count": 128
+    },
+    {
+      "month": "2025-11",
+      "quality_flag": 0,
+      "median_listing_price": 199250,
+      "median_days_on_market": 41,
+      "active_listing_count": 225,
+      "new_listing_count": 152,
+      "pending_listing_count": 239,
+      "price_reduced_count": 132
+    },
+    {
+      "month": "2025-12",
+      "quality_flag": 0,
+      "median_listing_price": 189450,
+      "median_days_on_market": 51,
+      "active_listing_count": 209,
+      "new_listing_count": 150,
+      "pending_listing_count": 183,
+      "price_reduced_count": 40
+    },
+    {
+      "month": "2026-01",
+      "quality_flag": 0,
+      "median_listing_price": 179900,
+      "median_days_on_market": 51,
+      "active_listing_count": 195,
+      "new_listing_count": 124,
+      "pending_listing_count": 154,
+      "price_reduced_count": 76
+    },
+    {
+      "month": "2026-02",
+      "quality_flag": 0,
+      "median_listing_price": 179950,
+      "median_days_on_market": 46,
+      "active_listing_count": 166,
+      "new_listing_count": 144,
+      "pending_listing_count": 176,
+      "price_reduced_count": 70
+    },
+    {
+      "month": "2026-03",
+      "quality_flag": 0,
+      "median_listing_price": 199900,
+      "median_days_on_market": 31,
+      "active_listing_count": 166,
+      "new_listing_count": 200,
+      "pending_listing_count": 215,
+      "price_reduced_count": 70
+    },
+    {
+      "month": "2026-04",
+      "quality_flag": 0,
+      "median_listing_price": 243225,
+      "median_days_on_market": 28,
+      "active_listing_count": 165,
+      "new_listing_count": 218,
+      "pending_listing_count": 269,
+      "price_reduced_count": 62
+    },
+    {
+      "month": "2026-05",
+      "quality_flag": 0,
+      "median_listing_price": 235000,
+      "median_days_on_market": 32,
+      "active_listing_count": 186,
+      "new_listing_count": 240,
+      "pending_listing_count": 305,
+      "price_reduced_count": 80
+    },
+    {
+      "month": "2026-06",
+      "quality_flag": 0,
+      "median_listing_price": 249450,
+      "median_days_on_market": 32,
+      "active_listing_count": 220,
+      "new_listing_count": 250,
+      "pending_listing_count": 290,
+      "price_reduced_count": 104
+    },
+    {
+      "month": "2026-07",
+      "quality_flag": 0,
+      "median_listing_price": 228475,
+      "median_days_on_market": 35,
+      "active_listing_count": 250,
+      "new_listing_count": 288,
+      "pending_listing_count": 274,
+      "price_reduced_count": 104
+    },
+    {
+      "month": "2026-08",
+      "quality_flag": 0,
+      "median_listing_price": 215000,
+      "median_days_on_market": 37,
+      "active_listing_count": 271,
+      "new_listing_count": 240,
+      "pending_listing_count": 273,
+      "price_reduced_count": 140
+    },
+    {
+      "month": "2026-09",
+      "quality_flag": 0,
+      "median_listing_price": 212400,
+      "median_days_on_market": 36,
+      "active_listing_count": 289,
+      "new_listing_count": 272,
+      "pending_listing_count": 259,
+      "price_reduced_count": 144
+    },
+    {
+      "month": "2026-10",
+      "quality_flag": 0,
+      "median_listing_price": 234950,
+      "median_days_on_market": 36,
+      "active_listing_count": 333,
+      "new_listing_count": 248,
+      "pending_listing_count": 222,
+      "price_reduced_count": 168
+    }
+  ],
+  "chatham_zip": {
+    "postal_code": "62629",
+    "month": "2026-10",
+    "quality_flag": 0,
+    "median_listing_price": 374900,
+    "median_days_on_market": 54,
+    "active_listing_count": 29,
+    "new_listing_count": 12,
+    "pending_listing_count": 18,
+    "price_reduced_count": 12
+  }
+}

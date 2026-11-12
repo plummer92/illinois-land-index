@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./explorer.css">
     <script src="./explorer.js" defer></script>
     <script src="./housing-filings.js" defer></script>
+    <script src="./housing-market.js" defer></script>
     <script src="../analytics.js" defer></script>
     <link rel="stylesheet" href="./debt-maps.css" />
     <script src="../infrastructure-map/vendor/d3.v7.min.js"></script>
@@ -895,6 +896,7 @@
         <a href="#county-explorer">Compare counties</a>
         <a href="#bankruptcies">Bankruptcies</a>
         <a href="#housing-access">Evictions &amp; foreclosures</a>
+        <a href="#housing-market">Home sales &amp; market time</a>
         <a href="#credit-access">Credit access</a>
         <a href="#archive">Historical detail</a>
       </nav>
@@ -969,6 +971,54 @@
         <div class="measure-sources">
           <p>The court classifies these cases as “New Filed” and counts reinstated cases separately. The eviction category includes ejectment proceedings. <a href="https://www.illinoiscourts.gov/courts/circuit-court/illinois-circuit-court-statistical-reports/">Illinois Courts quarterly reports</a> · <a href="https://www.illinoiscourts.gov/reports/annual-report-illinois-courts/">Annual reports</a> · <a href="https://sangamoncountycircuitclerk.org/application/files/8916/4985/6220/Case_Type_Outline.pdf">County case definitions</a> · <a href="./data/processed/sangamon_housing_filings.json">Download quarterly counts (JSON)</a>.</p>
         </div>
+      </section>
+      <section id="housing-market" aria-labelledby="market-heading">
+        <p class="period">Sangamon County and Chatham</p>
+        <h2 id="market-heading">What are homes selling for?</h2>
+        <p>Compare recorded residential sales by price range, then check asking prices and how long listings stayed on the market.</p>
+        <h3>Recorded sales by price range</h3>
+        <p class="market-note" id="sales-vintage" role="status">Loading recorded sales…</p>
+        <div id="sales-content" hidden>
+          <div class="explorer-controls market-controls">
+            <label>Area<select id="sales-area"><option value="county">Sangamon County</option><option value="chatham">Chatham address</option></select></label>
+            <label>Recording month<select id="sales-month"></select></label>
+          </div>
+          <div id="sales-cards" class="comparison-cards" aria-live="polite"></div>
+          <div class="market-table-wrap"><table id="price-bands" class="market-table">
+            <caption></caption><thead><tr><th scope="col">Recorded price</th><th scope="col">Sales</th><th scope="col">Median price</th><th scope="col">Total dollars</th></tr></thead><tbody></tbody>
+          </table></div>
+          <p class="market-note">For groups of one to four sales we show the count only. Chatham uses the city on the property address, which can extend outside village limits.</p>
+        </div>
+        <details class="measure-sources">
+          <summary>Which sales are included?</summary>
+          <p>Illinois MyDec publishes transfer declarations weekly. We group them by the month the deed was recorded and use the declared price after subtracting personal property. We include advertised, single-parcel residential transfers that pass the deed and sale-condition filters. These can include houses, condos, townhomes and duplexes. Family transfers, court-ordered sales, flagged transactions and unadvertised deals fall outside this count. Late recordings and revisions can change the totals.</p>
+          <p>Illinois REALTORS® separately reported 699 residential MLS closings in Sangamon County for July–September 2026, at a median sale price of $212,001. That report uses the closing date and covers homes in its listing services. <a href="https://www.illinoisrealtors.org/wp-content/uploads/2026/11/3Q2026.pdf#page=2">Third-quarter 2026 MLS figures</a></p>
+          <p><a href="https://data.illinois.gov/d/it54-y4c6">Illinois MyDec data</a> · <a href="https://tax.illinois.gov/localgovernments/property/mydecdatafiles.html">Department of Revenue documentation</a> · <a href="./data/processed/sangamon_home_sales.json">Download sales totals</a></p>
+        </details>
+
+        <h3>How long do listings stay on the market?</h3>
+        <p class="market-note" id="listing-vintage" role="status">Loading listing activity…</p>
+        <div id="listing-content" hidden>
+          <div class="market-table-wrap"><table class="market-table" id="listing-summary">
+            <caption></caption><thead><tr><th scope="col">Area</th><th scope="col">Median days</th><th scope="col">Median asking price</th><th scope="col">Active listings</th></tr></thead><tbody></tbody>
+          </table></div>
+          <details class="measure-sources"><summary>See the past 12 months in Sangamon County</summary>
+            <div class="market-table-wrap"><table class="market-table" id="listing-history"><caption class="sr-debt">Monthly county listing activity</caption><thead><tr><th scope="col">Month</th><th scope="col">Median days</th><th scope="col">Median asking price</th><th scope="col">Active listings</th></tr></thead><tbody></tbody></table></div>
+          </details>
+        </div>
+        <p class="market-note">Realtor.com® Economic Research measures time from first listing to closing or removal under its reporting method. Its public county and ZIP files combine all prices. A $500,000 listing may have a different wait from a $150,000 listing. <a href="https://www.realtor.com/research/data/">Realtor.com data and definitions</a> · <a href="./data/processed/sangamon_listing_market.json">Download listing trends</a></p>
+        <p><a href="./listing-export.html">Calculate days on market by price range from a listing export</a></p>
+        <details class="measure-sources"><summary>Historical county example by sale price · October 2016</summary>
+          <p>Capital Area REALTORS® reported 29 closed sales from $200,000 to $249,999 averaging 65 cumulative days on market. From $250,000 to $299,999, 10 sales averaged 112 cumulative days. These are historical averages for closed sales. A current county report with listing histories would show how those ranges compare today. <a href="https://www.seehouses.com/Portals/0/Documents/Reports/SangamonTrends.pdf#page=1">October 2016 price ranges, counts and days on market</a></p>
+        </details>
+
+        <h3>Which agents sell the most?</h3>
+        <p>RealTrends ranked <strong>Kim Wenda</strong> first by volume among its Springfield-based individual agents for 2025, with <strong>$26.49 million across 114 transaction sides</strong>. In a separate team category, the <strong>Melissa Dowson Vorreyer Sales Team</strong> reported <strong>$62.88 million across 181 sides</strong>. RealTrends groups qualifying submissions by the agent’s or team’s location. Their transactions can extend beyond Sangamon County. <a href="https://www.realtrends.com/agent-profile/kim-wenda-illinois/">Individual agent record</a> · <a href="https://www.realtrends.com/team-profile/melissa-dowson-vorreyer-sales-team-illinois-remax-professionals/">Team record</a> · <a href="https://www.realtrends.com/rankings-faqs/">Ranking rules</a></p>
+        <p class="market-note">Volume measures the prices of transactions credited to an agent. A side means representing a buyer or a seller. A countywide ranking of sellers’ agents requires closed sales inside the county, the listing agent on each sale and a consistent split for co-listings. MyDec does not identify the agents. <a href="https://docs.mlsgrid.com/api-documentation/api-version-2.0">MLS production data</a> · <a href="https://www.seehouses.com/AboutCAAR/Contact/tabid/133/Default.aspx">Capital Area REALTORS® contact</a></p>
+
+        <h3>What is fair market value?</h3>
+        <p>Fair market value is the price a willing buyer and seller would likely agree on under ordinary conditions, as of a particular date. For a house in Chatham, start with recent closed sales of homes nearby with similar size, style, age and condition. Check for renovations, extra land or a family transfer before treating a sale as comparable. The asking price shows what the seller wants. The county median describes the mix of homes that sold.</p>
+        <p class="market-note">For most nonfarm property, Sangamon County assesses at about one-third of its estimated fair cash value. For example, a $90,000 assessment before exemptions corresponds to roughly $270,000 on that basis. A current sale can differ from the assessment. <a href="https://tax.sangamonil.gov/SangamonCountyWeb/app/searchSales.action">Find comparable sales</a> · <a href="../parcel-dashboard/">Look up a parcel</a> · <a href="https://sangamonil.gov/departments/a-c/county-clerk/frequently-asked-questions/tax-assessments-faq-s">County assessment FAQ</a></p>
       </section>
       <div class="topbar" id="archive">
         <div>

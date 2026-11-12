@@ -1,0 +1,50 @@
+name: Refresh Sangamon housing market
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "37 14 * * 1,4"
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: sangamon-housing-market-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Refresh Illinois transfer declarations
+        id: sales
+        continue-on-error: true
+        run: python3 scripts/import_sangamon_home_sales.py
+      - name: Refresh listing figures
+        id: listings
+        continue-on-error: true
+        run: python3 scripts/import_sangamon_listing_market.py consumer-debt-dashboard/data/processed/sangamon_listing_market.json
+      - name: Publish changed aggregates
+        id: save
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add -- consumer-debt-dashboard/data/processed/sangamon_home_sales.json consumer-debt-dashboard/data/processed/sangamon_listing_market.json
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Update Sangamon housing market figures"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+          # A push from GITHUB_TOKEN does not itself rebuild a branch-published Pages site.
+          expected=$(git rev-parse HEAD)
+          built=$(gh api "repos/$GITHUB_REPOSITORY/pages/builds/latest" --jq '.commit + "/" + .status')
+          if [[ "$built" != "$expected/built" || "$GITHUB_EVENT_NAME" == "workflow_dispatch" ]]; then
+            gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --silent
+          fi
+      - name: Report source failures
+        if: steps.sales.outcome == 'failure' || steps.listings.outcome == 'failure'
+        run: exit 1

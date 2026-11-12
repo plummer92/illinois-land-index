@@ -76,3 +76,26 @@
   #comparison-table td,#comparison-table th,#bankruptcies td,#bankruptcies th { padding:6px 2px; font-size:.78rem; }
   .debt-nav .ili-brand { flex-basis:100%; }
 }
+#housing-market { background:#fff; border:1px solid #d9e0e8; border-radius:12px; padding:clamp(14px,2.7vw,32px); margin:0 0 24px; }
+#housing-market h2 { font-size:clamp(1.45rem,3vw,2rem); margin:0; color:#1a3735; }
+#housing-market h3 { margin:1.5rem 0 .35rem; color:#19463e; }
+#housing-market p { max-width:90ch; line-height:1.55; margin-top:.45rem; }
+#housing-market a { color:#075b52; text-underline-offset:.15em; }
+#housing-market [hidden] { display:none; }
+#housing-market .market-note { color:#435564; font-size:.92rem; }
+#housing-market .market-table-wrap { overflow-x:auto; }
+#housing-market .market-table { width:100%; max-width:830px; min-width:0; border-collapse:collapse; font-variant-numeric:tabular-nums; }
+#housing-market .market-table th,#housing-market .market-table td { padding:.45rem .35rem; text-align:right; white-space:normal; }
+#housing-market .market-table th:first-child,#housing-market .market-table caption { text-align:left; }
+#housing-market .market-table caption { padding:.4rem 0; font-weight:650; color:#34594f; }
+#housing-market #sales-cards { max-width:830px; }
+#housing-market #sales-cards strong { font-size:clamp(1.25rem,2.3vw,1.9rem); }
+@media(max-width:550px) {
+  #housing-market .market-table { table-layout:fixed; }
+  #housing-market .market-table th,#housing-market .market-table td { overflow-wrap:anywhere; }
+  #housing-market #price-bands th:first-child { width:29%; }
+  #housing-market #price-bands thead th:nth-child(2) { width:12%; }
+  #housing-market .market-table th,#housing-market .market-table td { font-size:.82rem; padding:6px 3px; }
+  #housing-market #sales-cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #housing-market #sales-cards > div:first-child { grid-column:1/-1; }
+}

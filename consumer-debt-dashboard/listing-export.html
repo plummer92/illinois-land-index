@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Listing time by price range | Illinois Land Index</title>
+  <link rel="stylesheet" href="./listing-tool.css">
+  <script defer src="../infrastructure-map/vendor/d3.v7.min.js"></script>
+  <script defer src="./listing-export.js"></script>
+</head>
+<body>
+  <main>
+    <nav><a href="./#housing-market">← Back to the Sangamon housing market</a></nav>
+    <h1>Listing time by price range</h1>
+    <p>Use a Sangamon County residential listing export to compare the age of active listings and market time for completed sales. Your browser reads the file on this device.</p>
+    <section id="listing-export" aria-label="Analyze your listing data">
+      <div id="listing-export-tool"></div>
+      <noscript>Enable JavaScript to analyze a CSV on this device.</noscript>
+    </section>
+  </main>
+</body>
+</html>

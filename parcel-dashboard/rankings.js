@@ -220,6 +220,16 @@
         link("County parcel map","https://gismaps.co.sangamon.il.us/tpv/?pin=" + pin));
       target.append(links);
     }
+    function utilityJump(target) {
+      const button = create("button","See water, power and gas","utility-jump");
+      button.type = "button";
+      button.addEventListener("click",() => {
+        const utilities = target.querySelector(".property-utilities");
+        utilities?.focus({preventScroll:true});
+        utilities?.scrollIntoView({block:"start"});
+      });
+      return button;
+    }
     function showParcelPanel(pin) {
       panel.hidden = !pin;
       panel.replaceChildren();
@@ -236,7 +246,9 @@
         if (event.button || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
         event.preventDefault(); writeLocation(false,"chatham-map"); goToMap();
       });
-      panel.append(jump);
+      const actions = create("div",undefined,"property-jumps");
+      actions.append(jump,utilityJump(panel));
+      panel.append(actions);
       if (!entry.d) panel.append(create("p","The county provides a point location for this parcel. A separate lot outline is unavailable."));
       showScore(panel,byPin.get(pin));
       showResources(panel,pin);
@@ -507,6 +519,7 @@
         url.hash = "property-result";
         if (url.href !== location.href) history.pushState(history.state,"",url);
         countyPanel.replaceChildren(create("h2",address || "Parcel " + match.pin));
+        countyPanel.append(utilityJump(countyPanel));
         countyPanel.hidden = resultRoot.hidden = false;
         if (match.features?.length || match.position) {
           const sketch = create("div");

@@ -1,0 +1,40 @@
+.source-view {min-width:0; margin:1rem 0; padding:clamp(.5rem,2vw,1rem); border:1px solid #c0cec3; border-radius:.5rem; background:#fff;}
+.source-view [hidden] {display:none!important;}
+#property-result .source-view h3 {font-size:1.3rem; margin:0 0 .45rem;}
+.source-view .source-switches,.source-view .source-navigation {display:flex; flex-wrap:wrap; gap:.4rem; align-items:center;}
+.source-view button {min-width:44px; min-height:44px; max-width:100%; margin:0; padding:.35em .7em; background:#fff; color:#16563f; border:1px solid #839989; border-radius:5px; font:inherit; line-height:1.35; cursor:pointer; overflow-wrap:anywhere;}
+.source-view button[aria-pressed=true] {background:#14583e; border-color:#14583e; color:white;}
+.source-view :focus-visible {outline:3px solid #176b4d;outline-offset:2px;}
+.source-view .source-mode-note {margin:.4rem 0;}
+.source-view .source-plot {position:relative;overflow:hidden; border:1px solid #a0b2a5;border-radius:6px; background:#e4eff1;}
+.source-plot svg {width:100%;height:clamp(235px,45vh,375px); display:block;touch-action:none;user-select:none;cursor:grab;}
+.source-plot svg:active {cursor:grabbing;}
+.source-north {position:absolute;top:4px;right:5px;background:#ffffffdb;border-radius:3px;color:#23382a;padding:1px 4px;font:600 .8rem/1.5 system-ui;pointer-events:none;}
+.source-view .source-navigation {margin:.4rem 0;}
+.source-navigation button {font-weight:600;}
+.source-geography-states path {fill:#f8f6eb;stroke:#88877b;stroke-width:1;vector-effect:non-scaling-stroke;}
+.source-geography-places path {fill:#e5eade;stroke:#a7b4a6;stroke-width:.8;vector-effect:non-scaling-stroke;}
+.source-geography-roads path {fill:none;stroke:#a8aaa0;stroke-width:1.1;vector-effect:non-scaling-stroke;}
+.source-geography-water path {fill:#badce3;stroke:#78a7b1;stroke-width:.85;vector-effect:non-scaling-stroke;}
+.source-badge {cursor:pointer;}
+.source-badge circle,.source-badge path {stroke:white;stroke-width:2;}
+.source-badge.normal circle {fill:#145d76;}
+.source-badge.backup circle {fill:#fff;stroke:#145d76;}
+.source-badge.portfolio circle {fill:#84502e;}
+.source-badge.property path {fill:#14583e;}
+.source-badge.active path,.source-badge.active circle {stroke:#0d2520;stroke-width:3;}
+.source-badge text {font:bold 12px system-ui;pointer-events:none;fill:#fff;}
+.source-badge.backup text {fill:#145d76;}
+.source-leader {stroke:#394b42;stroke-width:1.2;}
+.source-label,.source-road-name,.source-state-name {fill:#435149;stroke:#faf9f2;stroke-width:3;paint-order:stroke;stroke-linejoin:round;pointer-events:none;font:12px system-ui;}
+.source-state-name {font-size:14px;font-weight:650;letter-spacing:1px;}
+.source-road-name {font-size:10px;}
+.source-view .source-locations {display:flex;gap:.3rem;flex-wrap:wrap;margin:.45rem 0;}
+.source-locations button {font-size:1rem;text-align:left;}
+.source-view .source-selection {border-left:3px solid #768e81;padding-left:.65em;}
+.source-selection:empty {display:none;}
+.source-view .source-base-credit summary {font-size:1rem;min-height:44px;padding:.5em 0;}
+.source-distance {position:absolute;bottom:5px;left:6px;max-width:35%;border:solid #36483e;border-width:0 1px 2px;background:#fffdf4dd;color:#293d31;text-align:center;font:600 11px/1.4 system-ui;pointer-events:none;}
+.source-gas-area {fill:#b990d0;fill-opacity:.41;stroke:#75428a;stroke-width:2;stroke-dasharray:5 3;vector-effect:non-scaling-stroke;}
+.source-view .source-gas-key {display:flex;align-items:center;gap:.45em;}
+.source-gas-swatch {width:1.2em;height:.85em;flex:none;background:#e4d2ee;border:2px dashed #75428a;}

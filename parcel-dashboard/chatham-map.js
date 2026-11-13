@@ -9,7 +9,7 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
       <button type="button" class="sm-fit" data-action="fit">Fit map</button>
       <div class="sm-scale" aria-hidden="true"><span></span><i></i></div>
     </div>
-    <div class="sm-selection" hidden><strong></strong><button type="button">Score details ↓</button></div>
+    <div class="sm-selection" hidden><strong></strong><button type="button" data-view="score">Score details</button><button type="button" data-view="utilities">Water, power &amp; gas</button></div>
     <div class="sm-hit-options" hidden aria-live="polite"></div>
     <details class="sm-nearby">
       <summary>Choose a nearby property</summary>
@@ -327,7 +327,12 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
     detail.focus({preventScroll:true});
     detail.scrollIntoView({block:"start"});
   }
-  find(".sm-selection button").onclick = focusScore;
+  find('[data-view="score"]').onclick = focusScore;
+  find('[data-view="utilities"]').onclick = () => {
+    const panel = document.querySelector("#map-score-detail .property-utilities");
+    panel?.focus({preventScroll:true});
+    panel?.scrollIntoView({block:"start"});
+  };
   const contacts = new Map();
   let start, pinch, moved = false;
   function local(event) {

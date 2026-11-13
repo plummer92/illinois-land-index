@@ -60,13 +60,16 @@
       return line;
     };
     const land = points(landClass) + " for property class, " + points(size) + " for acreage, " +
-      points(assessment) + " for assessed value per acre and " + points(tax) + " for annual tax per acre.";
+      points(assessment) + " for assessed value per acre and " + points(tax) + " for annual tax per acre." +
+      (landClass + size + assessment + tax > 40 ? " This component is capped at 40." : "");
     const buy = points(ownerClass) + " from the ownership category, " + points(holdings) + " from recorded holdings and " +
       points(otherBuy) + " from the combined address and tax-sale rules." +
-      (ownerClass + holdings + otherBuy < 0 ? " This component has a floor of zero." : "");
+      (ownerClass + holdings + otherBuy < 0 ? " This component has a floor of zero." :
+        ownerClass + holdings + otherBuy > 35 ? " This component is capped at 35." : "");
     const risk = row[6] === 25 ? "The model applied no deductions to its 25 starting points." :
       "From 25 starting points, the model deducted " + points(-propertyRisk) + " for property class or missing acreage and " +
-      points(-otherRisk) + " for the ownership and tax-sale rules.";
+      points(-otherRisk) + " for the ownership and tax-sale rules." +
+      (25 + propertyRisk + otherRisk < 0 ? " This component has a floor of zero." : "");
     list.replaceChildren(reason("Land fit",row[4],40,land),reason("Buyability",row[5],35,buy),reason("Risk",row[6],25,risk));
   }
   const mapReady = readJson("./data/chatham-top-parcels.json").then(snapshot => {

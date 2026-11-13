@@ -6,14 +6,15 @@
     <title>Illinois Land Index</title>
     <meta
       name="description"
-      content="Parcel intelligence for finding overlooked land opportunities across Central Illinois."
+      content="Find your property in Sangamon County, see your lot and understand its land score. Explore Central Illinois land and water records."
     />
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="./home-navigation.css" />
+    <link rel="stylesheet" href="./home-navigation.css?v=find-property" />
+    <script src="./home-search.js" defer></script>
     <script src="./analytics.js" defer></script>
   </head>
   <body class="home-page">
-    <a class="home-skip" href="#research-tools">Skip to research tools</a>
+    <a class="home-skip" href="#home-find">Skip to property search</a>
     <header class="site-header">
       <a class="brand" href="./index.html" aria-label="Illinois Land Index home">
         <span>ILI</span><strong>Illinois Land Index</strong>
@@ -27,8 +28,20 @@
     </header>
 
     <main>
-      <section class="home-start" id="research-tools" aria-labelledby="home-title">
-        <h1 id="home-title">Central Illinois land research</h1>
+      <section class="home-start" aria-labelledby="home-title">
+        <div class="home-find" id="home-find" tabindex="-1">
+          <h1 id="home-title">Find your property</h1>
+          <p>See your lot and its land score in Sangamon County.</p>
+          <form id="home-property-form" role="search" aria-label="Property search" action="./parcel-dashboard/#find-property" hidden>
+            <label for="home-property-query">Address, street or parcel number</label>
+            <div class="home-find-controls">
+              <input id="home-property-query" type="search" enterkeyhint="search" maxlength="160" placeholder="600 E Spruce St, Chatham">
+              <button type="submit" class="button primary">Find my property</button>
+            </div>
+          </form>
+          <a class="button primary" id="home-find-link" href="./parcel-dashboard/#find-property">Find my property</a>
+        </div>
+        <h2 class="home-tools-heading" id="research-tools">More research tools</h2>
         <div class="home-tools">
           <article class="home-tool">
             <h2><a href="./infrastructure-map/">Water &amp; parcel map</a></h2>

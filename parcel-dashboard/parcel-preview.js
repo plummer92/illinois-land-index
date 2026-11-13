@@ -81,7 +81,7 @@
     return [...names].sort((a, b) => a[1] - b[1]).slice(0, 3).map(([name]) => name);
   }
 
-  window.showCountyParcelPreview = async function (container, pin) {
+  window.showCountyParcelPreview = async function (container, pin, existingFeatures) {
     active?.abort();
     const controller = new AbortController();
     active = controller;
@@ -99,7 +99,7 @@
     const timer = setTimeout(() => controller.abort(), 15000);
     let map;
     try {
-      const features = await query("TyleratENTParcels/MapServer/0", {where:"PIN = '" + pin + "'", outFields:"PIN"}, controller.signal);
+      const features = existingFeatures || await query("TyleratENTParcels/MapServer/0", {where:"PIN = '" + pin + "'", outFields:"PIN"}, controller.signal);
       if (!current()) return;
       if (!features.length || features.some(f => String(f.properties?.PIN) !== pin)) throw new Error("No matching parcel");
       const polygons = features.flatMap(({geometry}) => geometry?.type === "MultiPolygon" ? geometry.coordinates :

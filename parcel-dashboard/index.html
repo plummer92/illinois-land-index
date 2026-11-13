@@ -3,19 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Parcel dashboard | Illinois Land Index</title>
+    <title>Find my property | Illinois Land Index</title>
     <meta name="description" content="Browse ranked Sangamon County properties by opportunity score or look up a parcel by number or street address.">
     <link rel="canonical" href="https://illinoislandindex.com/parcel-dashboard/">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../navigation.css">
-    <link rel="stylesheet" href="./dashboard.css">
-    <link rel="stylesheet" href="./rankings.css?v=neighborhoods">
-    <link rel="stylesheet" href="./chatham-map.css?v=neighborhoods">
+    <link rel="stylesheet" href="./dashboard.css?v=find-property">
+    <link rel="stylesheet" href="./rankings.css?v=find-property">
+    <link rel="stylesheet" href="./chatham-map.css?v=find-property">
     <link rel="stylesheet" href="./parcel-preview.css">
-    <script src="./lookup.js?v=multipart" defer></script>
-    <script src="./chatham-map.js?v=neighborhoods" defer></script>
+    <script src="./utilities.js" defer></script>
+    <script src="./lookup.js?v=find-property" defer></script>
+    <script src="./chatham-map.js?v=find-property" defer></script>
     <script src="./parcel-preview.js" defer></script>
-    <script src="./rankings.js?v=neighborhoods" defer></script>
+    <script src="./rankings.js?v=find-property" defer></script>
   </head>
   <body>
     <header class="site-header index-navigation">
@@ -23,22 +24,37 @@
       <nav class="core-navigation" aria-label="Primary navigation">
         <a href="../">Home</a>
         <a href="../infrastructure-map/">Water &amp; parcel map</a>
-        <a href="./" aria-current="page">Parcel dashboard</a>
+        <a href="./" aria-current="page">Find my property</a>
         <a href="../latest-land-signals.html">County signals</a>
       </nav>
     </header>
     <main class="parcel-page">
-      <header>
-        <h1>Parcel dashboard</h1>
-        <p>Browse properties ranked by the land index, or look up a parcel in Sangamon County GIS.</p>
-        <nav class="parcel-sections" aria-label="Parcel tools"><a href="#chatham-map">Chatham parcel map</a><a href="#scored-properties">Scored properties</a><a href="#parcel-lookup">Look up an address or parcel number</a></nav>
+      <header id="find-property">
+        <h1>Find my property</h1>
+        <p>Find a lot in Sangamon County and see its land score and utility information.</p>
       </header>
+      <section class="lookup" id="parcel-lookup" aria-label="Find a property">
+        <form id="parcel-form" role="search">
+          <label for="parcel-number">Address, street name or parcel number</label>
+          <div class="search-row">
+            <input id="parcel-number" type="search" autocomplete="off" maxlength="160" aria-describedby="format-help" required>
+            <button class="button primary" type="submit">Find property</button>
+          </div>
+          <p class="hint" id="format-help">For example, 600 E Spruce St, Chatham. You can also search a Chatham street to explore nearby lots.</p>
+        </form>
+        <p id="lookup-status" role="status"></p>
+        <div id="lookup-choices"></div>
+        <noscript>Enable JavaScript for property search, or <a href="https://tax.sangamonil.gov/SangamonCountyWeb/app/searchByParcelNumber.action">use the county property search</a>.</noscript>
+      </section>
+      <div id="property-result" hidden>
+        <section id="map-score-detail" tabindex="-1" aria-label="Selected property" hidden></section>
+        <section id="result" tabindex="-1" aria-label="County property result" hidden></section>
+      </div>
       <section id="chatham-map" aria-labelledby="chatham-map-title">
         <h2 id="chatham-map-title" tabindex="-1">Chatham parcel map</h2>
-        <p class="map-intro">Find your street or zoom into your neighborhood. Tap a property to see its score and how it earned its points.</p>
+        <p class="map-intro">Choose a lot on the map or use the nearby property list.</p>
         <p id="map-vintage" class="rank-vintage"></p>
         <div id="chatham-map-content"><p role="status">Loading the parcel map…</p></div>
-        <section id="map-score-detail" tabindex="-1" aria-live="polite" aria-label="Selected property" hidden></section>
         <div class="rank-links"><button id="map-back-to-row" class="rank-reset" type="button" hidden>View selected property in the ranked list</button></div>
         <details class="rank-method" id="map-coverage" hidden><summary>Which properties are on this map?</summary><p id="coverage-note"></p><p id="coverage-missing" hidden></p></details>
         <noscript>Enable JavaScript to use the interactive property map.</noscript>
@@ -49,29 +65,9 @@
         <div id="parcel-rankings"></div>
         <noscript>Enable JavaScript to browse and filter the scored properties.</noscript>
       </section>
-      <section class="lookup" id="parcel-lookup" aria-label="County parcel lookup">
-        <h2>Look up a parcel</h2>
-        <form id="parcel-form">
-          <label for="parcel-number">Parcel number or street address</label>
-          <div class="search-row">
-            <input id="parcel-number" type="text" autocomplete="off" maxlength="160" aria-describedby="format-help" required>
-            <button class="button primary" type="submit">Find parcel</button>
-          </div>
-          <p class="hint" id="format-help">Use a 10- or 11-digit PIN. For an address, enter the house number and street, followed by a comma and city.</p>
-        </form>
-        <button type="button" class="example" id="example">Try a proposed CyrusOne site parcel</button>
-        <p id="lookup-status" role="status" aria-live="polite"></p>
-        <section id="result" hidden aria-label="County parcel result">
-          <h2 id="result-title"></h2>
-          <p id="acreage"></p>
-          <p id="lookup-score" hidden></p>
-          <a id="open-map" class="button primary" href="../infrastructure-map/">Open parcel water map</a>
-          <div class="county-links"><a id="county-tax">County tax record</a><a id="county-map">County parcel viewer</a></div>
-        </section>
-        <noscript><p>Enable JavaScript for the county lookup or use the county GIS link below.</p></noscript>
-      </section>
       <section class="related" aria-label="Other parcel tools">
         <p><a href="../consumer-debt-dashboard/#housing-market">Compare home sales, prices and days on market for Sangamon County and Chatham.</a></p>
+        <p><a href="#scored-properties">Browse scored properties</a> or <a href="#find-property">find a property by address</a>.</p>
         <p><a href="https://tax.sangamonil.gov/SangamonCountyWeb/app/searchByParcelNumber.action">Search the county property records</a> for additional address and owner searches. Parcel boundaries and acreage come from Sangamon County GIS.</p>
         <p>For Morgan or Macoupin County, choose a place on the <a href="../infrastructure-map/">water &amp; parcel map</a> to browse nearby parcels.</p>
         <p><a href="../infrastructure-map/waverly-water/">Compare CyrusOne’s projected water use with Apple Creek’s contract limit.</a></p>

@@ -1,11 +1,5 @@
 const endpoint = "https://sangis.co.sangamon.il.us/server/rest/services/TyleratENTParcels/MapServer/0/query";
 const locator = "https://sangis.co.sangamon.il.us/server/rest/services/Sangamon_Situs_Locator/GeocodeServer/findAddressCandidates";
-const form = document.querySelector("#parcel-form");
-const numberInput = document.querySelector("#parcel-number");
-const result = document.querySelector("#result");
-const statusLine = document.querySelector("#lookup-status");
-let currentRequest;
-
 function normalizePin(input) {
   const digits = input.replace(/[-\s]/g, "");
   if (/^\d{11}$/.test(digits)) return digits;
@@ -54,120 +48,139 @@ async function countyQuery(url, params, signal) {
   return data;
 }
 
-async function locateAddress(address, city, signal) {
+async function locateAddress(query, signal) {
   const data = await countyQuery(locator, {
-    f: "json", SingleLine: address, outSR: "4326", locationType: "rooftop",
-    outFields: "Addr_type,City,AddNum", maxLocations: "10"
+    f: "json", SingleLine: query, outSR: "4326", locationType: "rooftop",
+    outFields: "Addr_type,City,AddNum", maxLocations: 20
   }, signal);
   if (!Array.isArray(data.candidates)) throw new Error("County locator unavailable");
-  const house = address.match(/^\d+[A-Za-z]?\b/)[0].toUpperCase();
-  return data.candidates.filter(candidate =>
-    candidate.score === 100 &&
-    ["PointAddress", "Subaddress"].includes(candidate.attributes.Addr_type) &&
-    String(candidate.attributes.AddNum).toUpperCase() === house &&
-    candidate.attributes.City?.trim().toUpperCase() === city &&
-    Number.isFinite(candidate.location?.x) && Number.isFinite(candidate.location?.y)
-  );
+  const house = query.match(/^\d+[A-Za-z]?\b/i)?.[0].toUpperCase();
+  const seen = new Set();
+  return data.candidates.filter(candidate => {
+    const key = [candidate.address,candidate.location?.x,candidate.location?.y].join("|");
+    if (candidate.score !== 100 || !["PointAddress","Subaddress"].includes(candidate.attributes?.Addr_type) ||
+        String(candidate.attributes.AddNum).toUpperCase() !== house || !Number.isFinite(candidate.location?.x) ||
+        !Number.isFinite(candidate.location?.y) || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
-async function lookup() {
-  currentRequest?.abort();
-  const controller = new AbortController();
-  currentRequest = controller;
-  history.replaceState(null, "");
-  result.hidden = true;
-  delete result.dataset.parcelNumber;
-  document.querySelector("#lookup-score").hidden = true;
-  numberInput.removeAttribute("aria-invalid");
-  const input = numberInput.value.trim();
-  const pin = normalizePin(input);
-  const city = input.split(",")[1]?.trim().replace(/\s+(?:ILLINOIS|IL)(?:\s+\d{5})?$/i, "").toUpperCase();
-  if (!pin && !(city && /^\d+[a-z]?\s+\S/i.test(input))) {
-    numberInput.setAttribute("aria-invalid", "true");
-    statusLine.textContent = "Enter a PIN with 10 or 11 digits, or a street address followed by a comma and city.";
-    numberInput.focus();
-    return;
+async function findCountyParcels(pin, location, signal) {
+  const params = {f:"geojson", outFields:"PIN,TOTACRES", returnGeometry:"true", outSR:"4326"};
+  if (pin) params.where = "PIN = '" + pin + "'";
+  else Object.assign(params,{geometry:location.x + "," + location.y, inSR:"4326",
+    geometryType:"esriGeometryPoint", spatialRel:"esriSpatialRelIntersects"});
+  const data = await countyQuery(endpoint,params,signal);
+  if (!Array.isArray(data.features) || data.exceededTransferLimit) throw new Error("Incomplete county parcel search");
+  const groups = new Map();
+  for (const feature of data.features) {
+    const found = String(feature.properties?.PIN);
+    if (!/^\d{11}$/.test(found) || (pin && pin !== found)) throw new Error("Invalid county parcel number");
+    if (!groups.has(found)) groups.set(found,[]);
+    groups.get(found).push(feature);
   }
-  statusLine.textContent = "Looking up the parcel in Sangamon County GIS…";
-  const timer = setTimeout(() => controller.abort(), 20000);
-  try {
-    const params = {f: "geojson", outFields: "PIN,TOTACRES", returnGeometry: "true", outSR: "4326"};
-    let matchedAddress;
+  return [...groups].map(([number,features]) => {
+    const acres = new Set(features.map(f => f.properties.TOTACRES).filter(value => Number.isFinite(value) && value > 0));
+    return {pin:number, acres:acres.size === 1 ? [...acres][0] : null, position:interiorMapPoint(features), features};
+  });
+}
+
+// A full address stays in this tab and the official county geocoder request.
+const propertyFinder = (() => {
+  const form = document.getElementById("parcel-form");
+  const input = document.getElementById("parcel-number");
+  const status = document.getElementById("lookup-status");
+  const choices = document.getElementById("lookup-choices");
+  let current;
+  let resolveTools;
+  const ready = new Promise(resolve => { resolveTools = resolve; });
+  function options(matches, prompt, run) {
+    status.textContent = prompt;
+    choices.replaceChildren();
+    for (const item of matches) {
+      const b = document.createElement("button");
+      b.type = "button"; b.textContent = item.label;
+      b.onclick = () => { choices.replaceChildren(); run(item); };
+      choices.append(b);
+    }
+    choices.firstElementChild?.focus();
+  }
+
+  async function search() {
+    current?.abort();
+    const controller = new AbortController();
+    current = controller;
+    const query = input.value.trim();
+    if (!query) return;
+    const pin = normalizePin(query);
+    const active = () => current === controller && !controller.signal.aborted;
+    choices.replaceChildren();
+    status.textContent = "Finding your property…";
+    const tools = await ready;
+    if (!active()) return;
+    tools.clear();
+    let timer;
+    function failure() {
+      if (current === controller) status.textContent = "The county lookup could not finish. Try again, or search by parcel number.";
+    }
+    async function countyWork(task) {
+      timer = setTimeout(() => controller.abort(),20000);
+      try { return await task(); }
+      catch { failure(); return null; }
+      finally { clearTimeout(timer); }
+    }
+    function display(parcel, address) {
+      if (!active()) return;
+      status.textContent = address || "Found parcel " + parcel.pin + ".";
+      tools.show(parcel,address);
+    }
+    async function resolveLot(match) {
+      const lots = await countyWork(() => findCountyParcels(pin,match?.location,controller.signal));
+      if (!active() || !lots) return;
+      if (lots.length === 1) { display(lots[0],match?.address); return; }
+      if (lots.length > 1) {
+        options(lots.map(lot => ({...lot,label:"Parcel " + lot.pin})),"The address touches more than one parcel. Choose a parcel number.",lot => display(lot,match?.address));
+      } else if (pin && tools.scored(pin)) {
+        display({pin},null);
+      } else status.textContent = "No parcel matched. Check the address and town, or enter the county parcel number.";
+    }
     if (pin) {
-      params.where = "PIN = '" + pin + "'";
-    } else {
-      const matches = await locateAddress(input, city, controller.signal);
-      if (currentRequest !== controller) return;
-      if (matches.length !== 1) {
-        statusLine.textContent = "The county could not identify one exact street address in that city. Check the address or use the county property search below.";
-        return;
-      }
-      const match = matches[0];
-      matchedAddress = match.address;
-      Object.assign(params, {
-        geometry: match.location.x + "," + match.location.y, inSR: "4326",
-        geometryType: "esriGeometryPoint", spatialRel: "esriSpatialRelIntersects"
-      });
-    }
-    const data = await countyQuery(endpoint, params, controller.signal);
-    if (currentRequest !== controller) return;
-    if (data.error || !Array.isArray(data.features)) throw new Error("County query error");
-    const features = data.features;
-    if (!features.length) {
-      statusLine.textContent = "No parcel matched this search. Check the PIN or use the county property search below.";
+      if (tools.mapped(pin)) display({pin},null);
+      else await resolveLot();
       return;
     }
-    const pins = new Set(features.map(feature => String(feature.properties?.PIN)));
-    if (pins.size !== 1) {
-      statusLine.textContent = "The county returned more than one parcel number. Confirm the PIN using the county property search below.";
+    if (/^\d+[a-z]?\s+\S/i.test(query)) {
+      const matches = await countyWork(() => locateAddress(query,controller.signal));
+      if (!active() || !matches) return;
+      if (matches.length === 1) await resolveLot(matches[0]);
+      else if (matches.length > 1) options(matches.map(m => ({...m,label:m.address})),"Which address did you mean?",resolveLot);
+      else status.textContent = "No exact county address matched. Check the house number or add the town, for example 600 E Spruce St, Chatham.";
       return;
     }
-    const [matchedPin] = pins;
-    if (!/^\d{11}$/.test(matchedPin) || (pin && pin !== matchedPin)) throw new Error("Invalid county PIN");
-    // Separate shapes for one PIN can each repeat the full parcel acreage.
-    const acreages = new Set(features.map(feature => feature.properties.TOTACRES).filter(value => Number.isFinite(value) && value > 0));
-    const [acres] = acreages;
-    document.querySelector("#result-title").textContent = "Parcel " + matchedPin;
-    document.querySelector("#acreage").textContent = acreages.size === 1
-      ? "County acreage · " + acres.toLocaleString(undefined, {maximumFractionDigits: 3}) + " acres"
-      : acreages.size ? "County boundary records give different acreage figures. See the county tax record." : "The county record has no acreage figure.";
-    const position = interiorMapPoint(features);
-    document.querySelector("#county-tax").href = "https://tax.sangamonil.gov/SangamonCountyWeb/app/displayParcelSummary.action?parcelNumber=" + matchedPin;
-    document.querySelector("#county-map").href = "https://gismaps.co.sangamon.il.us/tpv/?pin=" + matchedPin;
-    const mapLink = document.querySelector("#open-map");
-    mapLink.hidden = !position;
-    if (position) {
-      const url = new URL("../infrastructure-map/", location.href);
-      url.searchParams.set("lon", position[0].toFixed(7));
-      url.searchParams.set("lat", position[1].toFixed(7));
-      mapLink.href = url.href;
+    const matches = tools.search(query);
+    function choose(match) {
+      if (!active()) return;
+      status.textContent = match.kind === "street" ? "Showing " + match.label + ". Choose a nearby property." : "Showing the selected parcel.";
+      match.choose();
+      if (match.kind === "street") tools.nearby();
+      else tools.focus();
     }
-    result.hidden = false;
-    result.dataset.parcelNumber = matchedPin;
-    result.dispatchEvent(new Event("parcel-found"));
-    history.replaceState({parcelLookupPin: matchedPin}, "");
-    statusLine.textContent = matchedAddress
-      ? "The county address point for " + matchedAddress + " falls on this parcel. Confirm the boundary in the county viewer."
-      : "Found one county parcel.";
-    if (!position) statusLine.textContent += " The county did not supply a usable boundary.";
-  } catch {
-    if (currentRequest === controller) {
-      statusLine.textContent = "The county parcel service could not complete this lookup. Try again or open Sangamon County GIS below.";
-    }
-  } finally {
-    clearTimeout(timer);
+    if (matches.length === 1) choose(matches[0]);
+    else if (matches.length) options(matches.slice(0,25), matches.length > 25 ? "Showing the first 25 matches. Type more to narrow your search." : "Choose a match.",choose);
+    else status.textContent = "No Chatham street or parcel number matched. For another Sangamon County town, enter the house number, street and town.";
   }
-}
-
-form.addEventListener("submit", event => {
-  event.preventDefault();
-  lookup();
-});
-document.querySelector("#example").addEventListener("click", () => {
-  numberInput.value = "33290200001";
-  lookup();
-});
-if (performance.getEntriesByType("navigation")[0]?.type === "back_forward" && history.state?.parcelLookupPin) {
-  numberInput.value = history.state.parcelLookupPin;
-  lookup();
-}
+  form.addEventListener("submit",event => { event.preventDefault(); search(); });
+  function receive() {
+    let query;
+    try { query = sessionStorage.getItem("ili-property-query"); sessionStorage.removeItem("ili-property-query"); } catch {}
+    if (query?.trim()) { input.value = query.slice(0,input.maxLength); search(); }
+  }
+  receive();
+  window.addEventListener("pageshow", e => { if (e.persisted) receive(); });
+  window.addEventListener("popstate",() => { current?.abort(); choices.replaceChildren(); status.textContent = ""; });
+  return {
+    connect:resolveTools,
+    cancel:() => { current?.abort(); choices.replaceChildren(); status.textContent = ""; }
+  };
+})();

@@ -11,8 +11,17 @@
   padding-inline: var(--home-gutter);
 }
 .home-start { padding-top: clamp(30px, 5vw, 70px); }
-.home-start h1 { max-width: none; font-size: clamp(32px, 4.6vw, 60px); line-height: 1.06; }
-.home-tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 24px; }
+.home-start h1 { max-width: none; font-size: clamp(2rem, 4.6vw, 3.75rem); line-height: 1.08; }
+.home-find { padding:clamp(16px,3.5vw,46px); border:1px solid var(--line); border-radius:10px; background:var(--white); }
+.home-find > p { max-width:56ch; margin:.55rem 0 1rem; color:var(--ink); font-size:1.0625rem; line-height:1.5; }
+.home-find label { display:block; margin-bottom:.4rem; font-size:1rem; font-weight:650; line-height:1.35; }
+.home-find-controls { display:flex; flex-wrap:wrap; gap:.55rem; max-width:48rem; }
+.home-find-controls input { flex:1 1 17rem; min-width:0; width:100%; padding:.6rem .8rem; border:1px solid #617368; border-radius:6px; font:inherit; font-size:1.0625rem; color:var(--ink); background:white; }
+.home-find .button { max-width:100%; min-height:48px; padding:.65rem 1rem; border:0; box-shadow:none; font:inherit; font-size:1rem; font-weight:700; line-height:1.35; cursor:pointer; }
+.home-find [hidden] { display:none; }
+.home-find :focus-visible, .home-find:focus-visible { outline:3px solid var(--green-dark); outline-offset:3px; }
+.home-tools-heading { margin:clamp(26px,3.5vw,44px) 0 0; font-size:clamp(1.35rem,2vw,1.65rem); }
+.home-tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 12px; }
 .home-tool {
   position: relative;
   display: grid;
@@ -51,7 +60,11 @@
   .home-page .site-header { position: static; gap: 4px; padding: 10px var(--home-gutter) 0; }
   .home-page .home-nav { width: auto; max-width: 100%; justify-content: flex-start; gap: 0 14px; }
   .home-page :where(section, details, ul, #access)[id] { scroll-margin-top: 12px; }
-  .home-tools { grid-template-columns: 1fr; gap: 8px; margin-top: 16px; }
+  .home-tools { grid-template-columns: minmax(0,1fr); gap: 8px; margin-top: 12px; }
+  .home-start h1 { font-size:clamp(1.5rem,7vw,2.25rem); }
+  .home-find-controls { flex-direction:column; }
+  .home-find-controls input { flex:none; min-height:48px; }
+  .home-find-controls .button { align-self:stretch; }
   .home-tool { padding: 14px 44px 14px 16px; gap: 5px; border-top-width: 1px; border-left: 3px solid var(--green); }
   .home-tool:first-child { border-left-color: var(--blue); border-top-color: var(--line); }
   .home-tool:last-child { border-left-color: var(--gold); border-top-color: var(--line); }

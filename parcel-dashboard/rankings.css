@@ -60,3 +60,12 @@
   .rank-pages { gap:.25rem; font-size:.84rem; }
   .rank-pages button { min-width:4.25rem; }
 }
+@media (max-width:40em) {
+  .rank-controls {grid-template-columns:minmax(0,1fr);}
+  .rank-controls label {overflow:clip;}
+  #parcel-rankings .rank-controls :focus-visible {outline-offset:-3px;}
+  .rank-table {table-layout:fixed;}
+  .rank-table .rank-pin,.rank-table th,.rank-table td {overflow-wrap:anywhere;max-width:100%;}
+  .rank-table th:last-child,.rank-table td:last-child {width:24%;}
+  .rank-table .rank-detail {width:auto;}
+}

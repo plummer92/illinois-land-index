@@ -2,26 +2,27 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
   const root = document.createElement("div");
   root.className = "score-map";
   root.innerHTML = `
-    <form class="sm-search" role="search" aria-label="Find a place on the parcel map">
-      <label for="sm-find">Street name or parcel number</label>
-      <div><input id="sm-find" type="search" autocomplete="off" placeholder="e.g. Savannah Rd" maxlength="100"><button>Find</button></div>
-      <p class="sm-search-status" role="status"></p>
-      <div class="sm-search-results"></div>
-    </form>
-    <div class="sm-shortcuts">
-      <a href="#parcel-lookup">Find by street address</a>
-      <details class="sm-top"><summary>Top 10 in Chatham Township</summary><div></div></details>
-    </div>
     <div class="sm-frame">
-      <canvas class="sm-canvas" tabindex="0" aria-label="Parcel map, north up. Use the street or parcel search to choose a location. Use arrow keys to pan and plus or minus to zoom."></canvas>
+      <canvas class="sm-canvas" tabindex="0" aria-label="Parcel map, north up. Arrow keys move the map. Plus and minus zoom. Enter selects at the center. You can also choose from the nearby properties list."></canvas>
+      <span class="sm-reticle" aria-hidden="true">+</span>
       <div class="sm-map-actions"><button type="button" data-action="in" aria-label="Zoom in">+</button><button type="button" data-action="out" aria-label="Zoom out">−</button></div>
       <button type="button" class="sm-fit" data-action="fit">Fit map</button>
       <div class="sm-scale" aria-hidden="true"><span></span><i></i></div>
     </div>
     <div class="sm-selection" hidden><strong></strong><button type="button">Score details ↓</button></div>
     <div class="sm-hit-options" hidden aria-live="polite"></div>
+    <details class="sm-nearby">
+      <summary>Choose a nearby property</summary>
+      <p class="sm-near-count" role="status"></p>
+      <ul class="sm-near-list"></ul>
+      <div class="sm-near-pages" hidden><button type="button" data-page="-1">Previous</button><button type="button" data-page="1">Next</button></div>
+    </details>
     <div class="sm-legend" aria-label="Map legend"><strong>Score</strong><span><i></i>0–24</span><span><i></i>25–49</span><span><i></i>50–74</span><span><i></i>75–100</span><span><i class="sm-limit-key"></i>Village limits</span><span class="sm-point-legend" hidden><i class="sm-point-key"></i>Location only</span></div>
     <p class="sm-foot">Parcels and streets from <a href="https://sangis.co.sangamon.il.us/server/rest/services/TyleratENTParcels/MapServer/0" target="_blank" rel="noopener">Sangamon County GIS</a>.</p>`;
+  const topList = document.createElement("details");
+  topList.className = "sm-top";
+  topList.innerHTML = "<summary>Top 10 in Chatham Township</summary><div></div>";
+  if (top?.length) root.append(topList);
   container.replaceChildren(root);
   const find = selector => root.querySelector(selector);
   const map = find("canvas");
@@ -57,10 +58,11 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
   const midpoint = b => [(b[0] + b[2]) / 2, (b[1] + b[3]) / 2];
   const overlaps = (a, b) => a[2] >= b[0] && a[0] <= b[2] && a[3] >= b[1] && a[1] <= b[3];
   const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
-  const input = find("#sm-find");
-  const searchResults = find(".sm-search-results");
-  const searchStatus = find(".sm-search-status");
   const choices = find(".sm-hit-options");
+  const nearby = find(".sm-nearby");
+  const nearList = find(".sm-near-list");
+  const nearCount = find(".sm-near-count");
+  const nearPages = find(".sm-near-pages");
   const actionButton = (text, callback) => {
     const button = document.createElement("button");
     button.type = "button";
@@ -73,6 +75,11 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
   let selected = "";
   let highlightedStreet = "";
   let frameQueued = false;
+  let nearPage = 0;
+  let nearTimer;
+  let nearExtent = "";
+  let nearRows = [];
+  const nearPageSize = 6;
   function project([x, y]) {
     return [(x - center[0]) * scale + width / 2, (y - center[1]) * scale + height / 2];
   }
@@ -86,6 +93,86 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
     if (frameQueued) return;
     frameQueued = true;
     requestAnimationFrame(() => { frameQueued = false; draw(); });
+  }
+  // Use anchor points instead of bounding boxes. A lot can surround an entire
+  // block or have disconnected pieces without owning the land between them.
+  function updateNearby() {
+    if (!nearby.open || !scale) return;
+    const box = [...unproject(0, 0), ...unproject(width, height)];
+    const extent = box.join(",");
+    if (extent !== nearExtent) {
+      nearExtent = extent;
+      nearPage = 0;
+      nearRows = [...parcels.values()].filter(p => p.pt[0] >= box[0] && p.pt[0] <= box[2] &&
+        p.pt[1] >= box[1] && p.pt[1] <= box[3]);
+      const distance = p => (p.pt[0] - center[0]) ** 2 + (p.pt[1] - center[1]) ** 2;
+      nearRows.sort((a,b) => distance(a) - distance(b) || a.pin.localeCompare(b.pin));
+    }
+    const start = nearPage * nearPageSize;
+    const rows = nearRows.slice(start, start + nearPageSize);
+    nearCount.textContent = rows.length ? (start + 1) + "–" + (start + rows.length) + " of " +
+      nearRows.length.toLocaleString("en-US") + " properties centered in this view, closest first." :
+      "No property centers in this view. Zoom out or move the map.";
+    const buttons = document.createDocumentFragment();
+    for (const parcel of rows) {
+      const item = document.createElement("li");
+      const button = actionButton("Parcel " + parcel.pin + " · " + parcel.score + "/100", () => {
+        choose(parcel.pin, true);
+        focusScore();
+      });
+      const detail = document.createElement("span");
+      const road = nearbyRoad(parcel);
+      const dx = parcel.pt[0] - center[0], dy = parcel.pt[1] - center[1];
+      const feet = Math.hypot(dx,dy) * 5280 / unitsPerMile;
+      const direction = ["E","SE","S","SW","W","NW","N","NE"][(Math.round(Math.atan2(dy,dx) * 4 / Math.PI) + 8) % 8];
+      const fromCenter = feet < 10 ? "At map center" : (feet < 1320 ? Math.round(feet / 10) * 10 + " ft" :
+        (feet / 5280).toFixed(1) + " mi") + " " + direction + " of center";
+      detail.textContent = [road && "Near " + road, fromCenter, parcel.path ? "" : "County location point"].filter(Boolean).join(" · ");
+      if (detail.textContent) button.append(detail);
+      item.append(button); buttons.append(item);
+    }
+    nearList.replaceChildren(buttons);
+    nearPages.hidden = nearRows.length <= nearPageSize;
+    nearPages.querySelector('[data-page="-1"]').disabled = start === 0;
+    nearPages.querySelector('[data-page="1"]').disabled = start + rows.length === nearRows.length;
+  }
+  function nearbyRoad(parcel) {
+    if (parcel.nearRoad !== undefined) return parcel.nearRoad;
+    const [x,y] = parcel.pt;
+    let best = (unitsPerMile * .35) ** 2;
+    let name = "";
+    for (const road of roads) {
+      if (!road.name) continue;
+      const dx = Math.max(road.b[0] - x, 0, x - road.b[2]);
+      const dy = Math.max(road.b[1] - y, 0, y - road.b[3]);
+      if (dx * dx + dy * dy >= best) continue;
+      // Each county road entry is one continuous line in projected map units.
+      road.vertices ??= road.d.match(/-?[\d.]+/g).map(Number);
+      const coords = road.vertices;
+      for (let i = 2; i < coords.length; i += 2) {
+        const ax = coords[i-2], ay = coords[i-1], vx = coords[i]-ax, vy = coords[i+1]-ay;
+        const length = vx*vx + vy*vy;
+        const t = length ? clamp(((x-ax)*vx+(y-ay)*vy)/length,0,1) : 0;
+        const distance = (x-ax-t*vx)**2 + (y-ay-t*vy)**2;
+        if (distance < best) { best = distance; name = road.name; }
+      }
+    }
+    parcel.nearRoad = name;
+    return name;
+  }
+  function focusNearby() {
+    nearby.open = true;
+    updateNearby();
+    nearby.querySelector("summary").focus({preventScroll:true});
+    nearby.scrollIntoView({block:"start"});
+  }
+  nearby.addEventListener("toggle", updateNearby);
+  for (const button of nearPages.querySelectorAll("button")) {
+    button.addEventListener("click", () => {
+      nearPage += Number(button.dataset.page);
+      updateNearby();
+      nearList.querySelector("button")?.focus();
+    });
   }
   function drawScale() {
     const maxFeet = Math.min(95, width * .26) * 5280 / (unitsPerMile * scale);
@@ -146,11 +233,12 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
       .sort((a,b) => Number(a.cls) - Number(b.cls));
     const drawn = new Set();
     const occupied = [[width-60, 0, width, 108], [0,height-45,110,height], [width-88,height-50,width,height]];
-    ctx.font = "600 11px system-ui, sans-serif";
+    const labelSize = 0.875 * parseFloat(getComputedStyle(map).fontSize);
+    ctx.font = "600 " + labelSize + "px system-ui, sans-serif";
     ctx.textAlign = "center";
     function label(text, x, y, important = false) {
       const half = ctx.measureText(text).width / 2;
-      const rect = [x-half-4,y-12,x+half+4,y+5];
+      const rect = [x-half-4,y-labelSize,x+half+4,y+5];
       if (rect[0] < 4 || rect[2] > width-4 || rect[1] < 4 || rect[3] > height-4 || occupied.some(b => overlaps(b,rect))) return;
       occupied.push(rect);
       ctx.strokeStyle = "#fffdf6"; ctx.lineWidth = 3.4; ctx.strokeText(text, x, y);
@@ -164,6 +252,10 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
       label(road.name, ...project(road.pt));
     }
     drawScale();
+    if (nearby.open && box.join(",") !== nearExtent) {
+      clearTimeout(nearTimer);
+      nearTimer = setTimeout(updateNearby, 120);
+    }
   }
   function focusParcel(parcel) {
     const b = parcel.b;
@@ -185,7 +277,7 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
     requestDraw();
   }
   function choose(pin, focus = true) {
-    find(".sm-top").open = false;
+    topList.open = false;
     select(pin, focus);
     onChoose(pin);
   }
@@ -194,7 +286,6 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
     highlightedStreet = "";
     choices.replaceChildren(); choices.hidden = true;
     center = midpoint(bounds); scale = baseScale;
-    input.value = ""; searchResults.replaceChildren(); searchStatus.textContent = "";
     onChoose(""); requestDraw();
   }
   function hit(x, y) {
@@ -213,8 +304,9 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
       const select = document.createElement("select");
       select.add(new Option("Choose a parcel", ""));
       for (const p of picked) select.add(new Option(p.pin + " · " + p.score + "/100", p.pin));
-      select.onchange = () => { if (select.value) choose(select.value, false); };
+      select.onchange = () => { if (select.value) { choose(select.value, false); focusScore(); } };
       label.append(select); choices.append(label); choices.hidden = false;
+      if (document.activeElement === map && map.matches(":focus-visible")) select.focus();
     } else {
       choose("", false);
       choices.textContent = "No mapped scored parcel at this spot."; choices.hidden = false;
@@ -229,11 +321,13 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
   find("[data-action=in]").onclick = () => zoom(2);
   find("[data-action=out]").onclick = () => zoom(.5);
   find("[data-action=fit]").onclick = fitAll;
-  find(".sm-selection button").onclick = () => {
+  function focusScore() {
     const detail = document.getElementById("map-score-detail");
-    detail?.focus({preventScroll:true});
-    detail?.scrollIntoView({block:"start"});
-  };
+    if (!detail || detail.hidden) return;
+    detail.focus({preventScroll:true});
+    detail.scrollIntoView({block:"start"});
+  }
+  find(".sm-selection button").onclick = focusScore;
   const contacts = new Map();
   let start, pinch, moved = false;
   function local(event) {
@@ -295,6 +389,10 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
     } else if (event.key === "+" || event.key === "=") zoom(2);
     else if (event.key === "-") zoom(.5);
     else if (event.key === "Home") fitAll();
+    else if (event.key === "Enter") {
+      hit(width/2,height/2);
+      if (selected && choices.hidden) focusScore();
+    }
     else return;
     event.preventDefault();
   });
@@ -309,46 +407,25 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
       Math.hypot(road.pt[0]-mid[0],road.pt[1]-mid[1]) < Math.hypot(best.pt[0]-mid[0],best.pt[1]-mid[1]) ? road : best);
     center = [...nearest.pt];
     setScale(Math.min(width,height) / (unitsPerMile * .24));
-    searchResults.replaceChildren(); searchStatus.textContent = "Showing " + street.name + ". Tap a parcel.";
     requestDraw();
   }
-  find(".sm-search").addEventListener("submit", event => {
-    event.preventDefault(); searchResults.replaceChildren();
-    let query = input.value.trim();
-    if (!query) { input.focus(); searchStatus.textContent = "Enter a street name or parcel number."; return; }
-    let results;
+  function search(value) {
+    const query = value.trim();
+    if (!query) return [];
     const digits = query.replace(/[\s-]/g, "");
     if (/^\d+$/.test(digits)) {
       const normalized = digits.length === 10 ? digits.slice(0,4) + "0" + digits.slice(4) : digits;
-      if (geometry.missing?.includes(normalized)) {
-        searchStatus.textContent = "The county has no mapped location for this scored parcel.";
-        const link = document.createElement("a");
-        const url = new URL(location.pathname, location.origin);
-        url.search = new URLSearchParams({scorePin:normalized, scoreTargets:"all", scoreMin:"all", scoreDetail:normalized});
-        url.hash = "scored-properties";
-        link.href = url.href;
-        link.textContent = "View the score for " + normalized;
-        searchResults.append(link);
-        return;
-      }
       const matches = parcels.has(normalized) ? [parcels.get(normalized)] : [...parcels.values()].filter(p => p.pin.includes(digits));
-      results = matches.map(p => ({text: p.pin + " · " + p.score + "/100", select: () => {
+      return matches.map(p => ({label: p.pin + " · " + p.score + "/100", kind:"parcel", pin:p.pin, choose: () => {
         if (selected === p.pin) { focusParcel(p); requestDraw(); }
-        choose(p.pin); searchResults.replaceChildren(); searchStatus.textContent = "Showing parcel " + p.pin + ".";
+        choose(p.pin);
       }}));
-    } else {
-      query = normalizedName(query);
-      const exact = streetNames.get(query);
-      const matches = exact ? [exact] : [...streetNames.values()].filter(street => query && street.key.includes(query)).sort((a,b)=>a.name.localeCompare(b.name));
-      results = matches.map(street => ({text:street.name, select:()=>focusStreet(street)}));
     }
-    if (results.length === 1) { results[0].select(); return; }
-    if (results.length === 0) {
-      searchStatus.textContent = "No mapped street or parcel number matched. For a house number, use Find by street address."; return;
-    }
-    searchStatus.textContent = results.length > 12 ? "Showing 12 of " + results.length + " matches. Enter more characters to narrow the list." : "Choose a match.";
-    for (const result of results.slice(0,12)) searchResults.append(actionButton(result.text, result.select));
-  });
+    const key = normalizedName(query);
+    const exact = streetNames.get(key);
+    const matches = exact ? [exact] : [...streetNames.values()].filter(street => key && street.key.includes(key)).sort((a,b)=>a.name.localeCompare(b.name));
+    return matches.map(street => ({label:street.name, kind:"street", choose:()=>focusStreet(street)}));
+  }
   for (const parcel of top || []) {
     if (!parcels.has(parcel.pin)) continue;
     find(".sm-top div").append(actionButton("#" + parcel.n + " · " + parcel.road + " · " + scores.get(parcel.pin) + "/100", () => {
@@ -367,5 +444,5 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
   }
   resize();
   new ResizeObserver(resize).observe(map);
-  return {select, has: pin => parcels.has(pin)};
+  return {select, search, focusNearby, has: pin => parcels.has(pin)};
 };

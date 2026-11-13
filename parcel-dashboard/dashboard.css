@@ -43,3 +43,37 @@
 .county-links a { padding: 8px 0; color: var(--green-dark); text-underline-offset: 3px; }
 .lookup [hidden] { display: none; }
 @media (max-width: 425px) { .search-row input, .search-row button { flex-basis: 100%; } }
+#find-property, #property-result { scroll-margin-top:6rem; }
+#property-result { margin:1.2rem 0; }
+#property-result [tabindex="-1"]:focus-visible { outline:3px solid #176b4d; outline-offset:2px; }
+#property-result #map-score-detail, #property-result #result { padding:clamp(12px,3vw,24px); background:#fff; border:1px solid var(--line); border-left:4px solid var(--green); border-radius:10px; }
+#property-result h2 { margin:0 0 .3rem; font-size:1.35rem; line-height:1.2; overflow-wrap:anywhere; }
+#property-result .score-label { margin:.6rem 0 0; color:var(--muted); font-weight:650; }
+#property-result h3.score-value { font-size:1.8rem; color:var(--green-dark); margin:.1rem 0; }
+#property-result p, #property-result li { font-size:1rem; line-height:1.5; }
+#property-result a, #lookup-choices button { overflow-wrap:anywhere; }
+#property-result .score-breakdown { margin:.7rem 0; border-block:1px solid var(--line); }
+#property-result summary { padding:.65em 0; line-height:1.35; font-weight:650; cursor:pointer; }
+#property-result .lot-jump { font-weight:650; }
+#lookup-choices { display:grid; gap:.4rem; }
+#lookup-choices button { padding:.6rem .75rem; background:#f1f7f1; border:1px solid #668578; border-radius:6px; min-height:44px; color:var(--green-dark); font:inherit; text-align:left; cursor:pointer; }
+#lookup-choices button:focus-visible,.parcel-page a:focus-visible,.parcel-page summary:focus-visible { outline:3px solid var(--green); outline-offset:2px; }
+.lookup .hint { font-size:1rem; }
+.lookup .search-row input { font-size:1rem; }
+.index-navigation .core-navigation {font-size:1rem;}
+.index-navigation .brand strong {font-size:1.05rem;}
+.parcel-page, .index-navigation {overflow-wrap:break-word;}
+@media (prefers-reduced-motion:reduce) {html {scroll-behavior:auto;}}
+.parcel-page h1 { font-size:clamp(2rem,5vw,3rem); }
+.parcel-page header, .parcel-page section, .parcel-page form { min-width:0; }
+.parcel-page .property-utilities { margin:.75rem 0; }
+#property-result .property-utilities h3 { font-size:1.25rem; }
+.property-utilities > section { background:#f4f7f2; padding:.8rem; margin:.5rem 0; border-radius:6px; }
+.property-utilities h4 { margin:0 0 .25rem; font-size:1rem; color:var(--green-dark); }
+#property-result .property-utilities > section > strong { display:block; font-size:1.1rem; line-height:1.4; }
+#property-result .property-utilities p { margin:.35rem 0; }
+.property-utilities a { display:inline-block; min-height:44px; max-width:100%; padding:.35em 0; line-height:1.5; }
+.property-utilities button { font:inherit; min-height:44px; margin:.25rem .5rem .25rem 0; padding:.4em .6em; }
+@media (max-width:820px) {
+  #find-property,#property-result {scroll-margin-top:.5rem;}
+}

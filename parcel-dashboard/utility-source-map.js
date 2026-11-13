@@ -136,7 +136,9 @@
         if(gas?.community && gas.provider) {
           if(gasOutline){
             const key=make("p",undefined,"source-gas-key");
-            key.append(make("span",undefined,"source-gas-swatch"),gas.community+" municipal boundary");
+            const boundary=make("a",gas.community+" municipal boundary");
+            boundary.href="https://sangis.co.sangamon.il.us/server/rest/services/Sangamon_MajorBoundaries/MapServer/6";
+            key.append(make("span",undefined,"source-gas-swatch"),boundary);
             activeText.append(key);
           }
           if(gas.sourceUrl){

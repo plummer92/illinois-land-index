@@ -1,0 +1,7 @@
+.county-parcel-preview { max-width:32rem; margin:.65rem 0; }
+.county-parcel-preview svg { display:block; width:100%; height:auto; border:1px solid #bccdc2; border-radius:8px; background:#f1f4ee; }
+.county-parcel-preview .preview-roads { fill:none; stroke:#9da9a4; stroke-width:2.2; }
+.county-parcel-preview .preview-outline { fill:#31936d; fill-opacity:.38; stroke:#10563f; stroke-width:2; stroke-linejoin:round; }
+.county-parcel-preview .preview-north { fill:#344f40; stroke:#f1f4ee; stroke-width:3px; paint-order:stroke; font:600 12px system-ui,sans-serif; }
+.county-parcel-preview p { margin:.25rem 0; color:#43584b; font-size:.85rem; }
+.county-parcel-preview a { color:var(--green-dark,#0f4937); }

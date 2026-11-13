@@ -15,9 +15,9 @@ function normalizePin(input) {
 
 // On a horizontal slice between vertex heights, crossing pairs bound interior
 // intervals even when the parcel is concave or contains holes.
-function interiorMapPoint(geometry) {
-  const parts = geometry?.type === "Polygon" ? [geometry.coordinates] :
-    geometry?.type === "MultiPolygon" ? geometry.coordinates : [];
+function interiorMapPoint(features) {
+  const parts = features.flatMap(({geometry}) => geometry?.type === "Polygon" ? [geometry.coordinates] :
+    geometry?.type === "MultiPolygon" ? geometry.coordinates : []);
   let widest = 0;
   let point;
   for (const rings of parts) {
@@ -112,21 +112,26 @@ async function lookup() {
     const data = await countyQuery(endpoint, params, controller.signal);
     if (currentRequest !== controller) return;
     if (data.error || !Array.isArray(data.features)) throw new Error("County query error");
-    if (data.features.length !== 1) {
-      statusLine.textContent = data.features.length
-        ? "The county returned multiple parcel boundaries. Confirm the PIN using the county property search below."
-        : "No parcel matched this search. Check the PIN or use the county property search below.";
+    const features = data.features;
+    if (!features.length) {
+      statusLine.textContent = "No parcel matched this search. Check the PIN or use the county property search below.";
       return;
     }
-    const parcel = data.features[0];
-    const matchedPin = String(parcel.properties.PIN);
-    if (!/^\d{11}$/.test(matchedPin)) throw new Error("Invalid county PIN");
-    const acres = parcel.properties.TOTACRES;
+    const pins = new Set(features.map(feature => String(feature.properties?.PIN)));
+    if (pins.size !== 1) {
+      statusLine.textContent = "The county returned more than one parcel number. Confirm the PIN using the county property search below.";
+      return;
+    }
+    const [matchedPin] = pins;
+    if (!/^\d{11}$/.test(matchedPin) || (pin && pin !== matchedPin)) throw new Error("Invalid county PIN");
+    // Separate shapes for one PIN can each repeat the full parcel acreage.
+    const acreages = new Set(features.map(feature => feature.properties.TOTACRES).filter(value => Number.isFinite(value) && value > 0));
+    const [acres] = acreages;
     document.querySelector("#result-title").textContent = "Parcel " + matchedPin;
-    document.querySelector("#acreage").textContent = Number.isFinite(acres) && acres > 0
+    document.querySelector("#acreage").textContent = acreages.size === 1
       ? "County acreage · " + acres.toLocaleString(undefined, {maximumFractionDigits: 3}) + " acres"
-      : "The county record has no acreage figure.";
-    const position = interiorMapPoint(parcel.geometry);
+      : acreages.size ? "County boundary records give different acreage figures. See the county tax record." : "The county record has no acreage figure.";
+    const position = interiorMapPoint(features);
     document.querySelector("#county-tax").href = "https://tax.sangamonil.gov/SangamonCountyWeb/app/displayParcelSummary.action?parcelNumber=" + matchedPin;
     document.querySelector("#county-map").href = "https://gismaps.co.sangamon.il.us/tpv/?pin=" + matchedPin;
     const mapLink = document.querySelector("#open-map");

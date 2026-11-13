@@ -9,9 +9,13 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../navigation.css">
     <link rel="stylesheet" href="./dashboard.css">
-    <link rel="stylesheet" href="./rankings.css">
-    <script src="./lookup.js" defer></script>
-    <script src="./rankings.js" defer></script>
+    <link rel="stylesheet" href="./rankings.css?v=chatham-map">
+    <link rel="stylesheet" href="./chatham-map.css">
+    <link rel="stylesheet" href="./parcel-preview.css">
+    <script src="./lookup.js?v=multipart" defer></script>
+    <script src="./chatham-map.js" defer></script>
+    <script src="./parcel-preview.js" defer></script>
+    <script src="./rankings.js?v=chatham-map" defer></script>
   </head>
   <body>
     <header class="site-header index-navigation">
@@ -27,10 +31,19 @@
       <header>
         <h1>Parcel dashboard</h1>
         <p>Browse properties ranked by the land index, or look up a parcel in Sangamon County GIS.</p>
-        <nav class="parcel-sections" aria-label="Parcel tools"><a href="#scored-properties">Scored properties</a><a href="#parcel-lookup">Look up an address or parcel number</a></nav>
+        <nav class="parcel-sections" aria-label="Parcel tools"><a href="#chatham-map">Chatham top 10 map</a><a href="#scored-properties">Scored properties</a><a href="#parcel-lookup">Look up an address or parcel number</a></nav>
       </header>
+      <section id="chatham-map" aria-labelledby="chatham-map-title">
+        <h2 id="chatham-map-title" tabindex="-1">Chatham top 10 map</h2>
+        <p class="map-intro">Tap a numbered parcel to see its location and why it scored that high. The map covers Chatham Township, including land outside the village.</p>
+        <p id="map-vintage" class="rank-vintage"></p>
+        <div id="chatham-map-content"><p role="status">Loading the parcel map…</p></div>
+        <div class="rank-links"><button id="map-back-to-row" class="rank-reset" type="button" hidden>View selected property in the ranked list</button></div>
+        <noscript>Enable JavaScript to use the interactive property map.</noscript>
+      </section>
       <section id="scored-properties" aria-labelledby="scores-title">
         <h2 id="scores-title">Scored properties</h2>
+        <a class="rank-map-shortcut" href="#chatham-map">Explore the Chatham top 10 on the map ↑</a>
         <div id="parcel-rankings"></div>
         <noscript>Enable JavaScript to browse and filter the scored properties.</noscript>
       </section>

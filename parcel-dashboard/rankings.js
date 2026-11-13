@@ -25,7 +25,73 @@
     return el;
   }
 
-  function build(data) {
+  const mapContainer = document.getElementById("chatham-map-content");
+  const backToRow = document.getElementById("map-back-to-row");
+  let mapView;
+  let onMapChoose;
+  function readJson(url) {
+    return fetch(url).then(response => {
+      if (!response.ok) throw new Error("Could not load " + url);
+      return response.json();
+    });
+  }
+  // This optional detail file is fetched the first time a countywide row needs it.
+  let reasonRequest;
+  async function showScoreReasons(list, row, sourceDate) {
+    if (!reasonRequest) {
+      reasonRequest = readJson("./data/score-reasons.json").catch(() => {
+        reasonRequest = null;
+        return null;
+      });
+    }
+    const source = await reasonRequest;
+    if (!list.isConnected || source?.source_date !== sourceDate || !Array.isArray(source.patterns) || !source.rows) return;
+    const rule = source.patterns[source.rows[row[0]]];
+    if (!Array.isArray(rule) || rule.length !== 9 || !rule.every(Number.isInteger)) return;
+    const [landClass,size,assessment,tax,ownerClass,holdings,otherBuy,propertyRisk,otherRisk] = rule;
+    const bound = (value, max) => Math.min(max,Math.max(0,value));
+    if (bound(landClass + size + assessment + tax,40) !== row[4] ||
+        bound(ownerClass + holdings + otherBuy,35) !== row[5] ||
+        bound(25 + propertyRisk + otherRisk,25) !== row[6]) return;
+    const points = value => value + (Math.abs(value) === 1 ? " point" : " points");
+    const reason = (name, value, cap, explanation) => {
+      const line = create("li");
+      line.append(create("strong",name + " " + value + "/" + cap + ". "),explanation);
+      return line;
+    };
+    const land = points(landClass) + " for property class, " + points(size) + " for acreage, " +
+      points(assessment) + " for assessed value per acre and " + points(tax) + " for annual tax per acre.";
+    const buy = points(ownerClass) + " from the ownership category, " + points(holdings) + " from recorded holdings and " +
+      points(otherBuy) + " from the combined address and tax-sale rules." +
+      (ownerClass + holdings + otherBuy < 0 ? " This component has a floor of zero." : "");
+    const risk = row[6] === 25 ? "The model applied no deductions to its 25 starting points." :
+      "From 25 starting points, the model deducted " + points(-propertyRisk) + " for property class or missing acreage and " +
+      points(-otherRisk) + " for the ownership and tax-sale rules.";
+    list.replaceChildren(reason("Land fit",row[4],40,land),reason("Buyability",row[5],35,buy),reason("Risk",row[6],25,risk));
+  }
+  const mapReady = readJson("./data/chatham-top-parcels.json").then(snapshot => {
+    mapView = window.createChathamScoreMap(mapContainer, snapshot, pin => {
+      if (onMapChoose) {
+        onMapChoose(pin);
+      } else {
+        // A touch can arrive while the larger county ranking file is still loading.
+        const url = new URL(location.href);
+        if (pin) url.searchParams.set("scoreDetail",pin);
+        else url.searchParams.delete("scoreDetail");
+        url.hash = "chatham-map";
+        if (url.href !== location.href) history.pushState(history.state,"",url);
+      }
+    });
+    const date = new Date(snapshot.sourceDate + "T12:00:00Z").toLocaleDateString("en-US", {month:"long", day:"numeric", year:"numeric", timeZone:"UTC"});
+    document.getElementById("map-vintage").textContent = "Scores from " + date + " · Ties ordered by parcel number";
+    mapView.select(new URLSearchParams(location.search).get("scoreDetail") || "");
+    return snapshot;
+  }).catch(() => {
+    mapContainer.textContent = "The Chatham map could not load. Select a property in the ranked list to see its county map.";
+    return null;
+  });
+
+  function build(data, snapshot) {
     if (!Array.isArray(data.rows) || !data.rows.length || !Array.isArray(data.townships) || !Array.isArray(data.classes)) {
       throw new Error("Invalid ranking data");
     }
@@ -101,6 +167,26 @@
     let selected = "";
     let matches = [];
     let inputSequence = false;
+    // Connect the dated field-level explanations only to the matching ranked record.
+    const mapped = new Map();
+    if (snapshot?.sourceDate === data.source_date) {
+      for (const parcel of snapshot.parcels) {
+        const row = data.rows.find(item => item[0] === parcel.pin);
+        if (row && data.townships[row[1]] === "CHATHAM" && row[3] === parcel.ac && row[4] === parcel.land && row[5] === parcel.buy &&
+            row[6] === parcel.risk && row[7] === parcel.score) mapped.set(parcel.pin,parcel);
+      }
+    }
+    let currentMapPin;
+    function syncMap() {
+      const pin = mapped.has(selected) ? selected : "";
+      if (currentMapPin !== pin) mapView?.select(pin);
+      currentMapPin = pin;
+      if (backToRow) backToRow.hidden = !pin;
+    }
+    function goToMap() {
+      document.getElementById("chatham-map-title").focus({preventScroll:true});
+      document.getElementById("chatham-map").scrollIntoView({block:"start"});
+    }
     function readLocation() {
       const params = new URL(location.href).searchParams;
       pinSearch.value = (params.get("scorePin") || "").slice(0,pinSearch.maxLength);
@@ -119,7 +205,7 @@
       if (!Number.isSafeInteger(page)) page = 1;
       selected = params.get("scoreDetail") || "";
     }
-    function writeLocation(replace = false) {
+    function writeLocation(replace = false, anchor) {
       const url = new URL(location.href);
       const params = {scorePin: pinSearch.value.trim(), scoreTown: township.value, scoreClass:propertyClass.value,
         scoreAcres:acresMin.value, scoreTargets:realistic.checked ? "" : "all",
@@ -129,6 +215,7 @@
         if (value) url.searchParams.set(key,value);
         else url.searchParams.delete(key);
       }
+      if (anchor) url.hash = anchor;
       if (url.href !== location.href) history[replace ? "replaceState" : "pushState"](history.state, "",url);
     }
     function filter() {
@@ -161,6 +248,7 @@
       const offset = (page - 1) * pageSize;
       const shown = matches.slice(offset,offset + pageSize);
       if (!shown.some(row => row[0] === selected)) selected = "";
+      syncMap();
       tbody.replaceChildren();
       status.textContent = matches.length ? countFormat.format(matches.length) + " matching properties · Showing " +
         countFormat.format(offset + 1) + "–" + countFormat.format(offset + shown.length) : "No properties match these filters.";
@@ -178,7 +266,8 @@
       prev.disabled = page === 1;
       next.disabled = page === pages;
       indicator.textContent = "Page " + page + " of " + countFormat.format(pages);
-      for (const [pin,town,propertyClass,acres,land,buyability,risk,score] of shown) {
+      for (const record of shown) {
+        const [pin,town,propertyClass,acres,land,buyability,risk,score] = record;
         const row = tbody.insertRow();
         row.insertCell().append(create("span",String(score),"rank-score"));
         const parcelCell = create("th");
@@ -190,11 +279,15 @@
         button.setAttribute("aria-expanded",String(opened));
         button.addEventListener("click",() => {
           selected = opened ? "" : pin;
-          writeLocation();
+          const showMap = selected === pin && mapped.has(pin);
+          writeLocation(false, showMap ? "chatham-map" : "scored-properties");
           render();
-          tbody.querySelector('[aria-label="Score details for parcel ' + pin + '"]').focus({preventScroll:true});
+          if (showMap) goToMap();
+          else tbody.querySelector('[aria-label="Score details for parcel ' + pin + '"]').focus({preventScroll:true});
         });
-        parcelCell.append(button,create("span", [data.townships[town],data.classes[propertyClass]].filter(Boolean).map(middle).join(" · "),"rank-location"));
+        parcelCell.append(button);
+        if (mapped.has(pin)) parcelCell.append(create("span",mapped.get(pin).road,"rank-road"));
+        parcelCell.append(create("span", [data.townships[town],data.classes[propertyClass]].filter(Boolean).map(middle).join(" · "),"rank-location"));
         row.append(parcelCell);
         row.insertCell().textContent = acres > 0 ? acresFormat.format(acres) : "—";
         if (opened) {
@@ -203,6 +296,25 @@
           detail.className = "rank-detail";
           detail.append(create("p","Land fit " + land + "/40 · Buyability " + buyability + "/35 · Risk " + risk + "/25"));
           const links = create("div",undefined,"rank-links");
+          if (mapped.has(pin)) {
+            detail.append(create("p", mapped.get(pin).label + ". " + mapped.get(pin).village + "."));
+            const outline = create("button","View outline and scoring reasons","rank-reset rank-preview-link");
+            outline.type = "button";
+            outline.addEventListener("click",() => {
+              writeLocation(false,"chatham-map");
+              goToMap();
+            });
+            links.append(outline);
+          } else {
+            const preview = create("div");
+            detail.append(preview);
+            window.showCountyParcelPreview?.(preview,pin);
+            const reasons = create("ul",undefined,"rank-reasons");
+            reasons.append(create("li",acresFormat.format(acres) + " recorded acres · " + middle(data.classes[propertyClass]) + ". The land score also considers assessed value and annual tax per acre."));
+            reasons.append(create("li","Ownership and tax-sale rules produced " + buyability + " of 35 buyability points. The risk calculation " + (risk === 25 ? "applied no deductions." : "deducted " + (25-risk) + " of its 25 starting points.") ));
+            detail.append(reasons);
+            showScoreReasons(reasons,record,data.source_date);
+          }
           links.append(link("County property record","https://tax.sangamonil.gov/SangamonCountyWeb/app/displayParcelSummary.action?parcelNumber=" + pin),
             link("County parcel map","https://gismaps.co.sangamon.il.us/tpv/?pin=" + pin));
           const lookupForm = document.getElementById("parcel-form");
@@ -224,7 +336,7 @@
     }
     function filtersChanged(replace = false) {
       page = 1; selected = "";
-      filter(); render(); writeLocation(replace);
+      filter(); render(); writeLocation(replace,"scored-properties");
     }
     pinSearch.addEventListener("input", () => { filtersChanged(inputSequence); inputSequence = true; });
     pinSearch.addEventListener("blur", () => { inputSequence = false; });
@@ -241,14 +353,44 @@
     });
     function goPage(change) {
       page += change; selected = "";
-      render(); writeLocation(); results.focus({preventScroll:true});
+      render(); writeLocation(false,"scored-properties"); results.focus({preventScroll:true});
       results.scrollIntoView({block:"start",behavior:"instant"});
     }
     prev.addEventListener("click",() => goPage(-1));
     next.addEventListener("click",() => goPage(1));
+    function revealMappedRow(pin) {
+      if (!pin) return;
+      let index = matches.findIndex(row => row[0] === pin);
+      if (index < 0) {
+        form.reset();
+        pinSearch.value = acresMin.value = propertyClass.value = "";
+        township.value = "CHATHAM"; realistic.checked = true;
+        threshold.value = "45"; sort.value = "score";
+        filter();
+        index = matches.findIndex(row => row[0] === pin);
+      }
+      if (index >= 0) page = Math.floor(index / pageSize) + 1;
+    }
+    onMapChoose = pin => {
+      if (pin && !mapped.has(pin)) return;
+      currentMapPin = pin;
+      selected = pin;
+      revealMappedRow(pin);
+      render();
+      writeLocation(false,"chatham-map");
+    };
+    backToRow?.addEventListener("click",() => {
+      const button = tbody.querySelector('.rank-pin[aria-expanded="true"]');
+      if (!button) return;
+      writeLocation(false,"scored-properties");
+      button.focus({preventScroll:true});
+      button.scrollIntoView({block:"center"});
+    });
     function restore() {
       inputSequence = false;
-      readLocation(); filter(); render();
+      readLocation(); filter();
+      if (location.hash === "#chatham-map" && mapped.has(selected)) revealMappedRow(selected);
+      render();
     }
     window.addEventListener("popstate",restore);
     restore();
@@ -272,11 +414,8 @@
     }
   }
 
-  fetch("../data/sangamon-parcel-scores.json")
-    .then(response => {
-      if (!response.ok) throw new Error("Unavailable rankings");
-      return response.json();
-    }).then(build).catch(() => {
+  Promise.all([readJson("../data/sangamon-parcel-scores.json"),mapReady])
+    .then(([data,snapshot]) => build(data,snapshot)).catch(() => {
       status.textContent = "The scored list could not load. Reload this page to try again.";
     });
 })();

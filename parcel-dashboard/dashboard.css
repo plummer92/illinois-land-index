@@ -48,17 +48,11 @@
 #property-result [tabindex="-1"]:focus-visible { outline:3px solid #176b4d; outline-offset:2px; }
 #property-result #map-score-detail, #property-result #result { padding:clamp(12px,3vw,24px); background:#fff; border:1px solid var(--line); border-left:4px solid var(--green); border-radius:10px; }
 #property-result h2 { margin:0 0 .3rem; font-size:1.35rem; line-height:1.2; overflow-wrap:anywhere; }
-#property-result .score-label { margin:.6rem 0 0; color:var(--muted); font-weight:650; }
-#property-result h3.score-value { font-size:1.8rem; color:var(--green-dark); margin:.1rem 0; }
 #property-result p, #property-result li { font-size:1rem; line-height:1.5; }
 #property-result a, #lookup-choices button { overflow-wrap:anywhere; }
 #property-result .score-breakdown { margin:.7rem 0; border-block:1px solid var(--line); }
 #property-result summary { padding:.65em 0; line-height:1.35; font-weight:650; cursor:pointer; }
-#property-result .lot-jump { font-weight:650; }
-#property-result .property-jumps { display:flex; flex-wrap:wrap; align-items:center; gap:0 1.25rem; }
-#property-result .lot-jump, #property-result .utility-jump { display:inline-flex; align-items:center; min-height:44px; }
-#property-result .utility-jump { padding:.3rem 0; background:transparent; color:var(--green-dark); border:0; font:inherit; font-weight:650; text-decoration:underline; cursor:pointer; }
-#property-result .utility-jump:focus-visible { outline:3px solid var(--green); outline-offset:2px; }
+#property-result .lot-jump { display:inline-flex; align-items:center; min-height:44px; font-weight:650; }
 #lookup-choices { display:grid; gap:.4rem; }
 #lookup-choices button { padding:.6rem .75rem; background:#f1f7f1; border:1px solid #668578; border-radius:6px; min-height:44px; color:var(--green-dark); font:inherit; text-align:left; cursor:pointer; }
 #lookup-choices button:focus-visible,.parcel-page a:focus-visible,.parcel-page summary:focus-visible { outline:3px solid var(--green); outline-offset:2px; }
@@ -70,15 +64,43 @@
 @media (prefers-reduced-motion:reduce) {html {scroll-behavior:auto;}}
 .parcel-page h1 { font-size:clamp(2rem,5vw,3rem); }
 .parcel-page header, .parcel-page section, .parcel-page form { min-width:0; }
+.parcel-page .parcel-sections { margin:1rem 0; }
+.parcel-page #chatham-map, .parcel-page .related-tools {
+  margin:.5rem 0;
+  padding:0;
+  border:1px solid var(--line);
+  border-radius:.6rem;
+  background:var(--white);
+}
+.parcel-page #chatham-map > summary, .parcel-page .related-tools > summary {
+  min-height:48px;
+  padding:.8rem 1rem;
+  color:var(--green-dark);
+  font-weight:650;
+  cursor:pointer;
+}
+.parcel-page #chatham-map[open], .parcel-page .related-tools[open] {
+  padding:0 clamp(.75rem,3vw,1.5rem) 1rem;
+}
+.parcel-page #chatham-map[open] > summary, .parcel-page .related-tools[open] > summary {
+  padding-inline:0;
+  margin-bottom:.4rem;
+  border-bottom:1px solid var(--line);
+}
+.parcel-page .related-tools p { margin:.25rem 0; }
+.parcel-page .related-tools a, .rankings-page .rank-links a {
+  display:inline-block;
+  min-height:44px;
+  align-content:center;
+}
+.parcel-page.rankings-page #scored-properties { margin:0; }
 .parcel-page .property-utilities { margin:.75rem 0; }
 .parcel-page .property-utilities, .property-source-location { scroll-margin-top:6rem; }
 #property-result .property-utilities h3 { font-size:1.25rem; }
-.property-utilities > section, .gas-service > section { background:#f4f7f2; padding:.8rem; margin:.5rem 0; border-radius:6px; }
 .property-utilities .water-report h5 { margin:.8rem 0 .25rem; font-size:1rem; }
 .utility-bill-choice { display:grid; gap:.25rem; margin:.5rem 0; }
 .utility-bill-choice select { min-height:44px; width:100%; max-width:28rem; padding:.3rem; font:inherit; color:inherit; background:#fff; }
 .property-utilities h4 { margin:0 0 .25rem; font-size:1rem; color:var(--green-dark); }
-#property-result .property-utilities > section > strong, #property-result .gas-service > section > strong { display:block; font-size:1.1rem; line-height:1.4; }
 #property-result .property-utilities p { margin:.35rem 0; }
 .property-utilities a { display:inline-block; min-height:44px; max-width:100%; padding:.35em 0; line-height:1.5; }
 .property-utilities button { font:inherit; min-height:44px; margin:.25rem .5rem .25rem 0; padding:.4em .6em; }

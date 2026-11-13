@@ -2,7 +2,7 @@
 #scored-properties h2, #chatham-map h2 { font-size:clamp(1.55rem,3.6vw,2.1rem); margin:0 0 .75rem; }
 #chatham-map .map-intro { margin:0; }
 #map-vintage { margin:.35rem 0 .85rem; }
-#map-back-to-row:not([hidden]) { min-height:44px; }
+#map-back-to-row:not([hidden]) { display:inline-flex; align-items:center; min-height:44px; }
 #map-score-detail { margin:.75rem 0 .2rem; padding:.85rem 1rem; border-left:3px solid var(--green,#176b4d); background:#f3f7f2; border-radius:0 6px 6px 0; scroll-margin-top:6rem; }
 #map-score-detail h3 { font-size:1.15rem; margin:0 0 .15rem; }
 #map-score-detail h4 { font-size:1rem; margin:.8rem 0 .3rem; }
@@ -11,7 +11,7 @@
 #map-score-detail .rank-reasons { padding-inline-start:1.1rem; margin:.4rem 0; }
 #map-score-detail li { margin:.42rem 0; }
 #map-score-detail a { display:inline-flex; align-items:center; min-height:44px; color:var(--green-dark); }
-.rank-table .rank-pin { min-height:44px; text-align:left; }
+.rank-table .rank-pin { display:inline-flex; align-items:center; min-height:44px; max-width:100%; text-align:left; overflow-wrap:anywhere; }
 .rank-detail .rank-preview-link { min-height:44px; }
 .rank-detail .rank-reasons { margin:.4rem 0; padding-inline-start:1.2rem; }
 .rank-map-shortcut { display:inline-flex; align-items:center; min-height:44px; color:var(--green-dark); text-underline-offset:3px; }
@@ -21,18 +21,21 @@
 }
 #parcel-rankings [hidden] { display:none; }
 #parcel-rankings :focus-visible { outline:3px solid #32795c; outline-offset:2px; }
+.rank-filter-panel { margin-top:.85rem; border-block:1px solid var(--line); }
+.rank-filter-panel > summary { min-height:44px; padding:.7rem 0; color:var(--green-dark); font-weight:650; cursor:pointer; }
+.rank-filter-panel[open] { padding-bottom:.7rem; }
 .rank-controls { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; margin:1rem 0 .4rem; }
 .rank-controls label { display:grid; gap:.25rem; font-weight:650; font-size:.875rem; }
-.rank-controls label.rank-check { display:flex; grid-column:1/-1; gap:.5rem; min-height:32px; align-items:center; cursor:pointer; }
+.rank-controls label.rank-check { display:flex; grid-column:1/-1; gap:.5rem; min-height:44px; align-items:center; cursor:pointer; }
 .rank-controls .rank-check input { width:18px; height:18px; min-height:18px; accent-color:#176b4d; }
-.rank-controls input,.rank-controls select,.rank-pages button { width:100%; min-width:0; min-height:42px; border:1px solid #9baaa1; border-radius:6px; padding:.45rem .6rem; background:white; color:inherit; font:inherit; font-size:1rem; }
+.rank-controls input,.rank-controls select,.rank-pages button { width:100%; min-width:0; min-height:44px; border:1px solid #9baaa1; border-radius:6px; padding:.45rem .6rem; background:white; color:inherit; font:inherit; font-size:1rem; }
 .rank-pages button,.rank-pin,.rank-reset { cursor:pointer; }
 .rank-summary { margin:1rem 0 .5rem; }
 .rank-summary p:first-child { font-weight:650; }
 .rank-vintage,.rank-location { color:#51625a; font-size:.83rem; }
 .rank-location { display:block; font-weight:400; }
 .rank-reset,.rank-pin { background:none; border:0; padding:0; color:var(--green-dark,#0f4937); text-decoration:underline; text-underline-offset:3px; font:inherit; }
-.rank-reset { font-size:.9rem; min-height:32px; }
+.rank-reset { font-size:.9rem; min-height:44px; }
 .rank-table { width:100%; border-collapse:collapse; font-size:.95rem; font-variant-numeric:tabular-nums; }
 .rank-table td,.rank-table th { padding:.4rem .45rem; vertical-align:middle; border-bottom:1px solid #e0e7e2; text-align:left; }
 .rank-table thead th { font-size:.81rem; background:#f3f6f3; color:#475a50; }

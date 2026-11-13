@@ -137,6 +137,11 @@ const propertyFinder = (() => {
     }
     async function resolveLot(match) {
       const lots = await countyWork(() => findCountyParcels(pin,match?.location,controller.signal));
+      if (!lots && current === controller && pin && tools.scored(pin)) {
+        status.textContent = "Found parcel " + pin + " in the scoring records.";
+        tools.show({pin,geometryUnavailable:true},null);
+        return;
+      }
       if (!active() || !lots) return;
       if (lots.length === 1) { display(lots[0],match?.address); return; }
       if (lots.length > 1) {
@@ -178,9 +183,15 @@ const propertyFinder = (() => {
   }
   receive();
   window.addEventListener("pageshow", e => { if (e.persisted) receive(); });
-  window.addEventListener("popstate",() => { current?.abort(); choices.replaceChildren(); status.textContent = ""; });
+  function cancel() {
+    current?.abort();
+    current = null;
+    choices.replaceChildren();
+    status.textContent = "";
+  }
+  window.addEventListener("popstate",cancel);
   return {
     connect:resolveTools,
-    cancel:() => { current?.abort(); choices.replaceChildren(); status.textContent = ""; }
+    cancel
   };
 })();

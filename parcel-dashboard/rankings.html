@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Property rankings | Illinois Land Index</title>
+    <meta name="description" content="Browse Sangamon County property rankings by land score, township, property class and acreage.">
+    <link rel="canonical" href="https://illinoislandindex.com/parcel-dashboard/rankings.html">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../navigation.css">
+    <link rel="stylesheet" href="./dashboard.css?v=resident-layout">
+    <link rel="stylesheet" href="./rankings.css?v=resident-layout">
+    <script src="./rankings.js?v=resident-layout" defer></script>
+  </head>
+  <body>
+    <header class="site-header index-navigation">
+      <a class="brand" href="../" aria-label="Illinois Land Index home"><span>ILI</span><strong>Illinois Land Index</strong></a>
+      <nav class="core-navigation" aria-label="Primary navigation">
+        <a href="../">Home</a>
+        <a href="../infrastructure-map/">Water &amp; parcel map</a>
+        <a href="./">Find my property</a>
+        <a href="../latest-land-signals.html">County signals</a>
+      </nav>
+    </header>
+    <main class="parcel-page rankings-page">
+      <section id="scored-properties" aria-labelledby="scores-title">
+        <h1 id="scores-title">Property rankings</h1>
+        <p>Compare Sangamon County properties by land score. Select a parcel number to see its lot, score and utilities.</p>
+        <div id="parcel-rankings"></div>
+        <noscript>Enable JavaScript to browse and filter the scored properties.</noscript>
+      </section>
+    </main>
+  </body>
+</html>

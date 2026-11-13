@@ -41,7 +41,6 @@
     return [];
   };
 
-  const boundaries = "https://sangis.co.sangamon.il.us/server/rest/services/Sangamon_MajorBoundaries/MapServer/6";
   const amerenTariff = "https://www.ameren.com/-/media/rates/illinois/residential/gas-rates/general-information/aigs2otcvc.ashx";
   const amerenCheck = "https://www.ameren.com/service/convert-to-gas";
   const gasUtilities = "https://icc.illinois.gov/authority/natural-gas-utility";
@@ -70,8 +69,7 @@
     return node;
   }
   function showUnconfirmed(card, message) {
-    card.append(element("strong","Gas provider unconfirmed"), element("p",message),
-      link("Illinois gas utility directory",gasUtilities));
+    card.append(element("p",message),link("Illinois gas utility directory",gasUtilities));
   }
   let communityRequest;
   function loadCommunities() {
@@ -88,39 +86,31 @@
     let supplier;
     if (page) {
       supplier = {provider:"Ameren Illinois",sourceUrl:amerenTariff + "#page=" + page,sourceLabel:"Ameren’s list of communities"};
-      card.append(element("strong","Ameren Illinois serves " + name),
-        element("p","Ameren’s gas service schedule lists " + name + ". A gas bill or Ameren can confirm whether this property has a meter."),
+      card.append(element("p","Ameren’s gas service schedule lists " + name + ". A gas bill or Ameren can confirm whether this property has a meter."),
         link(supplier.sourceLabel,supplier.sourceUrl),
         document.createTextNode(" · "),link("Ask Ameren about this address",amerenCheck));
     } else if (municipalGas[name]) {
       const [provider, url] = municipalGas[name];
       supplier = {provider,sourceUrl:url,sourceLabel:name + " utility information"};
-      card.append(element("strong",provider + " gas utility"),
-        element("p",provider + " operates a local gas system. The municipal utility office can confirm whether this property is connected."),
+      card.append(element("p",provider + " operates a local gas system. The municipal utility office can confirm whether this property is connected."),
         link(supplier.sourceLabel,supplier.sourceUrl));
     } else if (libertyCommunities.includes(name)) {
       supplier = {provider:"Liberty Utilities",sourceUrl:libertyTariff,sourceLabel:"Liberty’s Illinois gas service schedule"};
-      card.append(element("strong","Liberty Utilities serves " + name),
-        element("p","Liberty’s Illinois gas service schedule lists " + name + ". A gas bill or the utility can identify the delivery company at this address."),
+      card.append(element("p","Liberty’s Illinois gas service schedule lists " + name + ". A gas bill or the utility can identify the delivery company at this address."),
         link(supplier.sourceLabel,supplier.sourceUrl));
     } else {
       showUnconfirmed(card,"We haven’t matched this community to a gas provider. Check the delivery company on a gas bill for this address.");
       return;
     }
-    const evidence = document.createElement("details");
-    evidence.append(element("summary","How we matched this community"),
-      element("p","The property point falls within the published municipal limits of " + name + ". Gas lines can extend across those limits or stop short of a particular lot."),
-      link("Sangamon County municipal boundaries",boundaries));
-    card.append(evidence);
     return {community:name,geometry,...supplier};
   }
   window.showPropertyGas = async function(parent, {lon,lat} = {}, within, onMatch) {
-    const card = document.createElement("section");
-    card.append(element("h4","Natural gas"));
+    const card = document.createElement("div");
     parent.replaceChildren(card);
     if (!Number.isFinite(lon) || !Number.isFinite(lat) || typeof within !== "function" ||
         lon < -90 || lon > -89.2 || lat < 39.5 || lat > 40) {
       showUnconfirmed(card,"This lookup matches incorporated communities in Sangamon County. A gas bill or the local utility can confirm service at this address.");
+      onMatch?.(null,"No mapped community");
       return;
     }
     const status = element("p","Checking the community for gas service…");
@@ -134,14 +124,18 @@
       status.remove();
       if (matches.length === 1) {
         const match = showCommunity(card,matches[0]);
-        onMatch?.(match);
+        onMatch?.(match,match ? "Community match only" : "Provider unconfirmed");
       }
-      else showUnconfirmed(card, matches.length
-        ? "More than one municipal boundary matches this property point. A gas bill can confirm the delivery company."
-        : "This point is outside the mapped communities. Nearby gas utilities may serve individual addresses. Check the delivery company on your gas bill, if you have one.");
+      else {
+        showUnconfirmed(card, matches.length
+          ? "More than one municipal boundary matches this property point. A gas bill can confirm the delivery company."
+          : "This point is outside the mapped communities. Nearby gas utilities may serve individual addresses. Check the delivery company on your gas bill, if you have one.");
+        onMatch?.(null,matches.length ? "Overlapping communities" : "No mapped community");
+      }
     } catch {
       status.remove();
       showUnconfirmed(card,"The community map could not load. Check your gas bill for the delivery company.");
+      onMatch?.(null,"Community map unavailable");
       const retry = element("button","Try the gas lookup again");
       retry.type = "button";
       retry.addEventListener("click",() => window.showPropertyGas(parent,{lon,lat},within,onMatch));

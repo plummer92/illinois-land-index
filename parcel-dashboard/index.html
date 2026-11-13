@@ -4,23 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Find my property | Illinois Land Index</title>
-    <meta name="description" content="Browse ranked Sangamon County properties by opportunity score or look up a parcel by number or street address.">
+    <meta name="description" content="Find a Sangamon County property by address or parcel number to see its lot, land score and utility information.">
     <link rel="canonical" href="https://illinoislandindex.com/parcel-dashboard/">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../navigation.css">
-    <link rel="stylesheet" href="./dashboard.css?v=utility-sources">
-    <link rel="stylesheet" href="./rankings.css?v=find-property">
-    <link rel="stylesheet" href="./chatham-map.css?v=find-property">
-    <link rel="stylesheet" href="./parcel-preview.css">
-    <link rel="stylesheet" href="./utility-source-map.css">
-    <script src="./water-reports.js" defer></script>
-    <script src="./energy-sources.js" defer></script>
-    <script src="./utility-source-map.js" defer></script>
-    <script src="./utilities.js?v=utility-sources" defer></script>
-    <script src="./lookup.js?v=find-property" defer></script>
-    <script src="./chatham-map.js?v=utility-sources" defer></script>
-    <script src="./parcel-preview.js" defer></script>
-    <script src="./rankings.js?v=utility-sources" defer></script>
+    <link rel="stylesheet" href="./dashboard.css?v=resident-layout">
+    <link rel="stylesheet" href="./rankings.css?v=resident-layout">
+    <link rel="stylesheet" href="./chatham-map.css?v=resident-layout">
+    <link rel="stylesheet" href="./parcel-preview.css?v=resident-layout">
+    <link rel="stylesheet" href="./utility-source-map.css?v=resident-layout">
+    <link rel="stylesheet" href="./utility-panels.css?v=resident-layout">
+    <script src="./parcel-navigation.js?v=resident-layout" defer></script>
+    <script src="./water-reports.js?v=resident-layout" defer></script>
+    <script src="./energy-sources.js?v=resident-layout" defer></script>
+    <script src="./utility-source-map.js?v=resident-layout" defer></script>
+    <script src="./utilities.js?v=resident-layout" defer></script>
+    <script src="./lookup.js?v=resident-layout" defer></script>
+    <script src="./chatham-map.js?v=resident-layout" defer></script>
+    <script src="./parcel-preview.js?v=resident-layout" defer></script>
+    <script src="./rankings.js?v=resident-layout" defer></script>
   </head>
   <body>
     <header class="site-header index-navigation">
@@ -54,28 +56,27 @@
         <section id="map-score-detail" tabindex="-1" aria-label="Selected property" hidden></section>
         <section id="result" tabindex="-1" aria-label="County property result" hidden></section>
       </div>
-      <section id="chatham-map" aria-labelledby="chatham-map-title">
-        <h2 id="chatham-map-title" tabindex="-1">Chatham parcel map</h2>
+      <nav class="parcel-sections" aria-label="Property rankings">
+        <a href="./rankings.html">Browse property rankings</a>
+      </nav>
+      <details id="chatham-map">
+        <summary id="chatham-map-title">Explore the Chatham neighborhood map</summary>
         <p class="map-intro">Choose a lot on the map or use the nearby property list.</p>
         <p id="map-vintage" class="rank-vintage"></p>
         <div id="chatham-map-content"><p role="status">Loading the parcel map…</p></div>
-        <div class="rank-links"><button id="map-back-to-row" class="rank-reset" type="button" hidden>View selected property in the ranked list</button></div>
+        <div class="rank-links"><a id="map-back-to-row" class="rank-reset" href="./rankings.html" hidden>View this parcel in the rankings</a></div>
         <details class="rank-method" id="map-coverage" hidden><summary>Which properties are on this map?</summary><p id="coverage-note"></p><p id="coverage-missing" hidden></p></details>
         <noscript>Enable JavaScript to use the interactive property map.</noscript>
-      </section>
-      <section id="scored-properties" aria-labelledby="scores-title">
-        <h2 id="scores-title">Scored properties</h2>
-        <a class="rank-map-shortcut" href="#chatham-map">Explore the Chatham parcel map ↑</a>
-        <div id="parcel-rankings"></div>
-        <noscript>Enable JavaScript to browse and filter the scored properties.</noscript>
-      </section>
-      <section class="related" aria-label="Other parcel tools">
-        <p><a href="../consumer-debt-dashboard/#housing-market">Compare home sales, prices and days on market for Sangamon County and Chatham.</a></p>
-        <p><a href="#scored-properties">Browse scored properties</a> or <a href="#find-property">find a property by address</a>.</p>
-        <p><a href="https://tax.sangamonil.gov/SangamonCountyWeb/app/searchByParcelNumber.action">Search the county property records</a> for additional address and owner searches. Parcel boundaries and acreage come from Sangamon County GIS.</p>
-        <p>For Morgan or Macoupin County, choose a place on the <a href="../infrastructure-map/">water &amp; parcel map</a> to browse nearby parcels.</p>
-        <p><a href="../infrastructure-map/waverly-water/">Compare CyrusOne’s projected water use with Apple Creek’s contract limit.</a></p>
-      </section>
+      </details>
+      <details class="related-tools">
+        <summary>More research tools</summary>
+        <div class="related">
+          <p><a href="../consumer-debt-dashboard/#housing-market">Compare home sales, prices and days on market for Sangamon County and Chatham.</a></p>
+          <p><a href="https://tax.sangamonil.gov/SangamonCountyWeb/app/searchByParcelNumber.action">Search the county property records</a> for additional address and owner searches. Parcel boundaries and acreage come from Sangamon County GIS.</p>
+          <p>For Morgan or Macoupin County, choose a place on the <a href="../infrastructure-map/">water &amp; parcel map</a> to browse nearby parcels.</p>
+          <p><a href="../infrastructure-map/waverly-water/">Compare CyrusOne’s projected water use with Apple Creek’s contract limit.</a></p>
+        </div>
+      </details>
     </main>
   </body>
 </html>

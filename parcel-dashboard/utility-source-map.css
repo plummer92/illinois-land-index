@@ -1,7 +1,7 @@
-.source-view {min-width:0; margin:1rem 0; padding:clamp(.5rem,2vw,1rem); border:1px solid #c0cec3; border-radius:.5rem; background:#fff;}
+.source-view {min-width:0; margin:1rem 0 .25rem; padding:0; background:#fff;}
 .source-view [hidden] {display:none!important;}
-#property-result .source-view h3 {font-size:1.3rem; margin:0 0 .45rem;}
-.source-view .source-switches,.source-view .source-navigation {display:flex; flex-wrap:wrap; gap:.4rem; align-items:center;}
+#property-result .source-view h4 {font-size:1.05rem; margin:0 0 .3rem;}
+.source-view .source-navigation {display:flex; flex-wrap:wrap; gap:.4rem; align-items:center;}
 .source-view button {min-width:44px; min-height:44px; max-width:100%; margin:0; padding:.35em .7em; background:#fff; color:#16563f; border:1px solid #839989; border-radius:5px; font:inherit; line-height:1.35; cursor:pointer; overflow-wrap:anywhere;}
 .source-view button[aria-pressed=true] {background:#14583e; border-color:#14583e; color:white;}
 .source-view :focus-visible {outline:3px solid #176b4d;outline-offset:2px;}
@@ -9,6 +9,7 @@
 .source-view .source-plot {position:relative;overflow:hidden; border:1px solid #a0b2a5;border-radius:6px; background:#e4eff1;}
 .source-plot svg {width:100%;height:clamp(235px,45vh,375px); display:block;touch-action:none;user-select:none;cursor:grab;}
 .source-plot svg:active {cursor:grabbing;}
+.source-view .source-plot svg:focus-visible {outline-offset:-3px;}
 .source-north {position:absolute;top:4px;right:5px;background:#ffffffdb;border-radius:3px;color:#23382a;padding:1px 4px;font:600 .8rem/1.5 system-ui;pointer-events:none;}
 .source-view .source-navigation {margin:.4rem 0;}
 .source-navigation button {font-weight:600;}

@@ -1,7 +1,7 @@
 (() => {
   "use strict";
   let basemapRequest;
-  let disconnectPrevious;
+  const mapObservers = new WeakMap();
   function loadBasemap() {
     if (!basemapRequest) basemapRequest = fetch("./data/utility-source-basemap.json")
       .then(response => {
@@ -54,23 +54,22 @@
     return paths.length ? {path:paths.join(""),corners:[[west,north],[east,south]]} : null;
   }
   window.showUtilitySourceMap = function(container, {pin,lon,lat,sites = [],gas=null,preferredKind} = {}) {
-    disconnectPrevious?.();
-    disconnectPrevious=null;
+    mapObservers.get(container)?.disconnect();
+    const kind = preferredKind || sites[0]?.kind || "gas";
+    const titles = {water:"Water source map",power:"Power plant map",gas:"Gas service map"};
     const panel = make("section",undefined,"source-view");
-    panel.setAttribute("aria-label","Utility source map");
-    panel.append(make("h3","Utility source map"));
-    container.replaceChildren(panel);
+    panel.setAttribute("aria-label",titles[kind]);
+    container.replaceChildren();
     if (!finitePoint({lon,lat})) {
-      panel.append(make("p","A verified property location is needed to map its utility sources."));
       return;
     }
+    panel.append(make("h4",titles[kind]));
+    container.append(panel);
     const verified = sites.filter(s => finitePoint(s) && roles[s.role] && ["water","power"].includes(s.kind));
     const home = {id:"property",name:"Selected property",xy:project(lon,lat)};
     const pins = verified.map(site => ({...site,xy:project(site.lon,site.lat)}));
-    const controls = make("div",undefined,"source-switches");
-    controls.setAttribute("role","group"); controls.setAttribute("aria-label","Utility to display");
     const plot = make("div",undefined,"source-plot");
-    const map = svg("svg",{"role":"img","aria-label":"Geographic map of the selected property and its utility sources. Use the list below to choose a source."});
+    const map = svg("svg",{role:"img",tabindex:"0","aria-keyshortcuts":"ArrowUp ArrowDown ArrowLeft ArrowRight + - Home"});
     const world = svg("g"), areas = svg("g"), towns = svg("g"), roads = svg("g"), water = svg("g"), annotations = svg("g"), badges = svg("g");
     const gasArea=svg("path",{class:"source-gas-area","fill-rule":"evenodd"});
     let gasOutline=communityOutline(gas?.geometry);
@@ -94,17 +93,10 @@
     const sources = make("details",undefined,"source-base-credit");
     sources.append(make("summary","Map sources"));
     const credits = make("p");sources.append(credits);
-    const initialKind=pins.some(s=>s.kind==="water") ? "water" : (pins.length ? "power" : "gas");
-    let kind = ["water","power","gas"].includes(preferredKind) ? preferredKind : initialKind;
     let selected = null, width=0, height=0, center=home.xy.slice(), scale=1, minScale=.02, maxScale=100;
     let base = null;
     const groups = {states:areas,places:towns,roads,water};
-    let switchButtons = {};
-    for (const [key,label] of [["water","Drinking water"],["power","Electricity"],["gas","Natural gas"]]) {
-      const control = button(label,()=>{kind=key;selected=null;fitGroup();render(true);});
-      switchButtons[key] = control;controls.append(control);
-    }
-    panel.append(controls,note,plot,bar,error,list,activeText,sources);
+    panel.append(note,plot,bar,error,list,activeText,sources);
     const visible = () => pins.filter(site=>site.kind===kind);
     function fitGroup() {
       const points=[home,...visible()].map(s=>s.xy);
@@ -141,10 +133,6 @@
             key.append(make("span",undefined,"source-gas-swatch"),boundary);
             activeText.append(key);
           }
-          if(gas.sourceUrl){
-            const link=make("a",gas.sourceLabel || "Gas provider record");link.href=gas.sourceUrl;
-            link.referrerPolicy="no-referrer";activeText.append(link);
-          }
         }
         if(selected===home.id)activeText.append(make("p","Selected property · Parcel "+pin));
         return;
@@ -165,19 +153,18 @@
       }
     }
     function render(rebuild=false) {
-      for (const [k,b] of Object.entries(switchButtons)) b.setAttribute("aria-pressed",String(k===kind));
       const hasSites=visible().length>0;
       const isGas=kind==="gas";
       gasArea.style.display=isGas && gasOutline ? "" : "none";
       gasArea.setAttribute("d",isGas && gasOutline ? gasOutline.path : "");
-      map.setAttribute("aria-label",isGas ?
-        "Gas map of the selected property"+(gasOutline ? " and the "+gas.community+" municipal boundary." : ".") :
-        "Geographic map of the selected property and its utility sources. Use the location list to choose a source.");
+      const description=isGas ? "Gas map of the selected property"+(gasOutline ? " and the "+gas.community+" municipal boundary." : ".") :
+        "Map of the selected property and its "+(kind==="water" ? "water sources." : "electricity supply.");
+      map.setAttribute("aria-label",description+" Use arrow keys to pan, plus or minus to zoom, and Home to fit the map.");
       resetView.textContent=isGas ? (gasOutline ? "Fit community" : "Fit property") : "Fit sources";
       if(isGas) {
         note.textContent=gas?.community && gas.provider ?
-          gas.provider+" lists "+gas.community+" as a community it serves. The diamond marks your property. Check your gas bill or ask the provider to confirm a line and meter at this address." :
-          "The diamond marks the selected property. We could not verify a gas provider for this location. Check your gas bill or ask the utility about a connection.";
+          "The diamond marks your property inside "+gas.community+"’s municipal limits. Gas lines can cross those limits or stop short of an individual lot." :
+          "The diamond marks your property. Gas service at this address is unconfirmed.";
       } else note.textContent = !hasSites ? (kind==="water" ? "No water-source location is verified for this property." :
         "The available electric service records do not identify a generation portfolio for this property.") :
         (kind==="water" ? "Select a numbered source to see where the water system gets its water." :
@@ -285,6 +272,19 @@
       if(hit)select(hit);
     }
     map.addEventListener("pointerup",finish);map.addEventListener("pointercancel",finish);
+    const panSteps = {ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0]};
+    map.addEventListener("keydown",e=>{
+      if(e.altKey || e.ctrlKey || e.metaKey) return;
+      if(Object.hasOwn(panSteps,e.key)) {
+        const [dx,dy]=panSteps[e.key];
+        center=[center[0]+dx*width/(4*scale),center[1]+dy*height/(4*scale)];
+        draw();
+      } else if(e.key==="+" || e.key==="=") zoom(1.55);
+      else if(e.key==="-") zoom(.65);
+      else if(e.key==="Home") {selected=null;fitGroup();render(true);}
+      else return;
+      e.preventDefault();
+    });
     map.addEventListener("wheel",e=>{
       if(!e.ctrlKey && !e.metaKey)return;
       const b=map.getBoundingClientRect();e.preventDefault();
@@ -295,13 +295,9 @@
       if(!rect.width || !rect.height || (width===rect.width && height===rect.height))return;
       width=rect.width;height=rect.height;fitGroup();draw();
     }
-    const disconnect=()=>{
-      observer.disconnect();
-      if(disconnectPrevious===disconnect)disconnectPrevious=null;
-    };
-    const observer=new ResizeObserver(()=>{if(!panel.isConnected)disconnect();else resize();});
+    const observer=new ResizeObserver(()=>{if(!panel.isConnected)observer.disconnect();else resize();});
     observer.observe(map);
-    disconnectPrevious=disconnect;
+    mapObservers.set(container,observer);
     function showBasemap() {
       loadBasemap().then(data=>{
         if(!panel.isConnected)return;

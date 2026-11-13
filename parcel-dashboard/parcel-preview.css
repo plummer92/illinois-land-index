@@ -1,7 +1,21 @@
-.county-parcel-preview { max-width:32rem; margin:.65rem 0; }
-.county-parcel-preview svg { display:block; width:100%; height:auto; border:1px solid #bccdc2; border-radius:8px; background:#f1f4ee; }
-.county-parcel-preview .preview-roads { fill:none; stroke:#9da9a4; stroke-width:2.2; }
-.county-parcel-preview .preview-outline { fill:#31936d; fill-opacity:.38; stroke:#10563f; stroke-width:2; stroke-linejoin:round; }
-.county-parcel-preview .preview-north { fill:#344f40; stroke:#f1f4ee; stroke-width:3px; paint-order:stroke; font:600 12px system-ui,sans-serif; }
-.county-parcel-preview p { margin:.25rem 0; color:#43584b; font-size:.85rem; }
-.county-parcel-preview a { color:var(--green-dark,#0f4937); }
+.county-parcel-preview { min-width:0; }
+.county-parcel-preview svg { display:block; width:100%; height:auto; border:1px solid #bccdc2; border-radius:8px; background:#eef2e9; }
+.county-parcel-preview .preview-neighbors { fill:none; stroke:#acbcae; stroke-width:1; }
+.county-parcel-preview .preview-roads { fill:none; stroke:#969d8e; stroke-width:2; }
+.county-parcel-preview .preview-outline { fill:#32916a; fill-opacity:.52; stroke:#0e583c; stroke-width:2.5; stroke-linejoin:round; }
+.county-parcel-preview .preview-point { fill:#116948; stroke:#fff; stroke-width:2; }
+.county-parcel-preview .preview-north { fill:#344f40; stroke:#eef2e9; stroke-width:3px; paint-order:stroke; font:600 12px system-ui,sans-serif; }
+#property-result .county-parcel-preview p { margin:.3rem 0 0; color:#465b4d; font-size:.85rem; line-height:1.4; }
+#property-result .parcel-identity { margin:.3rem 0 .8rem; color:var(--muted,#516059); font-size:.94rem; }
+.lot-overview { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); align-items:center; gap:1.25rem; margin:.8rem 0; }
+.lot-metrics { display:flex; flex-wrap:wrap; gap:.65rem 1.1rem; }
+.lot-metrics > div { min-width:0; }
+.lot-metrics .lot-metric-label { display:block; color:var(--muted,#516059); font-size:.88rem; font-weight:600; }
+.lot-metrics strong { display:block; margin-top:.15rem; color:var(--green-dark,#0f4937); font-size:1.35rem; line-height:1.2; font-variant-numeric:tabular-nums; }
+#property-result .lot-interpretation { margin:.55rem 0 0; line-height:1.45; }
+#property-result .parcel-records { border-top:1px solid var(--line); }
+#property-result .parcel-records summary { min-height:44px; }
+@media (max-width:42rem) {
+  .lot-overview { grid-template-columns:minmax(0,1fr); gap:.75rem; }
+  .lot-metrics { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.4rem 1rem; }
+}

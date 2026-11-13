@@ -161,6 +161,7 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
     return name;
   }
   function focusNearby() {
+    openMap();
     nearby.open = true;
     updateNearby();
     nearby.querySelector("summary").focus({preventScroll:true});
@@ -402,6 +403,7 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
     event.preventDefault();
   });
   function focusStreet(street) {
+    openMap();
     choose("", false); highlightedStreet = street.key;
     const visible = street.roads.filter(r => overlaps(r.b, bounds));
     const segments = visible.length ? visible : street.roads;
@@ -437,15 +439,23 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
       focusParcel(parcels.get(parcel.pin)); choose(parcel.pin); requestDraw();
     }));
   }
+  function openMap() {
+    const disclosure = container.closest("details");
+    if (disclosure) disclosure.open = true;
+    resize();
+  }
   function resize() {
     const rect = map.getBoundingClientRect();
     if (!rect.width || !rect.height || (rect.width === width && rect.height === height)) return;
-    const factor = baseScale ? scale / baseScale : 1;
+    const initial = !baseScale;
+    const factor = initial ? 1 : scale / baseScale;
     width = rect.width; height = rect.height;
     pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
     map.width = Math.round(width * pixelRatio); map.height = Math.round(height * pixelRatio);
     baseScale = Math.min((width-24)/(bounds[2]-bounds[0]),(height-24)/(bounds[3]-bounds[1]));
-    setScale(baseScale * factor); requestDraw();
+    setScale(baseScale * factor);
+    if (initial && selected) focusParcel(parcels.get(selected));
+    requestDraw();
   }
   resize();
   new ResizeObserver(resize).observe(map);

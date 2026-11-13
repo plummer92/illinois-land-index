@@ -1,263 +1,371 @@
-window.createChathamScoreMap = function createChathamScoreMap(container, data, onChoose) {
+window.createChathamScoreMap = function createChathamScoreMap(container, {geometry, top, scoreRows}, onChoose) {
   const root = document.createElement("div");
   root.className = "score-map";
   root.innerHTML = `
-    <div class="sm-controls">
-      <label class="sm-picker">Find a mapped property
-        <select><option value="">Show all ten properties</option></select>
-      </label>
-      <div class="sm-actions">
-        <button type="button" data-action="out" aria-label="Zoom out">−</button>
-        <button type="button" data-action="in" aria-label="Zoom in">+</button>
-        <button type="button" data-action="fit">Fit all</button>
-      </div>
+    <form class="sm-search" role="search" aria-label="Find a place on the parcel map">
+      <label for="sm-find">Street name or parcel number</label>
+      <div><input id="sm-find" type="search" autocomplete="off" placeholder="e.g. Savannah Rd" maxlength="100"><button>Find</button></div>
+      <p class="sm-search-status" role="status"></p>
+      <div class="sm-search-results"></div>
+    </form>
+    <div class="sm-shortcuts">
+      <a href="#parcel-lookup">Find by street address</a>
+      <details class="sm-top"><summary>Top 10 in Chatham Township</summary><div></div></details>
     </div>
-    <svg class="sm-canvas" role="img" aria-label="Map of ten Chatham Township properties. Use the property selector above to select the same parcels by keyboard.">
-      <g class="sm-world"><path class="sm-town"/><path class="sm-waterbody"/><path class="sm-stream"/><path class="sm-streets"/><path class="sm-roads"/><path class="sm-highway"/><g class="sm-fields"></g></g>
-      <g class="sm-labels"></g><g class="sm-markers"></g><g class="sm-scale"><path/><text text-anchor="middle"></text></g>
-    </svg>
-    <div class="sm-legend"><span><i class="sm-field-key"></i>Scored parcel</span><span><i class="sm-town-key"></i>Village limits</span><span>North ↑</span></div>
-    <div class="sm-detail" aria-live="polite" hidden>
-      <h3></h3><p class="sm-location"></p><p class="sm-facts"></p><ul class="sm-reasons"></ul>
-      <a class="sm-county" target="_blank" rel="noopener">County parcel map ↗</a>
+    <div class="sm-frame">
+      <canvas class="sm-canvas" tabindex="0" aria-label="Parcel map, north up. Use the street or parcel search to choose a location. Use arrow keys to pan and plus or minus to zoom."></canvas>
+      <div class="sm-map-actions"><button type="button" data-action="in" aria-label="Zoom in">+</button><button type="button" data-action="out" aria-label="Zoom out">−</button></div>
+      <button type="button" class="sm-fit" data-action="fit">Fit map</button>
+      <div class="sm-scale" aria-hidden="true"><span></span><i></i></div>
     </div>
-    <p class="sm-foot">Boundaries and roads from <a target="_blank" rel="noopener" href="https://sangis.co.sangamon.il.us/server/rest/services/TyleratENTParcels/MapServer/0">Sangamon County GIS</a>.</p>`;
+    <div class="sm-selection" hidden><strong></strong><button type="button">Score details ↓</button></div>
+    <div class="sm-hit-options" hidden aria-live="polite"></div>
+    <div class="sm-legend" aria-label="Map legend"><strong>Score</strong><span><i></i>0–24</span><span><i></i>25–49</span><span><i></i>50–74</span><span><i></i>75–100</span><span><i class="sm-limit-key"></i>Village limits</span><span class="sm-point-legend" hidden><i class="sm-point-key"></i>Location only</span></div>
+    <p class="sm-foot">Parcels and streets from <a href="https://sangis.co.sangamon.il.us/server/rest/services/TyleratENTParcels/MapServer/0" target="_blank" rel="noopener">Sangamon County GIS</a>.</p>`;
   container.replaceChildren(root);
   const find = selector => root.querySelector(selector);
-  const map = find(".sm-canvas");
-  const choose = find("select");
-  const parcels = new Map(data.parcels.map(parcel => [parcel.pin, parcel]));
-  const acres = value => Number(value).toLocaleString("en-US", {maximumFractionDigits: 2});
-  const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
-  const roadPriority = ["IL 4", "W Plummer Blvd", "Hemberger Rd", "E Loami Rd", "Union School Rd", "Curran Rd", "Snell Rd"];
-  const priority = label => roadPriority.includes(label.name) ? roadPriority.indexOf(label.name) : 100;
-  const labels = [{name: "Chatham", xy: data.ct, city: true}, ...data.labels.slice().sort((a, b) => priority(a) - priority(b))];
-  let selected = "";
-  let width = 0;
-  let height = 0;
-  let scale = 1;
-  let baseScale = 1;
-  let center = [0, 0];
-
-  function svg(tag, attrs, parent) {
-    const node = document.createElementNS("http://www.w3.org/2000/svg", tag);
-    for (const [key, value] of Object.entries(attrs)) node.setAttribute(key, value);
-    parent.appendChild(node);
-    return node;
+  const map = find("canvas");
+  const ctx = map.getContext("2d");
+  const hitContext = document.createElement("canvas").getContext("2d");
+  const colors = ["#e1dfc5", "#afcba5", "#70a78b", "#34795f"];
+  const scores = new Map(scoreRows.map(row => [row[0], row[7]]));
+  const parcels = new Map();
+  const points = [];
+  for (const [pin, geom] of Object.entries(geometry.parcels)) {
+    if (!scores.has(pin)) continue;
+    const parcel = {pin, ...geom, score: scores.get(pin)};
+    if (geom.d) parcel.path = new Path2D(geom.d);
+    else if (geom.pt) points.push(parcel);
+    else continue;
+    parcels.set(pin, parcel);
   }
-
-  const layers = {
-    town: data.town, waterbody: data.water.body, stream: data.water.creek,
-    streets: data.roads.street, roads: data.roads.road, highway: data.roads.highway
+  find(".sm-point-legend").hidden = points.length === 0;
+  const polygons = [...parcels.values()].filter(parcel => parcel.path);
+  const roads = geometry.roads.map(road => ({...road, path: new Path2D(road.d)}));
+  const streetWords = {boulevard:"blvd", road:"rd", drive:"dr", court:"ct", lane:"ln", avenue:"ave", street:"st", circle:"cir", parkway:"pkwy", place:"pl", trail:"trl", north:"n", south:"s", east:"e", west:"w", route:"rt"};
+  const normalizedName = name => name.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().split(/\s+/).map(word => streetWords[word] || word).join(" ");
+  const streetNames = new Map();
+  for (const road of roads) {
+    if (!road.name) continue;
+    const key = normalizedName(road.name);
+    if (!streetNames.has(key)) streetNames.set(key, {key, name: road.name, roads: []});
+    streetNames.get(key).roads.push(road);
+  }
+  const village = new Path2D(geometry.village?.d || "");
+  const unitsPerMile = geometry.unitsPerMile || 500000 * 1609.344 / (6371008.8 * Math.cos(39.657 * Math.PI / 180));
+  const bounds = geometry.bounds;
+  const midpoint = b => [(b[0] + b[2]) / 2, (b[1] + b[3]) / 2];
+  const overlaps = (a, b) => a[2] >= b[0] && a[0] <= b[2] && a[3] >= b[1] && a[1] <= b[3];
+  const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+  const input = find("#sm-find");
+  const searchResults = find(".sm-search-results");
+  const searchStatus = find(".sm-search-status");
+  const choices = find(".sm-hit-options");
+  const actionButton = (text, callback) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = text;
+    button.addEventListener("click", callback);
+    return button;
   };
-  for (const [name, path] of Object.entries(layers)) find(".sm-" + name).setAttribute("d", path || "");
-  for (const parcel of data.parcels) {
-    choose.add(new Option("#" + parcel.n + " · " + parcel.road + " · " + parcel.score + "/100", parcel.pin));
-    svg("path", {d: parcel.geo, "data-pin": parcel.pin}, find(".sm-fields"));
-  }
-
-  function viewScale(bounds, padding) {
-    return Math.min((width - 2 * padding) / Math.max(bounds[1][0] - bounds[0][0], 1),
-      (height - 2 * padding) / Math.max(bounds[1][1] - bounds[0][1], 1));
-  }
-
-  function fit() {
-    if (!width || !height) return;
-    baseScale = viewScale(data.bounds, 27);
-    const bounds = parcels.get(selected)?.bounds || data.bounds;
-    center = bounds[0].map((value, i) => (value + bounds[1][i]) / 2);
-    scale = selected ? clamp(viewScale(bounds, 47), baseScale, baseScale * 12) : baseScale;
-  }
-
-  function screenPoint([x, y]) {
+  let width = 0, height = 0, scale = 0, baseScale = 0, pixelRatio = 1;
+  let center = midpoint(bounds);
+  let selected = "";
+  let highlightedStreet = "";
+  let frameQueued = false;
+  function project([x, y]) {
     return [(x - center[0]) * scale + width / 2, (y - center[1]) * scale + height / 2];
   }
-
-  function visibleMarkers() {
-    const points = [];
-    for (const parcel of data.parcels) {
-      const [x, y] = screenPoint(parcel.pt);
-      if (x >= 0 && x <= width && y >= 0 && y <= height) points.push({parcel, x, y, mx: x, my: y});
-    }
-    // Spread neighboring badges while keeping a leader line to each parcel.
-    for (let pass = 0; pass < 10; pass++) {
-      points.forEach((a, index) => {
-        for (const b of points.slice(index + 1)) {
-          const dx = b.mx - a.mx;
-          const dy = b.my - a.my;
-          const distance = Math.hypot(dx, dy);
-          if (distance >= 32) continue;
-          const shift = (32 - distance) / 2;
-          const sx = distance ? shift * dx / distance : shift;
-          const sy = distance ? shift * dy / distance : 0;
-          a.mx -= sx;
-          a.my -= sy;
-          b.mx += sx;
-          b.my += sy;
-        }
-      });
-      for (const point of points) {
-        point.mx = clamp(point.mx, 15, width - 15);
-        point.my = clamp(point.my, 15, height - 15);
-      }
-    }
-    return points;
+  function unproject(x, y) {
+    return [(x - width / 2) / scale + center[0], (y - height / 2) / scale + center[1]];
   }
-
+  function setScale(value) {
+    scale = clamp(value, baseScale * 0.8, baseScale * 1200);
+  }
+  function requestDraw() {
+    if (frameQueued) return;
+    frameQueued = true;
+    requestAnimationFrame(() => { frameQueued = false; draw(); });
+  }
+  function drawScale() {
+    const maxFeet = Math.min(95, width * .26) * 5280 / (unitsPerMile * scale);
+    const feet = [1,5,10,25,50,100,250,500,1000,1320,2640,5280,10560,26400].filter(v => v <= maxFeet).pop() || 1;
+    find(".sm-scale span").textContent = feet >= 1320 ? feet / 5280 + " mi" : feet + " ft";
+    find(".sm-scale i").style.width = (feet / 5280 * unitsPerMile * scale) + "px";
+  }
   function draw() {
-    if (!width || !height) return;
-    find(".sm-world").setAttribute("transform", "translate(" + width/2 + " " + height/2 + ") scale(" + scale + ") translate(" + -center[0] + " " + -center[1] + ")");
-    const points = visibleMarkers();
-    const markers = find(".sm-markers");
-    markers.replaceChildren();
+    if (!scale) return;
+    const box = [...unproject(0,0), ...unproject(width,height)];
+    const zoom = scale / baseScale;
+    ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    ctx.fillStyle = "#f7f5eb";
+    ctx.fillRect(0, 0, width, height);
+    ctx.translate(width / 2, height / 2);
+    ctx.scale(scale, scale);
+    ctx.translate(-center[0], -center[1]);
+    ctx.fillStyle = "#edeada";
+    ctx.fill(village, "evenodd");
+    // Separate world paths ensure holes and every piece of multipart parcels stay selectable.
+    const visible = polygons.filter(parcel => overlaps(parcel.b, box));
+    ctx.lineJoin = "round";
+    ctx.lineWidth = (zoom < 2 ? 0.28 : zoom < 12 ? .55 : .85) / scale;
+    ctx.strokeStyle = zoom < 3 ? "#899783" : "#76897b";
+    for (const parcel of visible) {
+      ctx.fillStyle = colors[Math.min(3, Math.floor(parcel.score / 25))];
+      ctx.fill(parcel.path, "evenodd"); ctx.stroke(parcel.path);
+    }
+    const visibleRoads = roads.filter(road => overlaps(road.b, box));
+    const roadWidth = cls => Number(cls) <= 40 ? 2.2 : Number(cls) <= 70 ? 1.4 : .9;
+    for (const road of visibleRoads) {
+      ctx.lineWidth = roadWidth(road.cls) / scale;
+      ctx.strokeStyle = Number(road.cls) <= 40 ? "#9e8668" : "#a7a99a";
+      ctx.stroke(road.path);
+    }
+    ctx.setLineDash([5 / scale, 4 / scale]);
+    ctx.lineWidth = 1.1 / scale;
+    ctx.strokeStyle = "#946c40"; ctx.stroke(village);
+    ctx.setLineDash([]);
+    for (const road of streetNames.get(highlightedStreet)?.roads || []) {
+      ctx.lineWidth = 2.5 / scale; ctx.strokeStyle = "#875c27"; ctx.stroke(road.path);
+    }
+    if (selected && parcels.get(selected).path) {
+      const path = parcels.get(selected).path;
+      ctx.fillStyle = "rgba(255,201,62,.42)"; ctx.fill(path, "evenodd");
+      ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 4.2 / scale; ctx.stroke(path);
+      ctx.strokeStyle = "#563a12"; ctx.lineWidth = 2.3 / scale; ctx.stroke(path);
+    }
+    ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
     for (const point of points) {
-      if (Math.hypot(point.x - point.mx, point.y - point.my) > 2) {
-        svg("line", {x1: point.x, y1: point.y, x2: point.mx, y2: point.my}, markers);
-      }
+      if (!overlaps(point.b, box)) continue;
+      const [x, y] = project(point.pt);
+      ctx.beginPath(); ctx.arc(x, y, point.pin === selected ? 6 : 3.5, 0, 2 * Math.PI);
+      ctx.fillStyle = point.pin === selected ? "#f6a920" : "#475c83"; ctx.fill();
+      ctx.lineWidth = 1; ctx.strokeStyle = "white"; ctx.stroke();
     }
-    for (const {parcel, mx, my} of points) {
-      const marker = svg("g", {"data-pin": parcel.pin, class: parcel.pin === selected ? "selected" : "", transform: "translate(" + mx + " " + my + ")"}, markers);
-      svg("circle", {r: 13}, marker);
-      svg("text", {x: 0, y: 0}, marker).textContent = parcel.n;
-    }
-    const occupied = points.map(({mx, my}) => [mx - 16, my - 16, mx + 16, my + 16]);
-    const miles = [.025, .05, .1, .25, .5, 1, 2, 5].filter(value => value * data.unitsPerMile * scale <= Math.min(95, width * .22)).pop() || .025;
-    const length = miles * data.unitsPerMile * scale;
-    const bar = find(".sm-scale");
-    bar.setAttribute("transform", "translate(12 " + (height - 10) + ")");
-    bar.querySelector("path").setAttribute("d", "M0,-4V0H" + length + "V-4");
-    const text = bar.querySelector("text");
-    text.setAttribute("x", length / 2);
-    text.setAttribute("y", -5);
-    text.textContent = miles + " mi";
-    occupied.push([0, height - 30, length + 22, height]);
-    const layer = find(".sm-labels");
-    layer.replaceChildren();
-    for (const label of labels) {
-      const [x, y] = screenPoint(label.xy);
-      if (x < 2 || x > width - 2 || y < 15 || y > height - 10) continue;
-      const labelWidth = label.name.length * 6.5 + 6;
-      const left = clamp(x - labelWidth / 2, 3, width - labelWidth - 3);
-      const rect = [left, y - 12, left + labelWidth, y + 4];
-      if (occupied.some(b => b[0] < rect[2] && b[2] > rect[0] && b[1] < rect[3] && b[3] > rect[1])) continue;
+    const labels = visibleRoads.filter(road => road.name && road.pt)
+      .sort((a,b) => Number(a.cls) - Number(b.cls));
+    const drawn = new Set();
+    const occupied = [[width-60, 0, width, 108], [0,height-45,110,height], [width-88,height-50,width,height]];
+    ctx.font = "600 11px system-ui, sans-serif";
+    ctx.textAlign = "center";
+    function label(text, x, y, important = false) {
+      const half = ctx.measureText(text).width / 2;
+      const rect = [x-half-4,y-12,x+half+4,y+5];
+      if (rect[0] < 4 || rect[2] > width-4 || rect[1] < 4 || rect[3] > height-4 || occupied.some(b => overlaps(b,rect))) return;
       occupied.push(rect);
-      svg("text", {x: left + labelWidth / 2, y, "text-anchor": "middle", class: label.city ? "sm-city" : ""}, layer).textContent = label.name;
+      ctx.strokeStyle = "#fffdf6"; ctx.lineWidth = 3.4; ctx.strokeText(text, x, y);
+      ctx.fillStyle = important ? "#254331" : "#424b40"; ctx.fillText(text, x, y);
+      drawn.add(text);
+    }
+    if (zoom < 4 && geometry.village?.b) label("Chatham", ...project(midpoint(geometry.village.b)), true);
+    for (const road of labels) {
+      if (drawn.has(road.name)) continue;
+      if (zoom < 3 && Number(road.cls) > 70) continue;
+      label(road.name, ...project(road.pt));
+    }
+    drawScale();
+  }
+  function focusParcel(parcel) {
+    const b = parcel.b;
+    center = midpoint(b);
+    // Keep neighboring lots visible when centering a small urban parcel.
+    const spanX = Math.max(b[2]-b[0], unitsPerMile * .065);
+    const spanY = Math.max(b[3]-b[1], unitsPerMile * .065);
+    setScale(Math.min(width * .62 / spanX, height * .58 / spanY));
+  }
+  function select(pin, focus = true) {
+    const value = parcels.has(pin) ? pin : "";
+    if (value === selected) return;
+    selected = value;
+    find(".sm-selection").hidden = !value;
+    if (value) find(".sm-selection strong").textContent = value + " · " + scores.get(value) + "/100";
+    highlightedStreet = "";
+    choices.replaceChildren(); choices.hidden = true;
+    if (selected && focus) focusParcel(parcels.get(selected));
+    requestDraw();
+  }
+  function choose(pin, focus = true) {
+    find(".sm-top").open = false;
+    select(pin, focus);
+    onChoose(pin);
+  }
+  function fitAll() {
+    select("");
+    highlightedStreet = "";
+    choices.replaceChildren(); choices.hidden = true;
+    center = midpoint(bounds); scale = baseScale;
+    input.value = ""; searchResults.replaceChildren(); searchStatus.textContent = "";
+    onChoose(""); requestDraw();
+  }
+  function hit(x, y) {
+    const [gx, gy] = unproject(x, y);
+    const picked = polygons.filter(p => gx >= p.b[0] && gx <= p.b[2] && gy >= p.b[1] && gy <= p.b[3] && hitContext.isPointInPath(p.path, gx, gy, "evenodd"));
+    for (const p of points) {
+      const [px, py] = project(p.pt);
+      if (Math.hypot(px - x, py - y) <= 8) picked.push(p);
+    }
+    choices.replaceChildren(); choices.hidden = true;
+    if (picked.length === 1) {
+      choose(picked[0].pin, scale < baseScale * 3);
+    } else if (picked.length) {
+      const label = document.createElement("label");
+      label.textContent = picked.length + " parcels at this location";
+      const select = document.createElement("select");
+      select.add(new Option("Choose a parcel", ""));
+      for (const p of picked) select.add(new Option(p.pin + " · " + p.score + "/100", p.pin));
+      select.onchange = () => { if (select.value) choose(select.value, false); };
+      label.append(select); choices.append(label); choices.hidden = false;
+    } else {
+      choose("", false);
+      choices.textContent = "No mapped scored parcel at this spot."; choices.hidden = false;
     }
   }
-
-  function addReason(title, explanation) {
-    const item = document.createElement("li");
-    const heading = document.createElement("strong");
-    heading.textContent = title + ". ";
-    item.append(heading, document.createTextNode(explanation));
-    find(".sm-reasons").append(item);
+  function zoom(factor, x = width/2, y = height/2) {
+    const anchor = unproject(x, y);
+    setScale(scale * factor);
+    center = [anchor[0] - (x-width/2)/scale, anchor[1] - (y-height/2)/scale];
+    requestDraw();
   }
-
-  function select(pin) {
-    selected = parcels.has(pin) ? pin : "";
-    const parcel = parcels.get(selected);
-    choose.value = selected;
-    find(".sm-detail").hidden = !parcel;
-    root.querySelectorAll(".sm-fields path").forEach(path => path.classList.toggle("selected", path.dataset.pin === selected));
-    if (parcel) {
-      const points = parcel.points;
-      const land = points.land;
-      const size = land.at_least_1_acre + land.at_least_2_acres + land.at_least_5_acres + land.at_least_10_acres;
-      const buy = points.buyability;
-      const holdings = buy.owner_parcel_count_at_least_2 + buy.holdings_at_least_20_acres + buy.holdings_at_least_100_acres;
-      const addresses = buy.mail_and_site_string_difference + buy.mail_string_excludes_chatham;
-      const ownerType = buy.trust_estate ? buy.trust_estate + " for a trust or estate" : buy.individual_owner + " for an individual owner";
-      find(".sm-detail h3").textContent = "#" + parcel.n + " · " + parcel.road + " · " + parcel.score + "/100";
-      find(".sm-location").textContent = parcel.label + ". " + parcel.village + ".";
-      find(".sm-facts").textContent = acres(parcel.ac) + " acres · " + parcel.cls + " · PIN " + parcel.pin;
-      find(".sm-reasons").replaceChildren();
-      addReason("Land fit " + parcel.land + "/40", land.farm_vacant_unimproved + " points for farmland, " + size + " for reaching all acreage thresholds through 10 acres, " + land.assessment_per_acre_under_or_at_5000 + " for assessed value of $5,000 or less per acre, and " + land.annual_tax_per_acre_under_or_at_150 + " for annual tax of $150 or less per acre.");
-      addReason("Buyability " + parcel.buy + "/35", holdings + " points because the records group at least two parcels and 100 acres together, " + addresses + " because the mailing and site address text differs and the mailing text omits Chatham, and " + ownerType + ". Availability for sale is unverified.");
-      addReason("Risk " + parcel.risk + "/25", "The model kept all " + points.risk.base + " starting points after checking the available property and tax records. Drainage, road access and utilities need separate verification.");
-      find(".sm-county").href = "https://gismaps.co.sangamon.il.us/tpv/?pin=" + encodeURIComponent(parcel.pin);
-    }
-    fit();
-    draw();
+  find("[data-action=in]").onclick = () => zoom(2);
+  find("[data-action=out]").onclick = () => zoom(.5);
+  find("[data-action=fit]").onclick = fitAll;
+  find(".sm-selection button").onclick = () => {
+    const detail = document.getElementById("map-score-detail");
+    detail?.focus({preventScroll:true});
+    detail?.scrollIntoView({block:"start"});
+  };
+  const contacts = new Map();
+  let start, pinch, moved = false;
+  function local(event) {
+    const rect = map.getBoundingClientRect();
+    return [event.clientX - rect.left, event.clientY - rect.top];
   }
-
-  function userSelect(pin) {
-    select(pin);
-    onChoose(selected);
-  }
-
-  function zoomAt(factor, x = width / 2, y = height / 2) {
-    const next = clamp(scale * factor, baseScale * .8, baseScale * 18);
-    center = [center[0] + (x - width / 2) * (1 / scale - 1 / next), center[1] + (y - height / 2) * (1 / scale - 1 / next)];
-    scale = next;
-    draw();
-  }
-
-  choose.addEventListener("change", () => userSelect(choose.value));
-  find("[data-action=fit]").addEventListener("click", () => userSelect(""));
-  find("[data-action=in]").addEventListener("click", () => zoomAt(1.55));
-  find("[data-action=out]").addEventListener("click", () => zoomAt(1/1.55));
-  const touches = new Map();
-  let drag = null;
-  function touchSpan() {
-    const [a, b] = [...touches.values()];
-    return Math.hypot(a[0] - b[0], a[1] - b[1]);
+  function touchPair() {
+    const [a,b] = [...contacts.values()];
+    return {mid: [(a[0]+b[0])/2,(a[1]+b[1])/2], distance: Math.hypot(a[0]-b[0],a[1]-b[1])};
   }
   map.addEventListener("pointerdown", event => {
-    if (event.button !== 0 || touches.size >= 2) return;
-    map.setPointerCapture(event.pointerId);
-    touches.set(event.pointerId, [event.clientX, event.clientY]);
-    drag = touches.size === 1
-      ? {x: event.clientX, y: event.clientY, center: [...center], pin: event.target.closest("[data-pin]")?.dataset.pin, moved: false}
-      : {span: touchSpan(), moved: true};
+    if (event.button !== 0 || contacts.size >= 2) return;
+    const p = local(event);
+    contacts.set(event.pointerId, p); map.setPointerCapture(event.pointerId);
+    if (contacts.size === 1) {
+      moved = false; start = {p, center:[...center]};
+    } else {
+      moved = true;
+      const pair = touchPair();
+      pinch = {anchor: unproject(...pair.mid), scale, distance: pair.distance};
+    }
   });
   map.addEventListener("pointermove", event => {
-    if (!touches.has(event.pointerId) || !drag) return;
-    touches.set(event.pointerId, [event.clientX, event.clientY]);
-    if (touches.size === 2) {
-      const span = touchSpan();
-      const [a,b] = [...touches.values()];
-      const rect = map.getBoundingClientRect();
-      if (drag.span > 0 && span > 0) zoomAt(span / drag.span, (a[0]+b[0])/2-rect.left, (a[1]+b[1])/2-rect.top);
-      drag.span = span;
-      return;
+    if (!contacts.has(event.pointerId)) return;
+    const p = local(event);
+    contacts.set(event.pointerId, p);
+    if (contacts.size === 2 && pinch) {
+      const pair = touchPair();
+      if (pinch.distance > 0) setScale(pinch.scale * pair.distance / pinch.distance);
+      center = [pinch.anchor[0] - (pair.mid[0]-width/2)/scale, pinch.anchor[1] - (pair.mid[1]-height/2)/scale];
+    } else if (start) {
+      const dx = p[0]-start.p[0], dy = p[1]-start.p[1];
+      if (!moved && Math.hypot(dx,dy) < 5) return;
+      moved = true;
+      center = [start.center[0]-dx/scale, start.center[1]-dy/scale];
     }
-    const dx = event.clientX - drag.x;
-    const dy = event.clientY - drag.y;
-    if (Math.hypot(dx, dy) <= 5 && !drag.moved) return;
-    drag.moved = true;
-    map.classList.add("dragging");
-    center = [drag.center[0] - dx / scale, drag.center[1] - dy / scale];
-    draw();
+    requestDraw();
   });
-  function endTouch(event) {
-    if (!touches.delete(event.pointerId) || !drag) return;
-    if (event.type === "pointerup" && !drag.moved && drag.pin) userSelect(drag.pin);
-    if (touches.size) {
-      const [[x, y]] = [...touches.values()];
-      drag = {x, y, center: [...center], moved: true};
-    } else {
-      map.classList.remove("dragging");
-      drag = null;
+  function endPointer(event) {
+    if (!contacts.delete(event.pointerId)) return;
+    if (!moved && event.type === "pointerup") hit(...local(event));
+    if (contacts.size === 1) {
+      start = {p:[...contacts.values()][0], center:[...center]}; moved = true;
     }
+    pinch = null;
   }
-  map.addEventListener("pointerup", endTouch);
-  map.addEventListener("pointercancel", endTouch);
+  map.addEventListener("pointerup", endPointer); map.addEventListener("pointercancel", endPointer);
   map.addEventListener("wheel", event => {
-    if (!event.ctrlKey && !event.metaKey) return;
     event.preventDefault();
-    const rect = map.getBoundingClientRect();
-    zoomAt(Math.exp(-event.deltaY * .007), event.clientX - rect.left, event.clientY - rect.top);
-  }, {passive: false});
+    const delta = event.deltaY * (event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? height : 1);
+    zoom(Math.exp(-clamp(delta,-200,200)*.004), ...local(event));
+  }, {passive:false});
+  map.addEventListener("dblclick", event => { event.preventDefault(); zoom(2, ...local(event)); });
+  map.addEventListener("keydown", event => {
+    const directions = {ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]};
+    const direction = directions[event.key];
+    if (direction) {
+      center = [center[0]+direction[0]*width*.22/scale,center[1]+direction[1]*height*.22/scale]; requestDraw();
+    } else if (event.key === "+" || event.key === "=") zoom(2);
+    else if (event.key === "-") zoom(.5);
+    else if (event.key === "Home") fitAll();
+    else return;
+    event.preventDefault();
+  });
+  function focusStreet(street) {
+    choose("", false); highlightedStreet = street.key;
+    const visible = street.roads.filter(r => overlaps(r.b, bounds));
+    const segments = visible.length ? visible : street.roads;
+    const extent = [Math.min(...segments.map(r=>r.b[0])),Math.min(...segments.map(r=>r.b[1])),
+                    Math.max(...segments.map(r=>r.b[2])),Math.max(...segments.map(r=>r.b[3]))];
+    const mid = midpoint(extent);
+    const nearest = segments.reduce((best,road) =>
+      Math.hypot(road.pt[0]-mid[0],road.pt[1]-mid[1]) < Math.hypot(best.pt[0]-mid[0],best.pt[1]-mid[1]) ? road : best);
+    center = [...nearest.pt];
+    setScale(Math.min(width,height) / (unitsPerMile * .24));
+    searchResults.replaceChildren(); searchStatus.textContent = "Showing " + street.name + ". Tap a parcel.";
+    requestDraw();
+  }
+  find(".sm-search").addEventListener("submit", event => {
+    event.preventDefault(); searchResults.replaceChildren();
+    let query = input.value.trim();
+    if (!query) { input.focus(); searchStatus.textContent = "Enter a street name or parcel number."; return; }
+    let results;
+    const digits = query.replace(/[\s-]/g, "");
+    if (/^\d+$/.test(digits)) {
+      const normalized = digits.length === 10 ? digits.slice(0,4) + "0" + digits.slice(4) : digits;
+      if (geometry.missing?.includes(normalized)) {
+        searchStatus.textContent = "The county has no mapped location for this scored parcel.";
+        const link = document.createElement("a");
+        const url = new URL(location.pathname, location.origin);
+        url.search = new URLSearchParams({scorePin:normalized, scoreTargets:"all", scoreMin:"all", scoreDetail:normalized});
+        url.hash = "scored-properties";
+        link.href = url.href;
+        link.textContent = "View the score for " + normalized;
+        searchResults.append(link);
+        return;
+      }
+      const matches = parcels.has(normalized) ? [parcels.get(normalized)] : [...parcels.values()].filter(p => p.pin.includes(digits));
+      results = matches.map(p => ({text: p.pin + " · " + p.score + "/100", select: () => {
+        if (selected === p.pin) { focusParcel(p); requestDraw(); }
+        choose(p.pin); searchResults.replaceChildren(); searchStatus.textContent = "Showing parcel " + p.pin + ".";
+      }}));
+    } else {
+      query = normalizedName(query);
+      const exact = streetNames.get(query);
+      const matches = exact ? [exact] : [...streetNames.values()].filter(street => query && street.key.includes(query)).sort((a,b)=>a.name.localeCompare(b.name));
+      results = matches.map(street => ({text:street.name, select:()=>focusStreet(street)}));
+    }
+    if (results.length === 1) { results[0].select(); return; }
+    if (results.length === 0) {
+      searchStatus.textContent = "No mapped street or parcel number matched. For a house number, use Find by street address."; return;
+    }
+    searchStatus.textContent = results.length > 12 ? "Showing 12 of " + results.length + " matches. Enter more characters to narrow the list." : "Choose a match.";
+    for (const result of results.slice(0,12)) searchResults.append(actionButton(result.text, result.select));
+  });
+  for (const parcel of top || []) {
+    if (!parcels.has(parcel.pin)) continue;
+    find(".sm-top div").append(actionButton("#" + parcel.n + " · " + parcel.road + " · " + scores.get(parcel.pin) + "/100", () => {
+      focusParcel(parcels.get(parcel.pin)); choose(parcel.pin); requestDraw();
+    }));
+  }
   function resize() {
     const rect = map.getBoundingClientRect();
-    if (!rect.width || !rect.height || (width === rect.width && height === rect.height)) return;
-    width = rect.width;
-    height = rect.height;
-    map.setAttribute("viewBox", "0 0 " + width + " " + height);
-    fit();
-    draw();
+    if (!rect.width || !rect.height || (rect.width === width && rect.height === height)) return;
+    const factor = baseScale ? scale / baseScale : 1;
+    width = rect.width; height = rect.height;
+    pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    map.width = Math.round(width * pixelRatio); map.height = Math.round(height * pixelRatio);
+    baseScale = Math.min((width-24)/(bounds[2]-bounds[0]),(height-24)/(bounds[3]-bounds[1]));
+    setScale(baseScale * factor); requestDraw();
   }
   resize();
   new ResizeObserver(resize).observe(map);
-  return {select};
+  return {select, has: pin => parcels.has(pin)};
 };

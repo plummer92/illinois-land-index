@@ -3,13 +3,21 @@
 #chatham-map .map-intro { margin:0; }
 #map-vintage { margin:.35rem 0 .85rem; }
 #map-back-to-row:not([hidden]) { min-height:44px; }
+#map-score-detail { margin:.75rem 0 .2rem; padding:.85rem 1rem; border-left:3px solid var(--green,#176b4d); background:#f3f7f2; border-radius:0 6px 6px 0; scroll-margin-top:6rem; }
+#map-score-detail h3 { font-size:1.15rem; margin:0 0 .15rem; }
+#map-score-detail h4 { font-size:1rem; margin:.8rem 0 .3rem; }
+#map-score-detail p { margin:.25rem 0; }
+#map-score-detail .map-score-facts { color:#43594b; font-size:.88rem; }
+#map-score-detail .rank-reasons { padding-inline-start:1.1rem; margin:.4rem 0; }
+#map-score-detail li { margin:.42rem 0; }
+#map-score-detail a { display:inline-flex; align-items:center; min-height:44px; color:var(--green-dark); }
 .rank-table .rank-pin { min-height:44px; text-align:left; }
 .rank-detail .rank-preview-link { min-height:44px; }
 .rank-detail .rank-reasons { margin:.4rem 0; padding-inline-start:1.2rem; }
 .rank-map-shortcut { display:inline-flex; align-items:center; min-height:44px; color:var(--green-dark); text-underline-offset:3px; }
 .rank-road { display:block; color:var(--ink); font-size:.88rem; font-weight:650; }
 @media (max-width:820px) {
-  #chatham-map, #scored-properties, #parcel-lookup { scroll-margin-top:.65rem; }
+  #chatham-map, #scored-properties, #parcel-lookup, #map-score-detail { scroll-margin-top:.65rem; }
 }
 #parcel-rankings [hidden] { display:none; }
 #parcel-rankings :focus-visible { outline:3px solid #32795c; outline-offset:2px; }

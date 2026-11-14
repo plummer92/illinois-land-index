@@ -142,8 +142,28 @@ Google Analytics 4 is configured for `illinoislandindex.com` with measurement ID
 const GA_MEASUREMENT_ID = "G-8JFK3CZ7LE";
 ```
 
-The tracker records page views plus link-click events for the Illinois dashboard, debt context,
-Knoxville dashboard and research pages. The parcel lookup page omits analytics.
+The tracker records page views and link-click categories on public pages, including direct
+visits to the parcel dashboard and property rankings. Query strings, fragments and link text
+are omitted from custom event payloads so property searches are not sent as event labels.
+
+### Keep owner and test visits out
+
+Open `https://illinoislandindex.com/analytics-preferences/#exclude` in each browser/device
+used by the owner or a tester. This untracked page saves an exclusion in localStorage with
+a first-party cookie fallback and confirms whether it was saved. The shared tracker sets
+Google's `ga-disable-G-8JFK3CZ7LE` flag before any analytics call and does not load Google's
+script for excluded visits. Use the same page to restore counting.
+
+Only the canonical HTTPS domain and its www host can load analytics. Local development,
+preview hosts and `navigator.webdriver` automation are excluded. For ordinary-browser QA
+that does not identify itself as WebDriver, use the persistent exclusion link first or append
+`?analytics_test=1` to the page being tested. The query flag applies to that page load only;
+use the persistent exclusion for tests that navigate between pages.
+
+Exclusion starts when enabled; it does not clean historical reports. Each separate browser,
+phone and private-browsing session needs its own setting, and clearing site data can remove it.
+Keep all HTML references to `analytics.js` on the same version to avoid cached older trackers.
+Run `node --test scripts/test_analytics.mjs` before changing tracking or exclusions.
 
 ## Deploy
 

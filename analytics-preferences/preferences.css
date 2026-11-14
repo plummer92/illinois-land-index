@@ -1,0 +1,7 @@
+.preferences { max-width: 46rem; margin: 2rem auto; padding: 0 1.25rem 3rem; font-size: 1.125rem; line-height: 1.65; }
+.preferences h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.2; }
+.preferences h2 { font-size: 1.4rem; line-height: 1.35; }
+.preference-card { margin: 1.5rem 0; padding: 1.25rem; border: 1px solid #b9cabc; border-radius: 1rem; background: #f3f8f3; color: #20352a; }
+.preference-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.preferences .button { min-height: 48px; font: inherit; white-space: normal; text-align: center; }
+.preferences [hidden] { display: none !important; }

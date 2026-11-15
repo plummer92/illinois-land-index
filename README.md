@@ -143,8 +143,18 @@ const GA_MEASUREMENT_ID = "G-8JFK3CZ7LE";
 ```
 
 The tracker records page views and link-click categories on public pages, including direct
-visits to the parcel dashboard and property rankings. Query strings, fragments and link text
-are omitted from custom event payloads so property searches are not sent as event labels.
+visits to the parcel dashboard and property rankings. `property_search_success` counts one
+resolved parcel result per submitted search (including the homepage search handoff). Direct
+parcel links, map clicks, street-only results, unsuccessful searches and stale/cancelled
+requests do not count as successful searches. The event takes no caller-supplied data.
+
+Addresses, query text, parcel numbers, coordinates and owner information are not sent in
+these events. Page URLs omit query strings and fragments, page titles are fixed, referrers
+are reduced to their origin, and link events contain categories instead of destination URLs
+or visible text. In GA4 Admin > Data streams > Illinois Land Index, keep **Enhanced
+measurement OFF** (confirmed November 14, 2026). Google's automatic search, form, link and
+history events otherwise operate outside this custom sanitization. Standard page views
+and the explicit events still work.
 
 ### Keep owner and test visits out
 
@@ -163,7 +173,22 @@ use the persistent exclusion for tests that navigate between pages.
 Exclusion starts when enabled; it does not clean historical reports. Each separate browser,
 phone and private-browsing session needs its own setting, and clearing site data can remove it.
 Keep all HTML references to `analytics.js` on the same version to avoid cached older trackers.
-Run `node --test scripts/test_analytics.mjs` before changing tracking or exclusions.
+Run `node --test scripts/test_analytics.mjs scripts/test_search_metrics.mjs scripts/test_property_share.mjs`
+before changing tracking, lookup outcomes or sharing. These tests use mocks without sending
+Google Analytics traffic.
+
+### Property sharing and previews
+
+The property result includes native sharing where supported, a Copy link action and a
+selectable-link fallback if clipboard access fails. Shared URLs are rebuilt from the
+canonical dashboard URL and only the selected public PIN; search text and test flags are
+excluded. Both scored and unscored parcel links reopen through the existing finder.
+
+The homepage, parcel dashboard and rankings page include Open Graph and large-image card
+metadata. `assets/social/property-preview.png` is a 1200 x 630 general illustration,
+without real parcel geometry, addresses or owner details. The static host serves the same
+general preview for all shared parcels; the actual link opens the selected parcel. Apps
+choose how to display and cache previews.
 
 ## Deploy
 

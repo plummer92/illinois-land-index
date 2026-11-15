@@ -12,7 +12,7 @@ const cookieKey = "ili_analytics_excluded";
 test("parcel pages load the versioned shared tracker exactly once", () => {
   for (const page of ["parcel-dashboard/index.html", "parcel-dashboard/rankings.html"]) {
     const html = readFileSync(new URL(`../${page}`, import.meta.url), "utf8");
-    assert.equal((html.match(/src="\.\.\/analytics\.js\?v=20261114"/g) || []).length, 1);
+    assert.equal((html.match(/src="\.\.\/analytics\.js\?v=[^"]+"/g) || []).length, 1);
   }
 });
 
@@ -153,6 +153,7 @@ function assertNoTracking(page) {
   assert.equal(page.window["ga-disable-" + measurementId], true);
   assert.equal(page.calls().length, 0, "excluded visits must not enqueue Analytics commands");
   page.click("/parcel-dashboard/?address=600%20Example%20Street#property-result");
+  page.window.landIndexAnalytics.trackPropertySearchSuccess();
   assert.equal(page.calls().length, 0, "excluded click must not enqueue an event");
 }
 
@@ -286,4 +287,37 @@ test("link events retain destination classification without search details, hash
   assert.ok(events.some(([, name, params]) => name === "land_index_link_click" && params.destination_type === "illinois_land_dashboard"));
   const payload = JSON.stringify(events);
   assert.doesNotMatch(payload, /600|Example|28010100008|scoreDetail|property-result|link_text/);
+});
+
+test("successful searches send only fixed event fields, ignoring supplied personal data", () => {
+  const page = browser({ url: "https://illinoislandindex.com/parcel-dashboard/?scoreDetail=28010100008#property-result" });
+  page.document.title = "600 Example Street — 28010100008";
+  page.document.referrer = "https://example.org/600-Example-Street/28010100008?address=600%20Example%20Street";
+  page.window.landIndexAnalytics.trackPropertySearchSuccess({address:"600 Example Street",pin:"28010100008",latitude:39.66});
+  const events = page.calls().filter(([command,name]) => command === "event" && name === "property_search_success");
+  assert.equal(events.length, 1);
+  assert.deepEqual(Object.keys(events[0][2]).sort(), ["page_location","page_path","page_referrer","page_title"]);
+  assert.equal(events[0][2].page_title, "Illinois Land Index");
+  assert.equal(events[0][2].page_referrer, "https://example.org/");
+  assert.equal(events[0][2].page_location, "https://illinoislandindex.com/parcel-dashboard/");
+  assert.doesNotMatch(JSON.stringify(page.calls()), /600|Example|28010100008|latitude|scoreDetail|property-result/);
+});
+
+test("outbound paths and link text cannot disclose addresses or parcel identifiers", () => {
+  const page = browser();
+  page.click("https://maps.example.org/600-Example-Street/28010100008?coords=39.66,-89.70", "600 Example Street");
+  assert.doesNotMatch(JSON.stringify(page.calls()), /600|Example|28010100008|coords|39.66|link_url|link_text/);
+});
+
+test("success events are limited to the property finder and stop after exclusion", () => {
+  const page = browser();
+  page.window.landIndexAnalytics.setExcluded(true);
+  const before = page.calls().length;
+  page.window.landIndexAnalytics.trackPropertySearchSuccess();
+  assert.equal(page.calls().length, before);
+  for (const url of ["https://illinoislandindex.com/", "https://illinoislandindex.com/parcel-dashboard/rankings.html"]) {
+    const otherPage = browser({url});
+    otherPage.window.landIndexAnalytics.trackPropertySearchSuccess();
+    assert.equal(otherPage.calls().filter(([,name]) => name === "property_search_success").length, 0);
+  }
 });

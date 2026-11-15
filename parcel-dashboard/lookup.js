@@ -121,6 +121,12 @@ const propertyFinder = (() => {
     if (!active()) return;
     tools.clear();
     let timer;
+    let successRecorded = false;
+    function recordSuccess() {
+      if (successRecorded || !active()) return;
+      successRecorded = true;
+      window.landIndexAnalytics?.trackPropertySearchSuccess?.();
+    }
     function failure() {
       if (current === controller) status.textContent = "The county lookup could not finish. Try again, or search by parcel number.";
     }
@@ -134,12 +140,14 @@ const propertyFinder = (() => {
       if (!active()) return;
       status.textContent = address || "Found parcel " + parcel.pin + ".";
       tools.show(parcel,address);
+      recordSuccess();
     }
     async function resolveLot(match) {
       const lots = await countyWork(() => findCountyParcels(pin,match?.location,controller.signal));
       if (!lots && current === controller && pin && tools.scored(pin)) {
         status.textContent = "Found parcel " + pin + " in the scoring records.";
         tools.show({pin,geometryUnavailable:true},null);
+        recordSuccess();
         return;
       }
       if (!active() || !lots) return;
@@ -166,6 +174,13 @@ const propertyFinder = (() => {
     const matches = tools.search(query);
     function choose(match) {
       if (!active()) return;
+      if (match.kind === "parcel") {
+        // Resolve a chosen search match through the same path as a full PIN.
+        // Map clicks themselves are not successful search events.
+        display({pin:match.pin},null);
+        tools.focus();
+        return;
+      }
       status.textContent = match.kind === "street" ? "Showing " + match.label + ". Choose a nearby property." : "Showing the selected parcel.";
       match.choose();
       if (match.kind === "street") tools.nearby();

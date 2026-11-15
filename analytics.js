@@ -47,7 +47,14 @@
     return getStatus();
   }
 
-  window.landIndexAnalytics = { getStatus, setExcluded };
+  // No search text, property identifiers or caller-supplied event fields enter
+  // this API. It counts a completed lookup, not which property was found.
+  function trackPropertySearchSuccess() {
+    if (!/^\/parcel-dashboard\/(?:index\.html)?$/.test(location.pathname)) return;
+    trackEvent("property_search_success", {});
+  }
+
+  window.landIndexAnalytics = { getStatus, setExcluded, trackPropertySearchSuccess };
   if (preferencesPage && location.hash === "#exclude") setExcluded(true);
   getStatus();
 
@@ -58,12 +65,32 @@
     } catch (_) { return ""; }
   }
 
+  function originUrl(value) {
+    try {
+      const url = new URL(value, location.href);
+      return /^https?:$/.test(url.protocol) ? `${url.origin}/` : "";
+    } catch (_) { return ""; }
+  }
+
+  function pageFields() {
+    return {
+      // Keep titles fixed even if a result changes the document title later.
+      page_title: "Illinois Land Index",
+      page_path: location.pathname,
+      page_location: publicUrl(location.href),
+      // Referring sites may embed addresses or other personal data in paths.
+      page_referrer: document.referrer ? originUrl(document.referrer) : "",
+    };
+  }
+
   window.dataLayer = window.dataLayer || [];
   window.gtag = function gtag() {
     window.dataLayer.push(arguments);
   };
 
   function loadGtag() {
+    // Keep GA4 stream Enhanced measurement OFF. Its automatic outbound,
+    // site-search and history events bypass the sanitized fields below.
     const script = document.createElement("script");
     script.async = true;
     script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_MEASUREMENT_ID)}`;
@@ -71,12 +98,9 @@
 
     window.gtag("js", new Date());
     window.gtag("config", GA_MEASUREMENT_ID, {
-      page_title: document.title,
-      page_path: window.location.pathname,
       // Property searches and parcel links can contain addresses or parcel IDs.
       // Keep those query strings and fragments out of analytics.
-      page_location: publicUrl(location.href),
-      page_referrer: document.referrer ? publicUrl(document.referrer) : "",
+      ...pageFields(),
     });
   }
 
@@ -93,7 +117,7 @@
 
   function trackEvent(name, params) {
     if (!getStatus().trackingAllowed || typeof window.gtag !== "function") return;
-    window.gtag("event", name, params);
+    window.gtag("event", name, { ...params, ...pageFields() });
   }
 
   function handleTrackedClick(event) {
@@ -106,7 +130,8 @@
     const destinationType = classifyLink(url);
 
     trackEvent("land_index_link_click", {
-      link_url: publicUrl(url.href),
+      // County/map links can put property identifiers in their URL path too.
+      // Destination type is sufficient; do not collect the clicked URL.
       destination_type: destinationType,
       page_path: window.location.pathname,
     });

@@ -416,6 +416,8 @@
       summary.append(metrics,create("p",explanation,"lot-interpretation"));
       overview.append(sketch,summary);
       panel.append(overview);
+      const share = window.createPropertyShare?.(pin);
+      if (share) panel.append(share);
       if (record) scoreDetails(panel,record);
       if (isMapped(pin)) {
         const jump = link("Explore this neighborhood on the map","#chatham-map");

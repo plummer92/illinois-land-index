@@ -194,3 +194,25 @@ choose how to display and cache previews.
 
 GitHub Pages publishes the root of the `main` branch at `https://illinoislandindex.com/`.
 The home page, parcel dashboard, water map and public signals deploy together.
+
+### Optional research support
+
+The homepage and parcel dashboard link to `/support/`. Contributions are optional;
+property lookup and published research remain free, without an Illinois Land Index
+account. Support does not affect parcel scores or research conclusions.
+
+The support page uses an ordinary outbound Ko-fi link, with no payment widget or
+third-party checkout script on this site. Do not add addresses, parcel identifiers,
+search terms or analytics IDs to payment links. Existing owner/test exclusions and
+sanitized analytics remain in force; an outbound click is not a completed payment.
+
+Before publishing the support page or changing its destination:
+
+- Keep the verified destination `https://ko-fi.com/illinoislandindex` unless the
+  owner changes it. Never deploy a placeholder or guessed payment URL.
+- Confirm that account is connected to its intended payment recipient and that
+  both one-time support and simple monthly support are available.
+- Check the public checkout identifies the correct recipient and clearly shows
+  the amount, frequency and recurring-payment cancellation information.
+- Check the support page and free property lookup on mobile and desktop, without
+  submitting a payment during testing. Keep owner and test visits excluded.

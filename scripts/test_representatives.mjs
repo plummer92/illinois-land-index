@@ -107,3 +107,64 @@ test("incomplete, altered or mislabeled roll calls fail validation",() => {
     assert.equal(api.validCountyVote(value),null);
   }
 });
+
+test("every historical member has a bounded review of both meetings",() => {
+  assert.deepEqual(cyrusone.comment_review.meeting_dates,["2026-03-23","2026-04-07"]);
+  for (const record of Object.values(cyrusone.records)) {
+    const result = api.countyCommentary(cyrusone,record);
+    assert.notEqual(result.status,"unavailable",record.member_at_vote);
+    assert.equal(record.commentary.member_at_vote,record.member_at_vote);
+    for (const entry of result.entries) {
+      assert.ok(entry.pages.length > 0);
+      assert.ok(cyrusone.comment_sources[entry.date].url.endsWith("Minutes.pdf"));
+    }
+  }
+  assert.equal(api.countyCommentary(cyrusone,cyrusone.records["26"]).status,"not_recorded");
+  assert.equal(api.countyCommentary(cyrusone,cyrusone.records["28"]).entries[0].date,"2026-03-23");
+});
+
+test("questions and earlier comments never become stated reasons for the final vote",() => {
+  for (const record of Object.values(cyrusone.records)) {
+    for (const entry of record.commentary.entries) {
+      if (entry.date !== cyrusone.vote_date || entry.kind === "questions_or_procedure_only") assert.equal(entry.explicit_vote_reason,false);
+    }
+  }
+  const hall = api.countyCommentary(cyrusone,cyrusone.records["7"]);
+  assert.deepEqual(Array.from(hall.entries,entry => entry.date),["2026-04-07","2026-03-23"]);
+  assert.ok(hall.entries.every(entry => entry.explicit_vote_reason === false));
+  for (const district of ["16","18","23"]) {
+    assert.equal(api.countyCommentary(cyrusone,cyrusone.records[district]).entries[0].explicit_vote_reason,true);
+  }
+});
+
+test("missing or malformed comments do not erase the verified vote or invent silence",() => {
+  const mutations = [
+    value => {delete value.records["7"].commentary;},
+    value => {value.records["7"].commentary.member_at_vote="Another member";},
+    value => {value.records["7"].commentary.entries=null;},
+    value => {value.records["7"].commentary.entries=[null];},
+    value => {value.records["7"].commentary.entries[0].pages=[99];},
+    value => {value.records["7"].commentary.entries[0].date="2025-04-07";},
+    value => {value.records["7"].commentary.entries[0].summary="";},
+    value => {value.records["7"].commentary.entries[0].kind="inferred_motive";},
+    value => {value.records["7"].commentary.entries.find(entry => entry.date === "2026-03-23").explicit_vote_reason=true;},
+    value => {value.comment_sources["2026-04-07"].url="https://unverified.example/record";},
+    value => {value.comment_sources["2026-04-07"].url=1;},
+    value => {value.comment_review.meeting_dates={};},
+  ];
+  for (const change of mutations) {
+    const value = structuredClone(cyrusone); change(value);
+    assert.equal(api.countyCommentary(value,value.records["7"]).status,"unavailable");
+    assert.equal(api.validCountyVote(value),value);
+    assert.equal(api.countyVoteContext(value,"7",data.county_board["7"]).label,"No");
+  }
+});
+
+test("comments stay with the recorded member after an officeholder changes",() => {
+  for (const district of ["2","4","12","16"]) {
+    const context = api.countyVoteContext(cyrusone,district,data.county_board[district]);
+    assert.equal(context.status,"previous");
+    assert.equal(context.record.commentary.member_at_vote,context.record.member_at_vote);
+    assert.notEqual(context.record.commentary.member_at_vote,data.county_board[district].name);
+  }
+});

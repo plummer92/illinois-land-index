@@ -1,6 +1,6 @@
 (() => {
   "use strict";
-  const version = "20261114-cyrusone-vote";
+  const version = "20261115-cyrusone-comments";
   const officialLocator = "https://www.elections.il.gov/ElectionOperations/ElectedOfficials.aspx";
   const normalize = value => String(value || "").trim().toUpperCase().replace(/\s+/g," ");
   const validPoint = point => Array.isArray(point) && point.length === 2 && point.every(Number.isFinite) && Math.abs(point[0]) <= 180 && Math.abs(point[1]) <= 90;
@@ -36,6 +36,29 @@
     if (!record) return {status:"unresolved"};
     const matches = official?.name && [record.member_at_vote,...record.identity_aliases].some(name => sameName(name,official.name));
     return {status:matches ? "current" : official?.name ? "previous" : "historical",record,label:voteLabels[record.vote]};
+  }
+  function countyCommentary(ledger,record) {
+    const review = ledger?.comment_review;
+    const commentary = record?.commentary;
+    if (!review || !Array.isArray(review.meeting_dates) || review.meeting_dates.join(",") !== "2026-03-23,2026-04-07" || !commentary ||
+      commentary.member_at_vote !== record.member_at_vote || !Array.isArray(commentary.entries)) return {status:"unavailable"};
+    const sources = ledger.comment_sources;
+    for (const date of review.meeting_dates) {
+      const source = sources?.[date];
+      if (!source || typeof source.url !== "string" || !source.url.startsWith("https://sangamondepartments.blob.core.windows.net/dnnfiles/Clerk/County-Board/Minutes/") ||
+        source.date !== date || !Number.isInteger(source.page_count) || source.page_count < 1 || !source.label) return {status:"unavailable"};
+    }
+    const entries = commentary.entries;
+    if (!entries.every(entry => entry && typeof entry === "object")) return {status:"unavailable"};
+    if (new Set(entries.map(entry => entry.date)).size !== entries.length) return {status:"unavailable"};
+    for (const entry of entries) {
+      const source = sources[entry.date];
+      if (!review.meeting_dates.includes(entry.date) || !source || typeof entry.summary !== "string" || !entry.summary.trim() ||
+        !["substantive_comment","questions_or_procedure_only"].includes(entry.kind) || typeof entry.explicit_vote_reason !== "boolean" ||
+        (entry.explicit_vote_reason && (entry.kind !== "substantive_comment" || entry.date !== ledger.vote_date)) ||
+        !Array.isArray(entry.pages) || !entry.pages.length || !entry.pages.every(page => Number.isInteger(page) && page > 0 && page <= source.page_count)) return {status:"unavailable"};
+    }
+    return {status:entries.length ? "recorded" : "not_recorded",entries:[...entries].sort((a,b) => b.date.localeCompare(a.date)),sources};
   }
   const results = new Map();
   const create = (tag,text,className) => {
@@ -144,13 +167,15 @@
     if (context.record?.vote === "not_voting") section.append(create("p","The chair is listed present, but no vote is recorded for him on the final zoning roll call. “Did not vote” is not an abstention or an absence."));
     const source = ledger.source.url.split("#")[0] + "#page=" + ledger.source.pages[0];
     section.append(link("Official minutes · page " + ledger.source.pages.join(", "),source));
+    if (context.record) showMemberComments(section,ledger,context.record);
     const all = create("details",undefined,"county-vote-rollcall");
-    all.append(create("summary","See all 29 recorded votes"),create("p","Members listed below held these seats at the April 7 meeting. Later officeholders are not assigned their votes."));
+    all.append(create("summary","See all 29 votes and comments"),create("p","Members listed below held these seats at the April 7 meeting. Later officeholders are not assigned their votes or comments."));
     const list = create("ol");
     for (let number = 1; number <= 29; number++) {
       const record = ledger.records[String(number)];
       const item = create("li",undefined,String(number) === String(district) ? "selected-vote-district" : "");
       item.append(create("strong","District " + number + " · " + record.member_at_vote),create("span",voteLabels[record.vote]));
+      showMemberComments(item,ledger,record);
       list.append(item);
     }
     all.append(list);
@@ -160,6 +185,30 @@
       const preview = context.status === "current" ? "CyrusOne: " + context.label + " · April 7, 2026" : context.status === "previous" ? "CyrusOne: previous member’s vote" : "CyrusOne: recorded district vote";
       container.querySelector("summary").append(create("span",preview,"county-vote-preview"));
     }
+  }
+  function showMemberComments(container,ledger,record) {
+    const result = countyCommentary(ledger,record);
+    const details = create("details",undefined,"county-member-comments");
+    details.append(create("summary","What " + record.member_at_vote + " said"));
+    if (result.status === "unavailable") {
+      details.append(create("p","The comments review is unavailable. Use the official meeting minutes; this does not mean no comments were made."),link("Official meeting minutes",ledger.source.url));
+      container.append(details); return;
+    }
+    details.append(create("p","Summarized from the March 23 and April 7, 2026 minutes. Project claims are the speakers’ views.","county-comment-scope"));
+    if (result.status === "not_recorded") {
+      details.append(create("p","No explanation of this member’s CyrusOne vote was found in those minutes. A recorded vote alone does not tell us their reasons."));
+      for (const date of ledger.comment_review.meeting_dates) details.append(link("Review " + result.sources[date].label + " minutes",result.sources[date].url));
+    }
+    for (const entry of result.entries) {
+      const source = result.sources[entry.date];
+      const article = create("article",undefined,"county-comment-entry");
+      const type = entry.explicit_vote_reason ? "Stated reasons" : entry.kind === "questions_or_procedure_only" ? "Questions / procedure" : "Recorded comments";
+      article.append(create("strong",source.label + " · " + type),create("p",entry.summary));
+      if (!entry.explicit_vote_reason) article.append(create("p","These remarks do not explicitly explain the April 7 final vote.","county-comment-scope"));
+      article.append(link("Read " + source.label + " minutes · " + (entry.pages.length === 1 ? "page " : "pages ") + entry.pages.join(", "),source.url.split("#")[0] + "#page=" + entry.pages[0]));
+      details.append(article);
+    }
+    container.append(details);
   }
   function render(container,data,matches,point,countyVote) {
     const sources = Object.fromEntries(data.sources.map(source => [source.id,source.url]));
@@ -227,5 +276,5 @@
       finally { loading = false; }
     });
   };
-  window.ParcelRepresentatives = {normalize,validPoint,one,resolved,validCountyVote,countyVoteContext};
+  window.ParcelRepresentatives = {normalize,validPoint,one,resolved,validCountyVote,countyVoteContext,countyCommentary};
 })();

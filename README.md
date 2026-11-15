@@ -190,6 +190,16 @@ show an explicit predecessor notice. An unresolved map match or failed ledger lo
 never becomes an inferred vote. `scripts/test_representatives.mjs` checks the full
 roll call, four changed officeholders, historical aliases and failure states.
 
+Expandable member comments summarize the March 23 and April 7, 2026 written
+minutes, with dated page links. `comment_review` records the scope and
+`comment_sources` holds the official records. Each historical member's
+`commentary` distinguishes explicit final-vote reasons, substantive comments,
+questions/procedure and no explanation found in the reviewed minutes. Forecasts
+and project assurances remain attributed statements, not verified outcomes.
+Earlier remarks never become an inferred reason for the April 7 vote. Invalid
+comment data displays an unavailable notice while preserving the verified vote;
+comments are never assigned to a successor or used to change a parcel score.
+
 ## Local Preview
 
 Serve the repository root with a static server to use the home page, parcel dashboard and map together.

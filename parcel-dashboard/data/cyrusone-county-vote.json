@@ -51,7 +51,11 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Harry \"Tom\" Fraase, Jr.",
+        "entries": []
+      }
     },
     "2": {
       "member_at_vote": "Casey Constant",
@@ -59,7 +63,11 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Casey Constant",
+        "entries": []
+      }
     },
     "3": {
       "member_at_vote": "David Mendenhall",
@@ -67,7 +75,24 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "David Mendenhall",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "substantive_comment",
+            "summary": "Said agricultural interests had not been adequately consulted and warned that removing prime farmland could affect farm suppliers and cash rents. Asked about possible effects on bees, livestock and future farm uses, and suggested the Pillsbury site as an alternative.",
+            "pages": [
+              3,
+              4,
+              19,
+              20
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "4": {
       "member_at_vote": "Jeffrey A. Thomas",
@@ -83,6 +108,10 @@
         "pages": [
           34
         ]
+      },
+      "commentary": {
+        "member_at_vote": "Jeffrey A. Thomas",
+        "entries": []
       }
     },
     "5": {
@@ -91,7 +120,21 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Pam Deppe",
+        "entries": [
+          {
+            "date": "2026-03-23",
+            "kind": "questions_or_procedure_only",
+            "summary": "Moved to postpone the resolution until the board had more information from the state.",
+            "pages": [
+              3
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "6": {
       "member_at_vote": "Tracy Sheppard",
@@ -99,7 +142,21 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Tracy Sheppard",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "substantive_comment",
+            "summary": "Said nearby residents had raised consistent concerns about infrastructure, water, electricity and long-term rural impacts. Said she supported growth and jobs but wanted more clarity and time for pending state data-center rules before a final decision.",
+            "pages": [
+              3
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "7": {
       "member_at_vote": "Craig Hall",
@@ -107,7 +164,32 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Craig Hall",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "substantive_comment",
+            "summary": "Reported local concerns about Apple Creek water service and utilities, and said past development experiences had made residents wary of promises. Asked why school outreach included Auburn and Chatham but not neighboring Waverly, and said CyrusOne would need to earn residents’ trust and accept responsibility if the project proceeded.",
+            "pages": [
+              22,
+              23,
+              24
+            ],
+            "explicit_vote_reason": false
+          },
+          {
+            "date": "2026-03-23",
+            "kind": "substantive_comment",
+            "summary": "Said Talkington Township was financially sound, described its trustees as unwilling to seek company benefits, and urged the board to listen and postpone the decision.",
+            "pages": [
+              39
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "8": {
       "member_at_vote": "Tom Rader",
@@ -115,7 +197,21 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Tom Rader",
+        "entries": [
+          {
+            "date": "2026-03-23",
+            "kind": "substantive_comment",
+            "summary": "Described proposed noise safeguards, including developer-paid studies before and after each construction phase. Said CyrusOne had signed a letter agreeing to the county's zoning and proposed wording changes.",
+            "pages": [
+              15
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "9": {
       "member_at_vote": "Tom Madonia Jr.",
@@ -123,7 +219,33 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Tom Madonia Jr.",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "substantive_comment",
+            "summary": "Argued that the board had already heard extensive public input and that CyrusOne had followed the zoning rules, so it should hold a vote that night. Asked how the project would avoid Aurora’s noise problems and whether its electricity arrangements would protect existing RECC customers’ rates.",
+            "pages": [
+              3,
+              20,
+              21
+            ],
+            "explicit_vote_reason": false
+          },
+          {
+            "date": "2026-03-23",
+            "kind": "questions_or_procedure_only",
+            "summary": "Proposed revised speaking rules with DelGiorno, saying they would allow organized presentations and public input while controlling meeting length.",
+            "pages": [
+              2,
+              3
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "10": {
       "member_at_vote": "Paul Truax",
@@ -131,7 +253,11 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Paul Truax",
+        "entries": []
+      }
     },
     "11": {
       "member_at_vote": "James Schackmann",
@@ -139,7 +265,11 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "James Schackmann",
+        "entries": []
+      }
     },
     "12": {
       "member_at_vote": "Marc Ayers",
@@ -147,7 +277,24 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Marc Ayers",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "substantive_comment",
+            "summary": "Challenged public-comment signup practices and questioned whether the company knew about the project before the county changed its data-center zoning rules. CyrusOne disputed the suggestion that it had manipulated the zoning process. He also criticized continuing noise problems in Aurora and said the company still needed to earn trust.",
+            "pages": [
+              25,
+              26,
+              27,
+              28
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "13": {
       "member_at_vote": "Brad Miller",
@@ -155,7 +302,21 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Brad Miller",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "questions_or_procedure_only",
+            "summary": "Asked which community commitments, especially fire-district support and infrastructure improvements, were already in writing.",
+            "pages": [
+              21
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "14": {
       "member_at_vote": "Joel Tjelmeland, Jr.",
@@ -163,7 +324,21 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Joel Tjelmeland, Jr.",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "questions_or_procedure_only",
+            "summary": "Seconded the motion to move public comment to that point in the meeting.",
+            "pages": [
+              4
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "15": {
       "member_at_vote": "Tim Krell",
@@ -171,7 +346,11 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Tim Krell",
+        "entries": []
+      }
     },
     "16": {
       "member_at_vote": "Greg Stumpf",
@@ -179,7 +358,22 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Greg Stumpf",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "substantive_comment",
+            "summary": "Stumpf said he supported the project because he expected jobs, revenue for schools and other taxing bodies, and spending at local businesses. He cited professional and legal recommendations that the site was suitable, and said zoning approval would still leave the project subject to further laws, regulations and permits. He also asked how local residents could obtain the permanent jobs.",
+            "pages": [
+              18,
+              19
+            ],
+            "explicit_vote_reason": true
+          }
+        ]
+      }
     },
     "17": {
       "member_at_vote": "Annette Fulgenzi",
@@ -187,7 +381,23 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Annette Fulgenzi",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "substantive_comment",
+            "summary": "Fulgenzi said she was torn and initially supported postponement because she worried that approval could exempt the project from future state or federal requirements. She pressed CyrusOne about electricity rates, who would pay for added generation, and whether it would follow future Illinois rules even if exempt. Near the final vote, she said the community sometimes rejects economic development it should accept, but that she still saw reasons both for and against this project.",
+            "pages": [
+              3,
+              30,
+              31
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "18": {
       "member_at_vote": "Sam Cahnman",
@@ -195,7 +405,22 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Sam Cahnman",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "substantive_comment",
+            "summary": "Cahnman said he planned to vote Yes to support local construction workers, citing the rural location, closed-loop cooling, noise mitigation and the zoning board's finding that the application met its criteria. He remained concerned about electricity demand and rates, but argued that a data center elsewhere on the same grid could bring costs without local jobs. He also cited proposed rule improvements and the additional permits still required.",
+            "pages": [
+              17,
+              18
+            ],
+            "explicit_vote_reason": true
+          }
+        ]
+      }
     },
     "19": {
       "member_at_vote": "Vera Small",
@@ -203,7 +428,22 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Vera Small",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "substantive_comment",
+            "summary": "Small questioned whether Springfield residents would actually receive the promised jobs, challenged reliance on workers from outside project communities, and backed concerns about the project's timing and outreach. Just before the vote, she urged members to prioritize their constituents over companies.",
+            "pages": [
+              28,
+              31
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "20": {
       "member_at_vote": "Linda Douglas-Williams",
@@ -211,7 +451,22 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Linda Douglas-Williams",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "substantive_comment",
+            "summary": "Douglas-Williams said past zoning projects had left residents without someone to turn to when problems arose. She urged the board to consider land loss and the long-term effects on children, including her concerns that AI could erode their skills and future jobs, while noting her own union background.",
+            "pages": [
+              28,
+              29
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "21": {
       "member_at_vote": "Reggie Guyton",
@@ -219,7 +474,34 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Reggie Guyton",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "substantive_comment",
+            "summary": "Guyton said he supported union workers but lacked enough understanding of the project's long-term effects and wanted more time before deciding. He questioned the duration and timing of grid studies and raised concerns about electricity affordability and reliability, heat and climate impacts, and whether the permanent-job count justified the promised growth. He also moved to extend public comment.",
+            "pages": [
+              3,
+              14,
+              24,
+              25
+            ],
+            "explicit_vote_reason": false
+          },
+          {
+            "date": "2026-03-23",
+            "kind": "questions_or_procedure_only",
+            "summary": "Seconded Deppe's and Hall's separate motions to postpone the resolution.",
+            "pages": [
+              3,
+              39
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "22": {
       "member_at_vote": "Gina Lathan",
@@ -227,7 +509,22 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Gina Lathan",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "substantive_comment",
+            "summary": "Lathan acknowledged concerns about how the project reached the board and about health, water and rising utility bills. She said the water and cooperative-power information addressed some concerns, while STEM education, local labor opportunities and vendor work were priorities for her district. She described the potential for construction jobs, permanent jobs and local business opportunities to improve residents' lives.",
+            "pages": [
+              29,
+              30
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "23": {
       "member_at_vote": "Tony DelGiorno",
@@ -235,7 +532,33 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Tony DelGiorno",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "substantive_comment",
+            "summary": "DelGiorno urged approval, arguing that the decision should turn on whether the application met the county's adopted zoning standards. He cited construction work and economic development, said many proposed safeguards were already covered, and supported further building-code work before permits were issued. He stressed that zoning approval was separate from a building permit.",
+            "pages": [
+              14,
+              15,
+              17
+            ],
+            "explicit_vote_reason": true
+          },
+          {
+            "date": "2026-03-23",
+            "kind": "questions_or_procedure_only",
+            "summary": "Co-sponsored and seconded the revised speaking rules for the data-center discussion.",
+            "pages": [
+              2,
+              3
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "24": {
       "member_at_vote": "Andy Van Meter",
@@ -245,7 +568,39 @@
         31
       ],
       "identity_aliases": [],
-      "note": "The chair was present, but no vote is recorded for him on the final zoning roll call. This is not an abstention or an absence."
+      "note": "The chair was present, but no vote is recorded for him on the final zoning roll call. This is not an abstention or an absence.",
+      "commentary": {
+        "member_at_vote": "Andy Van Meter",
+        "entries": [
+          {
+            "date": "2026-04-07",
+            "kind": "questions_or_procedure_only",
+            "summary": "Van Meter managed the meeting, applied speaking limits and called the final zoning vote. He cast the deciding No on a separate motion to extend public comment, but did not vote on the final zoning decision; these minutes do not record his personal reason for supporting or opposing CyrusOne.",
+            "pages": [
+              1,
+              4,
+              14,
+              17,
+              25,
+              31
+            ],
+            "explicit_vote_reason": false
+          },
+          {
+            "date": "2026-03-23",
+            "kind": "questions_or_procedure_only",
+            "summary": "Managed the hearing, explained speaking procedures and invited board questions after public presentations. These were chairing remarks.",
+            "pages": [
+              2,
+              3,
+              15,
+              38,
+              39
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "25": {
       "member_at_vote": "Jennifer Deaner",
@@ -253,7 +608,11 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Jennifer Deaner",
+        "entries": []
+      }
     },
     "26": {
       "member_at_vote": "Justin Davsko",
@@ -261,7 +620,11 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Justin Davsko",
+        "entries": []
+      }
     },
     "27": {
       "member_at_vote": "Abe Forsyth",
@@ -269,7 +632,11 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Abe Forsyth",
+        "entries": []
+      }
     },
     "28": {
       "member_at_vote": "Kevin McGuire",
@@ -277,7 +644,22 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Kevin McGuire",
+        "entries": [
+          {
+            "date": "2026-03-23",
+            "kind": "substantive_comment",
+            "summary": "Said zoning was only the first step. Discussed proposed generator, setback and code safeguards, developer-paid inspections and CyrusOne's written willingness to comply.",
+            "pages": [
+              14,
+              15
+            ],
+            "explicit_vote_reason": false
+          }
+        ]
+      }
     },
     "29": {
       "member_at_vote": "Cathy Scaife",
@@ -285,7 +667,33 @@
       "source_pages": [
         31
       ],
-      "identity_aliases": []
+      "identity_aliases": [],
+      "commentary": {
+        "member_at_vote": "Cathy Scaife",
+        "entries": []
+      }
+    }
+  },
+  "comment_review": {
+    "checked_at": "2026-11-15T16:48:46.035310+00:00",
+    "meeting_dates": [
+      "2026-03-23",
+      "2026-04-07"
+    ],
+    "scope": "All 44 pages of March 23 and all 40 pages of April 7 written minutes reviewed. Paraphrases of member remarks and procedural actions concerning CyrusOne; not a verbatim transcript or complete public-statement history. Absence means no explanation found in these minutes, not that the person never explained a vote elsewhere. Project claims remain attributed statements."
+  },
+  "comment_sources": {
+    "2026-03-23": {
+      "date": "2026-03-23",
+      "label": "March 23, 2026",
+      "url": "https://sangamondepartments.blob.core.windows.net/dnnfiles/Clerk/County-Board/Minutes/2026%20Minutes/March%2023%202026%20Minutes.pdf",
+      "page_count": 44
+    },
+    "2026-04-07": {
+      "date": "2026-04-07",
+      "label": "April 7, 2026",
+      "url": "https://sangamondepartments.blob.core.windows.net/dnnfiles/Clerk/County-Board/Minutes/2026%20Minutes/April%207%202026%20Minutes.pdf",
+      "page_count": 40
     }
   }
 }

@@ -129,11 +129,56 @@ scoring date is not presented as the GIS boundary retrieval date.
 `parcel-dashboard/score-context.js` supplies the interpretation and record-status logic.
 Point explanations must match the score date and reconstruct its components; unavailable
 or mismatched explanations show an explicit message. See `PARCEL_SCORE_REVIEW.md` for the
-November 14 review, including the existing residential-class rule and input-completeness
-limitations. This release does not recalculate published scores or refresh source data.
+November 14 review and the correction described below. Missing inputs remain disclosed.
 Run `node --test scripts/test_score_context.mjs` when changing this logic or replacing a
 score snapshot. Also run the existing analytics, search-metrics and property-share checks
 when modifying the property-result flow.
+
+### Reproducing the November scoring correction
+
+`scripts/recalculate_sangamon_scores.py` first reproduces every original county score,
+every public row and every published explanation from the private November 8 archive.
+It then requires a complete, error-free GIS check of the original missing-acreage PINs.
+Only positive, agreed recorded acreage that passes the separate parcel-footprint
+quality screen is accepted. Polygon area is used to reject suspect parent-tract
+totals; it is never used as a replacement acreage. Unscreened GIS candidates fail
+closed. The residential deduction now matches the normalized class
+`IMPROVED RESIDENTIAL` exactly. Countywide owner-acreage totals are recomputed so a
+verified acreage addition also updates holdings points on related parcels.
+
+Keep the source and evidence directories **outside this public checkout**. For the
+reviewed release, preserve the November 8 ZIP and matching full CSV in `private-source`,
+the original score and explanation JSON in `baseline`, and the verified GIS result in
+`gis/acreage-check.json`. All locations are explicit command-line arguments:
+
+```powershell
+python -B scripts/recalculate_sangamon_scores.py --source-dir ../parcel-acreage-correction-evidence/private-source --baseline-dir ../parcel-acreage-correction-evidence/baseline --gis ../parcel-acreage-correction-evidence/gis/acreage-check.json --output-root . --evidence-dir ../parcel-acreage-correction-evidence
+python -B scripts/test_recalculate_sangamon_scores.py
+```
+
+The script writes only the public rankings, grouped explanations and compact acreage
+check into this checkout. Its before/after report, corrected full CSV and raw-value
+calculation context remain in the external evidence directory. Source date remains
+November 8; `model_version`, `calculated_at` and `gis_checked_at` distinguish the rule
+correction and GIS retrieval. Reason hashes use LF-normalized ranking bytes. Rebuild
+derived summaries and top-ten records before publishing a changed snapshot.
+
+### Representatives by parcel location
+
+`scripts/import_parcel_representatives.py` imports official office-holder directories
+and joins all 166 county GIS precinct codes to the county's August 2023 district
+chart. Run it with `--evidence-dir` pointing outside this checkout; `--cached` repeats
+the import from preserved source responses. It exports only officials' names,
+offices, terms and public contact/meeting links, never residential addresses or
+voter registration records. School board names are checked against the district's
+own current Contact the Board page as well as the county directory.
+
+The dashboard queries county municipal, school, county-board and precinct boundaries
+at the selected parcel point. Split precincts preserve multiple possible state or
+federal districts; the county voter lookup remains the source for official voter
+assignment. Municipality and school district come from boundaries, not ZIP code or
+township. Meeting/roll-call links are records portals, not claims that an official
+cast a particular vote. Recheck office holders after new terms or appointments begin.
 
 ## Local Preview
 

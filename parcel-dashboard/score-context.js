@@ -22,8 +22,9 @@
     return "This is a land-research priority, not a grade for your home. Farms and larger lots usually score higher. A low score does not mean a home is unsafe, poorly maintained or worth less.";
   }
 
-  function validateReasons(source, row, sourceDate) {
+  function validateReasons(source, row, sourceDate, modelVersion) {
     if (!source || source.source_date !== sourceDate || !Array.isArray(source.patterns) || !source.rows) return null;
+    if (modelVersion && source.model_version !== modelVersion) return null;
     const index = source.rows[row[0]];
     if (!Number.isInteger(index)) return null;
     const values = source.patterns[index];
@@ -36,17 +37,30 @@
       row[4] + row[5] + row[6] === row[7] ? values : null;
   }
 
-  function facts({row, loaded, sourceDate, propertyClass, parcel = {}, entry, pending = false}) {
+  function facts({row, loaded, sourceDate, propertyClass, parcel = {}, entry, pending = false, scoreData = {}, acreageCheck}) {
     const result = [];
+    const checked = acreageCheck?.model_version === scoreData.model_version ? acreageCheck?.parcels?.[row?.[0]] : null;
+    const checkedDate = acreageCheck?.checked_at_utc?.slice(0,10);
+    const calculation = scoreData.calculated_at ? " Recalculated " + scoreData.calculated_at.slice(0,10) + " (UTC) after the residential-rule correction and a county GIS acreage check." : "";
     result.push({label:"Scoring record", status:row ? "Recorded" : loaded ? "Not scored" : "Could not load", detail:row ?
-      propertyClass + ". Score and scoring inputs use the county file dated " + sourceDate + "; they are not live tax or sale records." : loaded ?
+      propertyClass + ". The base tax record is dated " + sourceDate + "; these are not live tax or sale records." + calculation : loaded ?
       "No entry in the published scoring list. This does not mean the county has no property record." :
       "Reload to try the scoring file again. County lookup and scoring coverage are separate."});
 
-    const fromGis = positive(parcel.acres), fromScore = positive(row?.[3]);
+    const withheld = checked?.status === "conflict" && !positive(row?.[3]);
+    const fromGis = positive(parcel.acres) && !withheld, fromScore = positive(row?.[3]);
     let detail = fromGis ? acres(parcel.acres) + " from this county GIS lookup." :
       fromScore ? acres(row[3]) + " in the scoring snapshot dated " + sourceDate + "." :
-      "No positive acreage is recorded in the available result. This does not establish that the lot has zero area.";
+      (withheld ? "No acreage passed the record checks for this score." : "No positive acreage is recorded in the available result.") + " This does not establish that the lot has zero area.";
+    if (checked?.status === "recovered" && fromScore && Math.abs(checked.acres - row[3]) < .0005) {
+      detail = acres(row[3]) + " used in the recalculated score, recovered from the county GIS recorded-acreage field (TOTACRES), checked " + checkedDate + " (UTC). It passed a comparison with the mapped parcel area; no map-area estimate was used as the lot size. The county does not supply an update date for that field.";
+      if (fromGis) detail += " This lookup returned " + acres(parcel.acres) + ".";
+    } else if (checked) {
+      detail += checked.status === "conflict" ? " The GIS check on " + checkedDate + " found conflicting recorded acreages or a mismatch with the parcel footprint; none was used to recalculate the score." :
+        checked.status === "no_match" ? " The GIS check on " + checkedDate + " found no exact parcel-number match in the three county layers checked." :
+        " The GIS check on " + checkedDate + " found this parcel but no usable positive recorded acreage.";
+    }
+    if (withheld && positive(parcel.acres)) detail += " This lookup returned " + acres(parcel.acres) + ", but the conflicting GIS size is withheld from the lot-size display and score pending clarification.";
     if (fromGis && row && (!fromScore || Math.abs(parcel.acres - row[3]) > .0005)) {
       detail += fromScore ? " The score used " + acres(row[3]) + ". These sources differ; the score has not been recalculated." :
         " The score used no positive acreage, even though GIS now supplies a size. The score has not been recalculated.";
@@ -54,7 +68,7 @@
       detail += " The county GIS lookup could not refresh it.";
     }
     if (row && !fromScore) detail += " The model awarded no acreage or per-acre points and applied its missing-acreage deduction.";
-    result.push({label:"Lot size", status:fromGis || fromScore ? "Recorded" : pending ? "Checking" : "Missing", detail});
+    result.push({label:"Lot size", status:fromGis || fromScore ? "Recorded" : checked?.status === "conflict" ? "Conflicting records" : pending ? "Checking" : "Missing", detail});
 
     const matching = (parcel.features || []).filter(feature => String(feature.properties?.PIN) === parcel.pin);
     const liveOutline = matching.some(feature => outline(feature.geometry));

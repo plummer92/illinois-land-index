@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./navigation.css" />
     <script src="./analytics.js?v=20261114-sharing" defer></script>
-    <script src="./latest-land-signals.js" defer></script>
+    <script src="./latest-land-signals.js?v=20261114-acreage-v2" defer></script>
     <link rel="stylesheet" href="./assets/brand/brand.css?v=20261114-outline">
     <link rel="icon" type="image/png" sizes="160x160" href="./assets/brand/ili-state-profile-160.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/brand/apple-touch-icon.png">
@@ -145,7 +145,8 @@
         <div class="preview-card wide signal-change-panel">
           <div class="preview-card-header">
             <div>
-              <h3>What changed: previous week vs. new week</h3>
+              <h3 data-signal-stat="delta-title">What changed between published snapshots</h3>
+              <p data-signal-stat="delta-note">Compare the source dates and explanation of each update before treating a difference as a change in the market.</p>
               <p>
                 Previous snapshot: <span data-signal-stat="delta-compared-to">loading</span> · New snapshot:
                 <span data-signal-stat="delta-current-week">loading</span>. Each card shows previous → new (net change).

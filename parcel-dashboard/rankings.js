@@ -6,6 +6,7 @@
   const pageSize = 25;
   const countFormat = new Intl.NumberFormat("en-US");
   const acresFormat = new Intl.NumberFormat("en-US", {maximumFractionDigits: 3});
+  const release = "20261114-acreage-v2";
   const minOptions = ["45", "50", "60", "70", "80", "90", "all"];
   const sortOptions = {score: "Highest score first", acres: "Most acres first", pin: "Parcel number"};
   const parcelOrder = (a, b) => a[0].localeCompare(b[0]);
@@ -48,17 +49,17 @@
   }
   // This optional detail file is fetched the first time a countywide row needs it.
   let reasonRequest;
-  async function showScoreReasons(list, notice, row, sourceDate, propertyClass, top) {
+  async function showScoreReasons(list, notice, row, sourceDate, propertyClass, modelVersion) {
     notice.textContent = "Loading the point-by-point explanation…";
     if (!reasonRequest) {
-      reasonRequest = readJson("./data/score-reasons.json").catch(() => {
+      reasonRequest = readJson("./data/score-reasons.json?v=" + release).catch(() => {
         reasonRequest = null;
         return null;
       });
     }
     const source = await reasonRequest;
     if (!list.isConnected) return;
-    const rule = window.ParcelScoreContext.validateReasons(source,row,sourceDate);
+    const rule = window.ParcelScoreContext.validateReasons(source,row,sourceDate,modelVersion);
     if (!rule) {
       notice.textContent = source ? "The detailed explanation does not match this score snapshot. Only the recorded component totals are shown." :
         "The detailed explanation could not load. Only the recorded component totals are shown. Close and reopen this section to retry.";
@@ -80,9 +81,7 @@
       (row[3] === 0 ? " The scoring file has no positive acreage for this PIN, so it awarded no acreage or per-acre points." :
         size === 20 ? " The parcel reached all four acreage thresholds through 10 acres." : "") +
       (landClass + size + assessment + tax > 40 ? " This component is capped at 40." : "");
-    const buy = top ? points(ownerClass) + (top.points.buyability.trust_estate ? " for a trust or estate, " : " for an individual owner, ") +
-      points(holdings) + " for at least two parcels totaling at least 100 acres, and " + points(otherBuy) + " from the mailing-address rules." :
-      points(ownerClass) + " from the ownership category, " + points(holdings) + " from recorded holdings and " +
+    const buy = points(ownerClass) + " from the ownership category, " + points(holdings) + " from recorded holdings and " +
       points(otherBuy) + " from the combined address and tax-sale rules." +
       (ownerClass + holdings + otherBuy < 0 ? " This component has a floor of zero." :
         ownerClass + holdings + otherBuy > 35 ? " This component is capped at 35." : "");
@@ -92,7 +91,7 @@
       (25 + propertyRisk + otherRisk < 0 ? " This component has a floor of zero." : "");
     const deductions = [];
     if (row[3] === 0) deductions.push([8,"missing acreage"]);
-    if (propertyClass.includes("IMPROVED RESIDENTIAL")) deductions.push([12,"the residential class rule"]);
+    if (propertyClass.trim().replace(/\s+/g," ") === "IMPROVED RESIDENTIAL") deductions.push([12,"improved residential classification"]);
     if (/COMMERCIAL|INDUSTRIAL/.test(propertyClass)) deductions.push([14,"commercial or industrial classification"]);
     if (propertyClass.includes("TOTALLY EXEMPT")) deductions.push([12,"tax-exempt classification"]);
     if (deductions.length && deductions.reduce((sum,[value]) => sum + value,0) === -propertyRisk) {
@@ -106,7 +105,7 @@
   }
   function buildRankings(data, snapshot) {
     const sourceDate = new Date(data.source_date + "T12:00:00Z").toLocaleDateString("en-US", {month:"long", day:"numeric", year:"numeric", timeZone:"UTC"});
-    const topParcels = new Map((snapshot?.sourceDate === data.source_date ? snapshot.parcels : []).map(parcel => [parcel.pin,parcel]));
+    const topParcels = new Map((snapshot?.sourceDate === data.source_date && snapshot?.model_version === data.model_version ? snapshot.parcels : []).map(parcel => [parcel.pin,parcel]));
     const form = create("form", undefined, "rank-controls");
     form.addEventListener("submit", e => e.preventDefault());
     function field(id, labelText, tag) {
@@ -141,12 +140,17 @@
 
     const header = create("div", undefined, "rank-summary");
     header.append(status,create("p",countFormat.format(data.rows.length) + " scored parcels across " + data.townships.length + " Sangamon County townships · County file dated " + sourceDate,"rank-vintage"));
+    if (data.calculated_at) {
+      const recovered = data.acreage_check_summary?.recovered;
+      const unresolved = data.rows.filter(row => !(row[3] > 0)).length;
+      header.append(create("p","Scores recalculated " + data.calculated_at.slice(0,10) + " (UTC). The vacant-residential deduction was corrected" + (Number.isInteger(recovered) ? " and " + countFormat.format(recovered) + " missing acreages were filled from recorded county GIS fields after a parcel-area comparison" : "") + ". " + countFormat.format(unresolved) + " still have no usable acreage. This is a model/data correction, not a change in market value.","score-source-note"));
+    }
     const method = create("details",undefined,"rank-method");
     method.append(create("summary","What this research score measures"),
       create("p","This is a land-research priority, not a home rating, percentage or market valuation. The model favors farms and larger lots. A higher number moves a parcel up this research list; it does not establish availability for sale or an owner’s willingness to sell."),
       create("p","Land fit (up to 40 points) uses property class, acreage, assessed value and annual taxes per acre. Ownership and purchase indicators (up to 35) use ownership categories, recorded holdings, address rules and tax-sale flags. The last component starts at 25 and subtracts points under classification and record rules. More points remaining means fewer model deductions, not lower physical risk."),
       create("p","The target-group filter is a model selection, not verified sale availability. Show all properties to include parcels outside it. ‘Not recorded’ for acreage means no positive size was recorded, not a zero-size lot."),
-      create("p","Known limits: the current residential classification rule deducts 12 points for both improved and unimproved residential land. Missing acreage also reduces the score. Zero tax or assessment points do not reveal whether inputs were missing, and missing tax-sale data can default to no flag. None of these is a finding about a home’s condition or its current taxes."),
+      create("p","The corrected rule deducts 12 points only for improved residential classification. Vacant land recorded as unimproved residential no longer receives that deduction. Missing acreage still reduces the score. Zero tax or assessment points do not reveal whether inputs were missing, and missing tax-sale data can default to no flag. None of these is a finding about a home’s condition or its current taxes."),
       create("p","Floodplains, wetlands, drainage, soils, legal access, zoning, building condition, comparable sales and service to a utility meter have not been verified by this score."));
     const clear = create("button","Reset filters","rank-reset");
     clear.type = "button";
@@ -298,10 +302,10 @@
     restore();
   }
 
-  function buildFinder(data, geography, snapshot) {
+  function buildFinder(data, geography, snapshot, acreageCheck) {
     const scores = new Map(data?.rows.map(row => [row[0],row]));
     const topParcels = new Map();
-    if (data && snapshot?.sourceDate === data.source_date) {
+    if (data && snapshot?.sourceDate === data.source_date && snapshot?.model_version === data.model_version) {
       for (const parcel of snapshot.parcels) {
         const row = scores.get(parcel.pin);
         if (row && row[3] === parcel.ac && row[4] === parcel.land && row[5] === parcel.buy &&
@@ -356,6 +360,7 @@
       const utilities = create("div");
       target.replaceChildren(utilities);
       window.showPropertyUtilities?.(utilities,{pin,lon:position?.[0],lat:position?.[1]});
+      window.showPropertyRepresentatives?.(target,{position});
       const records = create("details",undefined,"parcel-records");
       const links = create("div",undefined,"rank-links");
       if (position) {
@@ -372,7 +377,7 @@
       const [pin,,cls,,land,buy,risk,score] = row;
       const breakdown = create("details",undefined,"score-breakdown");
       breakdown.append(create("summary","Why this research score is " + score + " / 100"));
-      breakdown.append(create("p","The score uses the county file dated " + data.source_date + ". It ranks parcels for land research; it is not a percentage, a home appraisal or a prediction that an owner will sell."));
+      breakdown.append(create("p","The base tax file is dated " + data.source_date + (data.calculated_at ? "; scores recalculated " + data.calculated_at.slice(0,10) + " (UTC) after the residential-rule correction and county GIS acreage check" : "") + ". It ranks parcels for land research; it is not a percentage, a home appraisal or a prediction that an owner will sell."));
       const top = topParcels.get(pin);
       if (top) breakdown.append(create("p","#" + top.n + " in the Chatham Township top 10. " + top.label + ". " + top.village + "."));
       const reasons = create("ul",undefined,"rank-reasons");
@@ -380,10 +385,11 @@
       const notice = create("p",undefined,"score-source-note");
       notice.setAttribute("role","status");
       breakdown.append(reasons,notice);
-      if (data.classes[cls].includes("IMPROVED RESIDENTIAL")) breakdown.append(create("p","The current rule deducts 12 points for residential classification, including vacant lots recorded as ‘unimproved residential’. This is a known limitation of the existing score, not evidence of a defect in your property."));
+      if (data.classes[cls] === "IMPROVED RESIDENTIAL") breakdown.append(create("p","Improved residential classification receives a 12-point deduction because this model prioritizes land research. That is not evidence of a defect in your home."));
+      if (data.classes[cls] === "UNIMPROVED RESIDENTIAL") breakdown.append(create("p","The vacant-residential rule has been corrected. This parcel no longer receives the 12-point deduction intended for improved residential property."));
       target.append(breakdown);
       breakdown.addEventListener("toggle",() => {
-        if (breakdown.open) showScoreReasons(reasons,notice,row,data.source_date,data.classes[cls],top);
+        if (breakdown.open) showScoreReasons(reasons,notice,row,data.source_date,data.classes[cls],data.model_version);
       });
     }
     function informationDetails(target,row,entry) {
@@ -403,7 +409,7 @@
       return function update(current,pending = false) {
         facts.replaceChildren();
         const items = window.ParcelScoreContext.facts({row,loaded:Boolean(data),sourceDate:data?.source_date,
-          propertyClass:row ? middle(data.classes[row[2]]) : "",parcel:current,entry,pending});
+          propertyClass:row ? middle(data.classes[row[2]]) : "",parcel:current,entry,pending,scoreData:data || {},acreageCheck});
         for (const item of items) {
           const term = create("dt",item.label);
           term.append(create("span",item.status,"parcel-data-status"));
@@ -437,7 +443,9 @@
       const acreage = create("div");
       const size = create("strong");
       function showAcres(countyAcres) {
-        const acres = countyAcres > 0 ? countyAcres : record?.[3];
+        const audited = acreageCheck?.model_version === data?.model_version ? acreageCheck?.parcels?.[pin] : null;
+        const withheld = audited?.status === "conflict" && !(record?.[3] > 0);
+        const acres = !withheld && countyAcres > 0 ? countyAcres : record?.[3];
         size.textContent = acres > 0 ? acresFormat.format(acres) + (acres === 1 ? " acre" : " acres") : "Unavailable";
       }
       showAcres(match.acres);
@@ -512,7 +520,7 @@
         mapView = window.createChathamScoreMap(mapContainer,{geometry:geography,top:[...topParcels.values()],scoreRows:data.rows},onMapChoose);
         const mappedPins = Object.keys(geography.parcels).filter(isMapped);
         const outlines = mappedPins.filter(pin => geography.parcels[pin].d).length;
-        document.getElementById("map-vintage").textContent = countFormat.format(mappedPins.length) + " mapped properties · Scores from " + data.source_date;
+        document.getElementById("map-vintage").textContent = countFormat.format(mappedPins.length) + " mapped properties · Base tax file " + data.source_date + (data.calculated_at ? " · Recalculated " + data.calculated_at.slice(0,10) + " (UTC)" : "");
         document.getElementById("coverage-note").textContent = "Coverage includes Chatham Township and parts of the Village of Chatham in Ball and Curran townships. Sangamon County provides " +
           countFormat.format(outlines) + " parcel outlines and " + countFormat.format(mappedPins.length - outlines) + " additional point locations. Parcel colors show land research scores, including zero.";
         const missing = geography.missing.filter(pin => scores.has(pin) && !isMapped(pin));
@@ -587,8 +595,8 @@
     });
   }
 
-  const scores = readJson("../data/sangamon-parcel-scores.json").catch(() => null);
-  const snapshot = readJson("./data/chatham-top-parcels.json").catch(() => null);
+  const scores = readJson("../data/sangamon-parcel-scores.json?v=" + release).catch(() => null);
+  const snapshot = readJson("./data/chatham-top-parcels.json?v=" + release).catch(() => null);
   if (root) {
     Promise.all([scores,snapshot]).then(([data,top]) => {
       if (!data?.rows?.length) throw new Error("Scores unavailable");
@@ -597,6 +605,7 @@
   }
   if (resultRoot) {
     const geography = readJson("./data/chatham-scored-map.json").catch(() => null);
-    Promise.all([scores,geography,snapshot]).then(([data,geometry,top]) => buildFinder(data,geometry,top));
+    const acreageCheck = readJson("./data/acreage-check.json?v=" + release).catch(() => null);
+    Promise.all([scores,geography,snapshot,acreageCheck]).then(([data,geometry,top,acreage]) => buildFinder(data,geometry,top,acreage));
   }
 })();

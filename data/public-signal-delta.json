@@ -1,9 +1,25 @@
 {
-  "generated_at": "2026-11-09T22:46:44.297Z",
-  "compared_to": "2026-11-09T14:04:56.823Z",
+  "generated_at": "2026-11-15T05:19:00.177384+00:00",
+  "compared_to": "2026-11-09T22:46:44.289Z",
+  "comparison_type": "model_and_recorded_acreage_correction",
+  "model_version": "2026-11-14-residential-acreage-v2",
+  "correction": {
+    "type": "model_and_recorded_acreage_correction",
+    "model_version": "2026-11-14-residential-acreage-v2",
+    "tax_source_date": "2026-11-08",
+    "tax_source_refreshed": false,
+    "county_gis_checked_at": "2026-11-15T04:59:18.778819+00:00",
+    "county_gis_attribute_update_date": null,
+    "county_gis_quality_checked_at": "2026-11-15T05:12:14.521555+00:00",
+    "recorded_acreage_candidates_rejected_by_quality_screen": 437,
+    "recovered_acreage_rows": 50,
+    "remaining_missing_acreage_rows": 11683,
+    "changed_score_rows": 1433,
+    "note": "Recalculated scores and recorded acreage corrections; not market movement or a fresh tax-status check. County GIS retrieval time is not its attribute update date."
+  },
   "privacy": {
     "public_safe": true,
-    "note": "Aggregate changes only. No parcel IDs, owner names, addresses, or legal descriptions."
+    "note": "Aggregate correction comparison only; no owner identities or parcel identifiers."
   },
   "illinois_sangamon": {
     "has_previous_summary": true,
@@ -18,16 +34,16 @@
       {
         "label": "Score 80+ rows",
         "path": "illinois_sangamon.score_bands.score_80_plus",
-        "current": 2959,
-        "previous": 2955,
-        "change": 4
+        "current": 2982,
+        "previous": 2959,
+        "change": 23
       },
       {
         "label": "Countywide unpaid-balance rows",
         "path": "illinois_sangamon.totals.taxes_due_count",
         "current": 311,
-        "previous": 15634,
-        "change": -15323
+        "previous": 311,
+        "change": 0
       },
       {
         "label": "Due within 45 days",
@@ -40,8 +56,8 @@
         "label": "Large owner groups",
         "path": "illinois_sangamon.totals.large_owner_rollup_count",
         "current": 1768,
-        "previous": 1770,
-        "change": -2
+        "previous": 1768,
+        "change": 0
       },
       {
         "label": "Terrain-ready rows",
@@ -59,12 +75,12 @@
       }
     ],
     "largest_movement": {
-      "label": "Countywide unpaid-balance rows",
-      "path": "illinois_sangamon.totals.taxes_due_count",
-      "current": 311,
-      "previous": 15634,
-      "change": -15323
+      "label": "Score 80+ rows",
+      "path": "illinois_sangamon.score_bands.score_80_plus",
+      "current": 2982,
+      "previous": 2959,
+      "change": 23
     },
-    "summary_line": "Countywide unpaid-balance rows changed by -15323."
+    "summary_line": "Model and recorded-acreage correction compared with the previously published summary. These changes do not measure market activity; tax-status figures retain their prior snapshot."
   }
 }

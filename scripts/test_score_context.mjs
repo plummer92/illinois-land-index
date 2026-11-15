@@ -24,12 +24,13 @@ const feature = (type,pin=row[0]) => ({properties:{PIN:pin},geometry:{type,coord
 test("every published parcel has consistent totals and matching, dated explanation inputs", () => {
   assert.equal(scores.rows.length,22707,"reviewed snapshot coverage changed; re-audit the replacement");
   assert.equal(reasons.source_date,scores.source_date);
+  assert.equal(reasons.model_version,scores.model_version);
   assert.equal(Object.keys(reasons.rows).length,scores.rows.length);
   // Git's text checkout can use CRLF on Windows; the recorded digest covers LF source bytes.
   assert.equal(createHash("sha256").update(scoreText.replace(/\r\n/g,"\n")).digest("hex"),reasons.rank_file_sha256);
   for (const published of scores.rows) {
     assert.equal(published[4]+published[5]+published[6],published[7],"component total mismatch");
-    assert.ok(api.validateReasons(reasons,published,scores.source_date),"missing or inconsistent explanation");
+    assert.ok(api.validateReasons(reasons,published,scores.source_date,scores.model_version),"missing or inconsistent explanation");
   }
 });
 
@@ -150,4 +151,30 @@ test("explanation validation rejects unavailable, stale, malformed and inconsist
   assert.equal(api.validateReasons({...source(),patterns:[[0,8,0,0,8,0,0,-12,0]]},row,sourceDate),null);
   const badTotal = [...row]; badTotal[7]++;
   assert.equal(api.validateReasons(source(),badTotal,sourceDate),null);
+  assert.equal(api.validateReasons({...source(),model_version:"old"},row,sourceDate,"new"),null);
+  assert.equal(api.validateReasons(source(),row,sourceDate,"new"),null);
+  assert.equal(api.validateReasons({...source(),model_version:"new"},row,sourceDate,"new"),rule);
+});
+
+const checked = (status,acres) => ({model_version:"v2",checked_at_utc:"2026-11-15T04:59:18Z",parcels:{[row[0]]:{status,acres}}});
+test("GIS acreage used in recalculation has its own provenance and date", () => {
+  const result = fact({...base(),scoreData:{model_version:"v2",calculated_at:"2026-11-15T05:00:00Z"},acreageCheck:checked("recovered",2)},"Lot size");
+  assert.match(result.detail,/2 acres used in the recalculated score/);
+  assert.match(result.detail,/TOTACRES.*2026-11-15/);
+  assert.doesNotMatch(result.detail,/scoring snapshot dated 2026-11-08/);
+  const stale = fact({...base(),scoreData:{model_version:"v3"},acreageCheck:checked("recovered",2)},"Lot size");
+  assert.doesNotMatch(stale.detail,/recovered|TOTACRES/);
+});
+
+test("unresolved acreage separates conflicting records, unmatched parcels and empty values", () => {
+  const missing = [...row]; missing[3]=0;
+  const input = {...base(),row:missing,scoreData:{model_version:"v2"}};
+  const conflict = fact({...input,acreageCheck:checked("conflict",null)},"Lot size");
+  assert.equal(conflict.status,"Conflicting records");
+  assert.match(conflict.detail,/conflicting recorded acreages or a mismatch.*none was used/);
+  const stillReported = fact({...input,acreageCheck:checked("conflict",null),parcel:{pin:row[0],acres:75.09}},"Lot size");
+  assert.equal(stillReported.status,"Conflicting records");
+  assert.match(stillReported.detail,/75.09 acres.*withheld/);
+  assert.match(fact({...input,acreageCheck:checked("no_match",null)},"Lot size").detail,/no exact parcel-number match/);
+  assert.match(fact({...input,acreageCheck:checked("missing",null)},"Lot size").detail,/no usable positive recorded acreage/);
 });

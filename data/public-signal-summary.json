@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-09T22:46:44.289Z",
+  "generated_at": "2026-11-15T05:19:00.177384+00:00",
   "privacy": {
     "public_safe": true,
     "excluded_fields": [
@@ -36,17 +36,17 @@
       "owner_rollup_count": 73060,
       "large_owner_rollup_count": 1768,
       "terrain_ready_count": 0,
-      "total_acres": 239655.91,
+      "total_acres": 239684.16,
       "annual_tax_total": 79665079.92,
       "max_opportunity_score": 93,
       "max_owner_parcel_count": 2383,
       "max_owner_total_acres": 24553.86
     },
     "score_bands": {
-      "score_80_plus": 2959,
-      "score_70_plus": 3826,
-      "score_60_plus": 4209,
-      "score_50_plus": 4927
+      "score_80_plus": 2982,
+      "score_70_plus": 3932,
+      "score_60_plus": 4473,
+      "score_50_plus": 5849
     },
     "acreage_bands": {
       "ten_plus_acres": 4286,
@@ -105,5 +105,20 @@
       "high_risk_count": 0
     },
     "refreshed_at": "2026-11-09T22:46:38.778Z"
+  },
+  "model_version": "2026-11-14-residential-acreage-v2",
+  "correction": {
+    "type": "model_and_recorded_acreage_correction",
+    "model_version": "2026-11-14-residential-acreage-v2",
+    "tax_source_date": "2026-11-08",
+    "tax_source_refreshed": false,
+    "county_gis_checked_at": "2026-11-15T04:59:18.778819+00:00",
+    "county_gis_attribute_update_date": null,
+    "county_gis_quality_checked_at": "2026-11-15T05:12:14.521555+00:00",
+    "recorded_acreage_candidates_rejected_by_quality_screen": 437,
+    "recovered_acreage_rows": 50,
+    "remaining_missing_acreage_rows": 11683,
+    "changed_score_rows": 1433,
+    "note": "Recalculated scores and recorded acreage corrections; not market movement or a fresh tax-status check. County GIS retrieval time is not its attribute update date."
   }
 }

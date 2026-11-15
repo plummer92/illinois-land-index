@@ -117,3 +117,20 @@
 @media (max-width:820px) {
   #find-property,#property-result,.parcel-page .property-utilities,.property-source-location {scroll-margin-top:.5rem;}
 }
+.parcel-representatives { margin:1rem 0; border:1px solid #c9d8d1; border-radius:12px; padding:1rem; }
+.parcel-representatives > summary { font-weight:700; font-size:1.08rem; cursor:pointer; min-height:32px; }
+.representative-content { margin-top:1rem; }
+.representative-card { margin:1.1rem 0; padding:1rem; background:#f3f7f4; border-radius:10px; }
+.representative-card > summary { font-size:1.08rem; font-weight:700; cursor:pointer; padding:.3rem 0; }
+.representative-person { padding:.7rem 0; border-bottom:1px solid #d9e1dc; }
+.representative-person > strong,.representative-person > span { display:block; }
+.representative-person > span { margin:.2rem 0; }
+.representative-person .rank-links { margin:.3rem 0; }
+.representative-votes { margin-top:1rem; }
+.representative-votes summary { padding:.6rem 0; font-weight:700; cursor:pointer; }
+.representative-vote { border-top:1px solid #c9d8d1; padding:1rem 0; }
+.representative-vote h5 { font-size:1rem; margin:0; }
+.representative-vote dl { display:grid; grid-template-columns:minmax(100px,.7fr) 1fr; gap:.4rem; }
+.representative-vote dt { font-weight:700; }
+.representative-vote dd { margin:0; }
+.representative-card a { overflow-wrap:anywhere; }

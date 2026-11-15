@@ -24,7 +24,7 @@
   }
 
   function formatComparison(metric) {
-    if (!metric || metric.previous === null || metric.previous === undefined) return "First weekly snapshot";
+    if (!metric || metric.previous === null || metric.previous === undefined) return "No comparable earlier value";
     return `${numberFormat.format(Number(metric.previous || 0))} → ${numberFormat.format(Number(metric.current || 0))} (${formatChange(metric.change)})`;
   }
 
@@ -101,11 +101,15 @@
       setText("delta-current-week", formatDate(publicDeltaResult.value.generated_at));
       setText("delta-targets", formatComparison(byLabel["Sangamon target rows"]));
       setText("delta-score-80", formatComparison(byLabel["Score 80+ rows"]));
-      setText("delta-taxes-due", formatComparison(byLabel["Taxes due rows"]));
+      setText("delta-taxes-due", formatComparison(byLabel["Countywide unpaid-balance rows"] || byLabel["Taxes due rows"]));
       setText("delta-due-soon", formatComparison(byLabel["Due within 45 days"]));
       setText("delta-owner-groups", formatComparison(byLabel["Large owner groups"]));
       setText("delta-terrain", formatComparison(byLabel["Terrain-ready rows"]));
       setText("delta-largest-movement", movement ? `${movement.label}: ${formatChange(movement.change)}` : "Waiting on the next comparison");
+      if (publicDeltaResult.value.comparison_type === "model_and_recorded_acreage_correction") {
+        setText("delta-title","What changed after the scoring correction");
+        setText("delta-note","These differences come from correcting the vacant-residential rule and filling missing acreage from county GIS. They are not market movement. Tax and payment records were not refreshed.");
+      }
     }
 
     if (knoxvilleSummaryResult.status === "fulfilled" && knoxvilleCandidatesResult.status === "fulfilled") {
@@ -130,7 +134,7 @@
     }
 
     if (publicSummaryResult.status === "fulfilled" && knoxvilleSummaryResult.status === "fulfilled" && knoxvilleCandidatesResult.status === "fulfilled") {
-      setStatus("Live public Illinois/Sangamon and Knoxville data loaded. Public summaries exclude owner names, addresses, legal descriptions, and parcel IDs.");
+      setStatus("Published Illinois/Sangamon and Knoxville snapshots loaded. Check their source dates and correction notes. Public summaries exclude owner names, addresses, legal descriptions, and parcel IDs.");
     } else if (publicSummaryResult.status === "fulfilled" || knoxvilleSummaryResult.status === "fulfilled") {
       setStatus("Some live headline counts loaded. One public data source is temporarily unavailable.");
     } else {

@@ -1,0 +1,28 @@
+.brand-logo {
+  display: block;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.ili-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  max-width: 100%;
+  color: inherit;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.ili-brand-link strong { font-size: inherit; }
+.ili-brand-intro { margin-bottom: 16px; }
+.brand:focus-visible, .ili-brand-link:focus-visible {
+  outline: 3px solid #176b4d;
+  outline-offset: 4px;
+}

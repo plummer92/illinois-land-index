@@ -3,15 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'">
   <meta name="referrer" content="no-referrer">
   <title>Listing time by price range | Illinois Land Index</title>
   <link rel="stylesheet" href="./listing-tool.css">
   <script defer src="../infrastructure-map/vendor/d3.v7.min.js"></script>
   <script defer src="./listing-export.js"></script>
-</head>
+    <link rel="stylesheet" href="../assets/brand/brand.css?v=20261114-outline">
+    <link rel="icon" type="image/png" sizes="160x160" href="../assets/brand/ili-state-profile-160.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
+  </head>
 <body>
   <main>
+    <a class="ili-brand-link ili-brand-intro" href="../" aria-label="Illinois Land Index home"><img class="brand-logo" src="../assets/brand/ili-state-profile-160.png" alt="" width="48" height="48"><strong>Illinois Land Index</strong></a>
     <nav><a href="./#housing-market">← Back to the Sangamon housing market</a></nav>
     <h1>Listing time by price range</h1>
     <p>Use a Sangamon County residential listing export to compare the age of active listings and market time for completed sales. Your browser reads the file on this device.</p>

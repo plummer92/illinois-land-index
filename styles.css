@@ -55,17 +55,6 @@ a {
   text-decoration: none;
 }
 
-.brand span {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 8px;
-  background: var(--green);
-  color: #fff;
-  font-weight: 900;
-}
-
 .brand strong {
   font-size: 17px;
 }

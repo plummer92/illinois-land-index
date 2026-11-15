@@ -185,10 +185,22 @@ canonical dashboard URL and only the selected public PIN; search text and test f
 excluded. Both scored and unscored parcel links reopen through the existing finder.
 
 The homepage, parcel dashboard and rankings page include Open Graph and large-image card
-metadata. `assets/social/property-preview.png` is a 1200 x 630 general illustration,
+metadata. `assets/social/property-preview-outline.png` is a 1200 x 630 general illustration,
 without real parcel geometry, addresses or owner details. The static host serves the same
 general preview for all shared parcels; the actual link opens the selected parcel. Apps
 choose how to display and cache previews.
+
+### Site logo
+
+All 25 public HTML pages use the approved Illinois-outline ILI logo. Shared header
+styling lives in `assets/brand/brand.css`; the header image is the 19 KB
+`assets/brand/ili-state-profile-160.png`. Keep its explicit dimensions and empty
+alt text when the linked site name already supplies the accessible label.
+Browser icons and the social preview use the same artwork. Keep the full-size
+source for future exports, but use small derivatives in page headers.
+
+The listing-export tool allows only self-hosted images through its content security
+policy. Its `connect-src 'none'` and `form-action 'none'` restrictions remain intact.
 
 ## Deploy
 

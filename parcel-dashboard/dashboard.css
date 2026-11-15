@@ -134,3 +134,14 @@
 .representative-vote dt { font-weight:700; }
 .representative-vote dd { margin:0; }
 .representative-card a { overflow-wrap:anywhere; }
+.county-vote-preview { display:block; margin:.5rem 0 0; font-size:1rem; font-weight:500; }
+.county-project-vote { margin-top:1rem; padding-top:1rem; border-top:1px solid #b8c9be; }
+.county-project-vote h4 { margin:0 0 .7rem; font-size:1.1rem; }
+.county-vote-result { display:block; padding:.6rem .7rem; background:#e4ece7; border-radius:6px; }
+.county-project-vote > a { display:inline-block; min-height:44px; padding:.5rem 0; }
+.county-vote-rollcall > summary { margin-top:.5rem; padding:.7rem 0; cursor:pointer; font-weight:700; }
+.county-vote-rollcall ol { list-style:none; padding:0; }
+.county-vote-rollcall li { padding:.65rem .5rem; border-top:1px solid #d0dcd3; }
+.county-vote-rollcall li > strong,.county-vote-rollcall li > span { display:block; }
+.county-vote-rollcall li > span { margin-top:.2rem; }
+.selected-vote-district { background:#e4ece7; border-left:3px solid #285f49; }

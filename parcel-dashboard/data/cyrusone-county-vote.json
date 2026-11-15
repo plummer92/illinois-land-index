@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-11-15T05:39:54.146965+00:00",
+  "vote_date": "2026-04-07",
+  "title": "CyrusOne conditional-use zoning approval",
+  "resolution_title": "Granting a Conditional Permitted Use with Conditions for Certain Property Located at 13000 Block of Thayer Road, Waverly, Sangamon County, Illinois",
+  "resolution_number": "2 (tabled from March 23, 2026)",
+  "motion": "Final vote to grant conditional-use zoning with conditions for the CyrusOne data center proposed by C1 Sangamon I LLC.",
+  "case_number": "2025-019",
+  "outcome": "approved",
+  "tally": {
+    "yes": 17,
+    "no": 10,
+    "abstain": 1,
+    "not_voting": 1
+  },
+  "source": {
+    "title": "Sangamon County Board official minutes, April 7, 2026",
+    "url": "https://sangamondepartments.blob.core.windows.net/dnnfiles/Clerk/County-Board/Minutes/2026%20Minutes/April%207%202026%20Minutes.pdf",
+    "pages": [
+      31
+    ],
+    "context_pages": [
+      1,
+      3,
+      14
+    ],
+    "index_url": "https://sangamonil.gov/departments/a-c/county-clerk/vital-records/county-board/written-minutes",
+    "note": "PDF page numbers and printed page numbers agree. Page 31 records the final roll call; page 1 records all 29 members present."
+  },
+  "resolution_source": {
+    "title": "Tabled Resolution 2 from March 23, 2026; Case 2025-019",
+    "url": "https://sangamondepartments.blob.core.windows.net/dnnfiles/Clerk/County-Board/Resolutions/2026%20Resolutions/Tabled%20Res%202%20from%20March%2023%202026.pdf",
+    "pages": [
+      1,
+      2
+    ],
+    "index_url": "https://sangamonil.gov/departments/a-c/county-clerk/vital-records/county-board/agendas-resolutions",
+    "note": "This posted resolution retains March 23, 2026 in its text and has blank signature lines. The April 7 minutes establish the actual adoption date. It grants conditional-use zoning; page 2 requires further approvals before a building permit."
+  },
+  "district_source": {
+    "title": "NPR Illinois, April 7, 2026 final-vote district table",
+    "url": "https://www.nprillinois.org/sangamon-county/2026-04-07/sangamon-county-board-approves-a-controversial-data-center-project",
+    "note": "Contemporaneous district-to-member identities; votes were independently checked against the official final roll call on page 31."
+  },
+  "scope_note": "This is the April 7 final zoning decision, not a building permit, a motion to delay, or the separate vote on extending public comment. Historical votes belong to the named members who held the seats at that meeting; later officeholders are not assigned their predecessors’ votes.",
+  "records": {
+    "1": {
+      "member_at_vote": "Harry \"Tom\" Fraase, Jr.",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "2": {
+      "member_at_vote": "Casey Constant",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "3": {
+      "member_at_vote": "David Mendenhall",
+      "vote": "no",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "4": {
+      "member_at_vote": "Jeffrey A. Thomas",
+      "vote": "abstain",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": [
+        "Jeffrey Thomas"
+      ],
+      "identity_alias_source": {
+        "url": "https://sangamondepartments.blob.core.windows.net/dnnfiles/Clerk/County-Board/Minutes/2026%20Minutes/April%207%202026%20Minutes.pdf",
+        "pages": [
+          34
+        ]
+      }
+    },
+    "5": {
+      "member_at_vote": "Pam Deppe",
+      "vote": "no",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "6": {
+      "member_at_vote": "Tracy Sheppard",
+      "vote": "no",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "7": {
+      "member_at_vote": "Craig Hall",
+      "vote": "no",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "8": {
+      "member_at_vote": "Tom Rader",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "9": {
+      "member_at_vote": "Tom Madonia Jr.",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "10": {
+      "member_at_vote": "Paul Truax",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "11": {
+      "member_at_vote": "James Schackmann",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "12": {
+      "member_at_vote": "Marc Ayers",
+      "vote": "no",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "13": {
+      "member_at_vote": "Brad Miller",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "14": {
+      "member_at_vote": "Joel Tjelmeland, Jr.",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "15": {
+      "member_at_vote": "Tim Krell",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "16": {
+      "member_at_vote": "Greg Stumpf",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "17": {
+      "member_at_vote": "Annette Fulgenzi",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "18": {
+      "member_at_vote": "Sam Cahnman",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "19": {
+      "member_at_vote": "Vera Small",
+      "vote": "no",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "20": {
+      "member_at_vote": "Linda Douglas-Williams",
+      "vote": "no",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "21": {
+      "member_at_vote": "Reggie Guyton",
+      "vote": "no",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "22": {
+      "member_at_vote": "Gina Lathan",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "23": {
+      "member_at_vote": "Tony DelGiorno",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "24": {
+      "member_at_vote": "Andy Van Meter",
+      "vote": "not_voting",
+      "source_pages": [
+        1,
+        31
+      ],
+      "identity_aliases": [],
+      "note": "The chair was present, but no vote is recorded for him on the final zoning roll call. This is not an abstention or an absence."
+    },
+    "25": {
+      "member_at_vote": "Jennifer Deaner",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "26": {
+      "member_at_vote": "Justin Davsko",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "27": {
+      "member_at_vote": "Abe Forsyth",
+      "vote": "no",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "28": {
+      "member_at_vote": "Kevin McGuire",
+      "vote": "yes",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    },
+    "29": {
+      "member_at_vote": "Cathy Scaife",
+      "vote": "no",
+      "source_pages": [
+        31
+      ],
+      "identity_aliases": []
+    }
+  }
+}

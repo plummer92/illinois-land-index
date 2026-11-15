@@ -180,6 +180,16 @@ assignment. Municipality and school district come from boundaries, not ZIP code 
 township. Meeting/roll-call links are records portals, not claims that an official
 cast a particular vote. Recheck office holders after new terms or appointments begin.
 
+The county card additionally shows the recorded April 7, 2026 CyrusOne final
+conditional-use zoning vote. `parcel-dashboard/data/cyrusone-county-vote.json`
+preserves the 29 historical seat holders and cites the official minutes, page 31.
+It is separate from the March tabling motion and April procedural votes. The chair's
+non-vote is kept separate from an abstention or absence. Only a verified name/alias
+match attaches the historical vote to today's officeholder; replacement members
+show an explicit predecessor notice. An unresolved map match or failed ledger load
+never becomes an inferred vote. `scripts/test_representatives.mjs` checks the full
+roll call, four changed officeholders, historical aliases and failure states.
+
 ## Local Preview
 
 Serve the repository root with a static server to use the home page, parcel dashboard and map together.

@@ -8,6 +8,7 @@ vm.runInContext(read("../parcel-dashboard/representatives.js"),context);
 const api = context.window.ParcelRepresentatives;
 const data = JSON.parse(read("../parcel-dashboard/data/representatives.json"));
 const votes = JSON.parse(read("../parcel-dashboard/data/chatham-reviewed-votes.json"));
+const cyrusone = JSON.parse(read("../parcel-dashboard/data/cyrusone-county-vote.json"));
 
 test("a split precinct or boundary match never chooses one of multiple districts",() => {
   assert.equal(api.one([48,54]),null);
@@ -47,4 +48,62 @@ test("selected votes retain voice-vote uncertainty, absence and abstention",() =
   const core = votes.records.find(row => row.date === "2025-10-14");
   assert.equal(core.votes["Kristen Chiaro"],"Abstain");
   assert.ok(votes.records.some(row => row.votes["Tim Nice"] === "Absent"));
+});
+
+test("the CyrusOne ledger reconciles the final 29-member roll call",() => {
+  assert.equal(api.validCountyVote(cyrusone),cyrusone);
+  assert.equal(cyrusone.vote_date,"2026-04-07");
+  assert.deepEqual(cyrusone.tally,{yes:17,no:10,abstain:1,not_voting:1});
+  assert.deepEqual(cyrusone.source.pages,[31]);
+  assert.equal(api.countyVoteContext(cyrusone,"7",data.county_board["7"]).label,"No");
+  assert.equal(api.countyVoteContext(cyrusone,"26",data.county_board["26"]).label,"Yes");
+});
+
+test("all four replacement members are never assigned their predecessor's vote",() => {
+  const predecessors = {2:"Casey Constant",4:"Jeffrey A. Thomas",12:"Marc Ayers",16:"Greg Stumpf"};
+  for (const [district,previous] of Object.entries(predecessors)) {
+    const context = api.countyVoteContext(cyrusone,district,data.county_board[district]);
+    assert.equal(context.status,"previous",district);
+    assert.equal(context.record.member_at_vote,previous);
+    assert.notEqual(context.record.member_at_vote,data.county_board[district].name);
+  }
+  for (const district of Object.keys(cyrusone.records).filter(key => !Object.hasOwn(predecessors,key))) {
+    assert.equal(api.countyVoteContext(cyrusone,district,data.county_board[district]).status,"current",district);
+  }
+});
+
+test("abstention and chairman non-vote remain distinct from opposition and absence",() => {
+  assert.equal(api.countyVoteContext(cyrusone,"4",data.county_board["4"]).label,"Abstained");
+  const chair = api.countyVoteContext(cyrusone,"24",data.county_board["24"]);
+  assert.equal(chair.record.vote,"not_voting");
+  assert.equal(chair.label,"Did not vote");
+  assert.equal(chair.status,"current");
+});
+
+test("unresolved locations and unavailable vote records do not become a No vote",() => {
+  for (const district of [null,undefined,"","30","7,26"]) {
+    const result = api.countyVoteContext(cyrusone,district,data.county_board["7"]);
+    assert.equal(result.status,"unresolved");
+    assert.equal(result.label,undefined);
+  }
+  assert.equal(api.countyVoteContext(null,"7",data.county_board["7"]).status,"unavailable");
+  const unknownHolder = api.countyVoteContext(cyrusone,"7",{name:"Unverified new official"});
+  assert.equal(unknownHolder.status,"previous");
+  assert.equal(api.countyVoteContext(cyrusone,"7",null).status,"historical");
+});
+
+test("incomplete, altered or mislabeled roll calls fail validation",() => {
+  const changes = [
+    value => {delete value.records["1"];},
+    value => {value.records["24"].vote="no";},
+    value => {value.tally.yes=18;},
+    value => {value.vote_date="2026-03-23";},
+    value => {value.source.pages=[];},
+    value => {value.source.url="https://unverified.example/vote";},
+    value => {value.records["7"].identity_aliases=[value.records["26"].member_at_vote];},
+  ];
+  for (const change of changes) {
+    const value = structuredClone(cyrusone); change(value);
+    assert.equal(api.validCountyVote(value),null);
+  }
 });

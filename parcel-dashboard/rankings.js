@@ -48,7 +48,8 @@
   }
   // This optional detail file is fetched the first time a countywide row needs it.
   let reasonRequest;
-  async function showScoreReasons(list, row, sourceDate, propertyClass, top) {
+  async function showScoreReasons(list, notice, row, sourceDate, propertyClass, top) {
+    notice.textContent = "Loading the point-by-point explanation…";
     if (!reasonRequest) {
       reasonRequest = readJson("./data/score-reasons.json").catch(() => {
         reasonRequest = null;
@@ -56,9 +57,13 @@
       });
     }
     const source = await reasonRequest;
-    if (!list.isConnected || source?.source_date !== sourceDate || !Array.isArray(source.patterns) || !source.rows) return;
-    const rule = source.patterns[source.rows[row[0]]];
-    if (!Array.isArray(rule) || rule.length !== 9 || !rule.every(Number.isInteger)) return;
+    if (!list.isConnected) return;
+    const rule = window.ParcelScoreContext.validateReasons(source,row,sourceDate);
+    if (!rule) {
+      notice.textContent = source ? "The detailed explanation does not match this score snapshot. Only the recorded component totals are shown." :
+        "The detailed explanation could not load. Only the recorded component totals are shown. Close and reopen this section to retry.";
+      return;
+    }
     const [landClass,size,assessment,tax,ownerClass,holdings,otherBuy,propertyRisk,otherRisk] = rule;
     const bound = (value, max) => Math.min(max,Math.max(0,value));
     if (bound(landClass + size + assessment + tax,40) !== row[4] ||
@@ -95,8 +100,9 @@
       risk = "The model started at 25 and deducted " + deductions.map(([value,label]) => points(value) + " for " + label).join(" and ") + "." +
         (25 + propertyRisk + otherRisk < 0 ? " This component has a floor of zero." : "");
     }
-    if (row[6] === 25 && top) risk += " Drainage, road access and utilities require separate checks.";
-    list.replaceChildren(reason("Land fit",row[4],40,land),reason("Ownership and purchase indicators",row[5],35,buy),reason("Record checks",row[6],25,risk));
+    risk += " These are record-based deductions, not a physical-risk inspection. Full points do not establish that the property is safe from flooding or other hazards.";
+    list.replaceChildren(reason("Land fit",row[4],40,land),reason("Ownership and purchase indicators",row[5],35,buy),reason("Points remaining after model deductions",row[6],25,risk));
+    notice.textContent = "The explanation matches the recorded score. Zero assessment or tax points do not tell us whether the underlying value was missing or outside the model’s thresholds.";
   }
   function buildRankings(data, snapshot) {
     const sourceDate = new Date(data.source_date + "T12:00:00Z").toLocaleDateString("en-US", {month:"long", day:"numeric", year:"numeric", timeZone:"UTC"});
@@ -128,7 +134,7 @@
     minOptions.forEach(v => threshold.add(new Option(v === "all" ? "All scores" : v + " and up",v)));
     const sort = field("sort", "Sort by", "select");
     Object.entries(sortOptions).forEach(([value,label]) => sort.add(new Option(label,value)));
-    const realistic = field("realistic","Realistic targets only","input");
+    const realistic = field("realistic","Model’s target group only","input");
     realistic.type = "checkbox"; realistic.defaultChecked = true;
     realistic.parentElement.className = "rank-check";
     realistic.parentElement.prepend(realistic);
@@ -136,9 +142,12 @@
     const header = create("div", undefined, "rank-summary");
     header.append(status,create("p",countFormat.format(data.rows.length) + " scored parcels across " + data.townships.length + " Sangamon County townships · County file dated " + sourceDate,"rank-vintage"));
     const method = create("details",undefined,"rank-method");
-    method.append(create("summary","How the opportunity score works"),
-      create("p","Each parcel earns up to 100 points across three parts. Higher scores move a parcel up the research list. The score does not establish that a property is available to buy."),
-      create("p","Land fit (40 points) uses acreage, property class, assessed value and taxes per acre. Buyability (35 points) uses ownership categories, holdings and tax-sale indicators. Risk (25 points) uses property class, acreage, ownership and tax-sale indicators. More risk points means fewer deductions."));
+    method.append(create("summary","What this research score measures"),
+      create("p","This is a land-research priority, not a home rating, percentage or market valuation. The model favors farms and larger lots. A higher number moves a parcel up this research list; it does not establish availability for sale or an owner’s willingness to sell."),
+      create("p","Land fit (up to 40 points) uses property class, acreage, assessed value and annual taxes per acre. Ownership and purchase indicators (up to 35) use ownership categories, recorded holdings, address rules and tax-sale flags. The last component starts at 25 and subtracts points under classification and record rules. More points remaining means fewer model deductions, not lower physical risk."),
+      create("p","The target-group filter is a model selection, not verified sale availability. Show all properties to include parcels outside it. ‘Not recorded’ for acreage means no positive size was recorded, not a zero-size lot."),
+      create("p","Known limits: the current residential classification rule deducts 12 points for both improved and unimproved residential land. Missing acreage also reduces the score. Zero tax or assessment points do not reveal whether inputs were missing, and missing tax-sale data can default to no flag. None of these is a finding about a home’s condition or its current taxes."),
+      create("p","Floodplains, wetlands, drainage, soils, legal access, zoning, building condition, comparable sales and service to a utility meter have not been verified by this score."));
     const clear = create("button","Reset filters","rank-reset");
     clear.type = "button";
     const showAll = create("button","Show all " + countFormat.format(data.rows.length) + " properties","rank-reset");
@@ -153,7 +162,7 @@
     caption.className = "rank-sr";
     caption.textContent = "Sangamon County scored properties";
     const head = table.createTHead().insertRow();
-    ["Score", "Parcel and location", "Acres"].forEach(label => {
+    ["Score", "Parcel and location", "Recorded acres"].forEach(label => {
       const th = create("th",label);
       th.scope = "col"; head.append(th);
     });
@@ -254,7 +263,7 @@
         if (topParcels.has(pin)) parcelCell.append(create("span",topParcels.get(pin).road,"rank-road"));
         parcelCell.append(create("span", [data.townships[town],data.classes[propertyClass]].filter(Boolean).map(middle).join(" · "),"rank-location"));
         row.append(parcelCell);
-        row.insertCell().textContent = acres > 0 ? acresFormat.format(acres) : "—";
+        row.insertCell().textContent = acres > 0 ? acresFormat.format(acres) : "Not recorded";
       }
     }
     function filtersChanged(replace = false) {
@@ -362,17 +371,45 @@
     function scoreDetails(target,row) {
       const [pin,,cls,,land,buy,risk,score] = row;
       const breakdown = create("details",undefined,"score-breakdown");
-      breakdown.append(create("summary","How this lot earned " + score + " points"));
-      breakdown.append(create("p","Scores use the county file dated " + data.source_date + ". The index favors farms and larger lots. A score does not establish market value, condition or availability for sale."));
+      breakdown.append(create("summary","Why this research score is " + score + " / 100"));
+      breakdown.append(create("p","The score uses the county file dated " + data.source_date + ". It ranks parcels for land research; it is not a percentage, a home appraisal or a prediction that an owner will sell."));
       const top = topParcels.get(pin);
       if (top) breakdown.append(create("p","#" + top.n + " in the Chatham Township top 10. " + top.label + ". " + top.village + "."));
       const reasons = create("ul",undefined,"rank-reasons");
-      reasons.append(create("li","Land fit " + land + "/40"),create("li","Ownership and purchase indicators " + buy + "/35"),create("li","Record checks " + risk + "/25"));
-      breakdown.append(reasons);
+      reasons.append(create("li","Land fit " + land + "/40"),create("li","Ownership and purchase indicators " + buy + "/35"),create("li","Points remaining after model deductions " + risk + "/25"));
+      const notice = create("p",undefined,"score-source-note");
+      notice.setAttribute("role","status");
+      breakdown.append(reasons,notice);
+      if (data.classes[cls].includes("IMPROVED RESIDENTIAL")) breakdown.append(create("p","The current rule deducts 12 points for residential classification, including vacant lots recorded as ‘unimproved residential’. This is a known limitation of the existing score, not evidence of a defect in your property."));
       target.append(breakdown);
       breakdown.addEventListener("toggle",() => {
-        if (breakdown.open) showScoreReasons(reasons,row,data.source_date,data.classes[cls],top);
+        if (breakdown.open) showScoreReasons(reasons,notice,row,data.source_date,data.classes[cls],top);
       });
+    }
+    function informationDetails(target,row,entry) {
+      const details = create("details",undefined,"parcel-data-details");
+      details.append(create("summary","What we know and what’s missing"));
+      const facts = create("dl",undefined,"parcel-data-facts");
+      details.append(facts,create("h3","Checks still needed"));
+      const missing = create("ul",undefined,"parcel-missing-checks");
+      missing.append(
+        create("li","Home value and condition: no appraisal, comparable-sale analysis, inspection or current listing status is included."),
+        create("li","Land constraints: floodplain, wetlands, drainage, soils, slope, legal access, easements and zoning/buildability have not been checked by the score. Nearby water on the map does not answer these questions."),
+        create("li","Utilities: the water, electricity and gas sections show their own sources and uncertainty. A service-area match does not confirm a connection or capacity at your meter."),
+        create("li","Assessment and taxes: the published score file has points rather than the underlying amounts. Zero points cannot distinguish missing inputs from values outside a threshold. Tax-sale flags can be absent when their source was unavailable; check current county records.")
+      );
+      details.append(missing,create("p","Missing information means unverified, not that a problem exists. The score does not measure how complete this property record is.","score-source-note"));
+      target.append(details);
+      return function update(current,pending = false) {
+        facts.replaceChildren();
+        const items = window.ParcelScoreContext.facts({row,loaded:Boolean(data),sourceDate:data?.source_date,
+          propertyClass:row ? middle(data.classes[row[2]]) : "",parcel:current,entry,pending});
+        for (const item of items) {
+          const term = create("dt",item.label);
+          term.append(create("span",item.status,"parcel-data-status"));
+          facts.append(term,create("dd",item.detail));
+        }
+      };
     }
     function showProperty(match,focus) {
       clearResult();
@@ -406,19 +443,18 @@
       showAcres(match.acres);
       acreage.append(create("span","Recorded lot size","lot-metric-label"),size);
       const rating = create("div");
-      rating.append(create("span","Land research score","lot-metric-label"),create("strong",record ? record[7] + " / 100" : "Unavailable","score-value"));
+      rating.append(create("span","Land research score","lot-metric-label"),create("strong",record ? record[7] + " / 100" : data ? "Not scored" : "Could not load","score-value"));
       const metrics = create("div",undefined,"lot-metrics");
       metrics.append(acreage,rating);
-      const explanation = record ? (data.classes[record[2]].includes("RESIDENTIAL") ?
-        "The index favors farms and larger lots, so a home can score low regardless of its value or condition." :
-        "This index gives more points to farms and larger lots.") :
-        (data ? "This parcel has no published land research score." : "The score file could not load. Reload to check again.");
-      summary.append(metrics,create("p",explanation,"lot-interpretation"));
+      const explanation = window.ParcelScoreContext.interpretation(record,Boolean(data));
+      summary.append(metrics,create("p",explanation,"lot-interpretation"),
+        create("p","Home value, condition and flood risk: not assessed.","lot-missing-summary"));
       overview.append(sketch,summary);
       panel.append(overview);
       const share = window.createPropertyShare?.(pin);
       if (share) panel.append(share);
       if (record) scoreDetails(panel,record);
+      const updateInformation = informationDetails(panel,record,entry);
       if (isMapped(pin)) {
         const jump = link("Explore this neighborhood on the map","#chatham-map");
         jump.className = "lot-jump";
@@ -435,6 +471,7 @@
       function drawDetails(parcel) {
         const position = parcel.position || mapPosition(entry);
         showAcres(parcel.acres);
+        updateInformation(parcel);
         if (entry?.d || (entry && !parcel.features?.length)) {
           window.showSnapshotParcelPreview(sketch,pin,geography);
         } else {
@@ -445,6 +482,7 @@
       if (entry || match.features || match.position || match.geometryUnavailable) {
         drawDetails(match);
       } else {
+        updateInformation(match,true);
         const status = create("p","Looking up the county lot outline…");
         status.setAttribute("role","status");
         sketch.append(status);

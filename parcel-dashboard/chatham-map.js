@@ -17,7 +17,7 @@ window.createChathamScoreMap = function createChathamScoreMap(container, {geomet
       <ul class="sm-near-list"></ul>
       <div class="sm-near-pages" hidden><button type="button" data-page="-1">Previous</button><button type="button" data-page="1">Next</button></div>
     </details>
-    <div class="sm-legend" aria-label="Map legend"><strong>Score</strong><span><i></i>0–24</span><span><i></i>25–49</span><span><i></i>50–74</span><span><i></i>75–100</span><span><i class="sm-limit-key"></i>Village limits</span><span class="sm-point-legend" hidden><i class="sm-point-key"></i>Location only</span></div>
+    <div class="sm-legend" aria-label="Land research score map legend"><strong>Research score</strong><span><i></i>0–24</span><span><i></i>25–49</span><span><i></i>50–74</span><span><i></i>75–100</span><span><i class="sm-limit-key"></i>Village limits</span><span class="sm-point-legend" hidden><i class="sm-point-key"></i>Location only</span></div>
     <p class="sm-foot">Parcels and streets from <a href="https://sangis.co.sangamon.il.us/server/rest/services/TyleratENTParcels/MapServer/0" target="_blank" rel="noopener">Sangamon County GIS</a>.</p>`;
   const topList = document.createElement("details");
   topList.className = "sm-top";

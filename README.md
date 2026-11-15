@@ -118,6 +118,23 @@ duplicate areas and artificial flow paths.
 To check interactions, install Python Playwright with Chromium, then run
 `python scripts/test_infrastructure_map.py`. The check starts and stops its own local server.
 
+## Parcel score meaning and information gaps
+
+The property result distinguishes a land-research priority from a homeowner rating. Its
+expandable information panel identifies recorded scoring inputs, missing acreage, GIS
+outlines versus point locations, lookup failures and checks that the score does not perform.
+Live GIS acreage never silently changes a stored score; differences are disclosed. The
+scoring date is not presented as the GIS boundary retrieval date.
+
+`parcel-dashboard/score-context.js` supplies the interpretation and record-status logic.
+Point explanations must match the score date and reconstruct its components; unavailable
+or mismatched explanations show an explicit message. See `PARCEL_SCORE_REVIEW.md` for the
+November 14 review, including the existing residential-class rule and input-completeness
+limitations. This release does not recalculate published scores or refresh source data.
+Run `node --test scripts/test_score_context.mjs` when changing this logic or replacing a
+score snapshot. Also run the existing analytics, search-metrics and property-share checks
+when modifying the property-result flow.
+
 ## Local Preview
 
 Serve the repository root with a static server to use the home page, parcel dashboard and map together.

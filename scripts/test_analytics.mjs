@@ -9,8 +9,8 @@ const measurementId = "G-8JFK3CZ7LE";
 const storageKey = "ili.analytics.excluded";
 const cookieKey = "ili_analytics_excluded";
 
-test("parcel pages load the versioned shared tracker exactly once", () => {
-  for (const page of ["parcel-dashboard/index.html", "parcel-dashboard/rankings.html"]) {
+test("parcel and local-research pages load the versioned shared tracker exactly once", () => {
+  for (const page of ["parcel-dashboard/index.html", "parcel-dashboard/rankings.html", "chatham-spending/index.html"]) {
     const html = readFileSync(new URL(`../${page}`, import.meta.url), "utf8");
     assert.equal((html.match(/src="\.\.\/analytics\.js\?v=[^"]+"/g) || []).length, 1);
   }

@@ -1,0 +1,76 @@
+.spending-page { background: var(--paper); }
+.spending-page .site-header { position: static; flex-wrap: wrap; }
+.spending-page .brand { min-height: 48px; }
+.spending-nav { flex-wrap: wrap; align-items: center; gap: .25rem 1.25rem; font-size: 1rem; color: var(--ink); }
+.spending-nav a { display: inline-flex; align-items: center; min-height: 48px; }
+.spending-nav a[aria-current="page"] { color: var(--green-dark); text-decoration: underline; text-underline-offset: 4px; }
+.spending-skip { position: absolute; left: 12px; top: -100px; z-index: 10; padding: 14px; background: var(--white); color: var(--green-dark); }
+.spending-skip:focus { top: 8px; }
+.spending-page :focus-visible { outline: 3px solid var(--green-dark); outline-offset: 4px; }
+.spending-main { width: min(100%, 58rem); margin: auto; padding: clamp(1.5rem, 4vw, 3rem) clamp(18px, 4vw, 2.5rem); overflow: visible; }
+.spending-main h1 { max-width: 20ch; margin: 0 0 1rem; font-size: clamp(2.15rem, 5vw, 3.5rem); line-height: 1.12; }
+.spending-main h2 { max-width: 34ch; margin: 0 0 1rem; font-size: clamp(1.55rem, 3vw, 2rem); line-height: 1.25; }
+.spending-main h3 { margin: 0 0 .75rem; font-size: 1.2rem; line-height: 1.4; }
+.spending-main p { margin: 0 0 1rem; font-size: 1.125rem; line-height: 1.65; }
+.spending-main a { color: var(--green-dark); text-underline-offset: 3px; overflow-wrap: anywhere; }
+.spending-main .spending-eyebrow, .spending-main .spending-kicker { color: var(--green-dark); font-size: 1rem; line-height: 1.5; font-weight: 700; margin-bottom: .65rem; }
+.spending-main .spending-lead { font-size: 1.25rem; line-height: 1.6; }
+.spending-main .review-date { font-size: 1rem; color: #4f5f58; }
+.spending-button.button { min-height: 50px; padding: .75rem 1.25rem; font-size: 1.125rem; line-height: 1.4; white-space: normal; color: var(--white); box-shadow: none; }
+.spending-jumps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; margin: 1.75rem 0 2.5rem; font-size: 1rem; }
+.spending-jumps a { display: flex; align-items: center; min-height: 54px; padding: .75rem 1rem; border: 1px solid #bbcfc2; border-radius: 8px; background: var(--white); color: var(--green-dark); font-weight: 650; line-height: 1.4; }
+.spending-jumps a:hover { background: #eaf2ec; }
+.spending-section { scroll-margin-top: 1rem; margin: 0 0 1.5rem; padding: clamp(1.15rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+.spending-text-link { display: inline-flex; align-items: center; min-height: 48px; font-size: 1.125rem; font-weight: 700; line-height: 1.5; }
+.spending-main .spending-key-figure { margin: .5rem 0 1rem; color: var(--green-dark); font-size: clamp(1.3rem, 3vw, 1.7rem); font-weight: 750; line-height: 1.4; }
+.spending-main .spending-open { margin: 1.25rem 0 0; padding: 1rem; background: #f4f6f3; border-left: 4px solid #93a99a; border-radius: 0 6px 6px 0; font-size: 1.0625rem; }
+.spending-main .spending-note { font-size: 1.0625rem; color: #4f5f58; }
+.rate-group { margin: 1.5rem 0; }
+.rate-group table { width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 1rem; font-size: 1.0625rem; line-height: 1.5; font-variant-numeric: tabular-nums; }
+.rate-group caption { text-align: left; font-size: 1rem; line-height: 1.5; padding: 0 0 .75rem; color: #4f5f58; }
+.rate-group th, .rate-group td { padding: .85rem .6rem; text-align: right; vertical-align: top; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.rate-group th:first-child { width: 48%; padding-left: 0; text-align: left; }
+.rate-group td:last-child, .rate-group th:last-child { padding-right: 0; }
+.rate-group thead th { font-size: .98rem; color: #4f5f58; font-weight: 650; }
+.rate-group tbody th { font-weight: 500; }
+.rate-group tbody td { font-weight: 650; }
+.road-project { padding-top: 1.25rem; margin-top: 1.25rem; border-top: 1px solid var(--line); }
+.spending-amounts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 0 0 1rem; }
+.spending-amounts div { padding: .85rem 1rem; border-radius: 6px; background: #f4f6f3; }
+.spending-amounts dt { font-size: 1rem; line-height: 1.5; color: #4f5f58; }
+.spending-amounts dd { margin: .3rem 0 0; font-size: 1.35rem; line-height: 1.4; font-weight: 750; color: var(--green-dark); font-variant-numeric: tabular-nums; }
+.spending-sources { margin-top: 1.25rem; border-top: 1px solid var(--line); }
+.spending-sources summary { padding: .9rem 0; min-height: 48px; cursor: pointer; color: var(--green-dark); font-weight: 700; font-size: 1.0625rem; line-height: 1.5; }
+.spending-sources ul { padding-left: 1.4rem; margin: .25rem 0 1rem; }
+.spending-sources li { margin: 0 0 1rem; font-size: 1rem; line-height: 1.65; }
+.spending-sources li a { padding-block: .2rem; }
+.spending-sources p { font-size: 1rem; color: #4f5f58; }
+.spending-end { margin-top: 2rem; }
+.spending-main .spending-end p { font-size: 1rem; color: #4f5f58; }
+.spending-end-links, .spending-footer > div { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
+.spending-end-links a, .spending-footer a { display: inline-flex; align-items: center; min-height: 48px; font-size: 1rem; line-height: 1.5; }
+.spending-footer { padding-block: 1.5rem; }
+@media (max-width: 700px) {
+  .spending-page .site-header { padding: .65rem 18px; gap: .25rem; }
+  .spending-nav { width: 100%; gap: .25rem 1rem; }
+  .spending-jumps { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 1.75rem; }
+  .spending-jumps a { padding: .75rem; }
+  .spending-section { padding: 1.15rem; }
+}
+@media (max-width: 420px) {
+  .spending-main { padding-inline: 16px; }
+  .spending-section { padding: 1rem; }
+  .spending-button.button { width: 100%; }
+  .rate-group th, .rate-group td { padding-inline: .25rem; font-size: 1rem; }
+  .rate-group th:first-child { width: 36%; }
+  .rate-group td { white-space: nowrap; }
+  .rate-group thead th { font-size: .94rem; }
+  .spending-amounts { grid-template-columns: 1fr; gap: .5rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media print {
+  .spending-page .site-header, .spending-jumps, .spending-button, .spending-end-links, .spending-footer { display: none; }
+  .spending-main { width: 100%; max-width: none; padding: 0; }
+  .spending-section { break-inside: avoid; }
+  .spending-page { background: white; }
+}

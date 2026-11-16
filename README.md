@@ -309,6 +309,23 @@ policy. Its `connect-src 'none'` and `form-action 'none'` restrictions remain in
 GitHub Pages publishes the root of the `main` branch at `https://illinoislandindex.com/`.
 The home page, parcel dashboard, water map and public signals deploy together.
 
+### Taxes and local decisions
+
+The parcel dashboard links the selected 11-digit PIN to the county's tax-district
+breakdown, bill PDF and billing history. It does not scrape or embed tax records,
+infer a bill from rates, or copy owner information. The county's tax-bill year can
+differ from the assessment year on its parcel-summary page.
+
+`parcel-dashboard/local-decisions.js` checks the county municipal boundary only
+when its panel opens. Missing, failed or ambiguous matches must not establish
+Chatham residency, utility service or tax-district membership. The static
+`chatham-spending/` page contains dated summaries and primary public sources;
+keep appropriations, loan authorizations, warrants and cleared payments distinct.
+The review date is not a document date. Existing analytics exclusions still apply.
+
+Check this feature with `node --test scripts/test_local_decisions.mjs` and the
+existing analytics, search, score, share, utility and representative tests.
+
 ### Optional research support
 
 The homepage and parcel dashboard link to `/support/`. Contributions are optional;

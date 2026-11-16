@@ -1,0 +1,17 @@
+.parcel-local-decisions { margin:1rem 0; border:1px solid #b9cdc4; border-radius:12px; padding:1rem; background:#fff; }
+.parcel-local-decisions > summary { min-height:44px; cursor:pointer; font-weight:750; font-size:1.12rem; line-height:1.5; }
+.local-decisions-body { font-size:1rem; line-height:1.65; }
+.local-decision-card + .local-decision-card { margin-top:1.5rem; border-top:1px solid #dbe5df; padding-top:.75rem; }
+.local-decision-card h3 { font-size:1.18rem; line-height:1.4; margin:.8rem 0; }
+.local-decision-card a { text-underline-offset:.2em; overflow-wrap:anywhere; }
+.local-tax-button { display:inline-flex; align-items:center; min-height:48px; padding:.7rem 1rem; background:#195c45; color:#fff !important; border-radius:8px; font-weight:700; text-decoration:none; }
+.local-tax-button:hover { background:#104532; }
+.local-decision-links { display:flex; flex-wrap:wrap; gap:.35rem 1.5rem; margin:.5rem 0; }
+.local-decision-links a,.local-decision-topic > a { display:inline-flex; align-items:center; min-height:44px; font-weight:700; }
+.local-decision-topic { margin:1rem 0; padding:1rem; background:#f1f6f3; border-radius:8px; }
+.local-decision-topic p { margin:.25rem 0 0; }
+.local-decision-note,.local-decision-source { color:#46584f; }
+.local-decision-source { font-size:.92rem; }
+.local-decision-scope { border-left:3px solid #729d89; padding-left:.85rem; }
+.parcel-local-decisions a:focus-visible,.parcel-local-decisions summary:focus-visible { outline:3px solid #b66a13; outline-offset:4px; }
+@media(max-width:480px) { .parcel-local-decisions { padding:.85rem; } .local-tax-button { width:100%; box-sizing:border-box; justify-content:center; } }

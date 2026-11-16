@@ -360,6 +360,7 @@
       const utilities = create("div");
       target.replaceChildren(utilities);
       window.showPropertyUtilities?.(utilities,{pin,lon:position?.[0],lat:position?.[1]});
+      window.showPropertyLocalDecisions?.(target,{pin,position});
       window.showPropertyRepresentatives?.(target,{position});
       const records = create("details",undefined,"parcel-records");
       const links = create("div",undefined,"rank-links");

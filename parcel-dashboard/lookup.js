@@ -56,6 +56,7 @@ async function locateAddress(query, signal) {
   if (!Array.isArray(data.candidates)) throw new Error("County locator unavailable");
   const house = query.match(/^\d+[A-Za-z]?\b/i)?.[0].toUpperCase();
   const seen = new Set();
+  const addressCheckedAt = new Date().toISOString();
   return data.candidates.filter(candidate => {
     const key = [candidate.address,candidate.location?.x,candidate.location?.y].join("|");
     if (candidate.score !== 100 || !["PointAddress","Subaddress"].includes(candidate.attributes?.Addr_type) ||
@@ -63,7 +64,7 @@ async function locateAddress(query, signal) {
         !Number.isFinite(candidate.location?.y) || seen.has(key)) return false;
     seen.add(key);
     return true;
-  });
+  }).map(candidate => ({...candidate,addressCheckedAt}));
 }
 
 async function findCountyParcels(pin, location, signal) {
@@ -73,6 +74,7 @@ async function findCountyParcels(pin, location, signal) {
     geometryType:"esriGeometryPoint", spatialRel:"esriSpatialRelIntersects"});
   const data = await countyQuery(endpoint,params,signal);
   if (!Array.isArray(data.features) || data.exceededTransferLimit) throw new Error("Incomplete county parcel search");
+  const gisCheckedAt = new Date().toISOString();
   const groups = new Map();
   for (const feature of data.features) {
     const found = String(feature.properties?.PIN);
@@ -82,7 +84,7 @@ async function findCountyParcels(pin, location, signal) {
   }
   return [...groups].map(([number,features]) => {
     const acres = new Set(features.map(f => f.properties.TOTACRES).filter(value => Number.isFinite(value) && value > 0));
-    return {pin:number, acres:acres.size === 1 ? [...acres][0] : null, position:interiorMapPoint(features), features};
+    return {pin:number, acres:acres.size === 1 ? [...acres][0] : null, position:interiorMapPoint(features), features, gisCheckedAt};
   });
 }
 
@@ -95,6 +97,15 @@ const propertyFinder = (() => {
   let current;
   let resolveTools;
   const ready = new Promise(resolve => { resolveTools = resolve; });
+  const suggestions = window.ParcelAddressSearch?.attach({
+    input, list:document.getElementById("parcel-address-suggestions"),
+    status:document.getElementById("parcel-address-status"), onSelect:() => search()
+  });
+  input.addEventListener("input",() => {
+    // Editing a pending lookup makes its old result obsolete, even before submit.
+    current?.abort(); current = null;
+    choices.replaceChildren(); status.textContent = "";
+  });
   function options(matches, prompt, run) {
     status.textContent = prompt;
     choices.replaceChildren();
@@ -108,6 +119,7 @@ const propertyFinder = (() => {
   }
 
   async function search() {
+    suggestions?.cancel();
     current?.abort();
     const controller = new AbortController();
     current = controller;
@@ -151,6 +163,7 @@ const propertyFinder = (() => {
         return;
       }
       if (!active() || !lots) return;
+      if (match?.addressCheckedAt) lots.forEach(lot => { lot.addressCheckedAt = match.addressCheckedAt; });
       if (lots.length === 1) { display(lots[0],match?.address); return; }
       if (lots.length > 1) {
         options(lots.map(lot => ({...lot,label:"Parcel " + lot.pin})),"The address touches more than one parcel. Choose a parcel number.",lot => display(lot,match?.address));
@@ -199,6 +212,7 @@ const propertyFinder = (() => {
   receive();
   window.addEventListener("pageshow", e => { if (e.persisted) receive(); });
   function cancel() {
+    suggestions?.cancel();
     current?.abort();
     current = null;
     choices.replaceChildren();

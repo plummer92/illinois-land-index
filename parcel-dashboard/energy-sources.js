@@ -76,7 +76,7 @@
     if (!communityRequest) {
       communityRequest = fetch("./data/sangamon-gas-communities.json").then(async response => {
         if (!response.ok) throw new Error("Municipal map unavailable");
-        return (await response.json()).communities;
+        return response.json();
       }).catch(error => { communityRequest = null; throw error; });
     }
     return communityRequest;
@@ -116,21 +116,23 @@
     const status = element("p","Checking the community for gas service…");
     card.append(status);
     try {
-      const communities = await loadCommunities();
-      const matches = communities.filter(({bounds,geometry}) => {
+      const data = await loadCommunities();
+      const evidence = {sourceName:"County municipal boundaries",url:data.source,checked:data.retrieved,
+        checkedLabel:"Boundary retrieved",sourceDate:"Utility-list effective date unavailable; municipal location alone does not confirm service"};
+      const matches = data.communities.filter(({bounds,geometry}) => {
         const [west,south,east,north] = bounds;
         return lon >= west && lon <= east && lat >= south && lat <= north && within(lon,lat,geometry);
       });
       status.remove();
       if (matches.length === 1) {
         const match = showCommunity(card,matches[0]);
-        onMatch?.(match,match ? "Community match only" : "Provider unconfirmed");
+        onMatch?.(match,match ? "Community match only" : "Provider unconfirmed",evidence);
       }
       else {
         showUnconfirmed(card, matches.length
           ? "More than one municipal boundary matches this property point. A gas bill can confirm the delivery company."
           : "This point is outside the mapped communities. Nearby gas utilities may serve individual addresses. Check the delivery company on your gas bill, if you have one.");
-        onMatch?.(null,matches.length ? "Overlapping communities" : "No mapped community");
+        onMatch?.(null,matches.length ? "Overlapping communities" : "No mapped community",evidence);
       }
     } catch {
       status.remove();

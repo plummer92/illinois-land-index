@@ -112,6 +112,16 @@
 .parcel-data-facts dd { margin:0; line-height:1.5; }
 .parcel-data-status { display:inline-block; padding:.1rem .5rem; border:1px solid #b4c0b7; border-radius:.3rem; color:#35483d; background:#f4f7f3; font-size:.9rem; font-weight:500; }
 #property-result .score-source-note { color:#43594b; }
+#property-result .lot-source { margin:.4rem 0 0; font-size:.9rem; line-height:1.4; color:#43594b; }
+.source-date-line { display:block; margin-top:.3rem; font-weight:400; }
+.lot-source .parcel-data-status { font-size:.85rem; }
+#property-result .score-data-warning { margin:.8rem 0; padding:.8rem; border:1px solid #b29a62; border-left:4px solid #94712d; border-radius:7px; background:#fff8e8; color:#453b24; }
+#property-result .score-data-warning > strong { display:block; font-size:1rem; line-height:1.4; }
+#property-result .score-data-warning p { margin:.35rem 0 0; }
+#property-result .parcel-source-details { margin:.8rem 0; border-block:1px solid var(--line); }
+#property-result .parcel-source-details > summary { min-height:44px; color:var(--green-dark); }
+#property-result .parcel-source-details a { font-size:1rem; }
+.lot-metrics > div { min-width:0; }
 .parcel-missing-checks { padding-inline-start:1.3rem; }
 .parcel-missing-checks li { margin:.6rem 0; }
 @media (max-width:820px) {

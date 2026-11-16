@@ -50,6 +50,7 @@ function finder({mapped = () => false, scored = () => false, matches = [], fetch
   return {
     events,shown,api,storage,
     choices:() => elements.get("lookup-choices").children,
+    edit(query) { elements.get("parcel-number").value = query; elements.get("parcel-number").trigger("input"); },
     async search(query) { elements.get("parcel-number").value = query; elements.get("parcel-form").trigger("submit"); await settle(); },
     async click(index = 0) { elements.get("lookup-choices").children[index].onclick(); await settle(); },
     async event(name,event={}) { listeners.get(name)?.(event); await settle(); },
@@ -132,6 +133,17 @@ test("scoring fallback counts a resolved result after network failure but not an
   timedOut.timeout();
   await settle();
   assert.equal(timedOut.events.length,0);
+});
+
+test("editing a pending lookup cancels its stale result before another submission", async () => {
+  let release;
+  const page=finder({fetch:() => new Promise(resolve => {release=resolve;})});
+  await page.search(pin);
+  page.edit("600 E Spr");
+  release(response({features:[lot(pin)]}));
+  await settle();
+  assert.equal(page.shown.length,0);
+  assert.equal(page.events.length,0);
 });
 
 test("homepage handoff is counted after success and cannot replay on pageshow", async () => {

@@ -27,7 +27,9 @@
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./home-navigation.css?v=find-property" />
     <link rel="stylesheet" href="./support/support.css?v=20261114-support" />
-    <script src="./home-search.js" defer></script>
+    <link rel="stylesheet" href="./address-search.css?v=20261115-homeowner-v1">
+    <script src="./address-search.js?v=20261115-homeowner-v1" defer></script>
+    <script src="./home-search.js?v=20261115-homeowner-v1" defer></script>
     <script src="./analytics.js?v=20261114-sharing" defer></script>
     <link rel="stylesheet" href="./assets/brand/brand.css?v=20261114-outline">
     <link rel="icon" type="image/png" sizes="160x160" href="./assets/brand/ili-state-profile-160.png">
@@ -52,13 +54,16 @@
       <section class="home-start" aria-labelledby="home-title">
         <div class="home-find" id="home-find" tabindex="-1">
           <h1 id="home-title">Find your property</h1>
-          <p>Find your Sangamon County lot, see its land score and explore the utilities that serve it.</p>
+          <p>Find your Sangamon County lot, understand its land research score and explore likely utility providers and their sources.</p>
           <form id="home-property-form" role="search" aria-label="Property search" action="./parcel-dashboard/#find-property" hidden>
             <label for="home-property-query">Address, street or parcel number</label>
             <div class="home-find-controls">
-              <input id="home-property-query" type="search" enterkeyhint="search" maxlength="160" placeholder="600 E Spruce St, Chatham">
+              <input id="home-property-query" type="search" enterkeyhint="search" autocomplete="off" maxlength="160" placeholder="600 E Spruce St, Chatham" aria-describedby="home-address-help" required>
               <button type="submit" class="button primary">Find my property</button>
             </div>
+            <div id="home-address-suggestions" class="address-suggestions" hidden></div>
+            <p id="home-address-status" class="address-suggestion-status" role="status"></p>
+            <p id="home-address-help" class="address-search-help">Start with your house number and street, then choose the right town. Suggestions come from Sangamon County GIS; your search is not sent to analytics. You can also enter a parcel number.</p>
           </form>
           <a class="button primary" id="home-find-link" href="./parcel-dashboard/#find-property">Find my property</a>
         </div>

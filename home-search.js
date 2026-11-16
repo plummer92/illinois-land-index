@@ -12,8 +12,15 @@
   }
   form.hidden = false;
   fallback.hidden = true;
+  const suggestions = window.ParcelAddressSearch?.attach({
+    input,
+    list:document.getElementById("home-address-suggestions"),
+    status:document.getElementById("home-address-status"),
+    onSelect:() => form.requestSubmit()
+  });
   form.addEventListener("submit", event => {
     event.preventDefault();
+    suggestions?.cancel();
     try {
       sessionStorage.setItem(key, input.value.trim());
     } catch {

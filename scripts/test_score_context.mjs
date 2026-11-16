@@ -178,3 +178,44 @@ test("unresolved acreage separates conflicting records, unmatched parcels and em
   assert.match(fact({...input,acreageCheck:checked("no_match",null)},"Lot size").detail,/no exact parcel-number match/);
   assert.match(fact({...input,acreageCheck:checked("missing",null)},"Lot size").detail,/no usable positive recorded acreage/);
 });
+
+test("visible score warning follows the scoring inputs even when a fresh lookup has acreage", () => {
+  const missing = [...row]; missing[3] = 0;
+  const input = {...base(),row:missing,scoreData:{model_version:"v2"}};
+  assert.match(api.scoreWarning(input).title,/incomplete lot-size data/);
+  assert.match(api.scoreWarning({...input,parcel:{acres:.25}}).detail,/supplies 0.25 acres.*published score still/);
+  assert.match(api.scoreWarning({...input,acreageCheck:checked("conflict",null)}).title,/Conflicting/);
+  assert.match(api.scoreWarning({...input,acreageCheck:{...checked("conflict",null),model_version:"old"}}).title,/incomplete lot-size data/);
+  assert.equal(api.scoreWarning({...input,row:null}),null,"an unscored parcel cannot acquire a deduction");
+  assert.equal(api.scoreWarning(base()),null);
+  assert.match(api.scoreWarning({...base(),parcel:{acres:2.5}}).detail,/score used 2 acres.*not been recalculated/);
+});
+
+test("source labels separate model dates, county retrieval dates and unavailable boundary dates", () => {
+  const input = {...base(),scoreData:{model_version:"v2",calculated_at:"2026-11-15T05:19:00Z"},
+    parcel:{pin:row[0],acres:2,gisCheckedAt:"2026-11-16T03:00:00Z",features:[feature("Polygon")]}};
+  const records = api.provenance(input);
+  const score = records.find(item=>item.label === "Score");
+  assert.equal(score.status,"Research model");
+  assert.match(score.date,/Tax file: Nov 8, 2026.*Calculated: Nov 15, 2026/);
+  const size = records.find(item=>item.label === "Lot size");
+  assert.equal(size.status,"County record");
+  assert.match(size.date,/Retrieved: Nov 16, 2026.*Source update date unavailable/);
+  const boundary = records.find(item=>item.label === "Map");
+  assert.match(boundary.date,/Retrieved: Nov 16, 2026/);
+  const snapshot = api.provenance({...input,entry:{d:"M0,0L1,1"}}).find(item=>item.label === "Map");
+  assert.match(snapshot.date,/retrieval and update dates unavailable/);
+  assert.doesNotMatch(snapshot.date,/Nov 8|Nov 16/);
+});
+
+test("source labels do not label conflict acreage as verified or invent unknown dates", () => {
+  const missing = [...row]; missing[3] = 0;
+  const input = {...base(),row:missing,scoreData:{model_version:"v2"},acreageCheck:checked("conflict",null),parcel:{acres:75.09}};
+  const size = api.provenance(input).find(item=>item.label === "Lot size");
+  assert.equal(size.status,"Conflicting records");
+  assert.match(size.date,/Checked: Nov 15, 2026.*update date unavailable/);
+  const invalidDate = api.provenance({...base(),sourceDate:"2026-02-31",scoreData:{calculated_at:"bad"}})[0];
+  assert.equal(invalidDate.date,"Tax-file date unavailable · Calculation date unavailable");
+  const live = api.provenance({...base(),parcel:{acres:2}}).find(item=>item.label === "Lot size");
+  assert.match(live.date,/Lookup date unavailable.*Source update date unavailable/);
+});

@@ -202,6 +202,26 @@ comments are never assigned to a successor or used to change a parcel score.
 
 ## Local Preview
 
+### Homeowner search and record context
+
+The homepage and parcel finder offer county GIS address suggestions after a short
+typing pause. Visitors choose an address and town; similar addresses are never
+auto-selected. Selection still goes through the existing exact-address and parcel
+intersection checks. Manual address, street and parcel-number lookup remains
+available when suggestions fail. Searches contact county GIS, not analytics, and
+the homepage handoff stays in session storage rather than the URL.
+
+The selected parcel shows a warning when missing or conflicting acreage affects
+the published score, including when a newer lookup returns acreage the score did
+not use. This release changes explanations, not scores or scoring inputs. Source
+labels distinguish county records from the research model. Tax-file, calculation,
+retrieval and map-check dates retain their separate meanings; absent source update
+dates are explicitly unavailable. Utility service-area and community matches
+remain estimates rather than confirmed meter connections.
+
+Run `node --test scripts/test_address_search.mjs scripts/test_score_context.mjs scripts/test_utility_evidence.mjs`
+along with the analytics/search/share checks below when modifying these features.
+
 Serve the repository root with a static server to use the home page, parcel dashboard and map together.
 
 ```powershell

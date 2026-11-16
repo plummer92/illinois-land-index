@@ -22,6 +22,69 @@
     return "This is a land-research priority, not a grade for your home. Farms and larger lots usually score higher. A low score does not mean a home is unsafe, poorly maintained or worth less.";
   }
 
+  function dateText(value) {
+    const day = typeof value === "string" && value.match(/^\d{4}-\d{2}-\d{2}/)?.[0];
+    if (!day) return null;
+    const parsed = new Date(day + "T12:00:00Z");
+    if (!Number.isFinite(parsed.getTime()) || parsed.toISOString().slice(0,10) !== day) return null;
+    return parsed.toLocaleDateString("en-US", {month:"short", day:"numeric", year:"numeric", timeZone:"UTC"});
+  }
+
+  function scoreWarning({row, parcel = {}, scoreData = {}, acreageCheck}) {
+    if (!row) return null;
+    const checked = acreageCheck?.model_version === scoreData.model_version ? acreageCheck?.parcels?.[row[0]] : null;
+    if (!positive(row[3])) {
+      if (checked?.status === "conflict") return {
+        title:"Conflicting lot-size records affect this score",
+        detail:"No acreage passed the record checks. The published score loses acreage-related points and includes a missing-acreage deduction. This is a data limitation, not a finding about your home."
+      };
+      return {
+        title:"This score uses incomplete lot-size data",
+        detail:(positive(parcel.acres) ? "This county lookup supplies " + acres(parcel.acres) + ", but the published score still has no usable acreage. " : "The scoring record has no usable acreage. ") +
+          "The model awards no acreage or per-acre points and applies a missing-acreage deduction. This is a data limitation, not a finding about your home."
+      };
+    }
+    if (positive(parcel.acres) && Math.abs(parcel.acres - row[3]) > .0005) return {
+      title:"Lot-size records differ",
+      detail:"This lookup shows " + acres(parcel.acres) + "; the published score used " + acres(row[3]) + ". The score has not been recalculated from this lookup."
+    };
+    return null;
+  }
+
+  function provenance({row, loaded, sourceDate, parcel = {}, entry, pending = false, scoreData = {}, acreageCheck}) {
+    const records = [];
+    const countyMap = "https://sangis.co.sangamon.il.us/server/rest/services/TyleratENTParcels/MapServer/0";
+    const checked = acreageCheck?.model_version === scoreData.model_version ? acreageCheck?.parcels?.[row?.[0]] : null;
+    const taxDate = dateText(sourceDate), calculated = dateText(scoreData.calculated_at);
+    records.push({label:"Score", status:row ? "Research model" : loaded ? "Not scored" : "Unavailable",
+      source:"Illinois Land Index", date:row ?
+        (taxDate ? "Tax file: " + taxDate : "Tax-file date unavailable") + " · " +
+        (calculated ? "Calculated: " + calculated + " (UTC)" : "Calculation date unavailable") :
+        loaded ? "No entry in this scoring snapshot" : "Scoring file could not load",
+      href:"../data/sangamon-parcel-scores.json"});
+    const withheld = checked?.status === "conflict" && !positive(row?.[3]);
+    const fromGis = positive(parcel.acres) && !withheld;
+    const fromScore = positive(row?.[3]);
+    const recovered = checked?.status === "recovered" && fromScore && Math.abs(checked.acres - row[3]) < .0005;
+    const gisDate = dateText(parcel.gisCheckedAt), auditDate = dateText(acreageCheck?.checked_at_utc);
+    records.push({label:"Lot size", status:fromGis || fromScore ? "County record" : withheld ? "Conflicting records" : pending ? "Checking" : "Not verified",
+      source:fromGis || recovered || checked ? "Sangamon County GIS" : "County tax snapshot",
+      date:fromGis ? (gisDate ? "Retrieved: " + gisDate + " (UTC)" : "Lookup date unavailable") + " · Source update date unavailable" :
+        recovered || checked ? (auditDate ? "Checked: " + auditDate + " (UTC)" : "Check date unavailable") + " · Source update date unavailable" :
+        fromScore ? (taxDate ? "Tax file: " + taxDate : "Tax-file date unavailable") : "No usable recorded lot size",
+      href:fromGis || recovered || checked ? countyMap : "../data/sangamon-parcel-scores.json"});
+    const matching = (parcel.features || []).filter(feature => String(feature.properties?.PIN) === parcel.pin);
+    const liveOutline = matching.some(feature => outline(feature.geometry));
+    const snapshotOutline = Boolean(entry?.d);
+    const locationOnly = point(entry?.pt) || point(parcel.position) || matching.some(feature => feature.geometry?.type === "Point" && point(feature.geometry.coordinates));
+    records.push({label:"Map", status:snapshotOutline || liveOutline ? "County GIS outline" : locationOnly ? "Location point only" : pending ? "Checking" : "Not verified",
+      source:"Sangamon County GIS", date:snapshotOutline || (!liveOutline && entry) ? "Boundary retrieval and update dates unavailable" :
+        liveOutline || locationOnly ? (gisDate ? "Retrieved: " + gisDate + " (UTC)" : "Retrieval date unavailable") + " · Source update date unavailable" :
+        pending ? "County lookup in progress" : parcel.geometryUnavailable ? "County lookup could not finish" : "No usable map location returned",
+      href:countyMap});
+    return records;
+  }
+
   function validateReasons(source, row, sourceDate, modelVersion) {
     if (!source || source.source_date !== sourceDate || !Array.isArray(source.patterns) || !source.rows) return null;
     if (modelVersion && source.model_version !== modelVersion) return null;
@@ -84,5 +147,5 @@
     return result;
   }
 
-  window.ParcelScoreContext = {interpretation, validateReasons, facts};
+  window.ParcelScoreContext = {interpretation, validateReasons, facts, scoreWarning, provenance};
 })();

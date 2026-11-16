@@ -6,6 +6,8 @@
   const watershedPlan = "https://epa.illinois.gov/content/dam/soi/en/web/epa/documents/water-quality/watershed-management/watershed-based-planning/2018/lake-springfield/lswmp-wbmp.pdf#page=79";
   const reports = {
     IL1670050: {
+      reportYear: 2025,
+      publisher: "City of Auburn",
       source: auburnReport,
       linkLabel: "Read Auburn’s 2025 water report (PDF)",
       findings: [
@@ -14,6 +16,8 @@
       ]
     },
     IL1671000: {
+      reportYear: 2025,
+      publisher: "Village of Rochester",
       source: rochesterReport,
       linkLabel: "Read Rochester’s 2025 water report (PDF)",
       findings: [
@@ -22,6 +26,8 @@
       ]
     },
     IL1670300: {
+      reportYear: 2025,
+      publisher: "Village of Chatham",
       source: chathamReport,
       linkLabel: "Read Chatham’s 2025 water report (PDF)",
       findings: [
@@ -30,6 +36,8 @@
       ]
     },
     IL1671200: {
+      reportYear: 2025,
+      publisher: "Springfield CWLP",
       source: springfieldReport,
       linkLabel: "Read Springfield’s 2025 water report and monitoring notice (PDF)",
       findings: [
@@ -96,8 +104,12 @@
     const section = document.createElement("section");
     section.className = "water-report";
     const heading = document.createElement("h5");
-    heading.textContent = "2025 drinking water quality";
+    heading.textContent = report.reportYear + " drinking water quality";
     section.append(heading);
+    const evidence = document.createElement("p");
+    evidence.className = "utility-evidence";
+    evidence.textContent = "Source: " + report.publisher + " annual water report · Report year: " + report.reportYear + ". Sampling dates vary by test; see the report. Review date unavailable. These are system results, not a test of this home’s tap.";
+    section.append(evidence);
     for (const finding of report.findings) {
       const paragraph = document.createElement("p");
       paragraph.textContent = finding;

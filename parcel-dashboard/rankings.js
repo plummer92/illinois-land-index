@@ -442,6 +442,7 @@
       const summary = create("div",undefined,"lot-summary");
       const acreage = create("div");
       const size = create("strong");
+      const sizeSource = create("p",undefined,"lot-source");
       function showAcres(countyAcres) {
         const audited = acreageCheck?.model_version === data?.model_version ? acreageCheck?.parcels?.[pin] : null;
         const withheld = audited?.status === "conflict" && !(record?.[3] > 0);
@@ -449,16 +450,51 @@
         size.textContent = acres > 0 ? acresFormat.format(acres) + (acres === 1 ? " acre" : " acres") : "Unavailable";
       }
       showAcres(match.acres);
-      acreage.append(create("span","Recorded lot size","lot-metric-label"),size);
+      acreage.append(create("span","Recorded lot size","lot-metric-label"),size,sizeSource);
       const rating = create("div");
-      rating.append(create("span","Land research score","lot-metric-label"),create("strong",record ? record[7] + " / 100" : data ? "Not scored" : "Could not load","score-value"));
+      const scoreValue = create("strong",record ? record[7] + " / 100" : data ? "Not scored" : "Could not load","score-value");
+      const scoreSource = create("p",undefined,"lot-source");
+      rating.append(create("span","Land research score","lot-metric-label"),scoreValue,scoreSource);
       const metrics = create("div",undefined,"lot-metrics");
       metrics.append(acreage,rating);
+      const warning = create("aside",undefined,"score-data-warning");
+      warning.id = "property-score-warning";
+      warning.hidden = true;
       const explanation = window.ParcelScoreContext.interpretation(record,Boolean(data));
-      summary.append(metrics,create("p",explanation,"lot-interpretation"),
+      summary.append(metrics,warning,create("p",explanation,"lot-interpretation"),
         create("p","Home value, condition and flood risk: not assessed.","lot-missing-summary"));
       overview.append(sketch,summary);
       panel.append(overview);
+      const sources = create("details",undefined,"parcel-source-details");
+      sources.append(create("summary","Sources and dates"));
+      const sourceList = create("dl",undefined,"parcel-data-facts");
+      sources.append(sourceList);
+      panel.append(sources);
+      function updateEvidence(parcel,pending = false) {
+        const context = {row:record,loaded:Boolean(data),sourceDate:data?.source_date,parcel,entry,pending,scoreData:data || {},acreageCheck};
+        const notice = window.ParcelScoreContext.scoreWarning(context);
+        warning.replaceChildren();
+        warning.hidden = !notice;
+        if (notice) {
+          warning.append(create("strong",notice.title),create("p",notice.detail));
+          scoreValue.setAttribute("aria-describedby",warning.id);
+        } else scoreValue.removeAttribute("aria-describedby");
+        const records = window.ParcelScoreContext.provenance(context);
+        sourceList.replaceChildren();
+        for (const item of records) {
+          const term = create("dt",item.label);
+          term.append(create("span",item.status,"parcel-data-status"));
+          const detail = create("dd");
+          detail.append(link(item.source,item.href),create("span",item.date,"source-date-line"));
+          sourceList.append(term,detail);
+          if (item.label === "Score" || item.label === "Lot size") {
+            const target = item.label === "Score" ? scoreSource : sizeSource;
+            const badge = item.status === "County record" && item.source === "Sangamon County GIS" ? "County GIS record" : item.status;
+            target.replaceChildren(create("span",badge,"parcel-data-status"),
+              create("span",item.date.split(" · ")[0],"source-date-line"));
+          }
+        }
+      }
       const share = window.createPropertyShare?.(pin);
       if (share) panel.append(share);
       if (record) scoreDetails(panel,record);
@@ -479,6 +515,7 @@
       function drawDetails(parcel) {
         const position = parcel.position || mapPosition(entry);
         showAcres(parcel.acres);
+        updateEvidence(parcel);
         updateInformation(parcel);
         if (entry?.d || (entry && !parcel.features?.length)) {
           window.showSnapshotParcelPreview(sketch,pin,geography);
@@ -490,6 +527,7 @@
       if (entry || match.features || match.position || match.geometryUnavailable) {
         drawDetails(match);
       } else {
+        updateEvidence(match,true);
         updateInformation(match,true);
         const status = create("p","Looking up the county lot outline…");
         status.setAttribute("role","status");

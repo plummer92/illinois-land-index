@@ -36,6 +36,20 @@
     link.referrerPolicy = "no-referrer";
     return link;
   }
+  function dateLabel(value) {
+    if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
+    const parsed = new Date(value + "T00:00:00Z");
+    if (!Number.isFinite(parsed.getTime()) || parsed.toISOString().slice(0,10) !== value) return null;
+    return new Intl.DateTimeFormat("en-US",{month:"short",day:"numeric",year:"numeric",timeZone:"UTC"}).format(parsed);
+  }
+  function evidenceText({sourceName, checked, checkedLabel = "Map checked", sourceDate} = {}) {
+    const date = dateLabel(checked);
+    return {
+      summary: sourceName ? sourceName + " · " + (date ? checkedLabel + " " + date : "Check date unavailable") : "Source unavailable",
+      dates: (sourceDate || "Source date unavailable") + ". " + (date ? checkedLabel + " " + date + "." : "Check date unavailable.")
+    };
+  }
+  window.UtilitySourceContext = {dateLabel,evidenceText};
   // Every geometry is GeoJSON in longitude/latitude. Evaluate holes in each
   // polygon separately so a point in an excluded area doesn't pick up service.
   function inRing(x, y, ring) {
@@ -65,14 +79,20 @@
     const qualifier = text("span","");
     qualifier.className = "utility-qualifier";
     line.append(provider,qualifier);
-    summary.append(label,line);
+    const sourceLine = text("span","");
+    sourceLine.className = "utility-source-summary";
+    sourceLine.hidden = true;
+    summary.append(label,line,sourceLine);
     const body = document.createElement("div");
     body.className = "utility-body";
     const details = document.createElement("div");
     const map = document.createElement("div");
     map.className = "property-source-location";
     const records = document.createElement("div");
-    body.append(details,map,records);
+    const evidence = document.createElement("p");
+    evidence.className = "utility-evidence";
+    evidence.hidden = true;
+    body.append(evidence,details,map,records);
     row.append(summary,body);
     panel.append(row);
 
@@ -89,6 +109,17 @@
       describe(name,coverage) {
         provider.textContent = name;
         qualifier.textContent = coverage ? " · " + coverage : "";
+      },
+      setEvidence(info) {
+        const wording = evidenceText(info);
+        sourceLine.textContent = wording.summary;
+        sourceLine.hidden = false;
+        evidence.replaceChildren();
+        evidence.hidden = !info?.sourceName;
+        if (info?.sourceName) {
+          evidence.append("Source: ",info.url ? source(info.sourceName,info.url) : info.sourceName,
+            text("span",wording.dates));
+        }
       },
       setMap(data) {
         mapData = data;
@@ -125,7 +156,9 @@
     }
   }
 
-  function showWater(row, areas) {
+  function showWater(row, areas, data) {
+    row.setEvidence({sourceName:"EPA service-area map",url:data.sources.water,checked:data.checked,
+      sourceDate:"Boundary update date unavailable"});
     const sitesFor = id => ({sites:window.propertyWaterSites?.(id) || []});
     if (areas.length === 1) {
       const [area] = areas;
@@ -135,7 +168,7 @@
       row.describe(normal ? name + " · " + normal.name : name,
         area.boundary === "Modeled" ? "Estimated service area" : "Mapped service area");
       row.details.append(text("p",area.boundary === "Modeled" ? "EPA estimates this system’s service area includes this location. Check the name on your water bill to confirm." :
-        (area.boundary === "System Sourced" ? "The water system’s published service area includes this location." : "EPA’s published service area includes this location.")));
+        (area.boundary === "System Sourced" ? "The water system’s published service area includes this location. This does not confirm a connection at the meter; check your water bill." : "EPA’s published service area includes this location. This does not confirm a connection at the meter; check your water bill.")));
       waterDetails(row,area.id);
       row.setMap(sites);
       return;
@@ -166,9 +199,19 @@
 
   function showPower(row, data, lon, lat) {
     const office = () => source("Contact the village utility office",villageOffice);
-    const setPortfolio = id => row.setMap({sites:window.propertyPowerSites?.(id) || []});
     const part = row.details;
+    const portfolioEvidence = text("p","");
+    portfolioEvidence.className = "utility-evidence";
+    const setPortfolio = id => {
+      const sites = window.propertyPowerSites?.(id) || [];
+      row.setMap({sites});
+      portfolioEvidence.textContent = sites.length ? "Generating-plant locations: U.S. EIA inventory, September 2026. Supply relationships: linked utility records; their update dates are not recorded here. This is a supply portfolio, not a live generation reading." : "";
+      if (sites.length) part.append(portfolioEvidence);
+    };
     const areas = data.power.filter(area => within(lon,lat,area.geometry));
+    const years = [...new Set(areas.map(area => area.sourceYear).filter(year => Number.isInteger(year) && year > 1900 && year < 2100))].sort();
+    row.setEvidence({sourceName:"Regional electric territory map",url:data.sources.power,checked:data.checked,
+      sourceDate:areas.length && areas.every(area => Number.isInteger(area.sourceYear)) && years.length ? "Source record year" + (years.length > 1 ? "s: " : ": ") + years.join(", ") : "Territory source date unavailable"});
     function choices(ids,name,coverage) {
       const portfolios = {"3405":"imea","17828":"cwlp","16092":"imea"};
       const options = [...new Set(ids)].map(id => [id,electricNames[id] || areas.find(a => a.id === id)?.name || id]);
@@ -185,14 +228,18 @@
     }
 
     if (within(lon,lat,data.plan.interior)) {
+      row.setEvidence({sourceName:"Village electric map",url:data.sources.plan,checked:data.checked,
+        sourceDate:"2041 plan is the planning horizon; map update date unavailable"});
       row.describe("Village of Chatham · IMEA power","Mapped service area");
-      part.append(text("p","The village’s published map places this point inside its distribution area. The village buys power from the Illinois Municipal Electric Agency (IMEA). Its power mix includes coal, wind, solar and hydropower."),
+      part.append(text("p","The village’s published map places this point inside its distribution area. Confirm the meter’s provider on your bill. The village buys power from the Illinois Municipal Electric Agency (IMEA). Its power mix includes coal, wind, solar and hydropower."),
         source("IMEA’s power sources",imea), document.createTextNode(" · "), office());
       setPortfolio("imea");
       return;
     }
     setPortfolio();
     if (within(lon,lat,data.plan.vicinity)) {
+      row.setEvidence({sourceName:"Village electric map",url:data.sources.plan,checked:data.checked,
+        sourceDate:"2041 plan is the planning horizon; map update date unavailable"});
       const name = "Near Chatham’s electric boundary";
       row.describe(name,"Provider uncertain");
       part.append(text("p","The published map is too approximate to tell which side serves this property. Your electric bill names the company that delivers power to the meter."),office());
@@ -258,13 +305,15 @@
     const gas = utilityRow(panel,group,"gas","Natural gas",coords);
 
     if (window.showPropertyGas) {
-      window.showPropertyGas(gas.details,coords,within,(match,coverage) => {
+      window.showPropertyGas(gas.details,coords,within,(match,coverage,evidence) => {
         if (panel.parentNode !== container) return;
         gas.describe(match?.provider || "Gas provider unknown",coverage);
+        gas.setEvidence(evidence);
         gas.setMap({gas:match});
       });
     } else {
       gas.describe("Gas provider unknown","Records unavailable");
+      gas.setEvidence();
       gas.details.append(text("p","Check the delivery company on a gas bill for this address."));
       gas.setMap({});
     }
@@ -282,6 +331,7 @@
         if (panel.parentNode !== container) return;
         for (const row of [water,power]) {
           row.describe("Provider unknown","Service map unavailable");
+          row.setEvidence();
           const retry = text("button","Retry service lookup");
           retry.type = "button";
           retry.addEventListener("click",matchService);
@@ -298,13 +348,14 @@
       if (!Number.isFinite(lon) || !Number.isFinite(lat) || lon < west || lat < south || lon > east || lat > north || !within(lon,lat,data.county)) {
         for (const row of [water,power]) {
           row.describe("Provider unknown",Number.isFinite(lon) && Number.isFinite(lat) ? "Outside lookup area" : "Location unavailable");
+          row.setEvidence();
           row.details.append(text("p","A mapped parcel location in Sangamon County is needed to match service. Your utility bill can identify the supplier."));
           row.setMap({sites:[]});
         }
         water.records.append(source("Sangamon County water systems",countySystems));
         return;
       }
-      showWater(water,data.water.filter(area => within(lon,lat,area.geometry)));
+      showWater(water,data.water.filter(area => within(lon,lat,area.geometry)),data);
       showPower(power,data,lon,lat);
       serviceRecords(water,"Water service-area records","The lookup compares a point on the property with published water service areas. A parcel can cross a boundary. The provider or a utility bill can confirm service at the meter.",[["EPA water service areas",epaMap]]);
       serviceRecords(power,"Electric service-area records","The Chatham electric outline was traced from Figure 4.3 of the village’s 2041 Comprehensive Plan. Locations within about 300 feet of the traced edge are uncertain. The regional map uses older utility records. Boundaries can change and a parcel can cross a boundary.",

@@ -1,0 +1,8 @@
+.address-search-help { font-size: .93rem; line-height: 1.5; color: #52615b; margin: .7rem 0 0; }
+.address-suggestion-status { font-size: .93rem; line-height: 1.45; margin: .5rem 0; color: #52615b; }
+.address-suggestion-status:empty { display: none; }
+.address-suggestions { margin: .7rem 0; border: 1px solid #9aaca2; border-radius: .6rem; overflow: hidden; background: #fff; }
+.address-suggestions[hidden] { display: none; }
+.address-suggestion { min-height: 48px; padding: .8rem .9rem; box-sizing: border-box; line-height: 1.45; color: #164f3e; font-size: 1rem; font-weight: 650; cursor: pointer; overflow-wrap: anywhere; }
+.address-suggestion + .address-suggestion { border-top: 1px solid #dce4df; }
+.address-suggestion:hover, .address-suggestion[aria-selected="true"] { background: #e4f0e9; outline: 2px solid #216b51; outline-offset: -2px; }

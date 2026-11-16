@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="./navigation.css" />
     <script src="./analytics.js?v=20261114-sharing" defer></script>
-    <script src="./latest-land-signals.js?v=20261114-acreage-v2" defer></script>
+    <script src="./latest-land-signals.js?v=20261116-payment-review" defer></script>
     <link rel="stylesheet" href="./assets/brand/brand.css?v=20261114-outline">
     <link rel="icon" type="image/png" sizes="160x160" href="./assets/brand/ili-state-profile-160.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/brand/apple-touch-icon.png">
@@ -142,6 +142,51 @@
           <p class="eyebrow">Illinois readout</p>
           <h2>Sangamon County parcel and tax trends</h2>
         </div>
+        <article class="preview-card wide signal-change-panel" aria-labelledby="paymentReviewTitle">
+          <div class="preview-card-header">
+            <div>
+              <h3 id="paymentReviewTitle">What the county records show for the flagged properties</h3>
+              <p>Checked <strong data-signal-stat="payment-checked">Unavailable</strong> · <span data-signal-stat="payment-billing-years">Billing years unavailable</span>.</p>
+            </div>
+          </div>
+          <div class="signal-stat-grid" aria-label="Results for the previously flagged records">
+            <article>
+              <span>Flagged records checked</span>
+              <strong data-signal-stat="payment-records-checked">Unavailable</strong>
+            </article>
+            <article>
+              <span>Current balances among the checked records</span>
+              <strong data-signal-stat="payment-positive">Unavailable</strong>
+            </article>
+            <article>
+              <span>With zero current balance</span>
+              <strong data-signal-stat="payment-zero">Unavailable</strong>
+            </article>
+            <article>
+              <span>With a current credit balance</span>
+              <strong data-signal-stat="payment-credit">Unavailable</strong>
+            </article>
+          </div>
+          <p data-signal-stat="payment-coverage">The scope of this record check is unavailable. These figures are not a current countywide total.</p>
+          <p>A zero current balance does not establish that a property has no older-year taxes or other charges.</p>
+          <details>
+            <summary>Older-year balances in the source snapshot</summary>
+            <p>Snapshot dated <strong data-signal-stat="illinois-tax-source-date">Unavailable</strong>, covering <strong data-signal-stat="payment-snapshot-targets">Unavailable</strong> target-area records. These counts cover the complete target-area snapshot, not just the smaller checked group above.</p>
+            <ul>
+              <li>With a current-year balance: <strong data-signal-stat="payment-snapshot-current">Unavailable</strong></li>
+              <li>With an older-year balance: <strong data-signal-stat="payment-snapshot-older">Unavailable</strong></li>
+              <li>With one or both kinds of balance: <strong data-signal-stat="payment-snapshot-either">Unavailable</strong></li>
+            </ul>
+            <p data-signal-stat="payment-snapshot-overlap">The overlap between current and older-year balances is unavailable.</p>
+            <p>Across the full county snapshot, <strong data-signal-stat="payment-snapshot-county-older">Unavailable</strong> records have an older-year balance. These older-year fields were not refreshed by the separate current-billing check.</p>
+          </details>
+          <details>
+            <summary>Why the earlier numbers changed</summary>
+            <p data-signal-stat="payment-history">The explanation of the earlier counts is unavailable.</p>
+            <p data-signal-stat="payment-correction-note">The county snapshot and this separate record check have different coverage and dates.</p>
+          </details>
+          <p><a id="paymentCountySource" href="https://tax.sangamonil.gov/SangamonCountyWeb/app/homeAction">Check a property in the county's tax records</a></p>
+        </article>
         <div class="preview-card wide signal-change-panel">
           <div class="preview-card-header">
             <div>
@@ -165,7 +210,7 @@
               <strong data-signal-stat="delta-score-80">...</strong>
             </div>
             <div>
-              <span>Taxes due</span>
+              <span>Countywide current-tax balances</span>
               <strong data-signal-stat="delta-taxes-due">...</strong>
             </div>
             <div>
@@ -199,13 +244,13 @@
             <p>Highest screening score in the current target-area snapshot.</p>
           </article>
           <article>
-            <span>Taxes still due</span>
-            <strong data-signal-stat="illinois-taxes-due">...</strong>
-            <p>Target rows with unpaid tax signals from the county tax-payment enrichment.</p>
+            <span>Countywide current-tax balances</span>
+            <strong data-signal-stat="illinois-taxes-due">Unavailable</strong>
+            <p>Countywide records with a positive current-tax balance in the source snapshot dated <time data-signal-stat="illinois-tax-source-date">Unavailable</time>. This is separate from the flagged-record check above.</p>
           </article>
           <article>
             <span>Due within 45 days</span>
-            <strong data-signal-stat="illinois-taxes-due-soon">...</strong>
+            <strong data-signal-stat="illinois-taxes-due-soon">Unavailable</strong>
             <p>Upcoming installment timing detected in the public-safe summary.</p>
           </article>
           <article>
@@ -225,7 +270,7 @@
           </article>
         </div>
         <p class="signal-stat-note">
-          Illinois refresh: <strong data-signal-stat="illinois-updated">loading</strong>. Top township:
+          Illinois record snapshot: <strong data-signal-stat="illinois-updated">loading</strong>. Tax snapshot: <strong data-signal-stat="illinois-tax-source-date">Unavailable</strong>. Top township:
           <strong data-signal-stat="illinois-top-township">loading</strong>. 50+ acre targets:
           <strong data-signal-stat="illinois-fifty-plus">loading</strong>.
         </p>
@@ -256,9 +301,9 @@
               <div class="mini-row">
                 <strong>Taxes</strong>
                 <span>County tax record</span>
-                <span>Shows timing and pressure clues</span>
-                <em><span data-signal-stat="illinois-taxes-due">...</span> due</em>
-                <span><span data-signal-stat="illinois-taxes-due-soon">...</span> due soon</span>
+                <span>Countywide snapshot, not a current payment check</span>
+                <em><span data-signal-stat="illinois-taxes-due">Unavailable</span> current-tax balances</em>
+                <span>Source date: <span data-signal-stat="illinois-tax-source-date">Unavailable</span></span>
               </div>
               <div class="mini-row">
                 <strong>Owners</strong>

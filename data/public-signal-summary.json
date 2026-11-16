@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T05:19:00.177384+00:00",
+  "generated_at": "2026-11-16T17:13:00.168Z",
   "privacy": {
     "public_safe": true,
     "excluded_fields": [
@@ -10,7 +10,7 @@
       "legal_description",
       "parcel_id"
     ],
-    "note": "Aggregate counts only. Verify parcel-level details in county sources."
+    "note": "Aggregate counts only. Verify parcel-level details in county sources and the private dashboard."
   },
   "illinois_sangamon": {
     "county": "Sangamon",
@@ -24,15 +24,15 @@
       "full_index_rows": 109837,
       "realistic_targets": 20042,
       "active_tax_sale_count": 0,
-      "taxes_due_count": 311,
+      "taxes_due_count": 172,
       "countywide_tax_rows_evaluated": 109837,
       "countywide_tax_coverage_complete": true,
-      "countywide_tax_data_as_of": null,
-      "countywide_tax_status_note": "Unpaid installment balances in the county ZIP snapshot; not a live parcel-by-parcel lookup.",
-      "public_target_taxes_due_count": 36,
-      "taxes_due_soon_45_days": 0,
-      "first_installments_due_soon_45_days": 0,
-      "second_installments_due_soon_45_days": 0,
+      "countywide_tax_data_as_of": "2026-11-08",
+      "countywide_tax_status_note": "Current Tax Due from the county's November 8 combined-file snapshot, verified against its official layout. Excludes older-year delinquent balances, interest and other charges; not a live countywide lookup.",
+      "public_target_taxes_due_count": 10,
+      "taxes_due_soon_45_days": null,
+      "first_installments_due_soon_45_days": null,
+      "second_installments_due_soon_45_days": null,
       "owner_rollup_count": 73060,
       "large_owner_rollup_count": 1768,
       "terrain_ready_count": 0,
@@ -40,7 +40,15 @@
       "annual_tax_total": 79665079.92,
       "max_opportunity_score": 93,
       "max_owner_parcel_count": 2383,
-      "max_owner_total_acres": 24553.86
+      "max_owner_total_acres": 24553.86,
+      "delinquent_taxes_due_count": 17,
+      "public_target_delinquent_taxes_due_count": 10,
+      "any_taxes_due_count": 179,
+      "public_target_any_taxes_due_count": 12,
+      "delinquent_tax_status_note": "Separate older-year Delinquent Tax Due field from November 8; counts can overlap current-year balances. These are not freshly verified redemption quotes and exclude separate interest and other charges.",
+      "due_soon_note": "Unavailable: the source snapshot does not supply verified installment due dates for every parcel.",
+      "annual_tax_total_basis": "Retained legacy scoring input, not an independently verified sum of current taxes billed. Scoring inputs are unchanged by this balance correction.",
+      "public_target_tax_data_as_of": "2026-11-08"
     },
     "score_bands": {
       "score_80_plus": 2982,
@@ -104,21 +112,48 @@
       "moderate_risk_count": 0,
       "high_risk_count": 0
     },
-    "refreshed_at": "2026-11-09T22:46:38.778Z"
+    "refreshed_at": "2026-11-08"
   },
   "model_version": "2026-11-14-residential-acreage-v2",
-  "correction": {
-    "type": "model_and_recorded_acreage_correction",
+  "payment_model_version": "2026-11-16-official-current-tax-due-v1",
+  "payment_correction": {
+    "version": "2026-11-16-official-current-tax-due-v1",
+    "source_date": "2026-11-08",
+    "source_zip_sha256": "e626e83114bca653ac7f569066004e3fb71d9188456d541f628d6e4ada0e6bbe",
+    "layout_sha256": "6d75e9bfdeea58244959f450a9b2a4d2f81ab8c944353b6c879b91bdc4745295",
+    "layout_source_url": "https://sangamonil.gov/property-info/other-property-info/data-download",
+    "current_tax_due_column_one_based": 95,
+    "county_records_verified": 109837,
+    "target_records_verified": 22707,
+    "note": "Corrected the combined-file field mapping using the county's official layout. Current Tax Due is its own field; current credits/debits and historical delinquent tax billed are not installment-payment pairs. The November 8 snapshot contains 172 countywide current-tax balances, including 10 in the target area. Earlier figures of 311 countywide and 36 target-area balances were unreliable. This is a calculation correction, not newly unpaid taxes or evidence of new payments. Older-year delinquent taxes, interest and other charges are separate."
+  },
+  "payment_reconciliation": {
+    "checked_at": "2026-11-16T16:55:39.102641+00:00",
+    "records_checked": 41,
+    "positive_current_balance_records": 10,
+    "zero_current_balance_records": 31,
+    "credit_current_balance_records": 0,
+    "billing_tax_year": 2025,
+    "payable_year": 2026,
+    "historical_flagged_records": 41,
+    "historical_published_target_count": 36,
+    "balances_matching_corrected_snapshot": 41,
+    "source_url": "https://tax.sangamonil.gov/SangamonCountyWeb/app/homeAction",
+    "coverage_note": "The 41 records flagged by the old calculation were checked directly on November 16. All current balances match the corrected November 8 snapshot to the cent: 10 positive and 31 zero. This was not a fresh review of all 109,837 county parcels or all 22,707 target-area parcels. Zero current balance does not establish that older-year taxes, interest or other charges are clear.",
+    "historical_note": "The old 41 count mixed incompatible file fields. The published 36 came from the old pipeline, which was configured to check up to 1,000 records online; its individual changes cannot be reconstructed from the retained evidence. Neither is treated as a verified current-balance count, and the 31 zeros are not claimed as new payments."
+  },
+  "score_source_date": "2026-11-08",
+  "scoring_provenance": {
     "model_version": "2026-11-14-residential-acreage-v2",
-    "tax_source_date": "2026-11-08",
-    "tax_source_refreshed": false,
+    "base_tax_source_date": "2026-11-08",
+    "scoring_snapshot_refreshed": false,
     "county_gis_checked_at": "2026-11-15T04:59:18.778819+00:00",
-    "county_gis_attribute_update_date": null,
     "county_gis_quality_checked_at": "2026-11-15T05:12:14.521555+00:00",
-    "recorded_acreage_candidates_rejected_by_quality_screen": 437,
+    "county_gis_attribute_update_date": null,
     "recovered_acreage_rows": 50,
     "remaining_missing_acreage_rows": 11683,
-    "changed_score_rows": 1433,
-    "note": "Recalculated scores and recorded acreage corrections; not market movement or a fresh tax-status check. County GIS retrieval time is not its attribute update date."
+    "recorded_acreage_candidates_rejected_by_quality_screen": 437,
+    "polygon_area_used_as_fill": false,
+    "note": "Scores retain the reviewed November 8, 2026 tax snapshot. generated_at is export time, not a new county record date. GIS retrieval time is not the county attribute update date; payment-timing fields may have separate refresh dates."
   }
 }

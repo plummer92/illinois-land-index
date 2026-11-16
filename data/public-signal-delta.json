@@ -1,25 +1,26 @@
 {
-  "generated_at": "2026-11-15T05:19:00.177384+00:00",
-  "compared_to": "2026-11-09T22:46:44.289Z",
-  "comparison_type": "model_and_recorded_acreage_correction",
+  "generated_at": "2026-11-16T17:13:06.665Z",
+  "compared_to": "2026-11-15T05:19:00.177384+00:00",
   "model_version": "2026-11-14-residential-acreage-v2",
-  "correction": {
-    "type": "model_and_recorded_acreage_correction",
+  "score_source_date": "2026-11-08",
+  "comparison_type": "payment_field_mapping_correction",
+  "scoring_provenance": {
     "model_version": "2026-11-14-residential-acreage-v2",
-    "tax_source_date": "2026-11-08",
-    "tax_source_refreshed": false,
+    "base_tax_source_date": "2026-11-08",
+    "scoring_snapshot_refreshed": false,
     "county_gis_checked_at": "2026-11-15T04:59:18.778819+00:00",
-    "county_gis_attribute_update_date": null,
     "county_gis_quality_checked_at": "2026-11-15T05:12:14.521555+00:00",
-    "recorded_acreage_candidates_rejected_by_quality_screen": 437,
+    "county_gis_attribute_update_date": null,
     "recovered_acreage_rows": 50,
     "remaining_missing_acreage_rows": 11683,
-    "changed_score_rows": 1433,
-    "note": "Recalculated scores and recorded acreage corrections; not market movement or a fresh tax-status check. County GIS retrieval time is not its attribute update date."
+    "recorded_acreage_candidates_rejected_by_quality_screen": 437,
+    "polygon_area_used_as_fill": false,
+    "note": "Scores retain the reviewed November 8, 2026 tax snapshot. generated_at is export time, not a new county record date. GIS retrieval time is not the county attribute update date; payment-timing fields may have separate refresh dates."
   },
+  "comparison_note": "Corrected the combined-file field mapping using the county's official layout. Current Tax Due is its own field; current credits/debits and historical delinquent tax billed are not installment-payment pairs. The November 8 snapshot contains 172 countywide current-tax balances, including 10 in the target area. Earlier figures of 311 countywide and 36 target-area balances were unreliable. This is a calculation correction, not newly unpaid taxes or evidence of new payments. Older-year delinquent taxes, interest and other charges are separate.",
   "privacy": {
     "public_safe": true,
-    "note": "Aggregate correction comparison only; no owner identities or parcel identifiers."
+    "note": "Aggregate changes only. No parcel IDs, owner names, addresses, or legal descriptions."
   },
   "illinois_sangamon": {
     "has_previous_summary": true,
@@ -35,22 +36,15 @@
         "label": "Score 80+ rows",
         "path": "illinois_sangamon.score_bands.score_80_plus",
         "current": 2982,
-        "previous": 2959,
-        "change": 23
+        "previous": 2982,
+        "change": 0
       },
       {
         "label": "Countywide unpaid-balance rows",
         "path": "illinois_sangamon.totals.taxes_due_count",
-        "current": 311,
+        "current": 172,
         "previous": 311,
-        "change": 0
-      },
-      {
-        "label": "Due within 45 days",
-        "path": "illinois_sangamon.totals.taxes_due_soon_45_days",
-        "current": 0,
-        "previous": 0,
-        "change": 0
+        "change": -139
       },
       {
         "label": "Large owner groups",
@@ -72,15 +66,49 @@
         "current": 1482,
         "previous": 1482,
         "change": 0
+      },
+      {
+        "label": "Target-area current-tax balances",
+        "path": "illinois_sangamon.totals.public_target_taxes_due_count",
+        "current": 10,
+        "previous": 36,
+        "change": -26
       }
     ],
     "largest_movement": {
-      "label": "Score 80+ rows",
-      "path": "illinois_sangamon.score_bands.score_80_plus",
-      "current": 2982,
-      "previous": 2959,
-      "change": 23
+      "label": "Countywide unpaid-balance rows",
+      "path": "illinois_sangamon.totals.taxes_due_count",
+      "current": 172,
+      "previous": 311,
+      "change": -139
     },
-    "summary_line": "Model and recorded-acreage correction compared with the previously published summary. These changes do not measure market activity; tax-status figures retain their prior snapshot."
+    "summary_line": "Corrected current-tax field mapping; no claim of new delinquency or new payments. Scores and the November 8 source snapshot are unchanged."
+  },
+  "payment_model_version": "2026-11-16-official-current-tax-due-v1",
+  "payment_correction": {
+    "version": "2026-11-16-official-current-tax-due-v1",
+    "source_date": "2026-11-08",
+    "source_zip_sha256": "e626e83114bca653ac7f569066004e3fb71d9188456d541f628d6e4ada0e6bbe",
+    "layout_sha256": "6d75e9bfdeea58244959f450a9b2a4d2f81ab8c944353b6c879b91bdc4745295",
+    "layout_source_url": "https://sangamonil.gov/property-info/other-property-info/data-download",
+    "current_tax_due_column_one_based": 95,
+    "county_records_verified": 109837,
+    "target_records_verified": 22707,
+    "note": "Corrected the combined-file field mapping using the county's official layout. Current Tax Due is its own field; current credits/debits and historical delinquent tax billed are not installment-payment pairs. The November 8 snapshot contains 172 countywide current-tax balances, including 10 in the target area. Earlier figures of 311 countywide and 36 target-area balances were unreliable. This is a calculation correction, not newly unpaid taxes or evidence of new payments. Older-year delinquent taxes, interest and other charges are separate."
+  },
+  "payment_reconciliation": {
+    "checked_at": "2026-11-16T16:55:39.102641+00:00",
+    "records_checked": 41,
+    "positive_current_balance_records": 10,
+    "zero_current_balance_records": 31,
+    "credit_current_balance_records": 0,
+    "billing_tax_year": 2025,
+    "payable_year": 2026,
+    "historical_flagged_records": 41,
+    "historical_published_target_count": 36,
+    "balances_matching_corrected_snapshot": 41,
+    "source_url": "https://tax.sangamonil.gov/SangamonCountyWeb/app/homeAction",
+    "coverage_note": "The 41 records flagged by the old calculation were checked directly on November 16. All current balances match the corrected November 8 snapshot to the cent: 10 positive and 31 zero. This was not a fresh review of all 109,837 county parcels or all 22,707 target-area parcels. Zero current balance does not establish that older-year taxes, interest or other charges are clear.",
+    "historical_note": "The old 41 count mixed incompatible file fields. The published 36 came from the old pipeline, which was configured to check up to 1,000 records online; its individual changes cannot be reconstructed from the retained evidence. Neither is treated as a verified current-balance count, and the 31 zeros are not claimed as new payments."
   }
 }

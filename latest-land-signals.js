@@ -24,8 +24,60 @@
   }
 
   function formatComparison(metric) {
+    if (!metric || !Number.isFinite(metric.current)) return "Unavailable";
     if (!metric || metric.previous === null || metric.previous === undefined) return "No comparable earlier value";
     return `${numberFormat.format(Number(metric.previous || 0))} → ${numberFormat.format(Number(metric.current || 0))} (${formatChange(metric.change)})`;
+  }
+
+  function formatCount(value) {
+    return Number.isInteger(value) && value >= 0 ? numberFormat.format(value) : "Unavailable";
+  }
+
+  function formatEvidenceDate(value) {
+    if (typeof value !== "string" || !value) return "Unavailable";
+    const dateOnly = /^\d{4}-\d{2}-\d{2}$/.test(value);
+    const date = new Date(dateOnly ? `${value}T12:00:00.000Z` : value);
+    if (Number.isNaN(date.getTime())) return "Unavailable";
+    return date.toLocaleDateString("en-US", {
+      month: "short", day: "numeric", year: "numeric", timeZone: dateOnly ? "UTC" : "America/Chicago",
+    });
+  }
+
+  function renderPaymentReview(summary) {
+    const review = summary.payment_reconciliation || {};
+    const correction = summary.payment_correction || {};
+    const totals = summary.illinois_sangamon?.totals || {};
+    setText("payment-checked", formatEvidenceDate(review.checked_at));
+    setText("payment-records-checked", formatCount(review.records_checked));
+    setText("payment-positive", formatCount(review.positive_current_balance_records));
+    setText("payment-zero", formatCount(review.zero_current_balance_records));
+    setText("payment-credit", formatCount(review.credit_current_balance_records));
+    const yearsKnown = Number.isInteger(review.billing_tax_year) && Number.isInteger(review.payable_year);
+    setText("payment-billing-years", yearsKnown ? `Tax year ${review.billing_tax_year}, payable ${review.payable_year}` : "Billing years unavailable");
+    setText("payment-coverage", review.coverage_note || "The scope of this record check is unavailable. Do not treat these figures as a current countywide total.");
+    setText("payment-history", review.historical_note || "The explanation of the earlier counts is unavailable.");
+    setText("payment-correction-note", correction.note || "The county snapshot and the separate record check have different coverage and dates.");
+    setText("illinois-tax-source-date", formatEvidenceDate(correction.source_date || totals.countywide_tax_data_as_of));
+    setText("payment-snapshot-targets", formatCount(totals.public_target_rows));
+    setText("payment-snapshot-current", formatCount(totals.public_target_taxes_due_count));
+    setText("payment-snapshot-older", formatCount(totals.public_target_delinquent_taxes_due_count));
+    setText("payment-snapshot-either", formatCount(totals.public_target_any_taxes_due_count));
+    setText("payment-snapshot-county-older", formatCount(totals.delinquent_taxes_due_count));
+    const current = totals.public_target_taxes_due_count;
+    const older = totals.public_target_delinquent_taxes_due_count;
+    const either = totals.public_target_any_taxes_due_count;
+    const validGroups = [current, older, either].every(value => Number.isInteger(value) && value >= 0)
+      && either >= Math.max(current, older) && either <= current + older;
+    setText("payment-snapshot-overlap", validGroups
+      ? `${numberFormat.format(current + older - either)} records appear in both groups; ${numberFormat.format(either - current)} have only an older-year balance. The current and older-year counts should not be added together.`
+      : "The overlap between current and older-year balances is unavailable.");
+    const link = document.getElementById("paymentCountySource");
+    if (link && typeof review.source_url === "string") {
+      try {
+        const url = new URL(review.source_url);
+        if (url.protocol === "https:" && url.hostname === "tax.sangamonil.gov") link.href = url.href;
+      } catch (_) { /* Keep the official county search link if source metadata is invalid. */ }
+    }
   }
 
   function formatDate(value) {
@@ -78,8 +130,8 @@
       setText("illinois-targets", compactFormat.format(totals.public_target_rows || 0));
       setText("illinois-score-80", numberFormat.format(scoreBands.score_80_plus || 0));
       setText("illinois-max-score", numberFormat.format(totals.max_opportunity_score || 0));
-      setText("illinois-taxes-due", numberFormat.format(totals.taxes_due_count || 0));
-      setText("illinois-taxes-due-soon", numberFormat.format(totals.taxes_due_soon_45_days || 0));
+      setText("illinois-taxes-due", formatCount(totals.taxes_due_count));
+      setText("illinois-taxes-due-soon", formatCount(totals.taxes_due_soon_45_days));
       setText("illinois-owner-rollups", compactFormat.format(totals.owner_rollup_count || 0));
       setText("illinois-large-owner-rollups", numberFormat.format(totals.large_owner_rollup_count || 0));
       setText("illinois-terrain-ready", numberFormat.format(terrain.ready_count || totals.terrain_ready_count || 0));
@@ -88,7 +140,8 @@
       setText("illinois-total-acres", compactFormat.format(totals.total_acres || 0));
       setText("illinois-top-township", topTownship ? topTownship.label : "Review dashboard");
       setText("illinois-top-class", topClass ? topClass.label : "Review dashboard");
-      setText("illinois-updated", formatDate(sangamon.refreshed_at || publicSummaryResult.value.generated_at));
+      setText("illinois-updated", formatEvidenceDate(publicSummaryResult.value.score_source_date || sangamon.refreshed_at));
+      renderPaymentReview(publicSummaryResult.value);
     }
 
     if (publicDeltaResult.status === "fulfilled") {
@@ -109,6 +162,10 @@
       if (publicDeltaResult.value.comparison_type === "model_and_recorded_acreage_correction") {
         setText("delta-title","What changed after the scoring correction");
         setText("delta-note","These differences come from correcting the vacant-residential rule and filling missing acreage from county GIS. They are not market movement. Tax and payment records were not refreshed.");
+      } else if (publicDeltaResult.value.comparison_type === "payment_field_mapping_correction") {
+        setText("delta-title", "What changed after correcting the tax fields");
+        setText("delta-note", publicDeltaResult.value.comparison_note || "The earlier calculation mixed tax fields. These are corrections to the source snapshot, not newly unpaid properties or a countywide live payment check.");
+        setText("delta-largest-movement", "Tax-data correction; see the explanation");
       }
     }
 

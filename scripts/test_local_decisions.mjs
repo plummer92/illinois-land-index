@@ -42,7 +42,7 @@ test("tax section is available without geometry and never fabricates amounts for
   const app=setup();const parent=new Node("div");
   const panel=app.showPropertyLocalDecisions(parent,{pin:"29070380008"});
   assert.match(text(panel),/could not verify this parcel’s municipality/);
-  assert.match(text(panel),/amounts are not imported/);
+  assert.match(text(panel),/Remaining balances, payments and penalties are separate/);
   assert.doesNotMatch(text(panel),/\$[\d,.]+/);
   assert.equal(flatten(panel).filter(n=>n.tag==="a"&&n.href.includes("parcelNumber=29070380008")).length,3);
 });

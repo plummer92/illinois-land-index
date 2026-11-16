@@ -1,0 +1,24 @@
+.tax-inline { margin:1rem 0 1.4rem; }
+.tax-inline-year { font-weight:700; color:#24563f; margin-bottom:.3rem; }
+.tax-inline-total { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:.25rem 1rem; padding:.85rem 0; border-bottom:1px solid #cedcd3; }
+.tax-inline-total strong { font-size:1.65rem; color:#184e38; font-variant-numeric:tabular-nums; }
+.tax-inline-groups { margin:1.1rem 0; display:grid; gap:1.1rem; }
+.tax-inline-group-label { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.2rem 1rem; line-height:1.45; }
+.tax-inline-group-label strong { font-variant-numeric:tabular-nums; white-space:nowrap; }
+.tax-inline-track { height:10px; border-radius:5px; background:#e9ede9; overflow:hidden; margin:.5rem 0 .2rem; }
+.tax-inline-track span { display:block; height:100%; min-width:0; background:#246a4b; border-radius:5px; }
+.tax-group-village .tax-inline-track span { background:#28758c; }
+.tax-group-county .tax-inline-track span { background:#94631d; }
+.tax-group-other .tax-inline-track span { background:#746184; }
+.tax-inline-group small { color:#4e5c53; font-size:.9rem; }
+.tax-inline-message { padding:.8rem; background:#f2f6f3; border-radius:6px; }
+.tax-inline-districts { border-block:1px solid #dbe5df; margin:1rem 0; }
+.tax-inline-districts summary { cursor:pointer; min-height:48px; display:list-item; padding:.6rem 0; font-weight:700; }
+.tax-inline-districts table { width:100%; border-collapse:collapse; font-size:1rem; }
+.tax-inline-districts caption { text-align:left; color:#46584f; padding:.6rem 0; }
+.tax-inline-districts th,.tax-inline-districts td { border-bottom:1px solid #e2e8e3; padding:.7rem .4rem; vertical-align:top; }
+.tax-inline-districts th { text-align:left; overflow-wrap:anywhere; }
+.tax-inline-districts tbody th { font-weight:500; }
+.tax-inline-districts td,.tax-inline-districts th:last-child { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.tax-inline-retry { min-height:48px; padding:.7rem 1rem; font:inherit; font-weight:700; color:#195c45; border:1px solid #658d77; border-radius:8px; background:#fff; cursor:pointer; }
+.tax-inline-retry:focus-visible { outline:3px solid #b66a13; outline-offset:3px; }

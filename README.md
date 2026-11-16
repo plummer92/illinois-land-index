@@ -311,10 +311,32 @@ The home page, parcel dashboard, water map and public signals deploy together.
 
 ### Taxes and local decisions
 
-The parcel dashboard links the selected 11-digit PIN to the county's tax-district
-breakdown, bill PDF and billing history. It does not scrape or embed tax records,
-infer a bill from rates, or copy owner information. The county's tax-bill year can
-differ from the assessment year on its parcel-summary page.
+The parcel dashboard loads the selected 11-digit PIN's official bill through the
+narrow public service at
+`https://illinois-land-index-tax-lookup.theplummer92.chatgpt.site/tax-breakdown`.
+Opening the panel sends a POST body containing only `{pin}`. It does not send
+addresses or analytics events. The service reads the county's current tax-bill
+page, validates the response PIN, year, headers and exact cent total, and returns
+only tax-year district amounts. It never returns owners, locations, payment
+history or raw HTML. A missing bill, a verified zero bill and a failed lookup are
+separate states. District shares are amounts billed, not unpaid balances or proof
+of spending. The model score and its source date are unrelated to this bill.
+
+`api/tax-parser.mjs` and `api/worker.mjs` are the service's source of truth. Its
+separate Sites project is `appgprj_6afa74e2cd048191ad71664f71cc0788`; retain that
+identity for updates. Sync those two sources to its checkout, build a single ESM
+Worker, then use the Sites source/version/deployment workflow. The public site
+continues to deploy through GitHub Pages. Publish and verify the API before
+releasing a client that depends on it. No account, secret or private dataset is
+required by the service.
+
+Successful tax responses are cached for at most 24 hours, with retrieval time
+visible to visitors. Errors never become zero bills or cached successes. County
+requests have time/size/concurrency bounds; the public API accepts a fixed path
+and validated parcel number, never a caller-provided upstream URL. CORS allows
+only the two production Illinois Land Index origins. Rate limiting is best effort
+per Worker instance; it is not a global account-wide quota. No application logging
+of lookup bodies is used; hosting providers can retain their normal access logs.
 
 `parcel-dashboard/local-decisions.js` checks the county municipal boundary only
 when its panel opens. Missing, failed or ambiguous matches must not establish
@@ -323,8 +345,11 @@ Chatham residency, utility service or tax-district membership. The static
 keep appropriations, loan authorizations, warrants and cleared payments distinct.
 The review date is not a document date. Existing analytics exclusions still apply.
 
-Check this feature with `node --test scripts/test_local_decisions.mjs` and the
-existing analytics, search, score, share, utility and representative tests.
+Run `node --test scripts/test_tax_parser.mjs scripts/test_tax_api.mjs
+scripts/test_tax_breakdown.mjs scripts/test_local_decisions.mjs` and the existing
+analytics, search, score, share, utility and representative checks. Verify actual
+residential, zero-bill and unavailable states, narrow-phone layout and anonymous
+production CORS before claiming the feature works.
 
 ### Optional research support
 

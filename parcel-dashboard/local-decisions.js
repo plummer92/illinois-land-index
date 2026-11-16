@@ -64,19 +64,18 @@
     const taxes = section(body,"Where this property’s taxes go");
     const urls = taxLinks(pin);
     if (urls) {
-      taxes.append(create("p","Open the county’s bill breakdown for parcel " + pin + " to see each taxing district and its dollar share."));
-      const primary = link("See my property-tax breakdown",urls.breakdown);
-      primary.className = "local-tax-button";
+      taxes.append(create("p","County tax-bill breakdown for parcel " + pin + "."));
+      window.ParcelTaxBreakdown?.attach(taxes,{pin,panel:details});
+      const primary = link("Check the original county breakdown",urls.breakdown);
       const secondary = create("div",undefined,"local-decision-links");
       secondary.append(link("Open bill PDF",urls.pdf),link("Compare previous years",urls.history));
       taxes.append(primary,secondary);
     } else {
       taxes.append(create("p","A valid county parcel number is needed for a property-specific bill."),link("Search the official county tax records",countyBase + "searchByParcelNumber.action"));
     }
-    taxes.append(create("p","Read the tax year at the top, then the Current Taxes column. That column shows district shares of the bill. Remaining balance, payments and penalties are separate; the Pensions column is not an extra amount to add to the total."));
-    taxes.append(create("p","The county holds the live bill; amounts are not imported here. A missing bill is not evidence that no tax is owed. The bill shows which districts levy taxes, not the projects each tax dollar funded.","local-decision-note"));
+    taxes.append(create("p","The bill shows which districts levy taxes, not the projects each tax dollar funded. Remaining balances, payments and penalties are separate.","local-decision-note"));
     const source = create("p",undefined,"local-decision-source");
-    source.append(link("Source: Sangamon County Treasurer", "https://sangamonil.gov/departments/s-z/treasurer"),document.createTextNode(" · Bill links checked November 15, 2026. Tax year 2025 is payable in 2026; use the year shown on your bill."));
+    source.append(link("About the tax year: Sangamon County Treasurer", "https://sangamonil.gov/departments/s-z/treasurer"),document.createTextNode(" · Illinois property taxes are normally paid the following year. Check the tax year shown above or on the county bill."));
     taxes.append(source);
     const local = section(body,"Chatham rates and spending");
     const scope = create("p",validPoint(position) ? "Open this section to check the parcel’s municipality." : scopeText({status:"unknown"}),"local-decision-scope");

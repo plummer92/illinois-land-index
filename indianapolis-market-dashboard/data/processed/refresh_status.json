@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-15T17:52:50.502Z",
+  "generated_at": "2026-11-16T21:07:01.228Z",
   "policy": {
     "ok": true,
     "stale_days": 7,
-    "ok_count": 3,
+    "ok_count": 4,
     "source_count": 4,
     "every_source_failed": false,
     "overdue_sources": [],
@@ -13,8 +13,8 @@
     "indiana_statewide_parcels": {
       "name": "Indiana statewide parcels (Indianapolis area)",
       "status": "ok",
-      "attempted_at": "2026-11-15T17:53:09.084Z",
-      "last_success_at": "2026-11-15T17:53:09.084Z",
+      "attempted_at": "2026-11-16T21:07:22.013Z",
+      "last_success_at": "2026-11-16T21:07:22.013Z",
       "error": null
     }
   }

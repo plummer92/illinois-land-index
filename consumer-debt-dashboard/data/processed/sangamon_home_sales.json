@@ -5,8 +5,8 @@
     "method_url": "https://tax.illinois.gov/localgovernments/property/mydecdatafiles.html",
     "form_url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/localgovernments/property/documents/ptax-203.pdf"
   },
-  "release_date": "2026-11-08",
-  "latest_recorded": "2026-11-06",
+  "release_date": "2026-11-15",
+  "latest_recorded": "2026-11-13",
   "latest_full_month": "2026-10",
   "bands": [
     {
@@ -905,39 +905,39 @@
         {
           "month": "2026-11",
           "partial": true,
-          "count": 54,
-          "volume": 11936819,
-          "median": 184000.0,
+          "count": 94,
+          "volume": 21450019,
+          "median": 188500.0,
           "bands": [
             {
               "id": "under150",
-              "count": 21,
-              "volume": 2053019,
-              "median": 100000
+              "count": 35,
+              "volume": 3130519,
+              "median": 98000
             },
             {
               "id": "150to250",
-              "count": 14,
-              "volume": 2645400,
-              "median": 188750.0
+              "count": 29,
+              "volume": 5723200,
+              "median": 195000
             },
             {
               "id": "250to350",
-              "count": 7,
-              "volume": 2097000,
+              "count": 9,
+              "volume": 2718900,
               "median": 305000
             },
             {
               "id": "350to500",
-              "count": 9,
-              "volume": 3509900,
-              "median": 374900
+              "count": 12,
+              "volume": 4667900,
+              "median": 382450.0
             },
             {
               "id": "500plus",
-              "count": 3,
-              "volume": null,
-              "median": null
+              "count": 9,
+              "volume": 5209500,
+              "median": 550000
             }
           ]
         }
@@ -1807,9 +1807,9 @@
         {
           "month": "2026-11",
           "partial": true,
-          "count": 5,
-          "volume": 1895000,
-          "median": 306000,
+          "count": 7,
+          "volume": 2865000,
+          "median": 390000,
           "bands": [
             {
               "id": "under150",
@@ -1831,13 +1831,13 @@
             },
             {
               "id": "350to500",
-              "count": 1,
+              "count": 2,
               "volume": null,
               "median": null
             },
             {
               "id": "500plus",
-              "count": 1,
+              "count": 2,
               "volume": null,
               "median": null
             }

@@ -1,38 +1,38 @@
 {
-  "generated_at": "2026-11-16T21:07:01.228Z",
+  "generated_at": "2026-11-17T19:56:06.559Z",
   "sources": {
     "tennessee_statewide_parcels": {
       "name": "Tennessee statewide parcels (seven Knoxville-area counties)",
       "status": "ok",
-      "attempted_at": "2026-11-16T21:07:01.228Z",
-      "last_success_at": "2026-11-16T21:07:01.228Z",
+      "attempted_at": "2026-11-17T19:56:06.560Z",
+      "last_success_at": "2026-11-17T19:56:06.560Z",
       "error": null
     },
     "indiana_statewide_parcels": {
       "name": "Indiana statewide parcels (Indianapolis area)",
       "status": "ok",
-      "attempted_at": "2026-11-16T21:07:22.013Z",
-      "last_success_at": "2026-11-16T21:07:22.013Z",
+      "attempted_at": "2026-11-17T19:56:28.725Z",
+      "last_success_at": "2026-11-17T19:56:28.725Z",
       "error": null
     },
     "colorado_statewide_parcels": {
       "name": "Colorado statewide parcels (Gilpin area)",
       "status": "ok",
-      "attempted_at": "2026-11-16T21:07:31.017Z",
-      "last_success_at": "2026-11-16T21:07:31.017Z",
+      "attempted_at": "2026-11-17T19:56:40.474Z",
+      "last_success_at": "2026-11-17T19:56:40.474Z",
       "error": null
     },
     "colorado_property_taxes": {
       "name": "Colorado property taxes",
       "status": "ok",
-      "attempted_at": "2026-11-16T21:08:30.595Z",
-      "last_success_at": "2026-11-16T21:08:30.595Z",
+      "attempted_at": "2026-11-17T19:57:14.965Z",
+      "last_success_at": "2026-11-17T19:57:14.965Z",
       "error": null
     },
     "knox_county_parcels": {
       "name": "Knox County parcels",
       "status": "frozen",
-      "attempted_at": "2026-11-16T21:07:01.228Z",
+      "attempted_at": "2026-11-17T19:56:06.559Z",
       "last_success_at": "2026-10-15T15:38:58.574Z",
       "error": "No acceptable public no-login source is available: the Comptroller service was retired, the replacement statewide service excludes Knox, and KGIS requires authorization or a data license."
     }

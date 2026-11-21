@@ -1,38 +1,38 @@
 {
-  "generated_at": "2026-11-20T19:09:47.915Z",
+  "generated_at": "2026-11-21T18:06:14.945Z",
   "sources": {
     "tennessee_statewide_parcels": {
       "name": "Tennessee statewide parcels (seven Knoxville-area counties)",
       "status": "ok",
-      "attempted_at": "2026-11-20T19:09:47.915Z",
-      "last_success_at": "2026-11-20T19:09:47.915Z",
+      "attempted_at": "2026-11-21T18:06:14.945Z",
+      "last_success_at": "2026-11-21T18:06:14.945Z",
       "error": null
     },
     "indiana_statewide_parcels": {
       "name": "Indiana statewide parcels (Indianapolis area)",
       "status": "ok",
-      "attempted_at": "2026-11-20T19:10:08.548Z",
-      "last_success_at": "2026-11-20T19:10:08.548Z",
+      "attempted_at": "2026-11-21T18:06:36.817Z",
+      "last_success_at": "2026-11-21T18:06:36.817Z",
       "error": null
     },
     "colorado_statewide_parcels": {
       "name": "Colorado statewide parcels (Gilpin area)",
-      "status": "stale",
-      "attempted_at": "2026-11-20T19:10:17.813Z",
-      "last_success_at": "2026-11-19T19:32:20.459Z",
-      "error": "node scripts/import_gilpin_parcels.mjs exited 1"
+      "status": "ok",
+      "attempted_at": "2026-11-21T18:06:45.919Z",
+      "last_success_at": "2026-11-21T18:06:45.919Z",
+      "error": null
     },
     "colorado_property_taxes": {
       "name": "Colorado property taxes",
       "status": "ok",
-      "attempted_at": "2026-11-20T19:20:06.464Z",
-      "last_success_at": "2026-11-20T19:20:06.464Z",
+      "attempted_at": "2026-11-21T18:07:46.950Z",
+      "last_success_at": "2026-11-21T18:07:46.950Z",
       "error": null
     },
     "knox_county_parcels": {
       "name": "Knox County parcels",
       "status": "frozen",
-      "attempted_at": "2026-11-20T19:09:47.915Z",
+      "attempted_at": "2026-11-21T18:06:14.945Z",
       "last_success_at": "2026-10-15T15:38:58.574Z",
       "error": "No acceptable public no-login source is available: the Comptroller service was retired, the replacement statewide service excludes Knox, and KGIS requires authorization or a data license."
     }
@@ -40,7 +40,7 @@
   "policy": {
     "ok": true,
     "stale_days": 7,
-    "ok_count": 3,
+    "ok_count": 4,
     "source_count": 4,
     "every_source_failed": false,
     "overdue_sources": [],

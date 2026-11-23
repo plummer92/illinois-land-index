@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-16T17:13:06.665Z",
-  "compared_to": "2026-11-15T05:19:00.177384+00:00",
+  "generated_at": "2026-11-23T14:06:18.697Z",
+  "compared_to": "2026-11-16T17:13:00.168Z",
   "model_version": "2026-11-14-residential-acreage-v2",
   "score_source_date": "2026-11-08",
-  "comparison_type": "payment_field_mapping_correction",
+  "comparison_type": "same_model_snapshot_refresh",
   "scoring_provenance": {
     "model_version": "2026-11-14-residential-acreage-v2",
     "base_tax_source_date": "2026-11-08",
@@ -17,7 +17,7 @@
     "polygon_area_used_as_fill": false,
     "note": "Scores retain the reviewed November 8, 2026 tax snapshot. generated_at is export time, not a new county record date. GIS retrieval time is not the county attribute update date; payment-timing fields may have separate refresh dates."
   },
-  "comparison_note": "Corrected the combined-file field mapping using the county's official layout. Current Tax Due is its own field; current credits/debits and historical delinquent tax billed are not installment-payment pairs. The November 8 snapshot contains 172 countywide current-tax balances, including 10 in the target area. Earlier figures of 311 countywide and 36 target-area balances were unreliable. This is a calculation correction, not newly unpaid taxes or evidence of new payments. Older-year delinquent taxes, interest and other charges are separate.",
+  "comparison_note": "The scoring model is unchanged. Export time is not a new county scoring snapshot or evidence of market movement.",
   "privacy": {
     "public_safe": true,
     "note": "Aggregate changes only. No parcel IDs, owner names, addresses, or legal descriptions."
@@ -43,8 +43,8 @@
         "label": "Countywide unpaid-balance rows",
         "path": "illinois_sangamon.totals.taxes_due_count",
         "current": 172,
-        "previous": 311,
-        "change": -139
+        "previous": 172,
+        "change": 0
       },
       {
         "label": "Large owner groups",
@@ -66,23 +66,16 @@
         "current": 1482,
         "previous": 1482,
         "change": 0
-      },
-      {
-        "label": "Target-area current-tax balances",
-        "path": "illinois_sangamon.totals.public_target_taxes_due_count",
-        "current": 10,
-        "previous": 36,
-        "change": -26
       }
     ],
     "largest_movement": {
-      "label": "Countywide unpaid-balance rows",
-      "path": "illinois_sangamon.totals.taxes_due_count",
-      "current": 172,
-      "previous": 311,
-      "change": -139
+      "label": "Sangamon target rows",
+      "path": "illinois_sangamon.totals.public_target_rows",
+      "current": 22707,
+      "previous": 22707,
+      "change": 0
     },
-    "summary_line": "Corrected current-tax field mapping; no claim of new delinquency or new payments. Scores and the November 8 source snapshot are unchanged."
+    "summary_line": "Sangamon target rows changed by +0."
   },
   "payment_model_version": "2026-11-16-official-current-tax-due-v1",
   "payment_correction": {

@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-23T22:53:22.972254Z",
+  "generated_at": "2026-11-24T21:28:25.217998Z",
   "privacy": "Owner names and parcel identifiers are public assessor records. Owner mailing addresses are not published.",
   "counties": [
     {
       "name": "Boulder",
       "coverage": "official_bulk_assessor_roll",
-      "source_updated": "2026-11-23T22:53:22.972254Z",
+      "source_updated": "2026-11-24T21:28:25.217998Z",
       "tax_year": "2026",
-      "accounts": 149233,
-      "total_actual_value": 229651918014,
-      "total_assessed_value": 30749977204,
-      "estimated_annual_tax": 2885554748,
+      "accounts": 149241,
+      "total_actual_value": 229654814214,
+      "total_assessed_value": 30750162844,
+      "estimated_annual_tax": 2885571203,
       "average_mill_levy": 96.857,
       "payment_status_available": false,
       "source": "https://bouldercounty.gov/property-and-land/assessor/data-download/"

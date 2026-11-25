@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T21:27:22.953Z",
+  "generated_at": "2026-11-25T20:32:51.653Z",
   "county": "Grand",
   "candidates": [
     {
@@ -39250,15 +39250,15 @@
       }
     },
     {
-      "candidate_id": "08049-1715544",
-      "account_number": "M083950",
+      "candidate_id": "08049-1714964",
+      "account_number": "R083916",
       "parcel_number": "158906400179",
       "owner_name": "YMCA OF THE ROCKIES",
       "secondary_owner": "",
       "county": "Grand",
       "state": "CO",
       "acres": 2253.175891596358,
-      "situs_address": "Parcel 158906400179 near Grand County",
+      "situs_address": "1101 COUNTY RD 53",
       "city": "",
       "zoning_code": "",
       "zoning_description": "Split_Zone",
@@ -39501,15 +39501,15 @@
       }
     },
     {
-      "candidate_id": "08049-1714964",
-      "account_number": "R083916",
+      "candidate_id": "08049-1715544",
+      "account_number": "M083950",
       "parcel_number": "158906400179",
       "owner_name": "YMCA OF THE ROCKIES",
       "secondary_owner": "",
       "county": "Grand",
       "state": "CO",
       "acres": 2253.175891596358,
-      "situs_address": "1101 COUNTY RD 53",
+      "situs_address": "Parcel 158906400179 near Grand County",
       "city": "",
       "zoning_code": "",
       "zoning_description": "Split_Zone",
@@ -75154,11 +75154,11 @@
       }
     },
     {
-      "candidate_id": "08049-1715623",
-      "account_number": "M028621",
+      "candidate_id": "08049-1715604",
+      "account_number": "M200119",
       "parcel_number": "145118300083",
-      "owner_name": "CALHOUN, STEPHEN",
-      "secondary_owner": "",
+      "owner_name": "COLDWELL BANKER GRAND ELK",
+      "secondary_owner": "C/O CROOKED CREEK TRAP CLUB",
       "county": "Grand",
       "state": "CO",
       "acres": 1172.422980333418,
@@ -75621,11 +75621,11 @@
       }
     },
     {
-      "candidate_id": "08049-1715604",
-      "account_number": "M200119",
+      "candidate_id": "08049-1715623",
+      "account_number": "M028621",
       "parcel_number": "145118300083",
-      "owner_name": "COLDWELL BANKER GRAND ELK",
-      "secondary_owner": "C/O CROOKED CREEK TRAP CLUB",
+      "owner_name": "CALHOUN, STEPHEN",
+      "secondary_owner": "",
       "county": "Grand",
       "state": "CO",
       "acres": 1172.422980333418,
@@ -160580,10 +160580,10 @@
       }
     },
     {
-      "candidate_id": "08049-1715651",
-      "account_number": "M013930",
+      "candidate_id": "08049-1714916",
+      "account_number": "R311431",
       "parcel_number": "133525200016",
-      "owner_name": "KRENZIAN, RICHARD S",
+      "owner_name": "KRENZIEN, THE STEVEN L LIVING TRUST,",
       "secondary_owner": "",
       "county": "Grand",
       "state": "CO",
@@ -160691,10 +160691,10 @@
       }
     },
     {
-      "candidate_id": "08049-1714916",
-      "account_number": "R311431",
+      "candidate_id": "08049-1715651",
+      "account_number": "M013930",
       "parcel_number": "133525200016",
-      "owner_name": "KRENZIEN, THE STEVEN L LIVING TRUST,",
+      "owner_name": "KRENZIAN, RICHARD S",
       "secondary_owner": "",
       "county": "Grand",
       "state": "CO",
@@ -174637,10 +174637,10 @@
       }
     },
     {
-      "candidate_id": "08049-1715556",
-      "account_number": "M006610",
+      "candidate_id": "08049-1714852",
+      "account_number": "R014387",
       "parcel_number": "108720300029",
-      "owner_name": "MILLER, CHRISTOPHER M & CRYSTAL A",
+      "owner_name": "STATE OF COLORADO",
       "secondary_owner": "",
       "county": "Grand",
       "state": "CO",
@@ -174908,10 +174908,10 @@
       }
     },
     {
-      "candidate_id": "08049-1714852",
-      "account_number": "R014387",
+      "candidate_id": "08049-1715556",
+      "account_number": "M006610",
       "parcel_number": "108720300029",
-      "owner_name": "STATE OF COLORADO",
+      "owner_name": "MILLER, CHRISTOPHER M & CRYSTAL A",
       "secondary_owner": "",
       "county": "Grand",
       "state": "CO",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T20:32:51.653Z",
+  "generated_at": "2026-11-26T20:19:54.146Z",
   "county": "Grand",
   "candidates": [
     {
@@ -75154,11 +75154,11 @@
       }
     },
     {
-      "candidate_id": "08049-1715604",
-      "account_number": "M200119",
+      "candidate_id": "08049-1715623",
+      "account_number": "M028621",
       "parcel_number": "145118300083",
-      "owner_name": "COLDWELL BANKER GRAND ELK",
-      "secondary_owner": "C/O CROOKED CREEK TRAP CLUB",
+      "owner_name": "CALHOUN, STEPHEN",
+      "secondary_owner": "",
       "county": "Grand",
       "state": "CO",
       "acres": 1172.422980333418,
@@ -75621,11 +75621,11 @@
       }
     },
     {
-      "candidate_id": "08049-1715623",
-      "account_number": "M028621",
+      "candidate_id": "08049-1715604",
+      "account_number": "M200119",
       "parcel_number": "145118300083",
-      "owner_name": "CALHOUN, STEPHEN",
-      "secondary_owner": "",
+      "owner_name": "COLDWELL BANKER GRAND ELK",
+      "secondary_owner": "C/O CROOKED CREEK TRAP CLUB",
       "county": "Grand",
       "state": "CO",
       "acres": 1172.422980333418,

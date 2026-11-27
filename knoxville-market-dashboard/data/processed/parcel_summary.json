@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T20:18:58.455Z",
+  "generated_at": "2026-11-27T20:04:35.240Z",
   "title": "Knoxville-East Tennessee Public Parcel Summary",
   "privacy_note": "Public-safe aggregate import only. This file intentionally excludes owner names, mailing addresses, parcel IDs, and individual parcel geometry.",
   "sources": [
@@ -156,7 +156,7 @@
         }
       ],
       "source_status": "ok",
-      "data_as_of": "2026-11-26T20:18:56.737Z"
+      "data_as_of": "2026-11-27T20:04:34.021Z"
     },
     {
       "county": "Blount",
@@ -280,7 +280,7 @@
         }
       ],
       "source_status": "ok",
-      "data_as_of": "2026-11-26T20:18:56.959Z"
+      "data_as_of": "2026-11-27T20:04:34.233Z"
     },
     {
       "county": "Campbell",
@@ -404,7 +404,7 @@
         }
       ],
       "source_status": "ok",
-      "data_as_of": "2026-11-26T20:18:57.177Z"
+      "data_as_of": "2026-11-27T20:04:34.494Z"
     },
     {
       "county": "Knox",
@@ -649,7 +649,7 @@
         }
       ],
       "source_status": "ok",
-      "data_as_of": "2026-11-26T20:18:57.439Z"
+      "data_as_of": "2026-11-27T20:04:34.614Z"
     },
     {
       "county": "Roane",
@@ -773,7 +773,7 @@
         }
       ],
       "source_status": "ok",
-      "data_as_of": "2026-11-26T20:18:57.715Z"
+      "data_as_of": "2026-11-27T20:04:34.869Z"
     },
     {
       "county": "Sevier",
@@ -897,7 +897,7 @@
         }
       ],
       "source_status": "ok",
-      "data_as_of": "2026-11-26T20:18:58.037Z"
+      "data_as_of": "2026-11-27T20:04:34.958Z"
     },
     {
       "county": "Union",
@@ -1021,7 +1021,7 @@
         }
       ],
       "source_status": "ok",
-      "data_as_of": "2026-11-26T20:18:58.277Z"
+      "data_as_of": "2026-11-27T20:04:35.226Z"
     }
   ]
 }
